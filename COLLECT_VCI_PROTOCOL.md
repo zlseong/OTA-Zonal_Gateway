@@ -1,260 +1,330 @@
-# Collect VCI Protocol
+# VCI Collection Protocol (Request-Response Model)
 
 ## Overview
-This document defines the **Collect VCI (Vehicle Configuration Information) Protocol** used in the Zonal Gateway architecture. The protocol specifies how ECUs collect and report their configuration information to the Zonal Gateway, which then consolidates and forwards this information to the VMG (Vehicle Master Gateway).
+This document defines the **VCI (Vehicle Configuration Information) Collection Protocol** using a **Request-Response Model** with **UDS over DoIP**. The protocol specifies how VCI information is requested and collected from ECUs through the Zonal Gateway to the VMG (Vehicle Master Gateway).
 
 ---
 
-## Protocol Trigger
+## Protocol Architecture
 
-**Trigger Event:** Vehicle Power ON
-
-When the vehicle is powered on, the following sequence occurs:
-1. All Zone ECUs initialize and collect their VCI information
-2. Each ECU sends its VCI to the Zonal Gateway via **UDS messages**
-3. Zonal Gateway collects VCI from all Zone ECUs
-4. Zonal Gateway adds its own VCI to the collection
-5. Zonal Gateway sends the consolidated VCI report to the VMG via **DoIP**
-
----
-
-## Communication Flow
+### Communication Model: **Pull-Based (Request-Response)**
 
 ```
-Power ON
-    │
-    ├─> Zone ECU #1 (ECU_011)
-    │       │
-    │       └─> [UDS] Send VCI to Zonal Gateway (ECU_091)
-    │
-    ├─> Zone ECU #2 (ECU_012)
-    │       │
-    │       └─> [UDS] Send VCI to Zonal Gateway (ECU_091)
-    │
-    ├─> Zone ECU #N (ECU_01N)
-    │       │
-    │       └─> [UDS] Send VCI to Zonal Gateway (ECU_091)
-    │
-    └─> Zonal Gateway (ECU_091)
-            │
-            ├─> Collect VCI from all Zone ECUs
-            ├─> Add own VCI (ECU_091)
-            └─> [DoIP] Send consolidated VCI to VMG
+External Server
+    ↓ (1) VCI Request
+┌─────────────┐
+│     VMG     │
+└─────────────┘
+    ↓ (2) VCI Request (UDS 0x22 DID 0xF195)
+┌─────────────┐
+│  Zonal GW   │
+│  (ECU_091)  │
+└─────────────┘
+    ↓ (3) VCI Request (UDS 0x22 DID 0xF194)
+┌─────────────┐
+│  ECU_011    │
+│  ECU_01x    │
+│  ...        │
+└─────────────┘
+    ↑ (4) VCI Response (UDS 0x62 + VCI Data)
+┌─────────────┐
+│  Zonal GW   │
+│  (Collect   │
+│   All VCI)  │
+└─────────────┘
+    ↑ (5) Consolidated VCI Response (UDS 0x62 + All VCI)
+┌─────────────┐
+│     VMG     │
+└─────────────┘
+    ↑ (6) VCI Response
+External Server
+```
+
+---
+
+## Detailed Message Flow
+
+### Step 1: External Server → VMG
+**Trigger:** Server requests VCI information
+
+```
+HTTP/REST API Request:
+GET /api/vehicle/vci
+```
+
+---
+
+### Step 2: VMG → Zonal Gateway
+**UDS Request over DoIP**
+
+```
+DoIP Header:
+  Protocol Version:         0x02
+  Inverse Protocol Version: 0xFD
+  Payload Type:             0x8001 (Diagnostic Message)
+  Payload Length:           7 bytes
+
+DoIP Routing:
+  Source Address:           0x0E00 (VMG)
+  Target Address:           0x0100 (Zonal Gateway)
+
+UDS Request:
+  Service ID:               0x22 (ReadDataByIdentifier)
+  Data Identifier (DID):    0xF195 (Consolidated VCI)
+  
+Total Message: [02 FD 80 01 00 00 00 07] [0E 00 01 00] [22 F1 95]
+```
+
+**DID Definition:**
+- `0xF195` - Consolidated VCI (All ECUs in zone)
+
+---
+
+### Step 3: Zonal Gateway → Zone ECU (ECU_011)
+**UDS Request over DoIP (or CAN)**
+
+```
+DoIP Header:
+  Protocol Version:         0x02
+  Inverse Protocol Version: 0xFD
+  Payload Type:             0x8001 (Diagnostic Message)
+  Payload Length:           7 bytes
+
+DoIP Routing:
+  Source Address:           0x0100 (Zonal Gateway)
+  Target Address:           0x0011 (ECU_011)
+
+UDS Request:
+  Service ID:               0x22 (ReadDataByIdentifier)
+  Data Identifier (DID):    0xF194 (Individual ECU VCI)
+  
+Total Message: [02 FD 80 01 00 00 00 07] [01 00 00 11] [22 F1 94]
+```
+
+**DID Definition:**
+- `0xF194` - Individual ECU VCI (Single ECU)
+
+**Note:** Zonal Gateway sends this request to **ALL Zone ECUs** (ECU_011, ECU_012, ... ECU_01N)
+
+---
+
+### Step 4: Zone ECU (ECU_011) → Zonal Gateway
+**UDS Response**
+
+```
+DoIP Header:
+  Protocol Version:         0x02
+  Inverse Protocol Version: 0xFD
+  Payload Type:             0x8001 (Diagnostic Message)
+  Payload Length:           55 bytes (4 routing + 3 UDS + 48 VCI)
+
+DoIP Routing:
+  Source Address:           0x0011 (ECU_011)
+  Target Address:           0x0100 (Zonal Gateway)
+
+UDS Response:
+  Service ID:               0x62 (Positive Response for 0x22)
+  Data Identifier (DID):    0xF194 (Echo)
+  VCI Data:                 48 bytes
+
+VCI Data Structure (48 bytes):
+  ECU ID:       "ECU_011\0\0\0\0\0\0\0\0\0"  (16 bytes, ASCII)
+  SW Version:   "0.0.0\0\0\0"                 (8 bytes, ASCII)
+  HW Version:   "0.0.0\0\0\0"                 (8 bytes, ASCII)
+  Serial Num:   "011000001\0\0\0\0\0\0\0"    (16 bytes, ASCII)
+
+Total Message: [02 FD 80 01 00 00 00 37] [00 11 01 00] [62 F1 94] [VCI_DATA_48_BYTES]
+```
+
+**Zonal Gateway Action:**
+1. Receives VCI from ECU_011 ✅
+2. Stores in VCI database
+3. Checks if all Zone ECUs responded
+4. If `collected_count >= MAX_ZONE_ECUS` → Proceed to Step 5
+
+---
+
+### Step 5: Zonal Gateway → VMG
+**Consolidated VCI Response**
+
+```
+DoIP Header:
+  Protocol Version:         0x02
+  Inverse Protocol Version: 0xFD
+  Payload Type:             0x8001 (Diagnostic Message)
+  Payload Length:           104 bytes (4 routing + 4 UDS header + 1 count + 96 VCI data)
+
+DoIP Routing:
+  Source Address:           0x0100 (Zonal Gateway)
+  Target Address:           0x0E00 (VMG)
+
+UDS Response:
+  Service ID:               0x62 (Positive Response for 0x22)
+  Data Identifier (DID):    0xF195 (Consolidated VCI)
+  ECU Count:                0x02 (2 ECUs: ECU_011 + ECU_091)
+
+VCI Data Array:
+  ECU #1: ECU_011 VCI (48 bytes)
+    - ECU ID:     "ECU_011\0\0\0\0\0\0\0\0\0"
+    - SW Version: "0.0.0\0\0\0"
+    - HW Version: "0.0.0\0\0\0"
+    - Serial:     "011000001\0\0\0\0\0\0\0"
+  
+  ECU #2: ECU_091 VCI (48 bytes)
+    - ECU ID:     "ECU_091\0\0\0\0\0\0\0\0\0"
+    - SW Version: "0.0.0\0\0\0"
+    - HW Version: "0.0.0\0\0\0"
+    - Serial:     "091000001\0\0\0\0\0\0\0"
+
+Total Message: 
+  [02 FD 80 01 00 00 00 68] (DoIP Header)
+  [01 00 0E 00]             (Routing)
+  [62 F1 95]                (UDS Response + DID)
+  [02]                      (ECU Count)
+  [ECU_011_VCI_48_BYTES]
+  [ECU_091_VCI_48_BYTES]
+```
+
+---
+
+### Step 6: VMG → External Server
+**REST API Response**
+
+```json
+{
+  "status": "success",
+  "ecu_count": 2,
+  "vci_list": [
+    {
+      "ecu_id": "ECU_011",
+      "sw_version": "0.0.0",
+      "hw_version": "0.0.0",
+      "serial_number": "011000001"
+    },
+    {
+      "ecu_id": "ECU_091",
+      "sw_version": "0.0.0",
+      "hw_version": "0.0.0",
+      "serial_number": "091000001"
+    }
+  ]
+}
+```
+
+---
+
+## UDS Data Identifier (DID) Definitions
+
+### Standard DIDs (ISO 14229)
+
+| DID | Name | Description | Size |
+|-----|------|-------------|------|
+| `0xF190` | VIN | Vehicle Identification Number | 17 bytes |
+| `0xF191` | ECU Hardware Number | Hardware part number | Variable |
+| `0xF192` | System Supplier ID | Supplier code | Variable |
+| `0xF193` | ECU Manufacturing Date | Date code | Variable |
+| `0xF194` | **Individual ECU VCI** | Single ECU VCI (Custom) | 48 bytes |
+| `0xF195` | **Consolidated VCI** | All Zone ECUs VCI (Custom) | Variable |
+| `0xF19E` | Application Software Version | SW version string | Variable |
+| `0xF1A0` | **ECU Health Status** | Dynamic health info (Custom) | Variable |
+
+### Custom DIDs (Project Specific)
+
+**DID 0xF194 - Individual ECU VCI**
+```c
+struct VCI_Info {
+    char ecu_id[16];        // "ECU_011", "ECU_091", etc.
+    char sw_version[8];     // "0.0.0"
+    char hw_version[8];     // "0.0.0"
+    char serial_num[16];    // "011000001", "091000001"
+};
+// Total: 48 bytes
+```
+
+**DID 0xF195 - Consolidated VCI**
+```c
+struct Consolidated_VCI {
+    uint8 ecu_count;                        // Number of ECUs
+    VCI_Info vci_array[MAX_ZONE_ECUS];     // Array of VCI_Info
+};
+// Total: 1 + (48 * ecu_count) bytes
 ```
 
 ---
 
 ## ECU ID Naming Convention
 
-### Zonal Gateway ID Format: `ECU_09x`
-
-- **09**: Indicates Zonal Gateway
-- **x**: Zonal Gateway instance number (0-9)
-
-**Example:**
+### Zonal Gateway: `ECU_09x`
 - `ECU_091` - Zonal Gateway #1
 - `ECU_092` - Zonal Gateway #2
 
-### Zone ECU ID Format: `ECU_0xy`
+### Zone ECUs: `ECU_0xy`
+- `ECU_011` - Zone 1, ECU #1 (Body Domain)
+- `ECU_012` - Zone 1, ECU #2
+- `ECU_021` - Zone 2, ECU #1 (ADAS Domain)
 
-- **0**: Fixed prefix for ECUs in Zone 0
-- **x**: Zone number (0-9)
-- **y**: ECU number within the zone (0-9)
-
-**Example:**
-- `ECU_011` - Zone 1, ECU #1 (Body Domain - Left Front Door)
-- `ECU_012` - Zone 1, ECU #2 (Body Domain - Right Front Door)
-- `ECU_021` - Zone 2, ECU #1 (ADAS Domain - Front Camera)
-- `ECU_031` - Zone 3, ECU #1 (Telematics Domain - TCU)
+### Serial Number Format: `[ECU_NUM][SEQUENCE]`
+- `091000001` - ZGW #1, Unit #1
+- `011000001` - ECU_011, Unit #1
 
 ---
 
-## Current System Architecture
+## Timing Requirements
 
-### Hardware Configuration
-
-| Component | ECU ID | Description |
-|-----------|--------|-------------|
-| **Zonal Gateway** | `ECU_091` | TC375 Main Controller |
-| **Target ECU** | `ECU_011` | Zone 1 - Body Domain ECU #1 |
-
-### Communication Protocol Stack
-
-| Layer | Zonal Gateway ↔ Zone ECU | Zonal Gateway ↔ VMG |
-|-------|---------------------------|---------------------|
-| **Application** | VCI Collection | VCI Reporting |
-| **Protocol** | **UDS (ISO 14229)** | **DoIP (ISO 13400)** |
-| **Transport** | CAN / CAN-FD | TCP/IP |
-| **Physical** | CAN Bus | Ethernet |
-
----
-
-## VCI Data Structure
-
-### VCI Information Fields
-
-Each ECU provides the following VCI information:
-
-```c
-typedef struct {
-    char ecu_id[16];        // ECU ID (e.g., "ECU_091", "ECU_011")
-    char sw_version[8];     // Software version (e.g., "1.2.3")
-    char hw_version[8];     // Hardware version (e.g., "2.0.1")
-    char serial_num[16];    // Serial number (e.g., "091000001")
-} VCI_Info;
-```
-
-### Serial Number Format
-
-**Pattern:** `[ECU_Number][Sequence]`
-
-- **ECU Number**: Last 3 digits of ECU ID (e.g., `091`, `011`)
-- **Sequence**: 6-digit sequential number
-
-**Examples:**
-- `091000001` - Zonal Gateway #1
-- `011000001` - Zone 1 ECU #1 (first unit)
-- `011000002` - Zone 1 ECU #1 (second unit)
-
----
-
-## UDS Message Format (ECU → Zonal Gateway)
-
-### Service ID: 0x22 (ReadDataByIdentifier)
-
-**Request (from Zonal Gateway):**
-```
-Service ID: 0x22
-Data Identifier: 0xF187 (VCI Information)
-```
-
-**Response (from Zone ECU):**
-```
-Service ID: 0x62
-Data Identifier: 0xF187
-VCI Data:
-  - ECU ID: 16 bytes (ASCII string)
-  - SW Version: 8 bytes (ASCII string)
-  - HW Version: 8 bytes (ASCII string)
-  - Serial Number: 16 bytes (ASCII string)
-Total: 48 bytes
-```
-
-### Alternative: Active VCI Push (ECU → Zonal Gateway)
-
-**Custom Service: 0x2F (InputOutputControlByIdentifier)**
-```
-Service ID: 0x2F
-Data Identifier: 0xF187
-Control Parameter: 0x03 (Report VCI)
-VCI Data: 48 bytes
-```
-
----
-
-## DoIP Message Format (Zonal Gateway → VMG)
-
-### Payload Type: 0x8001 (Diagnostic Message)
-
-**DoIP Header:**
-```
-Protocol Version: 0x02
-Inverse Protocol Version: 0xFD
-Payload Type: 0x8001 (Diagnostic Message)
-Payload Length: Variable
-```
-
-**Payload:**
-```
-Source Address: 0x0100 (Zonal Gateway)
-Target Address: 0x0200 (VMG)
-UDS Message:
-  Service ID: 0x2E (WriteDataByIdentifier)
-  Data Identifier: 0xF187
-  ECU Count: 1 byte (N)
-  VCI Data Array: N * 48 bytes
-    - ECU_091 VCI: 48 bytes
-    - ECU_011 VCI: 48 bytes
-    - ... (other ECUs)
-```
-
----
-
-## VCI Collection Process
-
-### State Machine
-
-```
-[IDLE] 
-  │
-  ├─> Power ON
-  │
-[WAIT_FOR_ECU_VCI]
-  │
-  ├─> Receive VCI from ECU_011 via UDS
-  ├─> Receive VCI from ECU_01x via UDS (future)
-  │
-[ALL_ECU_VCI_COLLECTED]
-  │
-  ├─> Add Zonal Gateway VCI (ECU_091)
-  │
-[SEND_TO_VMG]
-  │
-  ├─> Consolidate all VCI data
-  ├─> Send via DoIP to VMG
-  │
-[VCI_REPORTED]
-  │
-  └─> Wait for next power cycle
-```
-
-### Timing Requirements
-
-| Event | Timeout | Action on Timeout |
+| Phase | Timeout | Action on Timeout |
 |-------|---------|-------------------|
-| **ECU VCI Collection** | 5 seconds | Report with available VCI only |
-| **DoIP Connection** | 10 seconds | Retry connection |
-| **VCI Report Transmission** | 3 seconds | Retry transmission |
+| **Step 2-3**: VMG → ZGW | 3 seconds | Return error to Server |
+| **Step 3-4**: ZGW → ECU | 2 seconds per ECU | Send partial VCI |
+| **Step 5-6**: ZGW → VMG | 3 seconds | Retry 3 times |
+
+**Total Max Latency:** ~8 seconds (for 1 Zone ECU)
 
 ---
 
-## Implementation Example
+## Implementation Pseudocode
 
 ### Zonal Gateway (C Code)
 
 ```c
 /* VCI Collection State */
-typedef enum {
-    VCI_STATE_IDLE,
-    VCI_STATE_WAIT_ECU,
-    VCI_STATE_READY,
-    VCI_STATE_SENT
-} VCI_Collection_State;
-
-/* VCI Database */
-#define MAX_ZONE_ECUS 10
-VCI_Info g_vci_database[MAX_ZONE_ECUS];
+#define MAX_ZONE_ECUS 1
+VCI_Info g_vci_database[MAX_ZONE_ECUS + 1];  // +1 for ZGW itself
 uint8 g_vci_count = 0;
+boolean g_vci_collection_complete = FALSE;
 
-/* Expected ECU list for Zone 1 */
-const char* expected_ecus[] = {
-    "ECU_011"  // Body Domain ECU #1
-};
-#define EXPECTED_ECU_COUNT 1
-
-/* VCI Collection Handler (called from UDS stack) */
-void OnUDS_VCI_Received(const char* ecu_id, const VCI_Info* vci)
+/* Step 3: Handle VCI Request from VMG */
+void OnUDS_Request_VCI(uint16 source_addr, uint16 did)
 {
-    // Store VCI in database
+    if (did == 0xF195)  // Consolidated VCI Request
+    {
+        // Reset collection
+        g_vci_count = 0;
+        g_vci_collection_complete = FALSE;
+        
+        // Request VCI from all Zone ECUs
+        for (uint8 i = 0; i < MAX_ZONE_ECUS; i++)
+        {
+            UDS_SendRequest(ZONE_ECU_ADDRESS[i], 0x22, 0xF194);
+        }
+        
+        // Start timeout timer (2 seconds)
+        StartVCICollectionTimer();
+    }
+}
+
+/* Step 4: Handle VCI Response from Zone ECU */
+void OnUDS_Response_VCI(uint16 source_addr, const VCI_Info* vci)
+{
+    // Store VCI
     if (g_vci_count < MAX_ZONE_ECUS)
     {
         memcpy(&g_vci_database[g_vci_count], vci, sizeof(VCI_Info));
         g_vci_count++;
         
-        // Check if all expected ECUs reported
-        if (g_vci_count >= EXPECTED_ECU_COUNT)
+        // Check if all ECUs responded
+        if (g_vci_count >= MAX_ZONE_ECUS)
         {
-            // Add Zonal Gateway VCI
+            // Add ZGW own VCI
             VCI_Info zgw_vci = {
                 .ecu_id = "ECU_091",
                 .sw_version = "0.0.0",
@@ -264,72 +334,92 @@ void OnUDS_VCI_Received(const char* ecu_id, const VCI_Info* vci)
             memcpy(&g_vci_database[g_vci_count], &zgw_vci, sizeof(VCI_Info));
             g_vci_count++;
             
-            // Send to VMG via DoIP
+            g_vci_collection_complete = TRUE;
+            
+            // Step 5: Send to VMG
             SendConsolidatedVCI_ToVMG(g_vci_database, g_vci_count);
         }
     }
+}
+
+/* Step 5: Send Consolidated VCI to VMG */
+void SendConsolidatedVCI_ToVMG(const VCI_Info* vci_array, uint8 count)
+{
+    uint8 buffer[256];
+    uint16 offset = 0;
+    
+    // DoIP Header (8 bytes)
+    buffer[offset++] = 0x02;  // Protocol Version
+    buffer[offset++] = 0xFD;  // Inverse Version
+    buffer[offset++] = 0x80;  // Payload Type High
+    buffer[offset++] = 0x01;  // Payload Type Low (0x8001)
+    
+    uint32 payload_len = 4 + 3 + 1 + (count * sizeof(VCI_Info));
+    buffer[offset++] = (payload_len >> 24) & 0xFF;
+    buffer[offset++] = (payload_len >> 16) & 0xFF;
+    buffer[offset++] = (payload_len >> 8) & 0xFF;
+    buffer[offset++] = payload_len & 0xFF;
+    
+    // DoIP Routing (4 bytes)
+    buffer[offset++] = 0x01;  // Source Address High (0x0100)
+    buffer[offset++] = 0x00;  // Source Address Low
+    buffer[offset++] = 0x0E;  // Target Address High (0x0E00)
+    buffer[offset++] = 0x00;  // Target Address Low
+    
+    // UDS Response (3 bytes)
+    buffer[offset++] = 0x62;  // Service ID (Positive Response)
+    buffer[offset++] = 0xF1;  // DID High
+    buffer[offset++] = 0x95;  // DID Low (0xF195)
+    
+    // ECU Count (1 byte)
+    buffer[offset++] = count;
+    
+    // VCI Data Array
+    for (uint8 i = 0; i < count; i++)
+    {
+        memcpy(&buffer[offset], &vci_array[i], sizeof(VCI_Info));
+        offset += sizeof(VCI_Info);
+    }
+    
+    // Send via TCP
+    DoIP_Send(buffer, offset);
 }
 ```
 
 ---
 
-## Testing Procedure
-
-### Step 1: Zone ECU Simulation
-```python
-# Simulate ECU_011 sending VCI via UDS (CAN)
-can_send(
-    id=0x7E1,  # UDS Request to Zonal Gateway
-    data=[0x2F, 0xF1, 0x87, 0x03,  # Service + DID + Control
-          # ECU_011 VCI data (48 bytes)
-          0x45, 0x43, 0x55, 0x5F, 0x30, 0x31, 0x31, ...  # "ECU_011"
-    ]
-)
-```
-
-### Step 2: Zonal Gateway VCI Collection
-- Monitor UART log for VCI reception
-- Verify VCI database population
-
-### Step 3: VMG Report Verification
-- Capture DoIP message from Zonal Gateway
-- Verify consolidated VCI (ECU_091 + ECU_011)
-
----
-
 ## Error Handling
 
-### Scenarios
+### Negative Response Codes (NRC)
 
-| Error | Detection | Recovery |
-|-------|-----------|----------|
-| **ECU VCI Timeout** | No VCI received in 5s | Send partial VCI report |
-| **Duplicate VCI** | Same ECU ID received twice | Keep latest VCI |
-| **Invalid VCI Format** | Parsing error | Discard and log error |
-| **DoIP Send Failure** | Transmission timeout | Retry 3 times |
+| NRC | Code | Description | Action |
+|-----|------|-------------|--------|
+| **Service Not Supported** | 0x11 | ECU doesn't support 0x22 | Skip this ECU |
+| **Sub-Function Not Supported** | 0x12 | DID not supported | Use alternative DID |
+| **Request Out of Range** | 0x31 | Invalid DID | Check DID definition |
+| **Conditions Not Correct** | 0x22 | ECU not ready | Retry after 1s |
+| **Response Pending** | 0x78 | Processing... | Wait for final response |
+
+### Timeout Scenarios
+
+| Scenario | Recovery |
+|----------|----------|
+| **No response from ECU** | Send partial VCI (ZGW only) |
+| **Partial ECU responses** | Send available VCI |
+| **VMG connection lost** | Cache VCI, retry when reconnected |
 
 ---
 
-## Future Extensions
+## Testing Checklist
 
-### Multi-Zone Support
-```
-Zone 1 (Body):   ECU_011, ECU_012, ECU_013, ...
-Zone 2 (ADAS):   ECU_021, ECU_022, ECU_023, ...
-Zone 3 (Telem):  ECU_031, ECU_032, ECU_033, ...
-
-Zonal Gateway:   ECU_091
-```
-
-### OTA Update Integration
-- Update SW version after OTA
-- Trigger VCI re-collection
-- Report updated VCI to VMG
-
-### Security Features
-- VCI authentication via digital signature
-- Encrypted VCI transmission
-- Tamper detection
+- [ ] VMG sends VCI request to ZGW
+- [ ] ZGW forwards request to ECU_011
+- [ ] ECU_011 responds with valid VCI
+- [ ] ZGW collects and adds own VCI
+- [ ] ZGW sends consolidated VCI to VMG
+- [ ] VMG parses and displays both VCIs
+- [ ] Timeout handling (ECU doesn't respond)
+- [ ] Multiple ECU support (when `MAX_ZONE_ECUS > 1`)
 
 ---
 
@@ -337,14 +427,64 @@ Zonal Gateway:   ECU_091
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
-| 2.0 | 2025-11-04 | Zonal Gateway Team | Changed to Collect VCI Protocol |
+| **3.0** | 2025-11-04 | Zonal Gateway Team | **Request-Response Model** (Pull-based VCI collection) |
+| 2.0 | 2025-11-04 | Zonal Gateway Team | Push-based VCI protocol |
 | 1.0 | 2025-11-04 | Zonal Gateway Team | Initial VCI naming convention |
 
 ---
 
 ## References
 
-- ISO 14229 (UDS - Unified Diagnostic Services)
-- ISO 13400 (DoIP - Diagnostics over Internet Protocol)
-- AUTOSAR Adaptive Platform Specification
-- SAE J1939 (CAN-based communication)
+- **ISO 14229-1** - Unified Diagnostic Services (UDS) - Part 1: Application Layer
+- **ISO 13400-2** - DoIP - Part 2: Transport Protocol and Network Layer Services
+- **ISO 15765-2** - Diagnostic Communication over CAN (DoCAN)
+- **SAE J1979** - E/E Diagnostic Test Modes
+
+---
+
+## Appendix: Hex Message Examples
+
+### Example 1: VMG → ZGW (Request VCI)
+```
+02 FD 80 01 00 00 00 07 0E 00 01 00 22 F1 95
+│  │  │  │  └──────────┘ │     │     └─────┘
+│  │  │  │     Payload   │     │      UDS Request
+│  │  │  │     Length=7  │     │      (Read DID 0xF195)
+│  │  │  │                │     └─ Target: 0x0100 (ZGW)
+│  │  │  └─ Payload Type │
+│  │  │     0x8001        └─ Source: 0x0E00 (VMG)
+│  │  └─ Inverse Version
+│  └─ Protocol Version
+└─ 0x02
+```
+
+### Example 2: ECU_011 → ZGW (Response VCI)
+```
+02 FD 80 01 00 00 00 37 00 11 01 00 62 F1 94 45 43 55 5F 30 31 31 00 ...
+│  │  │  │  └──────────┘ │     │     └─────┘ └────────────────────┘
+│  │  │  │     Payload   │     │      UDS     VCI Data (48 bytes)
+│  │  │  │     Length=55 │     │      Resp    "ECU_011..."
+│  │  │  │                │     └─ Target: 0x0100 (ZGW)
+│  │  │  └─ Diagnostic   └─ Source: 0x0011 (ECU_011)
+│  │  │     Message
+│  │  └─ 0x8001
+│  └─ 0xFD
+└─ 0x02
+```
+
+### Example 3: ZGW → VMG (Consolidated VCI Response)
+```
+02 FD 80 01 00 00 00 68 01 00 0E 00 62 F1 95 02 [ECU_011_VCI] [ECU_091_VCI]
+│  │  │  │  └──────────┘ │     │     └─────┘ │  └──────────┘ └──────────┘
+│  │  │  │     Payload   │     │      UDS    │   48 bytes     48 bytes
+│  │  │  │     Length    │     │      Resp   └─ Count = 2
+│  │  │  │     =104      │     └─ Target: VMG
+│  │  │  │                └─ Source: ZGW
+│  │  │  └─ 0x8001
+│  │  └─ 0xFD
+└─ 0x02
+```
+
+---
+
+**END OF DOCUMENT**

@@ -131,6 +131,10 @@ class VMGSimulator:
         # Routing activation state
         self.routing_active = False
         self.source_address = None
+        
+        # UDS DIDs
+        self.DID_VCI_CONSOLIDATED = 0xF195
+        self.DID_HEALTH_STATUS = 0xF1A0
     
     def log(self, message, level="INFO"):
         """Print timestamped log message"""
@@ -159,6 +163,10 @@ class VMGSimulator:
             self.running = True
             self.log(f"VMG Simulator started successfully", "SUCCESS")
             self.log(f"Waiting for Zonal Gateway connection...", "INFO")
+            
+            # Start keyboard input thread
+            keyboard_thread = threading.Thread(target=self.keyboard_input_loop, daemon=True)
+            keyboard_thread.start()
             
             # Main server loop
             while self.running:
@@ -212,14 +220,17 @@ class VMGSimulator:
                 # Receive DoIP message
                 header_data = self.recv_exact(8)
                 if not header_data:
+                    self.log("Connection closed by client", "WARNING")
                     break
                 
                 # Parse header to get payload length
                 _, _, payload_type, payload_length = struct.unpack('!BBHI', header_data)
+                self.log(f"← Received header: Type=0x{payload_type:04x}, Len={payload_length}", "DEBUG")
                 
                 # Receive payload
                 payload_data = self.recv_exact(payload_length)
                 if not payload_data:
+                    self.log("Failed to receive payload", "ERROR")
                     break
                 
                 # Parse complete message
@@ -406,7 +417,152 @@ class VMGSimulator:
         target_addr = struct.unpack('!H', msg.payload_data[2:4])[0]
         uds_data = msg.payload_data[4:]
         
-        self.log(f"Diagnostic Message: 0x{source_addr:04x} → 0x{target_addr:04x}, Data: {uds_data.hex()}", "INFO")
+        self.log("=" * 60, "INFO")
+        self.log(f"UDS Message Received from ZGW", "SUCCESS")
+        self.log(f"  Source: 0x{source_addr:04x}, Target: 0x{target_addr:04x}", "INFO")
+        self.log(f"  UDS Data: {uds_data.hex(' ')}", "INFO")
+        self.log(f"  Length: {len(uds_data)} bytes", "INFO")
+        
+        # Parse UDS Service ID
+        if len(uds_data) < 1:
+            return
+        
+        service_id = uds_data[0]
+        
+        # Handle UDS 0x22 (ReadDataByIdentifier)
+        if service_id == 0x22:
+            self.handle_uds_read_data_by_id(source_addr, target_addr, uds_data)
+        elif service_id == 0x62:
+            self.log(f"  Service: 0x62 (Positive Response to 0x22)", "SUCCESS")
+            if len(uds_data) >= 3:
+                did = struct.unpack('!H', uds_data[1:3])[0]
+                response_data = uds_data[3:]
+                self.log(f"  DID: 0x{did:04x}", "INFO")
+                self.log(f"  Response Data: {response_data.hex(' ')}", "DEBUG")
+                self.log(f"  Data Length: {len(response_data)} bytes", "INFO")
+                
+                # Parse response based on DID
+                if did == self.DID_VCI_CONSOLIDATED:
+                    self.parse_vci_response(response_data)
+                elif did == self.DID_HEALTH_STATUS:
+                    self.parse_health_response(response_data)
+        else:
+            self.log(f"  Unhandled UDS Service: 0x{service_id:02x}", "WARNING")
+        
+        self.log("=" * 60, "INFO")
+    
+    def parse_vci_response(self, data):
+        """Parse VCI Consolidated Response Data"""
+        self.log("", "INFO")
+        self.log("  📊 VCI CONSOLIDATED DATA:", "SUCCESS")
+        self.log("  ─" * 30, "INFO")
+        
+        if len(data) < 1:
+            self.log("  ❌ Invalid VCI data (too short)", "ERROR")
+            return
+        
+        ecu_count = data[0]
+        self.log(f"  Total ECUs: {ecu_count}", "INFO")
+        self.log("", "INFO")
+        
+        offset = 1
+        VCI_SIZE = 48  # ECU_ID(16) + SW(8) + HW(8) + Serial(16)
+        
+        for i in range(ecu_count):
+            if offset + VCI_SIZE > len(data):
+                self.log(f"  ⚠️ ECU {i+1}: Incomplete data", "WARNING")
+                break
+            
+            ecu_data = data[offset:offset+VCI_SIZE]
+            
+            # Parse VCI structure
+            ecu_id = ecu_data[0:16].rstrip(b'\x00').decode('ascii', errors='ignore')
+            sw_ver = ecu_data[16:24].rstrip(b'\x00').decode('ascii', errors='ignore')
+            hw_ver = ecu_data[24:32].rstrip(b'\x00').decode('ascii', errors='ignore')
+            serial = ecu_data[32:48].rstrip(b'\x00').decode('ascii', errors='ignore')
+            
+            self.log(f"  🔧 ECU #{i+1}:", "INFO")
+            self.log(f"     ECU ID:     {ecu_id}", "SUCCESS")
+            self.log(f"     SW Version: {sw_ver}", "INFO")
+            self.log(f"     HW Version: {hw_ver}", "INFO")
+            self.log(f"     Serial:     {serial}", "INFO")
+            self.log("", "INFO")
+            
+            offset += VCI_SIZE
+    
+    def parse_health_response(self, data):
+        """Parse Health Status Response Data"""
+        self.log("", "INFO")
+        self.log("  🏥 HEALTH STATUS DATA:", "SUCCESS")
+        self.log("  ─" * 30, "INFO")
+        
+        if len(data) < 1:
+            self.log("  ❌ Invalid Health data (too short)", "ERROR")
+            return
+        
+        ecu_count = data[0]
+        self.log(f"  Total ECUs: {ecu_count}", "INFO")
+        self.log("", "INFO")
+        
+        offset = 1
+        HEALTH_SIZE = 24  # ECU_ID(16) + Status(1) + DTC(1) + Battery(2) + Temp(1) + Reserved(3)
+        
+        health_status_names = {
+            0: "OK",
+            1: "WARNING",
+            2: "ERROR",
+            3: "NOT_RESPONDING"
+        }
+        
+        for i in range(ecu_count):
+            if offset + HEALTH_SIZE > len(data):
+                self.log(f"  ⚠️ ECU {i+1}: Incomplete data", "WARNING")
+                break
+            
+            ecu_data = data[offset:offset+HEALTH_SIZE]
+            
+            # Parse Health structure
+            ecu_id = ecu_data[0:16].rstrip(b'\x00').decode('ascii', errors='ignore')
+            health_status = ecu_data[16]
+            dtc_count = ecu_data[17]
+            battery_voltage = struct.unpack('<H', ecu_data[18:20])[0]  # Little Endian, in 0.01V
+            temperature = ecu_data[20]  # offset by 40
+            
+            status_name = health_status_names.get(health_status, f"UNKNOWN({health_status})")
+            status_emoji = "✅" if health_status == 0 else "⚠️" if health_status == 1 else "❌"
+            
+            self.log(f"  {status_emoji} ECU #{i+1}: {ecu_id}", "INFO")
+            self.log(f"     Status:         {status_name}", "SUCCESS" if health_status == 0 else "WARNING")
+            self.log(f"     DTC Count:      {dtc_count}", "INFO")
+            self.log(f"     Battery:        {battery_voltage/100:.2f}V", "INFO")
+            self.log(f"     Temperature:    {temperature - 40}°C", "INFO")
+            self.log("", "INFO")
+            
+            offset += HEALTH_SIZE
+    
+    def handle_uds_read_data_by_id(self, source_addr, target_addr, uds_data):
+        """Handle UDS 0x22 ReadDataByIdentifier"""
+        if len(uds_data) < 3:
+            self.log("  Invalid UDS 0x22 request", "ERROR")
+            return
+        
+        did = struct.unpack('!H', uds_data[1:3])[0]
+        self.log(f"  UDS 0x22 Read DID: 0x{did:04x}", "INFO")
+        
+        # DID 0xF195: Consolidated VCI
+        if did == 0xF195:
+            self.log("  → Request: Consolidated VCI (DID 0xF195)", "SUCCESS")
+            # TODO: Send positive response with VCI data
+            # For now, just acknowledge
+            
+        # DID 0xF1A0: Health Status
+        elif did == 0xF1A0:
+            self.log("  → Request: Health Status (DID 0xF1A0)", "SUCCESS")
+            # TODO: Send positive response with health data
+            # For now, just acknowledge
+            
+        else:
+            self.log(f"  Unknown DID: 0x{did:04x}", "WARNING")
     
     def send_message(self, msg):
         """Send DoIP message to client"""
@@ -417,8 +573,50 @@ class VMGSimulator:
             data = msg.to_bytes()
             self.client_socket.send(data)
             self.log(f"→ Sent: {msg.get_payload_type_name()} ({len(data)} bytes)", "DEBUG")
+            
+            # Hex dump for diagnostic messages
+            if msg.payload_type == DoIPMessage.DIAGNOSTIC_MESSAGE:
+                self.log(f"   Raw Data: {data.hex(' ')}", "DEBUG")
+                self.log(f"   Header:   {data[:8].hex(' ')}", "DEBUG")
+                self.log(f"   Payload:  {data[8:].hex(' ')}", "DEBUG")
         except Exception as e:
             self.log(f"Send error: {e}", "ERROR")
+    
+    def send_uds_request(self, did, did_name):
+        """
+        Send UDS 0x22 ReadDataByIdentifier request to Zonal Gateway
+        
+        Args:
+            did: Data Identifier (e.g., 0xF195)
+            did_name: Human-readable DID name for logging
+        """
+        if not self.routing_active or not self.client_socket or not self.source_address:
+            self.log("Cannot send UDS request: routing not active", "WARNING")
+            return False
+        
+        try:
+            # Build UDS 0x22 request
+            # Service ID: 0x22 (ReadDataByIdentifier)
+            # DID: 2 bytes (big-endian)
+            uds_data = struct.pack('!BH', 0x22, did)
+            
+            # Build DoIP Diagnostic Message payload
+            # Source: VMG (0x0100), Target: ZGW (source_address from client)
+            payload = struct.pack('!HH', self.logical_address, self.source_address) + uds_data
+            
+            msg = DoIPMessage(DoIPMessage.DIAGNOSTIC_MESSAGE, payload)
+            self.send_message(msg)
+            
+            self.log("=" * 60, "INFO")
+            self.log(f"UDS REQUEST SENT: {did_name} (DID 0x{did:04x})", "SUCCESS")
+            self.log(f"  VMG (0x{self.logical_address:04x}) → ZGW (0x{self.source_address:04x})", "INFO")
+            self.log(f"  UDS: 22 {did:04x}", "INFO")
+            self.log("=" * 60, "INFO")
+            
+            return True
+        except Exception as e:
+            self.log(f"Failed to send UDS request: {e}", "ERROR")
+            return False
     
     def start_alive_check(self):
         """Start Alive Check periodic thread"""
@@ -446,6 +644,48 @@ class VMGSimulator:
             except Exception as e:
                 self.log(f"Alive Check error: {e}", "ERROR")
                 break
+    
+    def keyboard_input_loop(self):
+        """Handle keyboard input for manual triggering"""
+        self.log("", "INFO")
+        self.log("Keyboard Commands:", "INFO")
+        self.log("  v - Request Consolidated VCI (DID 0xF195)", "INFO")
+        self.log("  h - Request Health Status (DID 0xF1A0)", "INFO")
+        self.log("  q - Quit", "INFO")
+        self.log("", "INFO")
+        
+        while self.running:
+            try:
+                # Non-blocking input with timeout
+                import select
+                if select.select([sys.stdin], [], [], 1.0)[0]:
+                    cmd = sys.stdin.readline().strip().lower()
+                    
+                    if cmd == 'v':
+                        self.send_uds_request(self.DID_VCI_CONSOLIDATED, "Consolidated VCI")
+                    elif cmd == 'h':
+                        self.send_uds_request(self.DID_HEALTH_STATUS, "Health Status")
+                    elif cmd == 'q':
+                        self.log("Quit command received", "INFO")
+                        self.running = False
+                        break
+                    elif cmd:
+                        self.log(f"Unknown command: {cmd}", "WARNING")
+            except Exception as e:
+                # Windows doesn't support select on stdin
+                # Fall back to blocking input with timeout
+                try:
+                    cmd = input().strip().lower()
+                    if cmd == 'v':
+                        self.send_uds_request(self.DID_VCI_CONSOLIDATED, "Consolidated VCI")
+                    elif cmd == 'h':
+                        self.send_uds_request(self.DID_HEALTH_STATUS, "Health Status")
+                    elif cmd == 'q':
+                        self.log("Quit command received", "INFO")
+                        self.running = False
+                        break
+                except:
+                    pass
 
 
 # ============================================================================

@@ -71,5 +71,24 @@ boolean DoIP_Client_SendVCIReport(uint8 vci_count, const DoIP_VCI_Info *vci_data
  */
 void DoIP_Client_Close(void);
 
+/*******************************************************************************
+ * UDS-based VCI/Health Request Functions (New)
+ ******************************************************************************/
+
+/**
+ * @brief Request Consolidated VCI from VMG (UDS 0x22 DID 0xF195)
+ * @details Sends UDS Read Data By Identifier request for consolidated VCI.
+ *          This triggers the VCI collection process (Step 2 in protocol).
+ * @return TRUE if request sent successfully, FALSE otherwise
+ */
+boolean DoIP_Client_RequestConsolidatedVCI(void);
+
+/**
+ * @brief Request Health Status from VMG (UDS 0x22 DID 0xF1A0)
+ * @details Sends UDS Read Data By Identifier request for health status.
+ * @return TRUE if request sent successfully, FALSE otherwise
+ */
+boolean DoIP_Client_RequestHealthStatus(void);
+
 #endif /* DOIP_CLIENT_H */
 

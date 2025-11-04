@@ -112,6 +112,10 @@ typedef struct
 #define DOIP_ZONAL_GW_ADDRESS       0x0100  /* Zonal Gateway logical address */
 #define DOIP_VMG_ADDRESS            0x0200  /* VMG logical address */
 
+/* Address Aliases for compatibility */
+#define ZGW_ADDRESS                 DOIP_ZONAL_GW_ADDRESS
+#define VMG_ADDRESS                 DOIP_VMG_ADDRESS
+
 /*******************************************************************************
  * VCI (Vehicle Configuration Information) Structures
  ******************************************************************************/

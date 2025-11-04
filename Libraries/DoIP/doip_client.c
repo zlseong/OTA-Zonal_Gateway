@@ -5,6 +5,7 @@
 
 #include "doip_client.h"
 #include "doip_message.h"
+#include "uds_handler.h"
 #include "Ifx_Lwip.h"
 #include "IfxStm.h"
 #include "UART_Logging.h"
@@ -202,6 +203,39 @@ static void ProcessReceivedMessages(void)
             uint16 len = DoIP_CreateAliveCheckResponse(response_buffer, g_config.source_address);
             tcp_write(g_pcb, response_buffer, len, TCP_WRITE_FLAG_COPY);
             sendUARTMessage("[DoIP] TX: Alive Check Response\r\n", 35);
+        }
+        else if (header.payloadType == DOIP_DIAGNOSTIC_MESSAGE)
+        {
+            sendUARTMessage("[DoIP] RX: Diagnostic Message\r\n", 33);
+            
+            /* Parse UDS request from DoIP payload */
+            UDS_Request uds_request;
+            if (UDS_ParseDoIPDiagnostic(payload, header.payloadLength, &uds_request))
+            {
+                /* Handle UDS request and generate response */
+                UDS_Response uds_response;
+                if (UDS_HandleRequest(&uds_request, &uds_response))
+                {
+                    /* Build DoIP diagnostic message with UDS response */
+                    uint8 response_buffer[DOIP_RX_BUFFER_SIZE];
+                    uint16 response_len = UDS_BuildDoIPDiagnostic(&uds_response, response_buffer, sizeof(response_buffer));
+                    
+                    if (response_len > 0 && g_pcb != NULL)
+                    {
+                        /* Send response */
+                        err_t err = tcp_write(g_pcb, response_buffer, response_len, TCP_WRITE_FLAG_COPY);
+                        if (err == ERR_OK)
+                        {
+                            tcp_output(g_pcb);  /* Flush immediately */
+                            sendUARTMessage("[DoIP] TX: Diagnostic Response sent\r\n", 39);
+                        }
+                        else
+                        {
+                            sendUARTMessage("[DoIP] TX: Failed to send response\r\n", 38);
+                        }
+                    }
+                }
+            }
         }
         
         /* Remove processed message from buffer */
@@ -518,5 +552,99 @@ boolean DoIP_Client_SendVCIReport(uint8 vci_count, const DoIP_VCI_Info *vci_data
 void DoIP_Client_Close(void)
 {
     DoIP_Cleanup();
+}
+
+/*******************************************************************************
+ * UDS-based VCI Request Functions
+ ******************************************************************************/
+
+boolean DoIP_Client_RequestConsolidatedVCI(void)
+{
+    if (g_state != DOIP_STATE_ACTIVE || g_pcb == NULL)
+    {
+        return FALSE;
+    }
+    
+    /* Create UDS Request for Consolidated VCI (DID 0xF195) */
+    UDS_Request request;
+    request.source_address = ZGW_ADDRESS;     /* 0x0100 - Zonal Gateway */
+    request.target_address = VMG_ADDRESS;     /* 0x0200 - VMG */
+    request.service_id = UDS_SID_READ_DATA_BY_IDENTIFIER;  /* 0x22 */
+    request.data_len = 2;
+    request.data[0] = (UDS_DID_VCI_CONSOLIDATED >> 8) & 0xFF;  /* DID High */
+    request.data[1] = UDS_DID_VCI_CONSOLIDATED & 0xFF;         /* DID Low (0xF195) */
+    
+    /* Build DoIP Diagnostic Message */
+    uint8 buffer[256];
+    UDS_Response dummy_response;  /* Not used for requests */
+    dummy_response.source_address = request.source_address;
+    dummy_response.target_address = request.target_address;
+    dummy_response.is_positive = TRUE;
+    dummy_response.service_id = request.service_id;
+    dummy_response.data_len = request.data_len;
+    memcpy(dummy_response.data, request.data, request.data_len);
+    
+    uint16 msg_len = UDS_BuildDoIPDiagnostic(&dummy_response, buffer, sizeof(buffer));
+    
+    if (msg_len == 0)
+    {
+        return FALSE;
+    }
+    
+    /* Send via TCP */
+    err_t err = tcp_write(g_pcb, buffer, msg_len, TCP_WRITE_FLAG_COPY);
+    
+    if (err == ERR_OK)
+    {
+        sendUARTMessage("[UDS] VCI Request sent (DID 0xF195)\r\n", 38);
+        return TRUE;
+    }
+    
+    return FALSE;
+}
+
+boolean DoIP_Client_RequestHealthStatus(void)
+{
+    if (g_state != DOIP_STATE_ACTIVE || g_pcb == NULL)
+    {
+        return FALSE;
+    }
+    
+    /* Create UDS Request for Health Status (DID 0xF1A0) */
+    UDS_Request request;
+    request.source_address = ZGW_ADDRESS;
+    request.target_address = VMG_ADDRESS;
+    request.service_id = UDS_SID_READ_DATA_BY_IDENTIFIER;
+    request.data_len = 2;
+    request.data[0] = (UDS_DID_HEALTH_STATUS >> 8) & 0xFF;
+    request.data[1] = UDS_DID_HEALTH_STATUS & 0xFF;
+    
+    /* Build DoIP Diagnostic Message */
+    uint8 buffer[256];
+    UDS_Response dummy_response;
+    dummy_response.source_address = request.source_address;
+    dummy_response.target_address = request.target_address;
+    dummy_response.is_positive = TRUE;
+    dummy_response.service_id = request.service_id;
+    dummy_response.data_len = request.data_len;
+    memcpy(dummy_response.data, request.data, request.data_len);
+    
+    uint16 msg_len = UDS_BuildDoIPDiagnostic(&dummy_response, buffer, sizeof(buffer));
+    
+    if (msg_len == 0)
+    {
+        return FALSE;
+    }
+    
+    /* Send via TCP */
+    err_t err = tcp_write(g_pcb, buffer, msg_len, TCP_WRITE_FLAG_COPY);
+    
+    if (err == ERR_OK)
+    {
+        sendUARTMessage("[UDS] Health Request sent (DID 0xF1A0)\r\n", 41);
+        return TRUE;
+    }
+    
+    return FALSE;
 }
 

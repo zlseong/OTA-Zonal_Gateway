@@ -19,6 +19,7 @@
 #include "lwip/udp.h"
 #include "lwip/pbuf.h"
 #include "Libraries/DoIP/doip_client.h"
+#include "Libraries/DoIP/uds_handler.h"
 #include <string.h>
 #include <stdio.h>
 
@@ -36,11 +37,14 @@ IFX_ALIGN(4) IfxCpu_syncEvent g_cpuSyncEvent = 0;
 static struct tcp_pcb *g_tcp_server_pcb = NULL;
 static struct udp_pcb *g_udp_server_pcb = NULL;
 
-/* Global VCI Database */
-static DoIP_VCI_Info g_vci_database[MAX_ZONE_ECUS + 1];  /* +1 for ZG itself */
-static uint8 g_zone_ecu_count = 0;  /* Count of Zone ECUs (not including ZG) */
-static boolean g_vci_collection_complete = FALSE;
-static DoIP_VCI_Info g_zgw_vci;  /* ZG's own VCI */
+/* Global VCI Database (accessed by UDS Handler) */
+DoIP_VCI_Info g_vci_database[MAX_ZONE_ECUS + 1];  /* +1 for ZG itself */
+uint8 g_zone_ecu_count = 0;  /* Count of Zone ECUs (not including ZG) */
+boolean g_vci_collection_complete = FALSE;
+DoIP_VCI_Info g_zgw_vci;  /* ZG's own VCI */
+
+/* Global Health Status Database (accessed by UDS Handler) */
+DoIP_HealthStatus_Info g_health_data[MAX_ZONE_ECUS + 1];  /* +1 for ZG itself */
 
 /* ============================================
  * TCP Echo Server Callbacks
@@ -340,6 +344,12 @@ void core0_main(void)
     sendUARTMessage("[DoIP] Client ready (will connect in 5s)\r\n", 43);
     
     /* ============================================
+     * UDS Handler Initialization
+     * ============================================ */
+    UDS_Init();
+    sendUARTMessage("[UDS] Handler initialized\r\n", 27);
+    
+    /* ============================================
      * VCI Initialization (ZG only - Zone ECUs will send via UDP)
      * ============================================ */
     /* Initialize Zonal Gateway VCI (ECU_091) */
@@ -366,21 +376,19 @@ void core0_main(void)
     /* ============================================
      * ECU Health Status Database (for periodic monitoring)
      * ============================================ */
-    DoIP_HealthStatus_Info health_data[2];  /* ECU_011 + ECU_091 */
-    
     /* ECU_011: Zone ECU #1 - OK */
-    memcpy(health_data[0].ecu_id, ZONE_ECU_ID, sizeof(ZONE_ECU_ID));
-    health_data[0].health_status = HEALTH_STATUS_OK;
-    health_data[0].dtc_count = 0;
-    health_data[0].battery_voltage = 13020;  /* 13.02V */
-    health_data[0].temperature = 65;          /* 25°C + 40 */
+    memcpy(g_health_data[0].ecu_id, ZONE_ECU_ID, sizeof(ZONE_ECU_ID));
+    g_health_data[0].health_status = HEALTH_STATUS_OK;
+    g_health_data[0].dtc_count = 0;
+    g_health_data[0].battery_voltage = 1302;   /* 13.02V (0.01V unit) */
+    g_health_data[0].temperature = 65;          /* 25°C + 40 */
     
     /* ECU_091: Zonal Gateway - OK */
-    memcpy(health_data[1].ecu_id, ZGW_ECU_ID, sizeof(ZGW_ECU_ID));
-    health_data[1].health_status = HEALTH_STATUS_OK;
-    health_data[1].dtc_count = 0;
-    health_data[1].battery_voltage = 13200;  /* 13.20V */
-    health_data[1].temperature = 68;          /* 28°C + 40 */
+    memcpy(g_health_data[1].ecu_id, ZGW_ECU_ID, sizeof(ZGW_ECU_ID));
+    g_health_data[1].health_status = HEALTH_STATUS_OK;
+    g_health_data[1].dtc_count = 0;
+    g_health_data[1].battery_voltage = 1320;   /* 13.20V (0.01V unit) */
+    g_health_data[1].temperature = 68;          /* 28°C + 40 */
     
     sendUARTMessage("[Health] Status initialized (2 ECUs)\r\n", 39);
     
@@ -459,7 +467,7 @@ void core0_main(void)
                 
                 if (elapsed_ticks >= wait_ticks)
                 {
-                    if (DoIP_Client_SendHealthStatusReport(2, health_data))
+                    if (DoIP_Client_SendHealthStatusReport(2, g_health_data))
                     {
                         health_report_sent = TRUE;
                         sendUARTMessage("[Health] Status report sent (startup)\r\n", 40);
