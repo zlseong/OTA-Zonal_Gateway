@@ -18,6 +18,7 @@
 #include "lwip/tcp.h"
 #include "lwip/udp.h"
 #include "lwip/pbuf.h"
+#include "Libraries/DoIP/doip_client.h"
 #include <string.h>
 #include <stdio.h>
 
@@ -29,8 +30,17 @@ IFX_ALIGN(4) IfxCpu_syncEvent g_cpuSyncEvent = 0;
 /* UDP Echo Server (포트 13400) */
 #define UDP_DOIP_PORT  13400
 
+/* VCI Magic Number */
+#define VCI_MAGIC  0x56434921  /* "VCI!" */
+
 static struct tcp_pcb *g_tcp_server_pcb = NULL;
 static struct udp_pcb *g_udp_server_pcb = NULL;
+
+/* Global VCI Database */
+static DoIP_VCI_Info g_vci_database[MAX_ZONE_ECUS + 1];  /* +1 for ZG itself */
+static uint8 g_zone_ecu_count = 0;  /* Count of Zone ECUs (not including ZG) */
+static boolean g_vci_collection_complete = FALSE;
+static DoIP_VCI_Info g_zgw_vci;  /* ZG's own VCI */
 
 /* ============================================
  * TCP Echo Server Callbacks
@@ -129,7 +139,7 @@ static void tcp_echo_server_init(void)
  * UDP Echo Server Callbacks
  * ============================================ */
 
-/* UDP 데이터 수신 콜백 (Echo: 받은 데이터를 그대로 전송) */
+/* UDP 데이터 수신 콜백 (VCI 메시지 파싱) */
 static void udp_echo_recv_callback(void *arg, struct udp_pcb *upcb, struct pbuf *p,
                                    const ip_addr_t *addr, u16_t port)
 {
@@ -137,14 +147,46 @@ static void udp_echo_recv_callback(void *arg, struct udp_pcb *upcb, struct pbuf 
         return;
     }
     
-    /* Echo: 받은 데이터를 그대로 전송 */
-    udp_sendto(upcb, p, addr, port);
-    
-    /* UART 로그 */
-    char log[64];
-    sprintf(log, "UDP Echo: %d bytes from %s:%d\r\n", 
-            p->tot_len, ip4addr_ntoa(addr), port);
-    sendUARTMessage(log, strlen(log));
+    /* Check if this is a VCI message (Magic Number + 48 bytes) */
+    if (p->tot_len == (4 + 48)) {
+        uint8 buffer[52];
+        pbuf_copy_partial(p, buffer, 52, 0);
+        
+        /* Check VCI magic number */
+        uint32 magic = ((uint32)buffer[0] << 24) | ((uint32)buffer[1] << 16) |
+                       ((uint32)buffer[2] << 8) | buffer[3];
+        
+        if (magic == VCI_MAGIC && g_zone_ecu_count < MAX_ZONE_ECUS) {
+            /* Parse VCI data */
+            DoIP_VCI_Info *vci = &g_vci_database[g_zone_ecu_count];
+            memcpy(vci->ecu_id, &buffer[4], 16);
+            memcpy(vci->sw_version, &buffer[20], 8);
+            memcpy(vci->hw_version, &buffer[28], 8);
+            memcpy(vci->serial_num, &buffer[36], 16);
+            
+            g_zone_ecu_count++;
+            
+            /* Log received VCI */
+            sendUARTMessage("[VCI] Received from ", 20);
+            sendUARTMessage(vci->ecu_id, strlen(vci->ecu_id));
+            sendUARTMessage(" (", 2);
+            char count_str[16];
+            sprintf(count_str, "%d/%d", g_zone_ecu_count, MAX_ZONE_ECUS);
+            sendUARTMessage(count_str, strlen(count_str));
+            sendUARTMessage(")\r\n", 3);
+            
+            /* Check if collection complete */
+            if (g_zone_ecu_count == MAX_ZONE_ECUS && !g_vci_collection_complete) {
+                sendUARTMessage("[VCI] Collection complete! Adding ZG VCI...\r\n", 46);
+                
+                /* Add ZG's own VCI */
+                memcpy(&g_vci_database[g_zone_ecu_count], &g_zgw_vci, sizeof(DoIP_VCI_Info));
+                g_vci_collection_complete = TRUE;
+                
+                sendUARTMessage("[VCI] Ready to send to VMG\r\n", 29);
+            }
+        }
+    }
     
     /* pbuf 해제 */
     pbuf_free(p);
@@ -258,6 +300,105 @@ void core0_main(void)
     udp_echo_server_init();
     
     /* ============================================
+     * Wait for PHY Link UP (5 seconds max)
+     * ============================================ */
+    sendUARTMessage("Waiting for PHY Link UP...\r\n", 28);
+    uint32 phy_wait_start = IfxStm_getLower(&MODULE_STM0);
+    uint32 phy_timeout_ticks = (uint32)IfxStm_getTicksFromMilliseconds(&MODULE_STM0, 5000);
+    
+    while (1)
+    {
+        Ifx_Lwip_pollTimerFlags();
+        Ifx_Lwip_pollReceiveFlags();
+        
+        /* Check if link is up */
+        if (netif_is_link_up(&g_Lwip.netif))
+        {
+            break;
+        }
+        
+        /* Check timeout */
+        if ((IfxStm_get(&MODULE_STM0) - phy_wait_start) > phy_timeout_ticks)
+        {
+            sendUARTMessage("PHY Link timeout! Continuing anyway...\r\n", 41);
+            break;
+        }
+        
+        IfxStm_waitTicks(&MODULE_STM0, IfxStm_getTicksFromMilliseconds(&MODULE_STM0, 100));
+    }
+    sendUARTMessage("PHY Link UP! Network ready.\r\n", 29);
+    
+    /* ============================================
+     * DoIP Client Initialization
+     * ============================================ */
+    DoIP_ClientConfig doip_config;
+    IP4_ADDR(&doip_config.vmg_ip, 192, 168, 1, 100);  /* VMG Simulator IP */
+    doip_config.vmg_port = 13400;
+    doip_config.source_address = DOIP_ZONAL_GW_ADDRESS;
+    
+    DoIP_Client_Init(&doip_config);
+    sendUARTMessage("[DoIP] Client ready (will connect in 5s)\r\n", 43);
+    
+    /* ============================================
+     * VCI Initialization (ZG only - Zone ECUs will send via UDP)
+     * ============================================ */
+    /* Initialize Zonal Gateway VCI (ECU_091) */
+    memcpy(g_zgw_vci.ecu_id, ZGW_ECU_ID, sizeof(ZGW_ECU_ID));
+    memcpy(g_zgw_vci.sw_version, ZGW_SW_VERSION, sizeof(ZGW_SW_VERSION));
+    memcpy(g_zgw_vci.hw_version, ZGW_HW_VERSION, sizeof(ZGW_HW_VERSION));
+    memcpy(g_zgw_vci.serial_num, ZGW_SERIAL_NUM, sizeof(ZGW_SERIAL_NUM));
+    
+    sendUARTMessage("\r\n[VCI] Zonal Gateway (ECU_091):\r\n", 34);
+    sendUARTMessage("  SW Ver:  ", 11);
+    sendUARTMessage(g_zgw_vci.sw_version, strlen(g_zgw_vci.sw_version));
+    sendUARTMessage("\r\n  HW Ver:  ", 12);
+    sendUARTMessage(g_zgw_vci.hw_version, strlen(g_zgw_vci.hw_version));
+    sendUARTMessage("\r\n  Serial:  ", 12);
+    sendUARTMessage(g_zgw_vci.serial_num, strlen(g_zgw_vci.serial_num));
+    sendUARTMessage("\r\n", 2);
+    
+    sendUARTMessage("[VCI] Waiting for Zone ECUs to send VCI (0/", 43);
+    char max_str[4];
+    sprintf(max_str, "%d", MAX_ZONE_ECUS);
+    sendUARTMessage(max_str, strlen(max_str));
+    sendUARTMessage(")...\r\n", 6);
+    
+    /* ============================================
+     * ECU Health Status Database (for periodic monitoring)
+     * ============================================ */
+    DoIP_HealthStatus_Info health_data[2];  /* ECU_011 + ECU_091 */
+    
+    /* ECU_011: Zone ECU #1 - OK */
+    memcpy(health_data[0].ecu_id, ZONE_ECU_ID, sizeof(ZONE_ECU_ID));
+    health_data[0].health_status = HEALTH_STATUS_OK;
+    health_data[0].dtc_count = 0;
+    health_data[0].battery_voltage = 13020;  /* 13.02V */
+    health_data[0].temperature = 65;          /* 25°C + 40 */
+    
+    /* ECU_091: Zonal Gateway - OK */
+    memcpy(health_data[1].ecu_id, ZGW_ECU_ID, sizeof(ZGW_ECU_ID));
+    health_data[1].health_status = HEALTH_STATUS_OK;
+    health_data[1].dtc_count = 0;
+    health_data[1].battery_voltage = 13200;  /* 13.20V */
+    health_data[1].temperature = 68;          /* 28°C + 40 */
+    
+    sendUARTMessage("[Health] Status initialized (2 ECUs)\r\n", 39);
+    
+    boolean vci_report_sent = FALSE;
+    uint32 vci_report_wait_start = 0;
+    
+    boolean health_report_sent = FALSE;
+    uint32 health_report_wait_start = 0;
+    
+    sendUARTMessage("===========================================\r\n", 44);
+    sendUARTMessage("Zonal Gateway Ready!\r\n", 22);
+    sendUARTMessage("- TCP Echo:    8765\r\n", 21);
+    sendUARTMessage("- UDP Echo:    13400\r\n", 22);
+    sendUARTMessage("- DoIP Client: VMG @ 192.168.1.100:13400\r\n", 43);
+    sendUARTMessage("- VCI:         2 ECUs (ECU_011 + ECU_091)\r\n", 44);
+    sendUARTMessage("===========================================\r\n", 44);
+    
+    /* ============================================
      * Main Loop
      * ============================================ */
     while (1)
@@ -267,5 +408,78 @@ void core0_main(void)
         
         /* Receive data packets through ETH */
         Ifx_Lwip_pollReceiveFlags();
+        
+        /* Poll DoIP Client */
+        DoIP_Client_Poll();
+        
+        /* Send VCI Report once after DoIP becomes active AND all ECUs reported */
+        if (!vci_report_sent && DoIP_Client_IsActive() && g_vci_collection_complete)
+        {
+            if (vci_report_wait_start == 0)
+            {
+                /* Start waiting period (500ms after activation) */
+                vci_report_wait_start = IfxStm_getLower(&MODULE_STM0);
+            }
+            else
+            {
+                /* Wait 500ms before sending VCI report */
+                uint32 elapsed_ticks = IfxStm_getLower(&MODULE_STM0) - vci_report_wait_start;
+                uint32 wait_ticks = (uint32)IfxStm_getTicksFromMilliseconds(&MODULE_STM0, 500);
+                
+                if (elapsed_ticks >= wait_ticks)
+                {
+                    /* Send consolidated VCI (Zone ECUs + ZG) */
+                    uint8 total_vci_count = g_zone_ecu_count + 1;  /* +1 for ZG */
+                    if (DoIP_Client_SendVCIReport(total_vci_count, g_vci_database))
+                    {
+                        vci_report_sent = TRUE;
+                        sendUARTMessage("[VCI] Consolidated report sent (", 33);
+                        char count_str[16];
+                        sprintf(count_str, "%d ECUs", total_vci_count);
+                        sendUARTMessage(count_str, strlen(count_str));
+                        sendUARTMessage(")\r\n", 3);
+                    }
+                }
+            }
+        }
+        
+        /* Send ECU Health Status Report after VCI */
+        if (!health_report_sent && vci_report_sent && DoIP_Client_IsActive())
+        {
+            if (health_report_wait_start == 0)
+            {
+                /* Start waiting period (1 second after VCI report) */
+                health_report_wait_start = IfxStm_getLower(&MODULE_STM0);
+            }
+            else
+            {
+                /* Wait 1 second before sending health report */
+                uint32 elapsed_ticks = IfxStm_getLower(&MODULE_STM0) - health_report_wait_start;
+                uint32 wait_ticks = (uint32)IfxStm_getTicksFromMilliseconds(&MODULE_STM0, 1000);
+                
+                if (elapsed_ticks >= wait_ticks)
+                {
+                    if (DoIP_Client_SendHealthStatusReport(2, health_data))
+                    {
+                        health_report_sent = TRUE;
+                        sendUARTMessage("[Health] Status report sent (startup)\r\n", 40);
+                    }
+                }
+            }
+        }
+        
+        /* Reset flags if connection lost */
+        if ((vci_report_sent || health_report_sent) && !DoIP_Client_IsActive())
+        {
+            vci_report_sent = FALSE;
+            vci_report_wait_start = 0;
+            health_report_sent = FALSE;
+            health_report_wait_start = 0;
+            
+            /* Reset VCI collection state */
+            g_zone_ecu_count = 0;
+            g_vci_collection_complete = FALSE;
+            sendUARTMessage("[VCI] Collection reset (connection lost)\r\n", 42);
+        }
     }
 }
