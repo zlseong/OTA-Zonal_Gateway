@@ -174,6 +174,8 @@ doip_client.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libra
 "C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\Ethernet\\lwip\\src\\include\lwip\ip6_addr.h" :
 doip_client.o :	..\Libraries\DoIP\doip_message.h
 ..\Libraries\DoIP\doip_message.h :
+doip_client.o :	..\Libraries\DoIP\uds_handler.h
+..\Libraries\DoIP\uds_handler.h :
 doip_client.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\Ethernet\\lwip\\port\\include\Ifx_Lwip.h"
 "C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\Ethernet\\lwip\\port\\include\Ifx_Lwip.h" :
 doip_client.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\Ethernet\\lwip\\src\\include\lwip\opt.h"

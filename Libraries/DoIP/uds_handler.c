@@ -8,6 +8,7 @@
  ******************************************************************************/
 
 #include "uds_handler.h"
+#include "uds_download.h"
 #include "doip_types.h"
 #include "doip_client.h"
 #include <string.h>
@@ -37,6 +38,9 @@ static const struct {
     UDS_ServiceHandler handler;
 } g_service_handlers[] = {
     { UDS_SID_READ_DATA_BY_IDENTIFIER, UDS_Service_ReadDataByIdentifier },
+    { UDS_SID_REQUEST_DOWNLOAD, UDS_Service_RequestDownload },
+    { UDS_SID_TRANSFER_DATA, UDS_Service_TransferData },
+    { UDS_SID_REQUEST_TRANSFER_EXIT, UDS_Service_RequestTransferExit },
     /* Add more service handlers here as needed */
 };
 

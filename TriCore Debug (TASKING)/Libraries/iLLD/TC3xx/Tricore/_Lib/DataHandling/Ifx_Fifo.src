@@ -1,6 +1,6 @@
 	; Module start
 	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
-	.compiler_invocation	"ctc -f cc5168a --dep-file=Libraries/iLLD/TC3xx/Tricore/_Lib/DataHandling/Ifx_Fifo.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc37x -D__CPU_TC37X__ --core=tc1.6.2 --fp-model=+float -D__CPU__=tc37x -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Configurations -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\DoIP -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\Phy_Dp83825i -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\port -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\port\\\\include -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\port\\\\include\\\\arch -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\src -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat\\\\posix -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat\\\\posix\\\\arpa -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat\\\\posix\\\\net -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat\\\\posix\\\\sys -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat\\\\stdc -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\lwip -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\lwip\\\\apps -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\lwip\\\\priv -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\lwip\\\\prot -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\netif -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\netif\\\\ppp -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\netif\\\\ppp\\\\polarssl -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Infra -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Infra\\\\Platform -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Infra\\\\Platform\\\\Tricore -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Infra\\\\Sfr -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Infra\\\\Sfr\\\\TC37x -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Infra\\\\Ssw -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Infra\\\\Ssw\\\\TC3xx -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Infra\\\\Ssw\\\\TC3xx\\\\Tricore -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Service -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Service\\\\CpuGeneric -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\UART -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Asclin -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Asclin\\\\Asc -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Asclin\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Cpu -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Cpu\\\\Irq -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Cpu\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Cpu\\\\Trap -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Geth -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Geth\\\\Eth -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Geth\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Gtm -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Gtm\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Mtu -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Mtu\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Pms -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Pms\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Port -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Port\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Scu -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Scu\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Src -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Src\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Stm -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Stm\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\_Impl -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\_Lib -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\_Lib\\\\DataHandling -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\_PinMap -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\_PinMap\\\\TC37x -g2 -w544 -w557 -w508 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o Libraries/iLLD/TC3xx/Tricore/_Lib/DataHandling/Ifx_Fifo.src ../Libraries/iLLD/TC3xx/Tricore/_Lib/DataHandling/Ifx_Fifo.c"
+	.compiler_invocation	"ctc -f cc38292a --dep-file=Libraries/iLLD/TC3xx/Tricore/_Lib/DataHandling/Ifx_Fifo.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc37x -D__CPU_TC37X__ --core=tc1.6.2 --fp-model=+float -D__CPU__=tc37x -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Configurations -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\DoIP -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\Phy_Dp83825i -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\port -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\port\\\\include -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\port\\\\include\\\\arch -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\src -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat\\\\posix -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat\\\\posix\\\\arpa -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat\\\\posix\\\\net -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat\\\\posix\\\\sys -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat\\\\stdc -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\lwip -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\lwip\\\\apps -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\lwip\\\\priv -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\lwip\\\\prot -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\netif -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\netif\\\\ppp -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\netif\\\\ppp\\\\polarssl -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Infra -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Infra\\\\Platform -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Infra\\\\Platform\\\\Tricore -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Infra\\\\Sfr -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Infra\\\\Sfr\\\\TC37x -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Infra\\\\Ssw -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Infra\\\\Ssw\\\\TC3xx -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Infra\\\\Ssw\\\\TC3xx\\\\Tricore -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\OTA -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\SPI_Flash -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Service -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Service\\\\CpuGeneric -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Service\\\\CpuGeneric\\\\SysSe -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\UART -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Asclin -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Asclin\\\\Asc -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Asclin\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Cpu -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Cpu\\\\Irq -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Cpu\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Cpu\\\\Trap -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Dma -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Dma\\\\Dma -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Dma\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Flash -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Flash\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Geth -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Geth\\\\Eth -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Geth\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Gtm -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Gtm\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Mtu -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Mtu\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Pms -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Pms\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Port -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Port\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Qspi -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Qspi\\\\SpiMaster -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Qspi\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Scu -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Scu\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Src -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Src\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Stm -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Stm\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\_Impl -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\_Lib -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\_Lib\\\\DataHandling -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\_PinMap -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\Zonal_Gateway\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\_PinMap\\\\TC37x -g2 -w544 -w557 -w508 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o Libraries/iLLD/TC3xx/Tricore/_Lib/DataHandling/Ifx_Fifo.src ../Libraries/iLLD/TC3xx/Tricore/_Lib/DataHandling/Ifx_Fifo.c"
 	.compiler_name		"ctc"
 	;source	'../Libraries/iLLD/TC3xx/Tricore/_Lib/DataHandling/Ifx_Fifo.c'
 
@@ -25671,9 +25671,9 @@ __Ifx_Fifo_write_function_end:
 	.word	0,0
 .L264:
 	.word	0,0
-.L306:
-	.word	0,0
 .L288:
+	.word	0,0
+.L306:
 	.word	0,0
 .L276:
 	.word	0,0
@@ -25689,18 +25689,13 @@ __Ifx_Fifo_write_function_end:
 	.half	1
 	.byte	84
 	.word	0,0
-.L287:
-	.word	-1,.L171,.L502-.L171,.L20-.L171
-	.half	1
-	.byte	95
-	.word	0,0
 .L305:
 	.word	-1,.L171,.L509-.L171,.L510-.L171
 	.half	1
 	.byte	95
 	.word	0,0
-.L268:
-	.word	-1,.L171,.L495-.L171,.L496-.L171
+.L287:
+	.word	-1,.L171,.L502-.L171,.L20-.L171
 	.half	1
 	.byte	95
 	.word	0,0
@@ -25711,6 +25706,11 @@ __Ifx_Fifo_write_function_end:
 	.word	0,0
 .L307:
 	.word	-1,.L171,.L507-.L171,.L508-.L171
+	.half	1
+	.byte	95
+	.word	0,0
+.L268:
+	.word	-1,.L171,.L495-.L171,.L496-.L171
 	.half	1
 	.byte	95
 	.word	0,0
@@ -25809,11 +25809,11 @@ __Ifx_Fifo_write_function_end:
 	.word	0,0
 .L334:
 	.word	0,0
-.L326:
+.L338:
 	.word	0,0
 .L316:
 	.word	0,0
-.L338:
+.L326:
 	.word	0,0
 .L320:
 	.word	0,0
@@ -25839,20 +25839,20 @@ __Ifx_Fifo_write_function_end:
 	.half	1
 	.byte	95
 	.word	0,0
-.L339:
-	.word	-1,.L181,.L583-.L181,.L584-.L181
-	.half	1
-	.byte	95
+.L327:
+	.word	-1,.L181,.L577-.L181,.L578-.L181
+	.half	5
+	.byte	144,32,157,32,0
 	.word	0,0
 .L317:
 	.word	-1,.L181,.L572-.L181,.L573-.L181
 	.half	1
 	.byte	95
 	.word	0,0
-.L327:
-	.word	-1,.L181,.L577-.L181,.L578-.L181
-	.half	5
-	.byte	144,32,157,32,0
+.L339:
+	.word	-1,.L181,.L583-.L181,.L584-.L181
+	.half	1
+	.byte	95
 	.word	0,0
 .L314:
 	.word	-1,.L181,.L570-.L181,.L91-.L181
@@ -25891,13 +25891,13 @@ __Ifx_Fifo_write_function_end:
 	.word	0,0
 .L328:
 	.word	0,0
-.L324:
-	.word	-1,.L181,.L581-.L181,.L100-.L181
+.L336:
+	.word	-1,.L181,.L589-.L181,.L113-.L181
 	.half	2
 	.byte	144,32
 	.word	0,0
-.L336:
-	.word	-1,.L181,.L589-.L181,.L113-.L181
+.L324:
+	.word	-1,.L181,.L581-.L181,.L100-.L181
 	.half	2
 	.byte	144,32
 	.word	0,0
@@ -26129,9 +26129,9 @@ __Ifx_Fifo_write_function_end:
 	.word	0,0
 .L383:
 	.word	0,0
-.L395:
-	.word	0,0
 .L387:
+	.word	0,0
+.L395:
 	.word	0,0
 .L376:
 	.word	0,0
@@ -26151,13 +26151,13 @@ __Ifx_Fifo_write_function_end:
 	.half	1
 	.byte	100
 	.word	0,0
-.L394:
-	.word	-1,.L175,.L552-.L175,.L553-.L175
+.L375:
+	.word	-1,.L175,.L528-.L175,.L48-.L175
 	.half	1
 	.byte	95
 	.word	0,0
-.L375:
-	.word	-1,.L175,.L528-.L175,.L48-.L175
+.L394:
+	.word	-1,.L175,.L552-.L175,.L553-.L175
 	.half	1
 	.byte	95
 	.word	0,0
@@ -26189,19 +26189,19 @@ __Ifx_Fifo_write_function_end:
 	.half	2
 	.byte	144,32
 	.word	0,0
-.L379:
-	.word	-1,.L175,.L529-.L175,.L530-.L175
-	.half	2
-	.byte	144,33
-	.word	.L530-.L175,.L531-.L175
-	.half	2
-	.byte	144,32
-	.word	0,0
 .L389:
 	.word	-1,.L175,.L546-.L175,.L547-.L175
 	.half	2
 	.byte	144,33
 	.word	.L547-.L175,.L548-.L175
+	.half	2
+	.byte	144,32
+	.word	0,0
+.L379:
+	.word	-1,.L175,.L529-.L175,.L530-.L175
+	.half	2
+	.byte	144,33
+	.word	.L530-.L175,.L531-.L175
 	.half	2
 	.byte	144,32
 	.word	0,0
@@ -26226,8 +26226,8 @@ __Ifx_Fifo_write_function_end:
 	.word	0,0
 .L378:
 	.word	0,0
-.L385:
-	.word	-1,.L175,.L548-.L175,.L59-.L175
+.L393:
+	.word	-1,.L175,.L556-.L175,.L73-.L175
 	.half	2
 	.byte	144,32
 	.word	0,0
@@ -26236,8 +26236,8 @@ __Ifx_Fifo_write_function_end:
 	.half	2
 	.byte	144,32
 	.word	0,0
-.L393:
-	.word	-1,.L175,.L556-.L175,.L73-.L175
+.L385:
+	.word	-1,.L175,.L548-.L175,.L59-.L175
 	.half	2
 	.byte	144,32
 	.word	0,0
@@ -26389,18 +26389,23 @@ __Ifx_Fifo_write_function_end:
 	.half	1
 	.byte	100
 	.word	0,0
-.L424:
-	.word	-1,.L185,.L620-.L185,.L621-.L185
-	.half	1
-	.byte	95
-	.word	0,0
 .L413:
 	.word	-1,.L185,.L604-.L185,.L129-.L185
 	.half	1
 	.byte	95
 	.word	0,0
+.L424:
+	.word	-1,.L185,.L620-.L185,.L621-.L185
+	.half	1
+	.byte	95
+	.word	0,0
 .L432:
 	.word	-1,.L185,.L628-.L185,.L629-.L185
+	.half	1
+	.byte	95
+	.word	0,0
+.L434:
+	.word	-1,.L185,.L626-.L185,.L627-.L185
 	.half	1
 	.byte	95
 	.word	0,0
@@ -26414,16 +26419,11 @@ __Ifx_Fifo_write_function_end:
 	.half	1
 	.byte	95
 	.word	0,0
-.L434:
-	.word	-1,.L185,.L626-.L185,.L627-.L185
-	.half	1
-	.byte	95
-	.word	0,0
-.L435:
-	.word	-1,.L185,.L630-.L185,.L631-.L185
+.L417:
+	.word	-1,.L185,.L605-.L185,.L606-.L185
 	.half	2
 	.byte	144,33
-	.word	.L631-.L185,.L632-.L185
+	.word	.L606-.L185,.L607-.L185
 	.half	2
 	.byte	144,32
 	.word	0,0
@@ -26435,13 +26435,21 @@ __Ifx_Fifo_write_function_end:
 	.half	2
 	.byte	144,32
 	.word	0,0
-.L417:
-	.word	-1,.L185,.L605-.L185,.L606-.L185
+.L435:
+	.word	-1,.L185,.L630-.L185,.L631-.L185
 	.half	2
 	.byte	144,33
-	.word	.L606-.L185,.L607-.L185
+	.word	.L631-.L185,.L632-.L185
 	.half	2
 	.byte	144,32
+	.word	0,0
+.L430:
+	.word	-1,.L185,.L625-.L185,.L153-.L185
+	.half	1
+	.byte	95
+	.word	.L629-.L185,.L152-.L185
+	.half	1
+	.byte	95
 	.word	0,0
 .L422:
 	.word	-1,.L185,.L617-.L185,.L139-.L185
@@ -26454,18 +26462,10 @@ __Ifx_Fifo_write_function_end:
 	.half	1
 	.byte	95
 	.word	0,0
-.L430:
-	.word	-1,.L185,.L625-.L185,.L153-.L185
-	.half	1
-	.byte	95
-	.word	.L629-.L185,.L152-.L185
-	.half	1
-	.byte	95
-	.word	0,0
 .L416:
 	.word	0,0
-.L412:
-	.word	-1,.L185,.L607-.L185,.L129-.L185
+.L431:
+	.word	-1,.L185,.L632-.L185,.L154-.L185
 	.half	2
 	.byte	144,32
 	.word	0,0
@@ -26474,8 +26474,8 @@ __Ifx_Fifo_write_function_end:
 	.half	2
 	.byte	144,32
 	.word	0,0
-.L431:
-	.word	-1,.L185,.L632-.L185,.L154-.L185
+.L412:
+	.word	-1,.L185,.L607-.L185,.L129-.L185
 	.half	2
 	.byte	144,32
 	.word	0,0

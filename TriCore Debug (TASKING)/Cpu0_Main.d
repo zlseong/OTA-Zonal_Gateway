@@ -400,9 +400,57 @@ Cpu0_Main.o :	..\Libraries\DoIP\doip_types.h
 ..\Libraries\DoIP\doip_types.h :
 Cpu0_Main.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\Ethernet\\lwip\\src\\include\lwip\tcp.h"
 "C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\Ethernet\\lwip\\src\\include\lwip\tcp.h" :
+Cpu0_Main.o :	..\Libraries\DoIP\uds_handler.h
+..\Libraries\DoIP\uds_handler.h :
+Cpu0_Main.o :	..\Libraries\DoIP\uds_download.h
+..\Libraries\DoIP\uds_download.h :
+Cpu0_Main.o :	..\Libraries\DoIP\uds_handler.h
+..\Libraries\DoIP\uds_handler.h :
+Cpu0_Main.o :	..\Libraries\DoIP\software_package.h
+..\Libraries\DoIP\software_package.h :
+Cpu0_Main.o :	..\Libraries\SPI_Flash\spi_flash_s25fl512s.h
+..\Libraries\SPI_Flash\spi_flash_s25fl512s.h :
+Cpu0_Main.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\iLLD\\TC3xx\\Tricore\\Qspi\\SpiMaster\IfxQspi_SpiMaster.h"
+"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\iLLD\\TC3xx\\Tricore\\Qspi\\SpiMaster\IfxQspi_SpiMaster.h" :
+Cpu0_Main.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\iLLD\\TC3xx\\Tricore\Cpu\Irq\IfxCpu_Irq.h"
+"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\iLLD\\TC3xx\\Tricore\Cpu\Irq\IfxCpu_Irq.h" :
+Cpu0_Main.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\iLLD\\TC3xx\\Tricore\Dma\Dma\IfxDma_Dma.h"
+"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\iLLD\\TC3xx\\Tricore\Dma\Dma\IfxDma_Dma.h" :
+Cpu0_Main.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\iLLD\\TC3xx\\Tricore\_Impl\IfxDma_cfg.h"
+"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\iLLD\\TC3xx\\Tricore\_Impl\IfxDma_cfg.h" :
+Cpu0_Main.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\iLLD\\TC3xx\\Tricore\_Impl\IfxDma_cfg_TC37x.h"
+"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\iLLD\\TC3xx\\Tricore\_Impl\IfxDma_cfg_TC37x.h" :
+Cpu0_Main.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\iLLD\\TC3xx\\Tricore\Dma\Std\IfxDma.h"
+"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\iLLD\\TC3xx\\Tricore\Dma\Std\IfxDma.h" :
+Cpu0_Main.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\Infra\\Sfr\\TC37x\IfxDma_bf.h"
+"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\Infra\\Sfr\\TC37x\IfxDma_bf.h" :
+Cpu0_Main.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\Infra\\Sfr\\TC37x\IfxDma_reg.h"
+"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\Infra\\Sfr\\TC37x\IfxDma_reg.h" :
+Cpu0_Main.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\Infra\\Sfr\\TC37x\IfxDma_regdef.h"
+"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\Infra\\Sfr\\TC37x\IfxDma_regdef.h" :
+Cpu0_Main.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\iLLD\\TC3xx\\Tricore\Qspi\Std\IfxQspi.h"
+"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\iLLD\\TC3xx\\Tricore\Qspi\Std\IfxQspi.h" :
+Cpu0_Main.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\iLLD\\TC3xx\\Tricore\_Impl\IfxQspi_cfg.h"
+"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\iLLD\\TC3xx\\Tricore\_Impl\IfxQspi_cfg.h" :
+Cpu0_Main.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\iLLD\\TC3xx\\Tricore\_Impl\IfxQspi_cfg_TC37x.h"
+"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\iLLD\\TC3xx\\Tricore\_Impl\IfxQspi_cfg_TC37x.h" :
+Cpu0_Main.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\Infra\\Sfr\\TC37x\IfxQspi_reg.h"
+"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\Infra\\Sfr\\TC37x\IfxQspi_reg.h" :
+Cpu0_Main.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\Infra\\Sfr\\TC37x\IfxQspi_regdef.h"
+"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\Infra\\Sfr\\TC37x\IfxQspi_regdef.h" :
+Cpu0_Main.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\iLLD\\TC3xx\\Tricore\_PinMap\IfxQspi_PinMap.h"
+"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\iLLD\\TC3xx\\Tricore\_PinMap\IfxQspi_PinMap.h" :
+Cpu0_Main.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\iLLD\\TC3xx\\Tricore\\_PinMap\\TC37x\IfxQspi_PinMap_TC37x_LQFP176.h"
+"C:\\Users\\user\\AURIX-v1.10.24-workspace\\Zonal_Gateway\\Libraries\\iLLD\\TC3xx\\Tricore\\_PinMap\\TC37x\IfxQspi_PinMap_TC37x_LQFP176.h" :
+Cpu0_Main.o :	..\Libraries\DoIP\software_package.h
+..\Libraries\DoIP\software_package.h :
+Cpu0_Main.o :	..\Libraries\SPI_Flash\spi_flash_s25fl512s.h
+..\Libraries\SPI_Flash\spi_flash_s25fl512s.h :
 Cpu0_Main.o :	"C:\Infineon\AURIX-Studio-1.10.24\tools\Compilers\Tasking_1.1r8\ctc\include\string.h"
 "C:\Infineon\AURIX-Studio-1.10.24\tools\Compilers\Tasking_1.1r8\ctc\include\string.h" :
 Cpu0_Main.o :	"C:\Infineon\AURIX-Studio-1.10.24\tools\Compilers\Tasking_1.1r8\ctc\include\stdio.h"
 "C:\Infineon\AURIX-Studio-1.10.24\tools\Compilers\Tasking_1.1r8\ctc\include\stdio.h" :
 Cpu0_Main.o :	"C:\Infineon\AURIX-Studio-1.10.24\tools\Compilers\Tasking_1.1r8\ctc\include\stdarg.h"
 "C:\Infineon\AURIX-Studio-1.10.24\tools\Compilers\Tasking_1.1r8\ctc\include\stdarg.h" :
+Cpu0_Main.o :	"C:\Infineon\AURIX-Studio-1.10.24\tools\Compilers\Tasking_1.1r8\ctc\include\stdlib.h"
+"C:\Infineon\AURIX-Studio-1.10.24\tools\Compilers\Tasking_1.1r8\ctc\include\stdlib.h" :
