@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="com.rt.hightec.agent.launcher.launchConfigurationType">
+    <stringAttribute key="ACC_HW" value="DAS JDS AURIX LITE KIT V2.0 (TC375) LK9XM245"/>
+    <booleanAttribute key="ENABLE_AGENTLOG" value="false"/>
+    <booleanAttribute key="ENABLE_FLASHING" value="true"/>
+    <booleanAttribute key="ENABLE_STOPPING" value="true"/>
+    <stringAttribute key="EXECUTABLE_PATH" value="${workspace_loc}/Zonal_Gateway/TriCore Debug (TASKING)/Zonal_Gateway.elf"/>
+    <stringAttribute key="STOP_FUNCTION" value="core0_main"/>
+    <stringAttribute key="SVD" value="C:/Infineon/AURIX-Studio-1.10.24/build_system/bundled-artefacts-repo/svd/tc37xpd/1.0-1/device.svd"/>
+    <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="Zonal_Gateway"/>
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+        <listEntry value="/Zonal_Gateway"/>
+    </listAttribute>
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+        <listEntry value="4"/>
+    </listAttribute>
+    <stringAttribute key="org.eclipse.debug.ui.ATTR_LOCATION" value="/Zonal_Gateway/Zonal_Gateway TriCore Debug (TASKING).launch"/>
+    <stringAttribute key="org.eclipse.debug.ui.ATTR_PROJECT_NAME" value="Zonal_Gateway"/>
+    <booleanAttribute key="org.eclipse.debug.ui.ATTR_SHARED" value="true"/>
+    <stringAttribute key="org.eclipse.tcf.debug.MemoryMap" value="[{&quot;FileName&quot;:&quot;C:/Users/SOMA/Desktop/OTA/Zonal_Gateway/TriCore Debug (TASKING)/Zonal_Gateway.elf&quot;,&quot;ID&quot;:&quot;/DAS JDS AURIX LITE KIT V2.0 (TC375) LK9XM245/Core 2: CPU2 TriCore 1.6P&quot;,&quot;Flags&quot;:0,&quot;UUID&quot;:&quot;98baa6db-577e-42f6-8e9e-253fceeea372&quot;},{&quot;FileName&quot;:&quot;C:/Users/SOMA/Desktop/OTA/Zonal_Gateway/TriCore Debug (TASKING)/Zonal_Gateway.elf&quot;,&quot;ID&quot;:&quot;/DAS JDS AURIX LITE KIT V2.0 (TC375) LK9XM245/Core 2: CPU2 TriCore 1.6P&quot;,&quot;Flags&quot;:0,&quot;UUID&quot;:&quot;d0e924c8-c158-4306-a303-516b1c7d0598&quot;},{&quot;FileName&quot;:&quot;C:/Users/SOMA/Desktop/OTA/Zonal_Gateway/TriCore Debug (TASKING)/Zonal_Gateway.elf&quot;,&quot;ID&quot;:&quot;/DAS JDS AURIX LITE KIT V2.0 (TC375) LK9XM245/Core 2: CPU2 TriCore 1.6P&quot;,&quot;Flags&quot;:0,&quot;UUID&quot;:&quot;517b21b2-f3b4-4a46-b7ef-bdef67e53672&quot;},{&quot;FileName&quot;:&quot;C:/Users/SOMA/Desktop/OTA/Zonal_Gateway/TriCore Debug (TASKING)/Zonal_Gateway.elf&quot;,&quot;ID&quot;:&quot;/DAS JDS AURIX LITE KIT V2.0 (TC375) LK9XM245/Core 0: CPU0 TriCore 1.6P&quot;,&quot;Flags&quot;:0,&quot;UUID&quot;:&quot;6c85ae56-1c43-4a20-a4f2-264cba251b10&quot;},{&quot;FileName&quot;:&quot;C:/Users/SOMA/Desktop/OTA/Zonal_Gateway/TriCore Debug (TASKING)/Zonal_Gateway.elf&quot;,&quot;ID&quot;:&quot;/DAS JDS AURIX LITE KIT V2.0 (TC375) LK9XM245/Core 2: CPU2 TriCore 1.6P&quot;,&quot;Flags&quot;:0,&quot;UUID&quot;:&quot;fa83033d-ca0a-44dd-adf7-abc52f39a649&quot;},{&quot;FileName&quot;:&quot;C:/Users/SOMA/Desktop/OTA/Zonal_Gateway/TriCore Debug (TASKING)/Zonal_Gateway.elf&quot;,&quot;ID&quot;:&quot;/DAS JDS AURIX LITE KIT V2.0 (TC375) LK9XM245/Core 0: CPU0 TriCore 1.6P&quot;,&quot;Flags&quot;:0,&quot;UUID&quot;:&quot;36bf26f6-4f8e-4305-9d2a-b5d7f50b9eae&quot;},{&quot;FileName&quot;:&quot;C:/Users/SOMA/Desktop/OTA/Zonal_Gateway/TriCore Debug (TASKING)/Zonal_Gateway.elf&quot;,&quot;ID&quot;:&quot;/DAS JDS AURIX LITE KIT V2.0 (TC375) LK9XM245/Core 2: CPU2 TriCore 1.6P&quot;,&quot;Flags&quot;:0,&quot;UUID&quot;:&quot;e56585d9-4205-4876-9dff-26b8140c6f91&quot;},{&quot;FileName&quot;:&quot;C:/Users/SOMA/Desktop/OTA/Zonal_Gateway/TriCore Debug (TASKING)/Zonal_Gateway.elf&quot;,&quot;ID&quot;:&quot;/DAS JDS AURIX LITE KIT V2.0 (TC375) LK9XM245/Core 0: CPU0 TriCore 1.6P&quot;,&quot;Flags&quot;:0,&quot;UUID&quot;:&quot;360da0fe-fb25-4bee-bff1-4ab0476dd2be&quot;},{&quot;FileName&quot;:&quot;C:/Users/SOMA/Desktop/OTA/Zonal_Gateway/TriCore Debug (TASKING)/Zonal_Gateway.elf&quot;,&quot;ID&quot;:&quot;/DAS JDS AURIX LITE KIT V2.0 (TC375) LK9XM245/Core 1: CPU1 TriCore 1.6P&quot;,&quot;Flags&quot;:0,&quot;UUID&quot;:&quot;550b5b05-a15d-4a91-8921-017f2588bfc3&quot;},{&quot;FileName&quot;:&quot;C:/Users/SOMA/Desktop/OTA/Zonal_Gateway/TriCore Debug (TASKING)/Zonal_Gateway.elf&quot;,&quot;ID&quot;:&quot;/DAS JDS AURIX LITE KIT V2.0 (TC375) LK9XM245/Core 2: CPU2 TriCore 1.6P&quot;,&quot;Flags&quot;:0,&quot;UUID&quot;:&quot;c0786e62-e1e2-4e30-9c80-fe70b648f31a&quot;},{&quot;FileName&quot;:&quot;C:/Users/SOMA/Desktop/OTA/Zonal_Gateway/TriCore Debug (TASKING)/Zonal_Gateway.elf&quot;,&quot;ID&quot;:&quot;/DAS JDS AURIX LITE KIT V2.0 (TC375) LK9XM245/Core 0: CPU0 TriCore 1.6P&quot;,&quot;Flags&quot;:0,&quot;UUID&quot;:&quot;628d8626-b43c-4ea6-84aa-f87217b9d387&quot;},{&quot;FileName&quot;:&quot;C:/Users/SOMA/Desktop/OTA/Zonal_Gateway/TriCore Debug (TASKING)/Zonal_Gateway.elf&quot;,&quot;ID&quot;:&quot;/DAS JDS AURIX LITE KIT V2.0 (TC375) LK9XM245/Core 1: CPU1 TriCore 1.6P&quot;,&quot;Flags&quot;:0,&quot;UUID&quot;:&quot;4808e91b-e957-45e8-ab4c-77266752a85f&quot;}]"/>
+    <stringAttribute key="org.eclipse.tcf.debug.PeerID" value="TCP:127.0.0.1:1534"/>
+    <stringAttribute key="org.eclipse.tcf.debug.ProjectName" value="Zonal_Gateway"/>
+    <booleanAttribute key="org.eclipse.tcf.debug.RunLocalAgent" value="false"/>
+    <booleanAttribute key="org.eclipse.tcf.debug.RunLocalServer" value="false"/>
+    <booleanAttribute key="org.eclipse.tcf.debug.UseLocalAgent" value="false"/>
+    <stringAttribute key="org.eclipse.tcf.debug.executable_name" value="${workspace_loc}/Zonal_Gateway/TriCore Debug (TASKING)/Zonal_Gateway.elf"/>
+    <stringAttribute key="sessionID" value="2a03a92a-0911-41ef-93cd-516e7489f5e0"/>
+</launchConfiguration>
