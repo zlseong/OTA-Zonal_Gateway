@@ -1,0 +1,1752 @@
+	; Module start
+	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
+	.compiler_invocation	"ctc -f cc21580a --dep-file=Libraries/Network/TcpEchoServer.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc37x -D__CPU_TC37X__ --core=tc1.6.2 --fp-model=+float -D__CPU__=tc37x -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Configurations -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\DoIP -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\Phy_Dp83825i -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\port -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\port\\\\include -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\port\\\\include\\\\arch -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat\\\\posix -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat\\\\posix\\\\arpa -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat\\\\posix\\\\net -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat\\\\posix\\\\sys -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat\\\\stdc -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\lwip -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\lwip\\\\apps -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\lwip\\\\priv -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\lwip\\\\prot -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\netif -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\netif\\\\ppp -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\netif\\\\ppp\\\\polarssl -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Flash4 -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Platform -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Platform\\\\Tricore -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Sfr -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Sfr\\\\TC37x -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Ssw -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Ssw\\\\TC3xx -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Ssw\\\\TC3xx\\\\Tricore -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Network -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Service -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Service\\\\CpuGeneric -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\UART -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\VCI -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Asclin -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Asclin\\\\Asc -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Asclin\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Cpu -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Cpu\\\\Irq -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Cpu\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Cpu\\\\Trap -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Dma -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Dma\\\\Dma -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Dma\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Geth -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Geth\\\\Eth -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Geth\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Gtm -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Gtm\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Mtu -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Mtu\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Pms -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Pms\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Port -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Port\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Qspi -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Qspi\\\\SpiMaster -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Qspi\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Scu -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Scu\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Src -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Src\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Stm -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Stm\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\_Impl -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\_Lib -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\_Lib\\\\DataHandling -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\_PinMap -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\_PinMap\\\\TC37x -g2 -w544 -w557 -w508 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o Libraries/Network/TcpEchoServer.src ../Libraries/Network/TcpEchoServer.c"
+	.compiler_name		"ctc"
+	;source	'../Libraries/Network/TcpEchoServer.c'
+
+	
+$TC162
+	
+	.sdecl	'.text.TcpEchoServer.tcp_echo_recv_callback',code,cluster('tcp_echo_recv_callback')
+	.sect	'.text.TcpEchoServer.tcp_echo_recv_callback'
+	.align	2
+	
+; Function tcp_echo_recv_callback
+.L14:
+tcp_echo_recv_callback:	.type	func
+	sub.a	a10,#72
+.L67:
+	mov.aa	a12,a5
+.L71:
+	mov.aa	a15,a6
+.L72:
+	jnz.a	a15,.L2
+.L132:
+	movh.a	a4,#@his(.1.str)
+.L68:
+	lea	a4,[a4]@los(.1.str)
+.L133:
+	mov	d4,#26
+.L69:
+	call	sendUARTMessage
+.L70:
+	mov.aa	a4,a12
+.L73:
+	call	tcp_close
+.L74:
+	mov	d2,#0
+.L134:
+	j	.L3
+.L2:
+	ld.hu	d4,[a15]8
+.L76:
+	mov.aa	a4,a12
+.L75:
+	call	tcp_recved
+.L77:
+	ld.a	a5,[a15]4
+.L135:
+	ld.hu	d4,[a15]8
+.L136:
+	mov	d5,#1
+	mov.aa	a4,a12
+.L78:
+	call	tcp_write
+.L79:
+	jne	d2,#0,.L4
+.L137:
+	mov.aa	a4,a12
+.L80:
+	call	tcp_output
+.L57:
+	ld.hu	d15,[a15]8
+	st.w	[a10],d15
+.L138:
+	lea	a4,[a10]4
+.L139:
+	movh.a	a5,#@his(.2.str)
+	lea	a5,[a5]@los(.2.str)
+	call	sprintf
+.L140:
+	lea	a4,[a10]4
+	call	strlen
+.L141:
+	lea	a4,[a10]4
+.L142:
+	extr	d4,d2,#0,#16
+	call	sendUARTMessage
+.L4:
+	mov.aa	a4,a15
+.L81:
+	call	pbuf_free
+.L82:
+	mov	d2,#0
+.L143:
+	j	.L5
+.L5:
+.L3:
+	ret
+.L48:
+	
+__tcp_echo_recv_callback_function_end:
+	.size	tcp_echo_recv_callback,__tcp_echo_recv_callback_function_end-tcp_echo_recv_callback
+.L34:
+	; End of function
+	
+	.sdecl	'.text.TcpEchoServer.tcp_echo_error_callback',code,cluster('tcp_echo_error_callback')
+	.sect	'.text.TcpEchoServer.tcp_echo_error_callback'
+	.align	2
+	
+; Function tcp_echo_error_callback
+.L16:
+tcp_echo_error_callback:	.type	func
+	movh.a	a4,#@his(.3.str)
+.L83:
+	lea	a4,[a4]@los(.3.str)
+.L148:
+	mov	d4,#11
+.L84:
+	call	sendUARTMessage
+.L149:
+	ret
+.L60:
+	
+__tcp_echo_error_callback_function_end:
+	.size	tcp_echo_error_callback,__tcp_echo_error_callback_function_end-tcp_echo_error_callback
+.L39:
+	; End of function
+	
+	.sdecl	'.text.TcpEchoServer.tcp_echo_accept_callback',code,cluster('tcp_echo_accept_callback')
+	.sect	'.text.TcpEchoServer.tcp_echo_accept_callback'
+	.align	2
+	
+; Function tcp_echo_accept_callback
+.L18:
+tcp_echo_accept_callback:	.type	func
+	mov.aa	a15,a5
+.L88:
+	movh.a	a4,#@his(.4.str)
+.L85:
+	lea	a4,[a4]@los(.4.str)
+.L154:
+	mov	d4,#22
+.L86:
+	call	sendUARTMessage
+.L87:
+	movh.a	a5,#@his(tcp_echo_recv_callback)
+	lea	a5,[a5]@los(tcp_echo_recv_callback)
+	mov.aa	a4,a15
+.L89:
+	call	tcp_recv
+.L90:
+	movh.a	a5,#@his(tcp_echo_error_callback)
+	lea	a5,[a5]@los(tcp_echo_error_callback)
+	mov.aa	a4,a15
+.L91:
+	call	tcp_err
+.L92:
+	mov	d2,#0
+.L155:
+	j	.L6
+.L6:
+	ret
+.L63:
+	
+__tcp_echo_accept_callback_function_end:
+	.size	tcp_echo_accept_callback,__tcp_echo_accept_callback_function_end-tcp_echo_accept_callback
+.L44:
+	; End of function
+	
+	.sdecl	'.text.TcpEchoServer.tcp_echo_server_init',code,cluster('tcp_echo_server_init')
+	.sect	'.text.TcpEchoServer.tcp_echo_server_init'
+	.align	2
+	
+	.global	tcp_echo_server_init
+; Function tcp_echo_server_init
+.L20:
+tcp_echo_server_init:	.type	func
+	movh.a	a15,#@his(g_tcp_server_pcb)
+	lea	a15,[a15]@los(g_tcp_server_pcb)
+.L107:
+	call	tcp_new
+.L108:
+	st.a	[a15],a2
+.L109:
+	movh.a	a15,#@his(g_tcp_server_pcb)
+	lea	a15,[a15]@los(g_tcp_server_pcb)
+	ld.w	d15,[a15]
+.L110:
+	jne	d15,#0,.L7
+.L111:
+	movh.a	a4,#@his(.5.str)
+	lea	a4,[a4]@los(.5.str)
+.L112:
+	mov	d4,#26
+	call	sendUARTMessage
+.L113:
+	j	.L8
+.L7:
+	movh.a	a15,#@his(g_tcp_server_pcb)
+	lea	a15,[a15]@los(g_tcp_server_pcb)
+	ld.a	a4,[a15]
+.L114:
+	movh.a	a5,#@his(ip_addr_any)
+	lea	a5,[a5]@los(ip_addr_any)
+.L115:
+	mov	d4,#8765
+	call	tcp_bind
+.L93:
+	jeq	d2,#0,.L9
+.L116:
+	movh.a	a4,#@his(.6.str)
+	lea	a4,[a4]@los(.6.str)
+.L117:
+	mov	d4,#17
+	call	sendUARTMessage
+.L94:
+	movh.a	a15,#@his(g_tcp_server_pcb)
+	lea	a15,[a15]@los(g_tcp_server_pcb)
+	ld.a	a4,[a15]
+	call	tcp_close
+.L118:
+	j	.L10
+.L9:
+	movh.a	a15,#@his(g_tcp_server_pcb)
+	lea	a15,[a15]@los(g_tcp_server_pcb)
+.L119:
+	movh.a	a2,#@his(g_tcp_server_pcb)
+	lea	a2,[a2]@los(g_tcp_server_pcb)
+	ld.a	a4,[a2]
+	mov	d4,#255
+	call	tcp_listen_with_backlog
+.L95:
+	st.a	[a15],a2
+.L120:
+	movh.a	a15,#@his(g_tcp_server_pcb)
+	lea	a15,[a15]@los(g_tcp_server_pcb)
+	ld.w	d15,[a15]
+.L121:
+	jne	d15,#0,.L11
+.L122:
+	movh.a	a4,#@his(.7.str)
+	lea	a4,[a4]@los(.7.str)
+.L123:
+	mov	d4,#19
+	call	sendUARTMessage
+.L124:
+	j	.L12
+.L11:
+	movh.a	a15,#@his(g_tcp_server_pcb)
+	lea	a15,[a15]@los(g_tcp_server_pcb)
+	ld.a	a4,[a15]
+.L125:
+	movh.a	a5,#@his(tcp_echo_accept_callback)
+	lea	a5,[a5]@los(tcp_echo_accept_callback)
+	call	tcp_accept
+.L126:
+	movh.a	a4,#@his(.8.str)
+	lea	a4,[a4]@los(.8.str)
+.L127:
+	mov	d4,#38
+	call	sendUARTMessage
+.L12:
+.L10:
+.L8:
+	ret
+.L45:
+	
+__tcp_echo_server_init_function_end:
+	.size	tcp_echo_server_init,__tcp_echo_server_init_function_end-tcp_echo_server_init
+.L29:
+	; End of function
+	
+	.sdecl	'.rodata.TcpEchoServer..1.str',data,rom
+	.sect	'.rodata.TcpEchoServer..1.str'
+.1.str:	.type	object
+	.size	.1.str,26
+	.byte	84,67,80,32,67,108,105,101
+	.byte	110,116,32,68,105,115,99,111
+	.byte	110,110,101,99,116,101,100,13
+	.byte	10
+	.space	1
+	.sdecl	'.rodata.TcpEchoServer..2.str',data,rom
+	.sect	'.rodata.TcpEchoServer..2.str'
+.2.str:	.type	object
+	.size	.2.str,21
+	.byte	84,67,80,32,69,99,104,111
+	.byte	58,32,37,100,32,98,121,116
+	.byte	101,115,13,10
+	.space	1
+	.sdecl	'.rodata.TcpEchoServer..3.str',data,rom
+	.sect	'.rodata.TcpEchoServer..3.str'
+.3.str:	.type	object
+	.size	.3.str,12
+	.byte	84,67,80,32,69,114,114,111
+	.byte	114,13,10
+	.space	1
+	.sdecl	'.rodata.TcpEchoServer..4.str',data,rom
+	.sect	'.rodata.TcpEchoServer..4.str'
+.4.str:	.type	object
+	.size	.4.str,23
+	.byte	84,67,80,32,67,108,105,101
+	.byte	110,116,32,67,111,110,110,101
+	.byte	99,116,101,100
+	.byte	13,10
+	.space	1
+	.sdecl	'.rodata.TcpEchoServer..5.str',data,rom
+	.sect	'.rodata.TcpEchoServer..5.str'
+.5.str:	.type	object
+	.size	.5.str,26
+	.byte	84,67,80,32,80,67,66,32
+	.byte	99,114,101,97,116,105,111,110
+	.byte	32,102,97,105,108,101,100,13
+	.byte	10
+	.space	1
+	.sdecl	'.rodata.TcpEchoServer..6.str',data,rom
+	.sect	'.rodata.TcpEchoServer..6.str'
+.6.str:	.type	object
+	.size	.6.str,18
+	.byte	84,67,80,32,66,105,110,100
+	.byte	32,102,97,105,108,101,100,13
+	.byte	10
+	.space	1
+	.sdecl	'.rodata.TcpEchoServer..7.str',data,rom
+	.sect	'.rodata.TcpEchoServer..7.str'
+.7.str:	.type	object
+	.size	.7.str,20
+	.byte	84,67,80,32,76,105,115,116
+	.byte	101,110,32,102,97,105,108,101
+	.byte	100,13,10
+	.space	1
+	.sdecl	'.rodata.TcpEchoServer..8.str',data,rom
+	.sect	'.rodata.TcpEchoServer..8.str'
+.8.str:	.type	object
+	.size	.8.str,39
+	.byte	84,67,80,32,69,99,104,111
+	.byte	32,83,101,114,118,101,114,32
+	.byte	115,116,97,114,116,101,100,32
+	.byte	111,110,32,112,111,114,116,32
+	.byte	56,55,54,53
+	.byte	13,10
+	.space	1
+	.calls	'__INDIRECT__','tcp_echo_recv_callback'
+	.calls	'__INDIRECT__','tcp_echo_error_callback'
+	.calls	'__INDIRECT__','tcp_echo_accept_callback'
+	.calls	'tcp_echo_recv_callback','sendUARTMessage'
+	.calls	'tcp_echo_recv_callback','tcp_close'
+	.calls	'tcp_echo_recv_callback','tcp_recved'
+	.calls	'tcp_echo_recv_callback','tcp_write'
+	.calls	'tcp_echo_recv_callback','tcp_output'
+	.calls	'tcp_echo_recv_callback','sprintf'
+	.calls	'tcp_echo_recv_callback','strlen'
+	.calls	'tcp_echo_recv_callback','pbuf_free'
+	.calls	'tcp_echo_error_callback','sendUARTMessage'
+	.calls	'tcp_echo_accept_callback','sendUARTMessage'
+	.calls	'tcp_echo_accept_callback','tcp_recv'
+	.calls	'tcp_echo_accept_callback','tcp_err'
+	.calls	'tcp_echo_server_init','tcp_new'
+	.calls	'tcp_echo_server_init','sendUARTMessage'
+	.calls	'tcp_echo_server_init','tcp_bind'
+	.calls	'tcp_echo_server_init','tcp_close'
+	.calls	'tcp_echo_server_init','tcp_listen_with_backlog'
+	.calls	'tcp_echo_server_init','tcp_accept'
+	.calls	'tcp_echo_recv_callback','',72
+	.calls	'tcp_echo_error_callback','',0
+	.calls	'tcp_echo_accept_callback','',0
+	.extern	sendUARTMessage
+	.extern	pbuf_free
+	.extern	ip_addr_any
+	.extern	tcp_new
+	.extern	tcp_recv
+	.extern	tcp_err
+	.extern	tcp_accept
+	.extern	tcp_recved
+	.extern	tcp_bind
+	.extern	tcp_listen_with_backlog
+	.extern	tcp_close
+	.extern	tcp_write
+	.extern	tcp_output
+	.extern	strlen
+	.extern	sprintf
+	.extern	g_tcp_server_pcb
+	.extern	__printf_int
+	.extern	__INDIRECT__
+	.calls	'tcp_echo_server_init','',0
+	.sdecl	'.debug_info',debug
+	.sect	'.debug_info'
+.L22:
+	.word	4812
+	.half	3
+	.word	.L23
+	.byte	4
+.L21:
+	.byte	1
+	.byte	'../Libraries/Network/TcpEchoServer.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\TriCore Debug (TASKING)\\',0
+	.byte	12,1
+	.word	.L24
+.L46:
+	.byte	2
+	.byte	'char',0,1,6,2
+	.byte	'char',0,1,6,3
+	.word	245
+	.byte	2
+	.byte	'short int',0,2,5,4
+	.byte	'sendUARTMessage',0,1,40,6,1,1,1,1,5
+	.byte	'msg',0,1,40,29
+	.word	253
+	.byte	5
+	.byte	'count',0,1,40,44
+	.word	258
+	.byte	0,2
+	.byte	'unsigned char',0,1,8,6
+	.byte	'void',0
+.L49:
+	.byte	3
+	.word	339
+	.byte	2
+	.byte	'unsigned short int',0,2,7,7
+	.byte	'pbuf',0,2,186,1,8,16,8
+	.byte	'next',0
+	.word	.L53-.L22
+	.byte	4,2,35,0,8
+	.byte	'payload',0
+	.word	345
+	.byte	4,2,35,4,8
+	.byte	'tot_len',0
+	.word	350
+	.byte	2,2,35,8,8
+	.byte	'len',0
+	.word	350
+	.byte	2,2,35,10,8
+	.byte	'type_internal',0
+	.word	322
+	.byte	1,2,35,12,8
+	.byte	'flags',0
+	.word	322
+	.byte	1,2,35,13,8
+	.byte	'ref',0
+	.word	322
+	.byte	1,2,35,14,8
+	.byte	'if_idx',0
+	.word	322
+	.byte	1,2,35,15,0
+.L53:
+	.byte	3
+	.word	372
+	.byte	9
+	.byte	'pbuf_free',0,2,165,2,6
+	.word	322
+	.byte	1,1,1,1,5
+	.byte	'p',0,2,165,2,29
+	.word	512
+	.byte	0,2
+	.byte	'unsigned long int',0,4,7,7
+	.byte	'ip4_addr',0,4,51,8,4,8
+	.byte	'addr',0
+	.word	552
+	.byte	4,2,35,0,0,10
+	.byte	'tcp_state',0,5,56,6,1,11
+	.byte	'CLOSED',0,0,11
+	.byte	'LISTEN',0,1,11
+	.byte	'SYN_SENT',0,2,11
+	.byte	'SYN_RCVD',0,3,11
+	.byte	'ESTABLISHED',0,4,11
+	.byte	'FIN_WAIT_1',0,5,11
+	.byte	'FIN_WAIT_2',0,6,11
+	.byte	'CLOSE_WAIT',0,7,11
+	.byte	'CLOSING',0,8,11
+	.byte	'LAST_ACK',0,9,11
+	.byte	'TIME_WAIT',0,10,0,12
+	.byte	'tcp_seg',0,3,210,2,10,1,3
+	.word	744
+	.byte	13
+	.word	237
+	.byte	1,1,14
+	.word	345
+	.byte	14
+	.word	.L51-.L22
+	.byte	14
+	.word	237
+	.byte	0,3
+	.word	763
+	.byte	15
+	.byte	'tcp_accept_fn',0,3,70,17
+	.word	786
+	.byte	7
+	.byte	'tcp_pcb_listen',0,3,223,1,8,28,8
+	.byte	'local_ip',0
+	.word	573
+	.byte	4,2,35,0,8
+	.byte	'remote_ip',0
+	.word	573
+	.byte	4,2,35,4,8
+	.byte	'netif_idx',0
+	.word	322
+	.byte	1,2,35,8,8
+	.byte	'so_options',0
+	.word	322
+	.byte	1,2,35,9,8
+	.byte	'tos',0
+	.word	322
+	.byte	1,2,35,10,8
+	.byte	'ttl',0
+	.word	322
+	.byte	1,2,35,11,8
+	.byte	'next',0
+	.word	.L96-.L22
+	.byte	4,2,35,12,8
+	.byte	'callback_arg',0
+	.word	345
+	.byte	4,2,35,16,8
+	.byte	'state',0
+	.word	602
+	.byte	1,2,35,20,8
+	.byte	'prio',0
+	.word	322
+	.byte	1,2,35,21,8
+	.byte	'local_port',0
+	.word	350
+	.byte	2,2,35,22,8
+	.byte	'accept',0
+	.word	791
+	.byte	4,2,35,24,0
+.L96:
+	.byte	3
+	.word	813
+	.byte	13
+	.word	237
+	.byte	1,1,14
+	.word	345
+	.byte	14
+	.word	.L51-.L22
+	.byte	14
+	.word	350
+	.byte	0,3
+	.word	1043
+	.byte	15
+	.byte	'tcp_sent_fn',0,3,96,17
+	.word	1066
+	.byte	13
+	.word	237
+	.byte	1,1,14
+	.word	345
+	.byte	14
+	.word	.L51-.L22
+	.byte	14
+	.word	512
+	.byte	14
+	.word	237
+	.byte	0,3
+	.word	1091
+	.byte	15
+	.byte	'tcp_recv_fn',0,3,82,17
+	.word	1119
+	.byte	15
+	.byte	'tcp_connected_fn',0,3,134,1,17
+	.word	786
+	.byte	13
+	.word	237
+	.byte	1,1,14
+	.word	345
+	.byte	14
+	.word	.L51-.L22
+	.byte	0,3
+	.word	1170
+	.byte	15
+	.byte	'tcp_poll_fn',0,3,108,17
+	.word	1188
+	.byte	16,1,1,14
+	.word	345
+	.byte	14
+	.word	237
+	.byte	0,3
+	.word	1213
+	.byte	15
+	.byte	'tcp_err_fn',0,3,120,17
+	.word	1227
+	.byte	7
+	.byte	'tcp_pcb',0,3,242,1,8,156,1,8
+	.byte	'local_ip',0
+	.word	573
+	.byte	4,2,35,0,8
+	.byte	'remote_ip',0
+	.word	573
+	.byte	4,2,35,4,8
+	.byte	'netif_idx',0
+	.word	322
+	.byte	1,2,35,8,8
+	.byte	'so_options',0
+	.word	322
+	.byte	1,2,35,9,8
+	.byte	'tos',0
+	.word	322
+	.byte	1,2,35,10,8
+	.byte	'ttl',0
+	.word	322
+	.byte	1,2,35,11,8
+	.byte	'next',0
+	.word	.L51-.L22
+	.byte	4,2,35,12,8
+	.byte	'callback_arg',0
+	.word	345
+	.byte	4,2,35,16,8
+	.byte	'state',0
+	.word	602
+	.byte	1,2,35,20,8
+	.byte	'prio',0
+	.word	322
+	.byte	1,2,35,21,8
+	.byte	'local_port',0
+	.word	350
+	.byte	2,2,35,22,8
+	.byte	'remote_port',0
+	.word	350
+	.byte	2,2,35,24,8
+	.byte	'flags',0
+	.word	350
+	.byte	2,2,35,26,8
+	.byte	'polltmr',0
+	.word	322
+	.byte	1,2,35,28,8
+	.byte	'pollinterval',0
+	.word	322
+	.byte	1,2,35,29,8
+	.byte	'last_timer',0
+	.word	322
+	.byte	1,2,35,30,8
+	.byte	'tmr',0
+	.word	552
+	.byte	4,2,35,32,8
+	.byte	'rcv_nxt',0
+	.word	552
+	.byte	4,2,35,36,8
+	.byte	'rcv_wnd',0
+	.word	350
+	.byte	2,2,35,40,8
+	.byte	'rcv_ann_wnd',0
+	.word	350
+	.byte	2,2,35,42,8
+	.byte	'rcv_ann_right_edge',0
+	.word	552
+	.byte	4,2,35,44,8
+	.byte	'rtime',0
+	.word	258
+	.byte	2,2,35,48,8
+	.byte	'mss',0
+	.word	350
+	.byte	2,2,35,50,8
+	.byte	'rttest',0
+	.word	552
+	.byte	4,2,35,52,8
+	.byte	'rtseq',0
+	.word	552
+	.byte	4,2,35,56,8
+	.byte	'sa',0
+	.word	258
+	.byte	2,2,35,60,8
+	.byte	'sv',0
+	.word	258
+	.byte	2,2,35,62,8
+	.byte	'rto',0
+	.word	258
+	.byte	2,2,35,64,8
+	.byte	'nrtx',0
+	.word	322
+	.byte	1,2,35,66,8
+	.byte	'dupacks',0
+	.word	322
+	.byte	1,2,35,67,8
+	.byte	'lastack',0
+	.word	552
+	.byte	4,2,35,68,8
+	.byte	'cwnd',0
+	.word	350
+	.byte	2,2,35,72,8
+	.byte	'ssthresh',0
+	.word	350
+	.byte	2,2,35,74,8
+	.byte	'rto_end',0
+	.word	552
+	.byte	4,2,35,76,8
+	.byte	'snd_nxt',0
+	.word	552
+	.byte	4,2,35,80,8
+	.byte	'snd_wl1',0
+	.word	552
+	.byte	4,2,35,84,8
+	.byte	'snd_wl2',0
+	.word	552
+	.byte	4,2,35,88,8
+	.byte	'snd_lbb',0
+	.word	552
+	.byte	4,2,35,92,8
+	.byte	'snd_wnd',0
+	.word	350
+	.byte	2,2,35,96,8
+	.byte	'snd_wnd_max',0
+	.word	350
+	.byte	2,2,35,98,8
+	.byte	'snd_buf',0
+	.word	350
+	.byte	2,2,35,100,8
+	.byte	'snd_queuelen',0
+	.word	350
+	.byte	2,2,35,102,8
+	.byte	'unsent_oversize',0
+	.word	350
+	.byte	2,2,35,104,8
+	.byte	'bytes_acked',0
+	.word	350
+	.byte	2,2,35,106,8
+	.byte	'unsent',0
+	.word	758
+	.byte	4,2,35,108,8
+	.byte	'unacked',0
+	.word	758
+	.byte	4,2,35,112,8
+	.byte	'ooseq',0
+	.word	758
+	.byte	4,2,35,116,8
+	.byte	'refused_data',0
+	.word	512
+	.byte	4,2,35,120,8
+	.byte	'listener',0
+	.word	1038
+	.byte	4,2,35,124,8
+	.byte	'sent',0
+	.word	1071
+	.byte	4,3,35,128,1,8
+	.byte	'recv',0
+	.word	1124
+	.byte	4,3,35,132,1,8
+	.byte	'connected',0
+	.word	1144
+	.byte	4,3,35,136,1,8
+	.byte	'poll',0
+	.word	1193
+	.byte	4,3,35,140,1,8
+	.byte	'errf',0
+	.word	1232
+	.byte	4,3,35,144,1,8
+	.byte	'keep_idle',0
+	.word	552
+	.byte	4,3,35,148,1,8
+	.byte	'persist_cnt',0
+	.word	322
+	.byte	1,3,35,152,1,8
+	.byte	'persist_backoff',0
+	.word	322
+	.byte	1,3,35,153,1,8
+	.byte	'persist_probe',0
+	.word	322
+	.byte	1,3,35,154,1,8
+	.byte	'keep_cnt_sent',0
+	.word	322
+	.byte	1,3,35,155,1,0
+.L51:
+	.byte	3
+	.word	1251
+	.byte	17
+	.byte	'tcp_new',0,3,155,3,18
+	.word	2313
+	.byte	1,1,1,1,3
+	.word	763
+	.byte	3
+	.word	1043
+	.byte	3
+	.word	1091
+	.byte	3
+	.word	763
+	.byte	3
+	.word	1170
+	.byte	3
+	.word	1213
+	.byte	4
+	.byte	'tcp_recv',0,3,160,3,18,1,1,1,1,5
+	.byte	'pcb',0,3,160,3,47
+	.word	2313
+	.byte	5
+	.byte	'recv',0,3,160,3,64
+	.word	1124
+	.byte	0,4
+	.byte	'tcp_err',0,3,162,3,18,1,1,1,1,5
+	.byte	'pcb',0,3,162,3,47
+	.word	2313
+	.byte	5
+	.byte	'err',0,3,162,3,63
+	.word	1232
+	.byte	0,4
+	.byte	'tcp_accept',0,3,163,3,18,1,1,1,1,5
+	.byte	'pcb',0,3,163,3,47
+	.word	2313
+	.byte	5
+	.byte	'accept',0,3,163,3,66
+	.word	791
+	.byte	0,4
+	.byte	'tcp_recved',0,3,201,3,18,1,1,1,1,5
+	.byte	'pcb',0,3,201,3,47
+	.word	2313
+	.byte	5
+	.byte	'len',0,3,201,3,58
+	.word	350
+	.byte	0,18
+	.word	573
+	.byte	3
+	.word	2556
+	.byte	9
+	.byte	'tcp_bind',0,3,202,3,18
+	.word	237
+	.byte	1,1,1,1,5
+	.byte	'pcb',0,3,202,3,47
+	.word	2313
+	.byte	5
+	.byte	'ipaddr',0,3,202,3,69
+	.word	2561
+	.byte	5
+	.byte	'port',0,3,203,3,37
+	.word	350
+	.byte	0,9
+	.byte	'tcp_listen_with_backlog',0,3,209,3,18
+	.word	2313
+	.byte	1,1,1,1,5
+	.byte	'pcb',0,3,209,3,58
+	.word	2313
+	.byte	5
+	.byte	'backlog',0,3,209,3,68
+	.word	322
+	.byte	0,9
+	.byte	'tcp_close',0,3,214,3,18
+	.word	237
+	.byte	1,1,1,1,5
+	.byte	'pcb',0,3,214,3,47
+	.word	2313
+	.byte	0,18
+	.word	339
+	.byte	3
+	.word	2737
+	.byte	9
+	.byte	'tcp_write',0,3,217,3,18
+	.word	237
+	.byte	1,1,1,1,5
+	.byte	'pcb',0,3,217,3,47
+	.word	2313
+	.byte	5
+	.byte	'dataptr',0,3,217,3,64
+	.word	2742
+	.byte	5
+	.byte	'len',0,3,217,3,79
+	.word	350
+	.byte	5
+	.byte	'apiflags',0,3,218,3,36
+	.word	322
+	.byte	0,9
+	.byte	'tcp_output',0,3,222,3,18
+	.word	237
+	.byte	1,1,1,1,5
+	.byte	'pcb',0,3,222,3,47
+	.word	2313
+	.byte	0,2
+	.byte	'unsigned int',0,4,7,18
+	.word	245
+	.byte	3
+	.word	2886
+	.byte	9
+	.byte	'strlen',0,6,52,17
+	.word	2870
+	.byte	1,1,1,1,19,6,52,39
+	.word	2891
+	.byte	0,2
+	.byte	'int',0,4,5,20
+	.word	253
+	.byte	20
+	.word	2891
+	.byte	9
+	.byte	'sprintf',0,7,146,1,16
+	.word	2924
+	.byte	1,1,1,1,19,7,146,1,32
+	.word	2931
+	.byte	19,7,146,1,55
+	.word	2936
+	.byte	21,7,146,1,67,0
+.L58:
+	.byte	22,64
+	.word	245
+	.byte	23,63,0,24
+	.byte	'__INDIRECT__',0,8,1,1,1,1,1,15
+	.byte	'__wchar_t',0,8,1,1
+	.word	258
+	.byte	15
+	.byte	'__size_t',0,8,1,1
+	.word	2870
+	.byte	15
+	.byte	'__ptrdiff_t',0,8,1,1
+	.word	2924
+	.byte	25,1,3
+	.word	3070
+	.byte	15
+	.byte	'__codeptr',0,8,1,1
+	.word	3072
+	.byte	15
+	.byte	'__intptr_t',0,8,1,1
+	.word	2924
+	.byte	15
+	.byte	'__uintptr_t',0,8,1,1
+	.word	2870
+	.byte	15
+	.byte	'size_t',0,9,24,25
+	.word	2870
+	.byte	15
+	.byte	'uint8',0,10,108,29
+	.word	322
+	.byte	15
+	.byte	'uint16',0,10,112,29
+	.word	350
+	.byte	15
+	.byte	'uint32',0,10,116,29
+	.word	552
+	.byte	15
+	.byte	'sint8',0,10,125,29
+	.word	237
+	.byte	15
+	.byte	'sint16',0,10,129,1,29
+	.word	258
+	.byte	2
+	.byte	'long int',0,4,5,15
+	.byte	'sint32',0,10,134,1,29
+	.word	3223
+	.byte	2
+	.byte	'long long int',0,8,5,15
+	.byte	'sint64',0,10,141,1,29
+	.word	3251
+	.byte	2
+	.byte	'float',0,4,4,15
+	.byte	'float32',0,10,170,1,29
+	.word	3284
+	.byte	15
+	.byte	'pvoid',0,11,54,28
+	.word	345
+	.byte	15
+	.byte	'Ifx_SizeT',0,11,89,16
+	.word	258
+	.byte	15
+	.byte	'u8_t',0,12,85,16
+	.word	322
+	.byte	15
+	.byte	'u16_t',0,12,86,16
+	.word	350
+	.byte	15
+	.byte	'u32_t',0,12,87,16
+	.word	552
+	.byte	15
+	.byte	's8_t',0,12,88,16
+	.word	237
+	.byte	15
+	.byte	's16_t',0,12,89,16
+	.word	258
+	.byte	15
+	.byte	'intmax_t',0,13,198,2,41
+	.word	3251
+	.byte	15
+	.byte	'tcpwnd_size_t',0,5,53,15
+	.word	350
+	.byte	15
+	.byte	'mem_size_t',0,14,67,15
+	.word	350
+	.byte	15
+	.byte	'err_t',0,15,96,14
+	.word	237
+	.byte	16,1,1,14
+	.word	512
+	.byte	0,3
+	.word	3483
+	.byte	15
+	.byte	'pbuf_free_custom_fn',0,2,242,1,16
+	.word	3492
+	.byte	15
+	.byte	'ip4_addr_t',0,4,57,25
+	.word	573
+	.byte	15
+	.byte	'ip_addr_t',0,16,142,2,20
+	.word	573
+	.byte	18
+	.word	573
+	.byte	26
+	.byte	'ip_addr_any',0,16,241,2,24
+	.word	3564
+	.byte	1,1,18
+	.word	573
+	.byte	3
+	.word	3592
+	.byte	13
+	.word	237
+	.byte	1,1,14
+	.word	.L97-.L22
+	.byte	14
+	.word	512
+	.byte	14
+	.word	3597
+	.byte	0,3
+	.word	3602
+	.byte	15
+	.byte	'netif_output_fn',0,17,189,1,17
+	.word	3625
+	.byte	13
+	.word	237
+	.byte	1,1,14
+	.word	.L97-.L22
+	.byte	14
+	.word	512
+	.byte	0,3
+	.word	3655
+	.byte	15
+	.byte	'netif_linkoutput_fn',0,17,212,1,17
+	.word	3673
+	.byte	22,6
+	.word	322
+	.byte	23,5,0,22,2
+	.word	245
+	.byte	23,1,0,7
+	.byte	'netif',0,17,132,2,8,52,8
+	.byte	'next',0
+	.word	.L97-.L22
+	.byte	4,2,35,0,8
+	.byte	'ip_addr',0
+	.word	573
+	.byte	4,2,35,4,8
+	.byte	'netmask',0
+	.word	573
+	.byte	4,2,35,8,8
+	.byte	'gw',0
+	.word	573
+	.byte	4,2,35,12,8
+	.byte	'input',0
+	.word	.L98-.L22
+	.byte	4,2,35,16,8
+	.byte	'output',0
+	.word	3630
+	.byte	4,2,35,20,8
+	.byte	'linkoutput',0
+	.word	3678
+	.byte	4,2,35,24,8
+	.byte	'state',0
+	.word	345
+	.byte	4,2,35,28,8
+	.byte	'hostname',0
+	.word	2891
+	.byte	4,2,35,32,8
+	.byte	'mtu',0
+	.word	350
+	.byte	2,2,35,36,8
+	.byte	'hwaddr',0
+	.word	3707
+	.byte	6,2,35,38,8
+	.byte	'hwaddr_len',0
+	.word	322
+	.byte	1,2,35,44,8
+	.byte	'flags',0
+	.word	322
+	.byte	1,2,35,45,8
+	.byte	'name',0
+	.word	3716
+	.byte	2,2,35,46,8
+	.byte	'num',0
+	.word	322
+	.byte	1,2,35,48,8
+	.byte	'rs_count',0
+	.word	322
+	.byte	1,2,35,49,0
+.L97:
+	.byte	3
+	.word	3725
+	.byte	13
+	.word	237
+	.byte	1,1,14
+	.word	512
+	.byte	14
+	.word	3991
+	.byte	0,3
+	.word	3996
+.L98:
+	.byte	15
+	.byte	'netif_input_fn',0,17,178,1,17
+	.word	4014
+	.byte	3
+	.word	3996
+	.byte	3
+	.word	3602
+	.byte	3
+	.word	3655
+	.byte	7
+	.byte	'link_changed_s',0,17,213,4,10,1,8
+	.byte	'state',0
+	.word	322
+	.byte	1,2,35,0,0,7
+	.byte	'status_changed_s',0,17,219,4,10,1,8
+	.byte	'state',0
+	.word	322
+	.byte	1,2,35,0,0,7
+	.byte	'ipv4_changed_s',0,17,225,4,10,12,8
+	.byte	'old_address',0
+	.word	2561
+	.byte	4,2,35,0,8
+	.byte	'old_netmask',0
+	.word	2561
+	.byte	4,2,35,4,8
+	.byte	'old_gw',0
+	.word	2561
+	.byte	4,2,35,8,0,7
+	.byte	'ipv6_set_s',0,17,233,4,10,8,8
+	.byte	'addr_index',0
+	.word	237
+	.byte	1,2,35,0,8
+	.byte	'old_address',0
+	.word	2561
+	.byte	4,2,35,4,0,7
+	.byte	'ipv6_addr_state_changed_s',0,17,241,4,10,8,8
+	.byte	'addr_index',0
+	.word	237
+	.byte	1,2,35,0,8
+	.byte	'old_state',0
+	.word	322
+	.byte	1,2,35,1,8
+	.byte	'address',0
+	.word	2561
+	.byte	4,2,35,4,0,27,17,210,4,9,12,8
+	.byte	'link_changed',0
+	.word	4058
+	.byte	1,2,35,0,8
+	.byte	'status_changed',0
+	.word	4095
+	.byte	1,2,35,0,8
+	.byte	'ipv4_changed',0
+	.word	4134
+	.byte	12,2,35,0,8
+	.byte	'ipv6_set',0
+	.word	4214
+	.byte	8,2,35,0,8
+	.byte	'ipv6_addr_state_changed',0
+	.word	4273
+	.byte	8,2,35,0,0,18
+	.word	4362
+	.byte	3
+	.word	4488
+	.byte	16,1,1,14
+	.word	3991
+	.byte	14
+	.word	350
+	.byte	14
+	.word	4493
+	.byte	0,3
+	.word	4498
+	.byte	15
+	.byte	'netif_ext_callback_fn',0,17,132,5,16
+	.word	4517
+	.byte	7
+	.byte	'ip4_addr_packed',0,18,53,8,4,8
+	.byte	'addr',0
+	.word	552
+	.byte	4,2,35,0,0,15
+	.byte	'ip4_addr_p_t',0,18,61,32
+	.word	4553
+	.byte	16,1,1,14
+	.word	322
+	.byte	14
+	.word	345
+	.byte	0,3
+	.word	4610
+	.byte	15
+	.byte	'tcp_extarg_callback_pcb_destroyed_fn',0,3,173,1,16
+	.word	4624
+	.byte	13
+	.word	237
+	.byte	1,1,14
+	.word	322
+	.byte	14
+	.word	1038
+	.byte	14
+	.word	2313
+	.byte	0,3
+	.word	4675
+	.byte	15
+	.byte	'tcp_extarg_callback_passive_open_fn',0,3,182,1,17
+	.word	4698
+	.byte	15
+	.byte	'tcpflags_t',0,3,206,1,15
+	.word	350
+	.byte	15
+	.byte	'_iob_flag_t',0,7,82,25
+	.word	350
+	.byte	26
+	.byte	'g_tcp_server_pcb',0,8,16,24
+	.word	2313
+	.byte	1,1,0
+	.sdecl	'.debug_abbrev',debug
+	.sect	'.debug_abbrev'
+.L23:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,16,6,0,0,2,36,0,3,8,11,15,62,15,0,0,3,15,0,73,19,0,0,4,46,1,3,8,58
+	.byte	15,59,15,57,15,54,15,39,12,63,12,60,12,0,0,5,5,0,3,8,58,15,59,15,57,15,73,19,0,0,6,59,0,3,8,0,0,7,19,1
+	.byte	3,8,58,15,59,15,57,15,11,15,0,0,8,13,0,3,8,73,19,11,15,56,9,0,0,9,46,1,3,8,58,15,59,15,57,15,73,19,54
+	.byte	15,39,12,63,12,60,12,0,0,10,4,1,3,8,58,15,59,15,57,15,11,15,0,0,11,40,0,3,8,28,13,0,0,12,19,0,3,8,58,15
+	.byte	59,15,57,15,60,12,0,0,13,21,1,73,19,54,15,39,12,0,0,14,5,0,73,19,0,0,15,22,0,3,8,58,15,59,15,57,15,73
+	.byte	19,0,0,16,21,1,54,15,39,12,0,0,17,46,0,3,8,58,15,59,15,57,15,73,19,54,15,39,12,63,12,60,12,0,0,18,38,0
+	.byte	73,19,0,0,19,5,0,58,15,59,15,57,15,73,19,0,0,20,55,0,73,19,0,0,21,24,0,58,15,59,15,57,15,0,0,22,1,1,11
+	.byte	15,73,19,0,0,23,33,0,47,15,0,0,24,46,0,3,8,58,15,59,15,57,15,54,15,63,12,60,12,0,0,25,21,0,54,15,0,0,26
+	.byte	52,0,3,8,58,15,59,15,57,15,73,19,63,12,60,12,0,0,27,23,1,58,15,59,15,57,15,11,15,0,0,0
+	.sdecl	'.debug_line',debug
+	.sect	'.debug_line'
+.L24:
+	.word	.L100-.L99
+.L99:
+	.half	3
+	.word	.L102-.L101
+.L101:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1
+	.byte	'C:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\UART',0
+	.byte	'C:\\Infineon\\AURIX-Studio-1.10.24\\tools\\Compilers\\Tasking_1.1r8\\ctc\\include\\',0
+	.byte	'C:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Cpu\\\\Std',0
+	.byte	0
+	.byte	'UART_Logging.h',0,1,0,0
+	.byte	'C:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\lwip\\pbuf.h',0
+	.byte	0,0,0
+	.byte	'C:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\lwip\\tcp.h',0
+	.byte	0,0,0
+	.byte	'C:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\lwip\\ip4_addr.h',0
+	.byte	0,0,0
+	.byte	'C:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\lwip\\tcpbase.h',0
+	.byte	0,0,0
+	.byte	'string.h',0,2,0,0
+	.byte	'stdio.h',0,2,0,0
+	.byte	'../Libraries/Network/TcpEchoServer.c',0,0,0,0
+	.byte	'stddef.h',0,2,0,0
+	.byte	'Platform_Types.h',0,3,0,0
+	.byte	'Ifx_Types.h',0,3,0,0
+	.byte	'C:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\port\\\\include\\arch\\cc.h',0
+	.byte	0,0,0
+	.byte	'stdint.h',0,2,0,0
+	.byte	'C:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\lwip\\mem.h',0
+	.byte	0,0,0
+	.byte	'C:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\lwip\\err.h',0
+	.byte	0,0,0
+	.byte	'C:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\lwip\\ip_addr.h',0
+	.byte	0,0,0
+	.byte	'C:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\lwip\\netif.h',0
+	.byte	0,0,0
+	.byte	'C:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\lwip\\prot\\ip4.h',0
+	.byte	0,0,0,0
+.L102:
+.L100:
+	.sdecl	'.debug_info',debug,cluster('tcp_echo_server_init')
+	.sect	'.debug_info'
+.L25:
+	.word	310
+	.half	3
+	.word	.L26
+	.byte	4,1
+	.byte	'../Libraries/Network/TcpEchoServer.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\TriCore Debug (TASKING)\\',0
+	.byte	12,1
+	.word	.L28,.L27
+	.byte	2
+	.word	.L21
+	.byte	3
+	.byte	'tcp_echo_server_init',0,1,57,6,1,1,1
+	.word	.L20,.L45,.L19
+	.byte	4
+	.word	.L20,.L45
+	.byte	5
+	.byte	'err',0,1,59,11
+	.word	.L46,.L47
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('tcp_echo_server_init')
+	.sect	'.debug_abbrev'
+.L26:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,11,1,17,1,18,1,0,0,5,52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('tcp_echo_server_init')
+	.sect	'.debug_line'
+.L27:
+	.word	.L104-.L103
+.L103:
+	.half	3
+	.word	.L106-.L105
+.L105:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Libraries/Network/TcpEchoServer.c',0,0,0,0,0
+.L106:
+	.byte	5,5,7,0,5,2
+	.word	.L20
+	.byte	3,60,1,5,31,9
+	.half	.L107-.L20
+	.byte	1,5,22,9
+	.half	.L108-.L107
+	.byte	1,5,9,9
+	.half	.L109-.L108
+	.byte	3,1,1,5,5,9
+	.half	.L110-.L109
+	.byte	1,5,25,7,9
+	.half	.L111-.L110
+	.byte	3,2,1,5,56,9
+	.half	.L112-.L111
+	.byte	1,5,9,9
+	.half	.L113-.L112
+	.byte	3,1,1,5,20,9
+	.half	.L7-.L113
+	.byte	3,3,1,5,38,9
+	.half	.L114-.L7
+	.byte	1,5,51,9
+	.half	.L115-.L114
+	.byte	1,5,5,9
+	.half	.L93-.L115
+	.byte	3,1,1,5,25,7,9
+	.half	.L116-.L93
+	.byte	3,2,1,5,48,9
+	.half	.L117-.L116
+	.byte	1,5,19,9
+	.half	.L94-.L117
+	.byte	3,1,1,5,9,9
+	.half	.L118-.L94
+	.byte	3,1,1,5,5,9
+	.half	.L9-.L118
+	.byte	3,3,1,5,24,9
+	.half	.L119-.L9
+	.byte	1,5,22,9
+	.half	.L95-.L119
+	.byte	1,5,9,9
+	.half	.L120-.L95
+	.byte	3,1,1,5,5,9
+	.half	.L121-.L120
+	.byte	1,5,25,7,9
+	.half	.L122-.L121
+	.byte	3,2,1,5,50,9
+	.half	.L123-.L122
+	.byte	1,5,9,9
+	.half	.L124-.L123
+	.byte	3,1,1,5,16,9
+	.half	.L11-.L124
+	.byte	3,3,1,5,34,9
+	.half	.L125-.L11
+	.byte	1,5,21,9
+	.half	.L126-.L125
+	.byte	3,1,1,5,65,9
+	.half	.L127-.L126
+	.byte	1,5,1,9
+	.half	.L8-.L127
+	.byte	3,1,1,7,9
+	.half	.L29-.L8
+	.byte	0,1,1
+.L104:
+	.sdecl	'.debug_ranges',debug,cluster('tcp_echo_server_init')
+	.sect	'.debug_ranges'
+.L28:
+	.word	-1,.L20,0,.L29-.L20,0,0
+	.sdecl	'.debug_info',debug,cluster('tcp_echo_recv_callback')
+	.sect	'.debug_info'
+.L30:
+	.word	408
+	.half	3
+	.word	.L31
+	.byte	4,1
+	.byte	'../Libraries/Network/TcpEchoServer.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\TriCore Debug (TASKING)\\',0
+	.byte	12,1
+	.word	.L33,.L32
+	.byte	2
+	.word	.L21
+	.byte	3
+	.byte	'tcp_echo_recv_callback',0,1,18,14
+	.word	.L46
+	.byte	1,1
+	.word	.L14,.L48,.L13
+	.byte	4
+	.byte	'arg',0,1,18,43
+	.word	.L49,.L50
+	.byte	4
+	.byte	'tpcb',0,1,18,64
+	.word	.L51,.L52
+	.byte	4
+	.byte	'p',0,1,18,83
+	.word	.L53,.L54
+	.byte	4
+	.byte	'err',0,1,18,92
+	.word	.L46,.L55
+	.byte	5
+	.word	.L14,.L48
+	.byte	6
+	.byte	'ret_err',0,1,20,11
+	.word	.L46,.L56
+	.byte	5
+	.word	.L57,.L4
+	.byte	6
+	.byte	'log',0,1,35,14
+	.word	.L58,.L59
+	.byte	0,0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('tcp_echo_recv_callback')
+	.sect	'.debug_abbrev'
+.L31:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6,52,0,3
+	.byte	8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('tcp_echo_recv_callback')
+	.sect	'.debug_line'
+.L32:
+	.word	.L129-.L128
+.L128:
+	.half	3
+	.word	.L131-.L130
+.L130:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Libraries/Network/TcpEchoServer.c',0,0,0,0,0
+.L131:
+	.byte	5,14,7,0,5,2
+	.word	.L14
+	.byte	3,17,1,5,5,9
+	.half	.L72-.L14
+	.byte	3,4,1,5,25,7,9
+	.half	.L132-.L72
+	.byte	3,2,1,5,56,9
+	.half	.L133-.L132
+	.byte	1,5,19,9
+	.half	.L70-.L133
+	.byte	3,1,1,5,16,9
+	.half	.L74-.L70
+	.byte	3,1,1,5,9,9
+	.half	.L134-.L74
+	.byte	1,5,23,9
+	.half	.L2-.L134
+	.byte	3,3,1,5,32,9
+	.half	.L77-.L2
+	.byte	3,1,1,5,44,9
+	.half	.L135-.L77
+	.byte	1,5,55,9
+	.half	.L136-.L135
+	.byte	1,5,5,9
+	.half	.L79-.L136
+	.byte	3,2,1,5,20,7,9
+	.half	.L137-.L79
+	.byte	3,2,1,5,49,9
+	.half	.L57-.L137
+	.byte	3,2,1,5,17,9
+	.half	.L138-.L57
+	.byte	1,5,22,9
+	.half	.L139-.L138
+	.byte	1,5,37,9
+	.half	.L140-.L139
+	.byte	3,1,1,5,25,9
+	.half	.L141-.L140
+	.byte	1,5,36,9
+	.half	.L142-.L141
+	.byte	1,5,15,9
+	.half	.L4-.L142
+	.byte	3,3,1,5,12,9
+	.half	.L82-.L4
+	.byte	3,1,1,5,5,9
+	.half	.L143-.L82
+	.byte	1,5,1,9
+	.half	.L3-.L143
+	.byte	3,1,1,7,9
+	.half	.L34-.L3
+	.byte	0,1,1
+.L129:
+	.sdecl	'.debug_ranges',debug,cluster('tcp_echo_recv_callback')
+	.sect	'.debug_ranges'
+.L33:
+	.word	-1,.L14,0,.L34-.L14,0,0
+	.sdecl	'.debug_info',debug,cluster('tcp_echo_error_callback')
+	.sect	'.debug_info'
+.L35:
+	.word	327
+	.half	3
+	.word	.L36
+	.byte	4,1
+	.byte	'../Libraries/Network/TcpEchoServer.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\TriCore Debug (TASKING)\\',0
+	.byte	12,1
+	.word	.L38,.L37
+	.byte	2
+	.word	.L21
+	.byte	3
+	.byte	'tcp_echo_error_callback',0,1,44,13,1,1
+	.word	.L16,.L60,.L15
+	.byte	4
+	.byte	'arg',0,1,44,43
+	.word	.L49,.L61
+	.byte	4
+	.byte	'err',0,1,44,54
+	.word	.L46,.L62
+	.byte	5
+	.word	.L16,.L60
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('tcp_echo_error_callback')
+	.sect	'.debug_abbrev'
+.L36:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('tcp_echo_error_callback')
+	.sect	'.debug_line'
+.L37:
+	.word	.L145-.L144
+.L144:
+	.half	3
+	.word	.L147-.L146
+.L146:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Libraries/Network/TcpEchoServer.c',0,0,0,0,0
+.L147:
+	.byte	5,21,7,0,5,2
+	.word	.L16
+	.byte	3,45,1,5,38,9
+	.half	.L148-.L16
+	.byte	1,5,1,9
+	.half	.L149-.L148
+	.byte	3,1,1,7,9
+	.half	.L39-.L149
+	.byte	0,1,1
+.L145:
+	.sdecl	'.debug_ranges',debug,cluster('tcp_echo_error_callback')
+	.sect	'.debug_ranges'
+.L38:
+	.word	-1,.L16,0,.L39-.L16,0,0
+	.sdecl	'.debug_info',debug,cluster('tcp_echo_accept_callback')
+	.sect	'.debug_info'
+.L40:
+	.word	351
+	.half	3
+	.word	.L41
+	.byte	4,1
+	.byte	'../Libraries/Network/TcpEchoServer.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\TriCore Debug (TASKING)\\',0
+	.byte	12,1
+	.word	.L43,.L42
+	.byte	2
+	.word	.L21
+	.byte	3
+	.byte	'tcp_echo_accept_callback',0,1,49,14
+	.word	.L46
+	.byte	1,1
+	.word	.L18,.L63,.L17
+	.byte	4
+	.byte	'arg',0,1,49,45
+	.word	.L49,.L64
+	.byte	4
+	.byte	'newpcb',0,1,49,66
+	.word	.L51,.L65
+	.byte	4
+	.byte	'err',0,1,49,80
+	.word	.L46,.L66
+	.byte	5
+	.word	.L18,.L63
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('tcp_echo_accept_callback')
+	.sect	'.debug_abbrev'
+.L41:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('tcp_echo_accept_callback')
+	.sect	'.debug_line'
+.L42:
+	.word	.L151-.L150
+.L150:
+	.half	3
+	.word	.L153-.L152
+.L152:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Libraries/Network/TcpEchoServer.c',0,0,0,0,0
+.L153:
+	.byte	5,14,7,0,5,2
+	.word	.L18
+	.byte	3,48,1,5,21,9
+	.half	.L88-.L18
+	.byte	3,2,1,5,49,9
+	.half	.L154-.L88
+	.byte	1,5,22,9
+	.half	.L87-.L154
+	.byte	3,1,1,5,21,9
+	.half	.L90-.L87
+	.byte	3,1,1,5,12,9
+	.half	.L92-.L90
+	.byte	3,1,1,5,5,9
+	.half	.L155-.L92
+	.byte	1,5,1,9
+	.half	.L6-.L155
+	.byte	3,1,1,7,9
+	.half	.L44-.L6
+	.byte	0,1,1
+.L151:
+	.sdecl	'.debug_ranges',debug,cluster('tcp_echo_accept_callback')
+	.sect	'.debug_ranges'
+.L43:
+	.word	-1,.L18,0,.L44-.L18,0,0
+	.sdecl	'.debug_loc',debug,cluster('tcp_echo_accept_callback')
+	.sect	'.debug_loc'
+.L64:
+	.word	-1,.L18,0,.L85-.L18
+	.half	1
+	.byte	100
+	.word	0,0
+.L66:
+	.word	-1,.L18,0,.L86-.L18
+	.half	1
+	.byte	84
+	.word	0,0
+.L65:
+	.word	-1,.L18,0,.L87-.L18
+	.half	1
+	.byte	101
+	.word	.L88-.L18,.L63-.L18
+	.half	1
+	.byte	111
+	.word	.L89-.L18,.L90-.L18
+	.half	1
+	.byte	100
+	.word	.L91-.L18,.L92-.L18
+	.half	1
+	.byte	100
+	.word	0,0
+.L17:
+	.word	-1,.L18,0,.L63-.L18
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('tcp_echo_error_callback')
+	.sect	'.debug_loc'
+.L61:
+	.word	-1,.L16,0,.L83-.L16
+	.half	1
+	.byte	100
+	.word	0,0
+.L62:
+	.word	-1,.L16,0,.L84-.L16
+	.half	1
+	.byte	84
+	.word	0,0
+.L15:
+	.word	-1,.L16,0,.L60-.L16
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('tcp_echo_recv_callback')
+	.sect	'.debug_loc'
+.L50:
+	.word	-1,.L14,0,.L68-.L14
+	.half	1
+	.byte	100
+	.word	.L2-.L14,.L75-.L14
+	.half	1
+	.byte	100
+	.word	0,0
+.L55:
+	.word	-1,.L14,0,.L69-.L14
+	.half	1
+	.byte	84
+	.word	.L2-.L14,.L76-.L14
+	.half	1
+	.byte	84
+	.word	0,0
+.L59:
+	.word	-1,.L14,0,.L48-.L14
+	.half	3
+	.byte	145,188,127
+	.word	0,0
+.L54:
+	.word	-1,.L14,0,.L70-.L14
+	.half	1
+	.byte	102
+	.word	.L72-.L14,.L48-.L14
+	.half	1
+	.byte	111
+	.word	.L2-.L14,.L77-.L14
+	.half	1
+	.byte	102
+	.word	.L81-.L14,.L82-.L14
+	.half	1
+	.byte	100
+	.word	0,0
+.L56:
+	.word	-1,.L14,.L79-.L14,.L57-.L14
+	.half	1
+	.byte	82
+	.word	0,0
+.L13:
+	.word	-1,.L14,0,.L67-.L14
+	.half	2
+	.byte	138,0
+	.word	.L67-.L14,.L48-.L14
+	.half	3
+	.byte	138,200,0
+	.word	.L48-.L14,.L48-.L14
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L52:
+	.word	-1,.L14,0,.L70-.L14
+	.half	1
+	.byte	101
+	.word	.L71-.L14,.L48-.L14
+	.half	1
+	.byte	108
+	.word	.L73-.L14,.L74-.L14
+	.half	1
+	.byte	100
+	.word	.L2-.L14,.L75-.L14
+	.half	1
+	.byte	101
+	.word	.L75-.L14,.L77-.L14
+	.half	1
+	.byte	100
+	.word	.L78-.L14,.L79-.L14
+	.half	1
+	.byte	100
+	.word	.L80-.L14,.L57-.L14
+	.half	1
+	.byte	100
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('tcp_echo_server_init')
+	.sect	'.debug_loc'
+.L47:
+	.word	-1,.L20,.L93-.L20,.L94-.L20
+	.half	1
+	.byte	82
+	.word	.L9-.L20,.L95-.L20
+	.half	1
+	.byte	82
+	.word	0,0
+.L19:
+	.word	-1,.L20,0,.L45-.L20
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_frame',debug
+	.sect	'.debug_frame'
+.L156:
+	.word	48
+	.word	-1
+	.byte	3,0,2,1,27,12,26,0,8,26,8,27,8,30,8,29,8,28,8,16,8,17,8,24,8,25,8,31,8,32,8,33,8,34,8,35,8,36,8,37,8,38
+	.byte	8,39
+	.sdecl	'.debug_frame',debug,cluster('tcp_echo_recv_callback')
+	.sect	'.debug_frame'
+	.word	36
+	.word	.L156,.L14,.L48-.L14
+	.byte	4
+	.word	(.L67-.L14)/2
+	.byte	19,200,0,22,26,4,19,138,200,0,4
+	.word	(.L48-.L67)/2
+	.byte	19,0,8,26
+	.sdecl	'.debug_frame',debug,cluster('tcp_echo_error_callback')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L156,.L16,.L60-.L16
+	.sdecl	'.debug_frame',debug,cluster('tcp_echo_accept_callback')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L156,.L18,.L63-.L18
+	.sdecl	'.debug_frame',debug,cluster('tcp_echo_server_init')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L156,.L20,.L45-.L20
+	; Module end

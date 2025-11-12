@@ -1,0 +1,1612 @@
+	; Module start
+	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
+	.compiler_invocation	"ctc -f cc388a --dep-file=Libraries/DoIP/doip_message.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc37x -D__CPU_TC37X__ --core=tc1.6.2 --fp-model=+float -D__CPU__=tc37x -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Configurations -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\DoIP -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\Phy_Dp83825i -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\port -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\port\\\\include -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\port\\\\include\\\\arch -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat\\\\posix -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat\\\\posix\\\\arpa -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat\\\\posix\\\\net -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat\\\\posix\\\\sys -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat\\\\stdc -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\lwip -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\lwip\\\\apps -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\lwip\\\\priv -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\lwip\\\\prot -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\netif -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\netif\\\\ppp -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\netif\\\\ppp\\\\polarssl -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Flash4 -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Platform -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Platform\\\\Tricore -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Sfr -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Sfr\\\\TC37x -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Ssw -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Ssw\\\\TC3xx -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Ssw\\\\TC3xx\\\\Tricore -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Network -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Service -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Service\\\\CpuGeneric -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\UART -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\VCI -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Asclin -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Asclin\\\\Asc -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Asclin\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Cpu -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Cpu\\\\Irq -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Cpu\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Cpu\\\\Trap -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Dma -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Dma\\\\Dma -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Dma\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Geth -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Geth\\\\Eth -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Geth\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Gtm -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Gtm\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Mtu -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Mtu\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Pms -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Pms\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Port -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Port\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Qspi -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Qspi\\\\SpiMaster -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Qspi\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Scu -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Scu\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Src -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Src\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Stm -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Stm\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\_Impl -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\_Lib -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\_Lib\\\\DataHandling -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\_PinMap -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\_PinMap\\\\TC37x -g2 -w544 -w557 -w508 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o Libraries/DoIP/doip_message.src ../Libraries/DoIP/doip_message.c"
+	.compiler_name		"ctc"
+	;source	'../Libraries/DoIP/doip_message.c'
+
+	
+$TC162
+	
+	.sdecl	'.text.doip_message.writeUint16BE',code,cluster('writeUint16BE')
+	.sect	'.text.doip_message.writeUint16BE'
+	.align	2
+	
+; Function writeUint16BE
+.L15:
+writeUint16BE:	.type	func
+	sha	d15,d4,#-8
+.L234:
+	and	d15,#255
+.L235:
+	st.b	[a4],d15
+.L236:
+	and	d15,d4,#255
+.L237:
+	st.b	[a4]1,d15
+.L238:
+	ret
+.L118:
+	
+__writeUint16BE_function_end:
+	.size	writeUint16BE,__writeUint16BE_function_end-writeUint16BE
+.L72:
+	; End of function
+	
+	.sdecl	'.text.doip_message.writeUint32BE',code,cluster('writeUint32BE')
+	.sect	'.text.doip_message.writeUint32BE'
+	.align	2
+	
+; Function writeUint32BE
+.L17:
+writeUint32BE:	.type	func
+	extr.u	d15,d4,#24,#8
+.L243:
+	st.b	[a4],d15
+.L244:
+	extr.u	d15,d4,#16,#8
+.L245:
+	st.b	[a4]1,d15
+.L246:
+	extr.u	d15,d4,#8,#8
+.L247:
+	st.b	[a4]2,d15
+.L248:
+	and	d15,d4,#255
+.L249:
+	st.b	[a4]3,d15
+.L250:
+	ret
+.L121:
+	
+__writeUint32BE_function_end:
+	.size	writeUint32BE,__writeUint32BE_function_end-writeUint32BE
+.L77:
+	; End of function
+	
+	.sdecl	'.text.doip_message.readUint16BE',code,cluster('readUint16BE')
+	.sect	'.text.doip_message.readUint16BE'
+	.align	2
+	
+; Function readUint16BE
+.L19:
+readUint16BE:	.type	func
+	ld.bu	d15,[a4]
+.L255:
+	sha	d2,d15,#8
+.L256:
+	ld.bu	d15,[a4]1
+.L257:
+	or	d2,d15
+.L258:
+	j	.L2
+.L2:
+	ret
+.L124:
+	
+__readUint16BE_function_end:
+	.size	readUint16BE,__readUint16BE_function_end-readUint16BE
+.L82:
+	; End of function
+	
+	.sdecl	'.text.doip_message.readUint32BE',code,cluster('readUint32BE')
+	.sect	'.text.doip_message.readUint32BE'
+	.align	2
+	
+; Function readUint32BE
+.L21:
+readUint32BE:	.type	func
+	ld.bu	d15,[a4]
+.L263:
+	sh	d0,d15,#24
+.L264:
+	ld.bu	d15,[a4]1
+.L265:
+	sh	d15,d15,#16
+.L266:
+	or	d0,d15
+.L267:
+	ld.bu	d15,[a4]2
+.L268:
+	sh	d15,d15,#8
+.L269:
+	or	d0,d15
+.L270:
+	ld.bu	d15,[a4]3
+.L271:
+	or	d2,d0,d15
+.L272:
+	j	.L3
+.L3:
+	ret
+.L126:
+	
+__readUint32BE_function_end:
+	.size	readUint32BE,__readUint32BE_function_end-readUint32BE
+.L87:
+	; End of function
+	
+	.sdecl	'.text.doip_message.DoIP_CreateHeader',code,cluster('DoIP_CreateHeader')
+	.sect	'.text.doip_message.DoIP_CreateHeader'
+	.align	2
+	
+	.global	DoIP_CreateHeader
+; Function DoIP_CreateHeader
+.L23:
+DoIP_CreateHeader:	.type	func
+	mov.aa	a15,a4
+.L129:
+	mov	d8,d5
+.L131:
+	mov	d15,#2
+.L176:
+	st.b	[a15],d15
+.L177:
+	mov	d15,#253
+.L178:
+	st.b	[a15]1,d15
+.L179:
+	mov.aa	a4,a15
+.L180:
+	add.a	a4,#2
+.L130:
+	call	writeUint16BE
+.L128:
+	add.a	a15,#4
+.L181:
+	mov.aa	a4,a15
+.L132:
+	mov	d4,d8
+.L134:
+	call	writeUint32BE
+.L133:
+	ret
+.L88:
+	
+__DoIP_CreateHeader_function_end:
+	.size	DoIP_CreateHeader,__DoIP_CreateHeader_function_end-DoIP_CreateHeader
+.L42:
+	; End of function
+	
+	.sdecl	'.text.doip_message.DoIP_ParseHeader',code,cluster('DoIP_ParseHeader')
+	.sect	'.text.doip_message.DoIP_ParseHeader'
+	.align	2
+	
+	.global	DoIP_ParseHeader
+; Function DoIP_ParseHeader
+.L25:
+DoIP_ParseHeader:	.type	func
+	mov.aa	a12,a4
+.L136:
+	mov.aa	a15,a5
+.L138:
+	ld.bu	d15,[a12]
+.L186:
+	jne	d15,#2,.L4
+.L187:
+	ld.bu	d15,[a12]1
+.L188:
+	mov	d0,#253
+.L189:
+	jeq	d15,d0,.L5
+.L4:
+	mov	d2,#0
+.L190:
+	j	.L6
+.L5:
+	mov	d15,#2
+.L191:
+	st.b	[a15],d15
+.L192:
+	ld.bu	d15,[a12]1
+.L193:
+	st.b	[a15]1,d15
+.L194:
+	mov.aa	a4,a12
+.L195:
+	add.a	a4,#2
+.L137:
+	call	readUint16BE
+.L135:
+	st.h	[a15]2,d2
+.L139:
+	add.a	a12,#4
+	mov.aa	a4,a12
+.L140:
+	call	readUint32BE
+.L141:
+	st.w	[a15]4,d2
+.L196:
+	mov	d2,#1
+.L197:
+	j	.L7
+.L7:
+.L6:
+	ret
+.L96:
+	
+__DoIP_ParseHeader_function_end:
+	.size	DoIP_ParseHeader,__DoIP_ParseHeader_function_end-DoIP_ParseHeader
+.L47:
+	; End of function
+	
+	.sdecl	'.text.doip_message.DoIP_CreateRoutingActivationRequest',code,cluster('DoIP_CreateRoutingActivationRequest')
+	.sect	'.text.doip_message.DoIP_CreateRoutingActivationRequest'
+	.align	2
+	
+	.global	DoIP_CreateRoutingActivationRequest
+; Function DoIP_CreateRoutingActivationRequest
+.L27:
+DoIP_CreateRoutingActivationRequest:	.type	func
+	mov.aa	a15,a4
+.L144:
+	mov	d15,d4
+.L145:
+	mov	d8,#7
+.L147:
+	mov	d4,#5
+.L143:
+	mov.aa	a4,a15
+	mov	d5,d8
+.L148:
+	call	DoIP_CreateHeader
+.L142:
+	lea	a4,[a15]8
+.L202:
+	mov	d4,d15
+.L149:
+	call	writeUint16BE
+.L150:
+	mov	d15,#0
+.L146:
+	st.b	[a15]10,d15
+.L203:
+	lea	a4,[a15]11
+.L204:
+	mov	d4,#0
+	call	writeUint32BE
+.L205:
+	add	d2,d8,#8
+.L206:
+	j	.L8
+.L8:
+	ret
+.L101:
+	
+__DoIP_CreateRoutingActivationRequest_function_end:
+	.size	DoIP_CreateRoutingActivationRequest,__DoIP_CreateRoutingActivationRequest_function_end-DoIP_CreateRoutingActivationRequest
+.L52:
+	; End of function
+	
+	.sdecl	'.text.doip_message.DoIP_ParseRoutingActivationResponse',code,cluster('DoIP_ParseRoutingActivationResponse')
+	.sect	'.text.doip_message.DoIP_ParseRoutingActivationResponse'
+	.align	2
+	
+	.global	DoIP_ParseRoutingActivationResponse
+; Function DoIP_ParseRoutingActivationResponse
+.L29:
+DoIP_ParseRoutingActivationResponse:	.type	func
+	jge.u	d4,#9,.L9
+.L211:
+	mov	d2,#0
+.L212:
+	j	.L10
+.L9:
+	ld.bu	d15,[a4]4
+.L213:
+	st.b	[a5],d15
+.L214:
+	mov	d2,#1
+.L215:
+	j	.L11
+.L11:
+.L10:
+	ret
+.L105:
+	
+__DoIP_ParseRoutingActivationResponse_function_end:
+	.size	DoIP_ParseRoutingActivationResponse,__DoIP_ParseRoutingActivationResponse_function_end-DoIP_ParseRoutingActivationResponse
+.L57:
+	; End of function
+	
+	.sdecl	'.text.doip_message.DoIP_CreateAliveCheckResponse',code,cluster('DoIP_CreateAliveCheckResponse')
+	.sect	'.text.doip_message.DoIP_CreateAliveCheckResponse'
+	.align	2
+	
+	.global	DoIP_CreateAliveCheckResponse
+; Function DoIP_CreateAliveCheckResponse
+.L31:
+DoIP_CreateAliveCheckResponse:	.type	func
+	mov.aa	a15,a4
+.L153:
+	mov	d15,d4
+.L154:
+	mov	d8,#2
+.L155:
+	mov	d4,#8
+.L152:
+	mov.aa	a4,a15
+	mov	d5,d8
+.L156:
+	call	DoIP_CreateHeader
+.L151:
+	lea	a4,[a15]8
+.L220:
+	mov	d4,d15
+.L157:
+	call	writeUint16BE
+.L158:
+	add	d2,d8,#8
+.L221:
+	j	.L12
+.L12:
+	ret
+.L109:
+	
+__DoIP_CreateAliveCheckResponse_function_end:
+	.size	DoIP_CreateAliveCheckResponse,__DoIP_CreateAliveCheckResponse_function_end-DoIP_CreateAliveCheckResponse
+.L62:
+	; End of function
+	
+	.sdecl	'.text.doip_message.DoIP_CreateZoneStatusReport',code,cluster('DoIP_CreateZoneStatusReport')
+	.sect	'.text.doip_message.DoIP_CreateZoneStatusReport'
+	.align	2
+	
+	.global	DoIP_CreateZoneStatusReport
+; Function DoIP_CreateZoneStatusReport
+.L33:
+DoIP_CreateZoneStatusReport:	.type	func
+	mov.aa	a15,a4
+.L161:
+	mov	d15,d4
+.L162:
+	mov.aa	a12,a5
+.L163:
+	mul	d8,d15,#5
+.L164:
+	add	d8,#1
+.L226:
+	mov.u	d4,#36865
+.L160:
+	mov.aa	a4,a15
+	mov	d5,d8
+.L165:
+	call	DoIP_CreateHeader
+.L159:
+	st.b	[a15]8,d15
+.L227:
+	lea	a4,[a15]9
+.L228:
+	mul	d4,d15,#5
+	mov.aa	a5,a12
+.L166:
+	call	memcpy
+.L167:
+	add	d2,d8,#8
+.L229:
+	j	.L13
+.L13:
+	ret
+.L113:
+	
+__DoIP_CreateZoneStatusReport_function_end:
+	.size	DoIP_CreateZoneStatusReport,__DoIP_CreateZoneStatusReport_function_end-DoIP_CreateZoneStatusReport
+.L67:
+	; End of function
+	
+	.calls	'DoIP_CreateHeader','writeUint16BE'
+	.calls	'DoIP_CreateHeader','writeUint32BE'
+	.calls	'DoIP_ParseHeader','readUint16BE'
+	.calls	'DoIP_ParseHeader','readUint32BE'
+	.calls	'DoIP_CreateRoutingActivationRequest','DoIP_CreateHeader'
+	.calls	'DoIP_CreateRoutingActivationRequest','writeUint16BE'
+	.calls	'DoIP_CreateRoutingActivationRequest','writeUint32BE'
+	.calls	'DoIP_CreateAliveCheckResponse','DoIP_CreateHeader'
+	.calls	'DoIP_CreateAliveCheckResponse','writeUint16BE'
+	.calls	'DoIP_CreateZoneStatusReport','DoIP_CreateHeader'
+	.calls	'DoIP_CreateZoneStatusReport','memcpy'
+	.calls	'writeUint16BE','',0
+	.calls	'writeUint32BE','',0
+	.calls	'readUint16BE','',0
+	.calls	'readUint32BE','',0
+	.calls	'DoIP_CreateHeader','',0
+	.calls	'DoIP_ParseHeader','',0
+	.calls	'DoIP_CreateRoutingActivationRequest','',0
+	.calls	'DoIP_ParseRoutingActivationResponse','',0
+	.calls	'DoIP_CreateAliveCheckResponse','',0
+	.extern	memcpy
+	.calls	'DoIP_CreateZoneStatusReport','',0
+	.sdecl	'.debug_info',debug
+	.sect	'.debug_info'
+.L35:
+	.word	820
+	.half	3
+	.word	.L36
+	.byte	4
+.L34:
+	.byte	1
+	.byte	'../Libraries/DoIP/doip_message.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\TriCore Debug (TASKING)\\',0
+	.byte	12,1
+	.word	.L37
+.L95:
+	.byte	2
+	.byte	'unsigned char',0,1,8
+.L89:
+	.byte	3
+	.word	233
+.L91:
+	.byte	2
+	.byte	'unsigned short int',0,2,7
+.L93:
+	.byte	2
+	.byte	'unsigned long int',0,4,7,4
+	.word	233
+.L97:
+	.byte	3
+	.word	298
+	.byte	5,1,84,9,8,6
+	.byte	'protocolVersion',0
+	.word	233
+	.byte	1,2,35,0,6
+	.byte	'inverseProtocolVersion',0
+	.word	233
+	.byte	1,2,35,1,6
+	.byte	'payloadType',0
+	.word	255
+	.byte	2,2,35,2,6
+	.byte	'payloadLength',0
+	.word	277
+	.byte	4,2,35,4,0
+.L99:
+	.byte	3
+	.word	308
+	.byte	7
+	.byte	'void',0,3
+	.word	420
+	.byte	8
+	.word	426
+	.byte	4
+	.word	420
+	.byte	3
+	.word	436
+	.byte	8
+	.word	441
+	.byte	2
+	.byte	'unsigned int',0,4,7,9
+	.byte	'memcpy',0,2,53,17
+	.word	426
+	.byte	1,1,1,1,10,2,53,33
+	.word	431
+	.byte	10,2,53,56
+	.word	446
+	.byte	10,2,53,68
+	.word	451
+	.byte	0,2
+	.byte	'short int',0,2,5,11
+	.byte	'__wchar_t',0,3,1,1
+	.word	511
+	.byte	11
+	.byte	'__size_t',0,3,1,1
+	.word	451
+	.byte	2
+	.byte	'int',0,4,5,11
+	.byte	'__ptrdiff_t',0,3,1,1
+	.word	559
+	.byte	12,1,3
+	.word	586
+	.byte	11
+	.byte	'__codeptr',0,3,1,1
+	.word	588
+	.byte	11
+	.byte	'size_t',0,4,24,25
+	.word	451
+	.byte	11
+	.byte	'boolean',0,5,104,29
+	.word	233
+	.byte	11
+	.byte	'uint8',0,5,108,29
+	.word	233
+	.byte	11
+	.byte	'uint16',0,5,112,29
+	.word	255
+	.byte	11
+	.byte	'uint32',0,5,116,29
+	.word	277
+	.byte	11
+	.byte	'sint16',0,5,129,1,29
+	.word	511
+	.byte	2
+	.byte	'long int',0,4,5,11
+	.byte	'sint32',0,5,134,1,29
+	.word	702
+	.byte	2
+	.byte	'long long int',0,8,5,11
+	.byte	'sint64',0,5,141,1,29
+	.word	730
+	.byte	2
+	.byte	'float',0,4,4,11
+	.byte	'float32',0,5,170,1,29
+	.word	763
+	.byte	11
+	.byte	'pvoid',0,6,54,28
+	.word	426
+	.byte	11
+	.byte	'DoIP_Header',0,1,91,3
+	.word	308
+	.byte	0
+	.sdecl	'.debug_abbrev',debug
+	.sect	'.debug_abbrev'
+.L36:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,16,6,0,0,2,36,0,3,8,11,15,62,15,0,0,3,15,0,73,19,0,0,4,38,0,73,19
+	.byte	0,0,5,19,1,58,15,59,15,57,15,11,15,0,0,6,13,0,3,8,73,19,11,15,56,9,0,0,7,59,0,3,8,0,0,8,55,0,73,19,0,0
+	.byte	9,46,1,3,8,58,15,59,15,57,15,73,19,54,15,39,12,63,12,60,12,0,0,10,5,0,58,15,59,15,57,15,73,19,0,0,11,22
+	.byte	0,3,8,58,15,59,15,57,15,73,19,0,0,12,21,0,54,15,0,0,0
+	.sdecl	'.debug_line',debug
+	.sect	'.debug_line'
+.L37:
+	.word	.L169-.L168
+.L168:
+	.half	3
+	.word	.L171-.L170
+.L170:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1
+	.byte	'C:\\Infineon\\AURIX-Studio-1.10.24\\tools\\Compilers\\Tasking_1.1r8\\ctc\\include\\',0
+	.byte	'C:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Cpu\\\\Std',0
+	.byte	0
+	.byte	'..\\Libraries\\DoIP\\doip_types.h',0,0,0,0
+	.byte	'string.h',0,1,0,0
+	.byte	'../Libraries/DoIP/doip_message.c',0,0,0,0
+	.byte	'stddef.h',0,1,0,0
+	.byte	'Platform_Types.h',0,2,0,0
+	.byte	'Ifx_Types.h',0,2,0,0,0
+.L171:
+.L169:
+	.sdecl	'.debug_info',debug,cluster('DoIP_CreateHeader')
+	.sect	'.debug_info'
+.L38:
+	.word	355
+	.half	3
+	.word	.L39
+	.byte	4,1
+	.byte	'../Libraries/DoIP/doip_message.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\TriCore Debug (TASKING)\\',0
+	.byte	12,1
+	.word	.L41,.L40
+	.byte	2
+	.word	.L34
+	.byte	3
+	.byte	'DoIP_CreateHeader',0,1,42,6,1,1,1
+	.word	.L23,.L88,.L22
+	.byte	4
+	.byte	'buffer',0,1,42,31
+	.word	.L89,.L90
+	.byte	4
+	.byte	'payloadType',0,1,42,46
+	.word	.L91,.L92
+	.byte	4
+	.byte	'payloadLength',0,1,42,66
+	.word	.L93,.L94
+	.byte	5
+	.word	.L23,.L88
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('DoIP_CreateHeader')
+	.sect	'.debug_abbrev'
+.L39:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('DoIP_CreateHeader')
+	.sect	'.debug_line'
+.L40:
+	.word	.L173-.L172
+.L172:
+	.half	3
+	.word	.L175-.L174
+.L174:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Libraries/DoIP/doip_message.c',0,0,0,0,0
+.L175:
+	.byte	5,6,7,0,5,2
+	.word	.L23
+	.byte	3,41,1,5,17,9
+	.half	.L131-.L23
+	.byte	3,2,1,5,15,9
+	.half	.L176-.L131
+	.byte	1,5,17,9
+	.half	.L177-.L176
+	.byte	3,1,1,5,15,9
+	.half	.L178-.L177
+	.byte	1,5,27,9
+	.half	.L179-.L178
+	.byte	3,1,1,5,26,9
+	.half	.L180-.L179
+	.byte	1,5,31,9
+	.half	.L130-.L180
+	.byte	1,5,26,9
+	.half	.L128-.L130
+	.byte	3,1,1,5,31,9
+	.half	.L181-.L128
+	.byte	1,5,1,9
+	.half	.L133-.L181
+	.byte	3,1,1,7,9
+	.half	.L42-.L133
+	.byte	0,1,1
+.L173:
+	.sdecl	'.debug_ranges',debug,cluster('DoIP_CreateHeader')
+	.sect	'.debug_ranges'
+.L41:
+	.word	-1,.L23,0,.L42-.L23,0,0
+	.sdecl	'.debug_info',debug,cluster('DoIP_ParseHeader')
+	.sect	'.debug_info'
+.L43:
+	.word	327
+	.half	3
+	.word	.L44
+	.byte	4,1
+	.byte	'../Libraries/DoIP/doip_message.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\TriCore Debug (TASKING)\\',0
+	.byte	12,1
+	.word	.L46,.L45
+	.byte	2
+	.word	.L34
+	.byte	3
+	.byte	'DoIP_ParseHeader',0,1,50,9
+	.word	.L95
+	.byte	1,1,1
+	.word	.L25,.L96,.L24
+	.byte	4
+	.byte	'buffer',0,1,50,39
+	.word	.L97,.L98
+	.byte	4
+	.byte	'header',0,1,50,60
+	.word	.L99,.L100
+	.byte	5
+	.word	.L25,.L96
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('DoIP_ParseHeader')
+	.sect	'.debug_abbrev'
+.L44:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('DoIP_ParseHeader')
+	.sect	'.debug_line'
+.L45:
+	.word	.L183-.L182
+.L182:
+	.half	3
+	.word	.L185-.L184
+.L184:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Libraries/DoIP/doip_message.c',0,0,0,0,0
+.L185:
+	.byte	5,9,7,0,5,2
+	.word	.L25
+	.byte	3,49,1,5,15,9
+	.half	.L138-.L25
+	.byte	3,3,1,5,9,9
+	.half	.L186-.L138
+	.byte	1,5,53,7,9
+	.half	.L187-.L186
+	.byte	1,5,60,9
+	.half	.L188-.L187
+	.byte	1,5,57,9
+	.half	.L189-.L188
+	.byte	1,5,16,7,9
+	.half	.L4-.L189
+	.byte	3,2,1,5,9,9
+	.half	.L190-.L4
+	.byte	1,5,37,9
+	.half	.L5-.L190
+	.byte	3,3,1,5,29,9
+	.half	.L191-.L5
+	.byte	1,5,44,9
+	.half	.L192-.L191
+	.byte	3,1,1,5,36,9
+	.half	.L193-.L192
+	.byte	1,5,48,9
+	.half	.L194-.L193
+	.byte	3,1,1,5,47,9
+	.half	.L195-.L194
+	.byte	1,5,25,9
+	.half	.L135-.L195
+	.byte	1,5,49,9
+	.half	.L139-.L135
+	.byte	3,1,1,5,27,9
+	.half	.L141-.L139
+	.byte	1,5,12,9
+	.half	.L196-.L141
+	.byte	3,2,1,5,5,9
+	.half	.L197-.L196
+	.byte	1,5,1,9
+	.half	.L6-.L197
+	.byte	3,1,1,7,9
+	.half	.L47-.L6
+	.byte	0,1,1
+.L183:
+	.sdecl	'.debug_ranges',debug,cluster('DoIP_ParseHeader')
+	.sect	'.debug_ranges'
+.L46:
+	.word	-1,.L25,0,.L47-.L25,0,0
+	.sdecl	'.debug_info',debug,cluster('DoIP_CreateRoutingActivationRequest')
+	.sect	'.debug_info'
+.L48:
+	.word	380
+	.half	3
+	.word	.L49
+	.byte	4,1
+	.byte	'../Libraries/DoIP/doip_message.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\TriCore Debug (TASKING)\\',0
+	.byte	12,1
+	.word	.L51,.L50
+	.byte	2
+	.word	.L34
+	.byte	3
+	.byte	'DoIP_CreateRoutingActivationRequest',0,1,66,8
+	.word	.L91
+	.byte	1,1,1
+	.word	.L27,.L101,.L26
+	.byte	4
+	.byte	'buffer',0,1,66,51
+	.word	.L89,.L102
+	.byte	4
+	.byte	'sourceAddress',0,1,66,66
+	.word	.L91,.L103
+	.byte	5
+	.word	.L27,.L101
+	.byte	6
+	.byte	'payloadLength',0,1,69,12
+	.word	.L93,.L104
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('DoIP_CreateRoutingActivationRequest')
+	.sect	'.debug_abbrev'
+.L49:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
+	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('DoIP_CreateRoutingActivationRequest')
+	.sect	'.debug_line'
+.L50:
+	.word	.L199-.L198
+.L198:
+	.half	3
+	.word	.L201-.L200
+.L200:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Libraries/DoIP/doip_message.c',0,0,0,0,0
+.L201:
+	.byte	5,8,7,0,5,2
+	.word	.L27
+	.byte	3,193,0,1,5,26,9
+	.half	.L145-.L27
+	.byte	3,3,1,5,31,9
+	.half	.L147-.L145
+	.byte	3,1,1,5,60,9
+	.half	.L143-.L147
+	.byte	1,5,26,9
+	.half	.L142-.L143
+	.byte	3,3,1,5,31,9
+	.half	.L202-.L142
+	.byte	1,5,18,9
+	.half	.L150-.L202
+	.byte	3,1,1,5,16,9
+	.half	.L146-.L150
+	.byte	1,5,26,9
+	.half	.L203-.L146
+	.byte	3,1,1,5,32,9
+	.half	.L204-.L203
+	.byte	1,5,29,9
+	.half	.L205-.L204
+	.byte	3,2,1,5,5,9
+	.half	.L206-.L205
+	.byte	1,5,1,9
+	.half	.L8-.L206
+	.byte	3,1,1,7,9
+	.half	.L52-.L8
+	.byte	0,1,1
+.L199:
+	.sdecl	'.debug_ranges',debug,cluster('DoIP_CreateRoutingActivationRequest')
+	.sect	'.debug_ranges'
+.L51:
+	.word	-1,.L27,0,.L52-.L27,0,0
+	.sdecl	'.debug_info',debug,cluster('DoIP_ParseRoutingActivationResponse')
+	.sect	'.debug_info'
+.L53:
+	.word	379
+	.half	3
+	.word	.L54
+	.byte	4,1
+	.byte	'../Libraries/DoIP/doip_message.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\TriCore Debug (TASKING)\\',0
+	.byte	12,1
+	.word	.L56,.L55
+	.byte	2
+	.word	.L34
+	.byte	3
+	.byte	'DoIP_ParseRoutingActivationResponse',0,1,80,9
+	.word	.L95
+	.byte	1,1,1
+	.word	.L29,.L105,.L28
+	.byte	4
+	.byte	'payload',0,1,80,58
+	.word	.L97,.L106
+	.byte	4
+	.byte	'payloadLength',0,1,80,74
+	.word	.L93,.L107
+	.byte	4
+	.byte	'responseCode',0,1,80,96
+	.word	.L89,.L108
+	.byte	5
+	.word	.L29,.L105
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('DoIP_ParseRoutingActivationResponse')
+	.sect	'.debug_abbrev'
+.L54:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('DoIP_ParseRoutingActivationResponse')
+	.sect	'.debug_line'
+.L55:
+	.word	.L208-.L207
+.L207:
+	.half	3
+	.word	.L210-.L209
+.L209:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Libraries/DoIP/doip_message.c',0,0,0,0,0
+.L210:
+	.byte	5,5,7,0,5,2
+	.word	.L29
+	.byte	3,210,0,1,5,16,7,9
+	.half	.L211-.L29
+	.byte	3,2,1,5,9,9
+	.half	.L212-.L211
+	.byte	1,5,28,9
+	.half	.L9-.L212
+	.byte	3,4,1,5,19,9
+	.half	.L213-.L9
+	.byte	1,5,12,9
+	.half	.L214-.L213
+	.byte	3,2,1,5,5,9
+	.half	.L215-.L214
+	.byte	1,5,1,9
+	.half	.L10-.L215
+	.byte	3,1,1,7,9
+	.half	.L57-.L10
+	.byte	0,1,1
+.L208:
+	.sdecl	'.debug_ranges',debug,cluster('DoIP_ParseRoutingActivationResponse')
+	.sect	'.debug_ranges'
+.L56:
+	.word	-1,.L29,0,.L57-.L29,0,0
+	.sdecl	'.debug_info',debug,cluster('DoIP_CreateAliveCheckResponse')
+	.sect	'.debug_info'
+.L58:
+	.word	374
+	.half	3
+	.word	.L59
+	.byte	4,1
+	.byte	'../Libraries/DoIP/doip_message.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\TriCore Debug (TASKING)\\',0
+	.byte	12,1
+	.word	.L61,.L60
+	.byte	2
+	.word	.L34
+	.byte	3
+	.byte	'DoIP_CreateAliveCheckResponse',0,1,94,8
+	.word	.L91
+	.byte	1,1,1
+	.word	.L31,.L109,.L30
+	.byte	4
+	.byte	'buffer',0,1,94,45
+	.word	.L89,.L110
+	.byte	4
+	.byte	'sourceAddress',0,1,94,60
+	.word	.L91,.L111
+	.byte	5
+	.word	.L31,.L109
+	.byte	6
+	.byte	'payloadLength',0,1,97,12
+	.word	.L93,.L112
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('DoIP_CreateAliveCheckResponse')
+	.sect	'.debug_abbrev'
+.L59:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
+	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('DoIP_CreateAliveCheckResponse')
+	.sect	'.debug_line'
+.L60:
+	.word	.L217-.L216
+.L216:
+	.half	3
+	.word	.L219-.L218
+.L218:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Libraries/DoIP/doip_message.c',0,0,0,0,0
+.L219:
+	.byte	5,8,7,0,5,2
+	.word	.L31
+	.byte	3,221,0,1,5,26,9
+	.half	.L154-.L31
+	.byte	3,3,1,5,31,9
+	.half	.L155-.L154
+	.byte	3,1,1,5,53,9
+	.half	.L152-.L155
+	.byte	1,5,26,9
+	.half	.L151-.L152
+	.byte	3,3,1,5,31,9
+	.half	.L220-.L151
+	.byte	1,5,29,9
+	.half	.L158-.L220
+	.byte	3,2,1,5,5,9
+	.half	.L221-.L158
+	.byte	1,5,1,9
+	.half	.L12-.L221
+	.byte	3,1,1,7,9
+	.half	.L62-.L12
+	.byte	0,1,1
+.L217:
+	.sdecl	'.debug_ranges',debug,cluster('DoIP_CreateAliveCheckResponse')
+	.sect	'.debug_ranges'
+.L61:
+	.word	-1,.L31,0,.L62-.L31,0,0
+	.sdecl	'.debug_info',debug,cluster('DoIP_CreateZoneStatusReport')
+	.sect	'.debug_info'
+.L63:
+	.word	389
+	.half	3
+	.word	.L64
+	.byte	4,1
+	.byte	'../Libraries/DoIP/doip_message.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\TriCore Debug (TASKING)\\',0
+	.byte	12,1
+	.word	.L66,.L65
+	.byte	2
+	.word	.L34
+	.byte	3
+	.byte	'DoIP_CreateZoneStatusReport',0,1,107,8
+	.word	.L91
+	.byte	1,1,1
+	.word	.L33,.L113,.L32
+	.byte	4
+	.byte	'buffer',0,1,107,43
+	.word	.L89,.L114
+	.byte	4
+	.byte	'zoneCount',0,1,107,57
+	.word	.L95,.L115
+	.byte	4
+	.byte	'zoneData',0,1,107,81
+	.word	.L97,.L116
+	.byte	5
+	.word	.L33,.L113
+	.byte	6
+	.byte	'payloadLength',0,1,110,12
+	.word	.L93,.L117
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('DoIP_CreateZoneStatusReport')
+	.sect	'.debug_abbrev'
+.L64:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
+	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('DoIP_CreateZoneStatusReport')
+	.sect	'.debug_line'
+.L65:
+	.word	.L223-.L222
+.L222:
+	.half	3
+	.word	.L225-.L224
+.L224:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Libraries/DoIP/doip_message.c',0,0,0,0,0
+.L225:
+	.byte	5,8,7,0,5,2
+	.word	.L33
+	.byte	3,234,0,1,5,43,9
+	.half	.L163-.L33
+	.byte	3,3,1,5,30,9
+	.half	.L164-.L163
+	.byte	1,5,31,9
+	.half	.L226-.L164
+	.byte	3,1,1,5,58,9
+	.half	.L160-.L226
+	.byte	1,5,15,9
+	.half	.L159-.L160
+	.byte	3,3,1,5,19,9
+	.half	.L227-.L159
+	.byte	3,3,1,5,44,9
+	.half	.L228-.L227
+	.byte	1,5,29,9
+	.half	.L167-.L228
+	.byte	3,2,1,5,5,9
+	.half	.L229-.L167
+	.byte	1,5,1,9
+	.half	.L13-.L229
+	.byte	3,1,1,7,9
+	.half	.L67-.L13
+	.byte	0,1,1
+.L223:
+	.sdecl	'.debug_ranges',debug,cluster('DoIP_CreateZoneStatusReport')
+	.sect	'.debug_ranges'
+.L66:
+	.word	-1,.L33,0,.L67-.L33,0,0
+	.sdecl	'.debug_info',debug,cluster('writeUint16BE')
+	.sect	'.debug_info'
+.L68:
+	.word	318
+	.half	3
+	.word	.L69
+	.byte	4,1
+	.byte	'../Libraries/DoIP/doip_message.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\TriCore Debug (TASKING)\\',0
+	.byte	12,1
+	.word	.L71,.L70
+	.byte	2
+	.word	.L34
+	.byte	3
+	.byte	'writeUint16BE',0,1,13,13,1,1
+	.word	.L15,.L118,.L14
+	.byte	4
+	.byte	'buffer',0,1,13,34
+	.word	.L89,.L119
+	.byte	4
+	.byte	'value',0,1,13,49
+	.word	.L91,.L120
+	.byte	5
+	.word	.L15,.L118
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('writeUint16BE')
+	.sect	'.debug_abbrev'
+.L69:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('writeUint16BE')
+	.sect	'.debug_line'
+.L70:
+	.word	.L231-.L230
+.L230:
+	.half	3
+	.word	.L233-.L232
+.L232:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Libraries/DoIP/doip_message.c',0,0,0,0,0
+.L233:
+	.byte	5,32,7,0,5,2
+	.word	.L15
+	.byte	3,14,1,5,38,9
+	.half	.L234-.L15
+	.byte	1,5,15,9
+	.half	.L235-.L234
+	.byte	1,5,31,9
+	.half	.L236-.L235
+	.byte	3,1,1,5,15,9
+	.half	.L237-.L236
+	.byte	1,5,1,9
+	.half	.L238-.L237
+	.byte	3,1,1,7,9
+	.half	.L72-.L238
+	.byte	0,1,1
+.L231:
+	.sdecl	'.debug_ranges',debug,cluster('writeUint16BE')
+	.sect	'.debug_ranges'
+.L71:
+	.word	-1,.L15,0,.L72-.L15,0,0
+	.sdecl	'.debug_info',debug,cluster('writeUint32BE')
+	.sect	'.debug_info'
+.L73:
+	.word	318
+	.half	3
+	.word	.L74
+	.byte	4,1
+	.byte	'../Libraries/DoIP/doip_message.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\TriCore Debug (TASKING)\\',0
+	.byte	12,1
+	.word	.L76,.L75
+	.byte	2
+	.word	.L34
+	.byte	3
+	.byte	'writeUint32BE',0,1,19,13,1,1
+	.word	.L17,.L121,.L16
+	.byte	4
+	.byte	'buffer',0,1,19,34
+	.word	.L89,.L122
+	.byte	4
+	.byte	'value',0,1,19,49
+	.word	.L93,.L123
+	.byte	5
+	.word	.L17,.L121
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('writeUint32BE')
+	.sect	'.debug_abbrev'
+.L74:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('writeUint32BE')
+	.sect	'.debug_line'
+.L75:
+	.word	.L240-.L239
+.L239:
+	.half	3
+	.word	.L242-.L241
+.L241:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Libraries/DoIP/doip_message.c',0,0,0,0,0
+.L242:
+	.byte	5,39,7,0,5,2
+	.word	.L17
+	.byte	3,20,1,5,15,9
+	.half	.L243-.L17
+	.byte	1,5,39,9
+	.half	.L244-.L243
+	.byte	3,1,1,5,15,9
+	.half	.L245-.L244
+	.byte	1,5,38,9
+	.half	.L246-.L245
+	.byte	3,1,1,5,15,9
+	.half	.L247-.L246
+	.byte	1,5,31,9
+	.half	.L248-.L247
+	.byte	3,1,1,5,15,9
+	.half	.L249-.L248
+	.byte	1,5,1,9
+	.half	.L250-.L249
+	.byte	3,1,1,7,9
+	.half	.L77-.L250
+	.byte	0,1,1
+.L240:
+	.sdecl	'.debug_ranges',debug,cluster('writeUint32BE')
+	.sect	'.debug_ranges'
+.L76:
+	.word	-1,.L17,0,.L77-.L17,0,0
+	.sdecl	'.debug_info',debug,cluster('readUint16BE')
+	.sect	'.debug_info'
+.L78:
+	.word	303
+	.half	3
+	.word	.L79
+	.byte	4,1
+	.byte	'../Libraries/DoIP/doip_message.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\TriCore Debug (TASKING)\\',0
+	.byte	12,1
+	.word	.L81,.L80
+	.byte	2
+	.word	.L34
+	.byte	3
+	.byte	'readUint16BE',0,1,27,15
+	.word	.L91
+	.byte	1,1
+	.word	.L19,.L124,.L18
+	.byte	4
+	.byte	'buffer',0,1,27,41
+	.word	.L97,.L125
+	.byte	5
+	.word	.L19,.L124
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('readUint16BE')
+	.sect	'.debug_abbrev'
+.L79:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('readUint16BE')
+	.sect	'.debug_line'
+.L80:
+	.word	.L252-.L251
+.L251:
+	.half	3
+	.word	.L254-.L253
+.L253:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Libraries/DoIP/doip_message.c',0,0,0,0,0
+.L254:
+	.byte	5,27,7,0,5,2
+	.word	.L19
+	.byte	3,28,1,5,31,9
+	.half	.L255-.L19
+	.byte	1,5,45,9
+	.half	.L256-.L255
+	.byte	1,5,37,9
+	.half	.L257-.L256
+	.byte	1,5,5,9
+	.half	.L258-.L257
+	.byte	1,5,1,9
+	.half	.L2-.L258
+	.byte	3,1,1,7,9
+	.half	.L82-.L2
+	.byte	0,1,1
+.L252:
+	.sdecl	'.debug_ranges',debug,cluster('readUint16BE')
+	.sect	'.debug_ranges'
+.L81:
+	.word	-1,.L19,0,.L82-.L19,0,0
+	.sdecl	'.debug_info',debug,cluster('readUint32BE')
+	.sect	'.debug_info'
+.L83:
+	.word	303
+	.half	3
+	.word	.L84
+	.byte	4,1
+	.byte	'../Libraries/DoIP/doip_message.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\TriCore Debug (TASKING)\\',0
+	.byte	12,1
+	.word	.L86,.L85
+	.byte	2
+	.word	.L34
+	.byte	3
+	.byte	'readUint32BE',0,1,32,15
+	.word	.L93
+	.byte	1,1
+	.word	.L21,.L126,.L20
+	.byte	4
+	.byte	'buffer',0,1,32,41
+	.word	.L97,.L127
+	.byte	5
+	.word	.L21,.L126
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('readUint32BE')
+	.sect	'.debug_abbrev'
+.L84:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('readUint32BE')
+	.sect	'.debug_line'
+.L85:
+	.word	.L260-.L259
+.L259:
+	.half	3
+	.word	.L262-.L261
+.L261:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Libraries/DoIP/doip_message.c',0,0,0,0,0
+.L262:
+	.byte	5,27,7,0,5,2
+	.word	.L21
+	.byte	3,33,1,5,31,9
+	.half	.L263-.L21
+	.byte	1,5,55,9
+	.half	.L264-.L263
+	.byte	1,5,59,9
+	.half	.L265-.L264
+	.byte	1,5,38,9
+	.half	.L266-.L265
+	.byte	1,5,27,9
+	.half	.L267-.L266
+	.byte	3,1,1,5,31,9
+	.half	.L268-.L267
+	.byte	1,5,66,9
+	.half	.L269-.L268
+	.byte	3,127,1,5,45,9
+	.half	.L270-.L269
+	.byte	3,1,1,5,37,9
+	.half	.L271-.L270
+	.byte	1,5,5,9
+	.half	.L272-.L271
+	.byte	3,127,1,5,1,9
+	.half	.L3-.L272
+	.byte	3,2,1,7,9
+	.half	.L87-.L3
+	.byte	0,1,1
+.L260:
+	.sdecl	'.debug_ranges',debug,cluster('readUint32BE')
+	.sect	'.debug_ranges'
+.L86:
+	.word	-1,.L21,0,.L87-.L21,0,0
+	.sdecl	'.debug_loc',debug,cluster('DoIP_CreateAliveCheckResponse')
+	.sect	'.debug_loc'
+.L30:
+	.word	-1,.L31,0,.L109-.L31
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L110:
+	.word	-1,.L31,0,.L151-.L31
+	.half	1
+	.byte	100
+	.word	.L153-.L31,.L109-.L31
+	.half	1
+	.byte	111
+	.word	0,0
+.L112:
+	.word	-1,.L31,.L155-.L31,.L109-.L31
+	.half	1
+	.byte	88
+	.word	.L156-.L31,.L151-.L31
+	.half	1
+	.byte	85
+	.word	0,0
+.L111:
+	.word	-1,.L31,0,.L152-.L31
+	.half	1
+	.byte	84
+	.word	.L154-.L31,.L109-.L31
+	.half	1
+	.byte	95
+	.word	.L157-.L31,.L158-.L31
+	.half	1
+	.byte	84
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('DoIP_CreateHeader')
+	.sect	'.debug_loc'
+.L22:
+	.word	-1,.L23,0,.L88-.L23
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L90:
+	.word	-1,.L23,0,.L128-.L23
+	.half	1
+	.byte	100
+	.word	.L129-.L23,.L130-.L23
+	.half	1
+	.byte	111
+	.word	.L128-.L23,.L88-.L23
+	.half	1
+	.byte	111
+	.word	.L132-.L23,.L133-.L23
+	.half	1
+	.byte	100
+	.word	0,0
+.L94:
+	.word	-1,.L23,0,.L128-.L23
+	.half	1
+	.byte	85
+	.word	.L131-.L23,.L88-.L23
+	.half	1
+	.byte	88
+	.word	.L134-.L23,.L133-.L23
+	.half	1
+	.byte	84
+	.word	0,0
+.L92:
+	.word	-1,.L23,0,.L128-.L23
+	.half	1
+	.byte	84
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('DoIP_CreateRoutingActivationRequest')
+	.sect	'.debug_loc'
+.L26:
+	.word	-1,.L27,0,.L101-.L27
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L102:
+	.word	-1,.L27,0,.L142-.L27
+	.half	1
+	.byte	100
+	.word	.L144-.L27,.L101-.L27
+	.half	1
+	.byte	111
+	.word	0,0
+.L104:
+	.word	-1,.L27,.L147-.L27,.L101-.L27
+	.half	1
+	.byte	88
+	.word	.L148-.L27,.L142-.L27
+	.half	1
+	.byte	85
+	.word	0,0
+.L103:
+	.word	-1,.L27,0,.L143-.L27
+	.half	1
+	.byte	84
+	.word	.L145-.L27,.L146-.L27
+	.half	1
+	.byte	95
+	.word	.L149-.L27,.L150-.L27
+	.half	1
+	.byte	84
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('DoIP_CreateZoneStatusReport')
+	.sect	'.debug_loc'
+.L32:
+	.word	-1,.L33,0,.L113-.L33
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L114:
+	.word	-1,.L33,0,.L159-.L33
+	.half	1
+	.byte	100
+	.word	.L161-.L33,.L113-.L33
+	.half	1
+	.byte	111
+	.word	0,0
+.L117:
+	.word	-1,.L33,.L164-.L33,.L113-.L33
+	.half	1
+	.byte	88
+	.word	.L165-.L33,.L159-.L33
+	.half	1
+	.byte	85
+	.word	0,0
+.L115:
+	.word	-1,.L33,0,.L160-.L33
+	.half	1
+	.byte	84
+	.word	.L162-.L33,.L113-.L33
+	.half	1
+	.byte	95
+	.word	0,0
+.L116:
+	.word	-1,.L33,0,.L159-.L33
+	.half	1
+	.byte	101
+	.word	.L163-.L33,.L113-.L33
+	.half	1
+	.byte	108
+	.word	.L166-.L33,.L167-.L33
+	.half	1
+	.byte	101
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('DoIP_ParseHeader')
+	.sect	'.debug_loc'
+.L24:
+	.word	-1,.L25,0,.L96-.L25
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L98:
+	.word	-1,.L25,0,.L135-.L25
+	.half	1
+	.byte	100
+	.word	.L136-.L25,.L137-.L25
+	.half	1
+	.byte	108
+	.word	.L139-.L25,.L96-.L25
+	.half	1
+	.byte	108
+	.word	.L140-.L25,.L141-.L25
+	.half	1
+	.byte	100
+	.word	0,0
+.L100:
+	.word	-1,.L25,0,.L135-.L25
+	.half	1
+	.byte	101
+	.word	.L138-.L25,.L96-.L25
+	.half	1
+	.byte	111
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('DoIP_ParseRoutingActivationResponse')
+	.sect	'.debug_loc'
+.L28:
+	.word	-1,.L29,0,.L105-.L29
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L106:
+	.word	-1,.L29,0,.L105-.L29
+	.half	1
+	.byte	100
+	.word	0,0
+.L107:
+	.word	-1,.L29,0,.L105-.L29
+	.half	1
+	.byte	84
+	.word	0,0
+.L108:
+	.word	-1,.L29,0,.L105-.L29
+	.half	1
+	.byte	101
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('readUint16BE')
+	.sect	'.debug_loc'
+.L125:
+	.word	-1,.L19,0,.L124-.L19
+	.half	1
+	.byte	100
+	.word	0,0
+.L18:
+	.word	-1,.L19,0,.L124-.L19
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('readUint32BE')
+	.sect	'.debug_loc'
+.L127:
+	.word	-1,.L21,0,.L126-.L21
+	.half	1
+	.byte	100
+	.word	0,0
+.L20:
+	.word	-1,.L21,0,.L126-.L21
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('writeUint16BE')
+	.sect	'.debug_loc'
+.L119:
+	.word	-1,.L15,0,.L118-.L15
+	.half	1
+	.byte	100
+	.word	0,0
+.L120:
+	.word	-1,.L15,0,.L118-.L15
+	.half	1
+	.byte	84
+	.word	0,0
+.L14:
+	.word	-1,.L15,0,.L118-.L15
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('writeUint32BE')
+	.sect	'.debug_loc'
+.L122:
+	.word	-1,.L17,0,.L121-.L17
+	.half	1
+	.byte	100
+	.word	0,0
+.L123:
+	.word	-1,.L17,0,.L121-.L17
+	.half	1
+	.byte	84
+	.word	0,0
+.L16:
+	.word	-1,.L17,0,.L121-.L17
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_frame',debug
+	.sect	'.debug_frame'
+.L273:
+	.word	48
+	.word	-1
+	.byte	3,0,2,1,27,12,26,0,8,26,8,27,8,30,8,29,8,28,8,16,8,17,8,24,8,25,8,31,8,32,8,33,8,34,8,35,8,36,8,37,8,38
+	.byte	8,39
+	.sdecl	'.debug_frame',debug,cluster('writeUint16BE')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L273,.L15,.L118-.L15
+	.byte	8,18,8,19,8,21,8,22,8,23,0,0
+	.sdecl	'.debug_frame',debug,cluster('writeUint32BE')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L273,.L17,.L121-.L17
+	.byte	8,18,8,19,8,21,8,22,8,23,0,0
+	.sdecl	'.debug_frame',debug,cluster('readUint16BE')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L273,.L19,.L124-.L19
+	.byte	8,18,8,19,8,21,8,22,8,23,0,0
+	.sdecl	'.debug_frame',debug,cluster('readUint32BE')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L273,.L21,.L126-.L21
+	.byte	8,18,8,19,8,21,8,22,8,23,0,0
+	.sdecl	'.debug_frame',debug,cluster('DoIP_CreateHeader')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L273,.L23,.L88-.L23
+	.sdecl	'.debug_frame',debug,cluster('DoIP_ParseHeader')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L273,.L25,.L96-.L25
+	.sdecl	'.debug_frame',debug,cluster('DoIP_CreateRoutingActivationRequest')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L273,.L27,.L101-.L27
+	.sdecl	'.debug_frame',debug,cluster('DoIP_ParseRoutingActivationResponse')
+	.sect	'.debug_frame'
+	.word	20
+	.word	.L273,.L29,.L105-.L29
+	.byte	8,18,8,19,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('DoIP_CreateAliveCheckResponse')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L273,.L31,.L109-.L31
+	.sdecl	'.debug_frame',debug,cluster('DoIP_CreateZoneStatusReport')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L273,.L33,.L113-.L33
+	; Module end
