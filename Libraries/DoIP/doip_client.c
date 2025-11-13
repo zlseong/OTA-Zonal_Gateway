@@ -577,6 +577,7 @@ boolean DoIP_Client_RequestConsolidatedVCI(void)
     /* Build DoIP Diagnostic Message */
     uint8 buffer[256];
     UDS_Response dummy_response;  /* Not used for requests */
+    memset(&dummy_response, 0, sizeof(UDS_Response));
     dummy_response.source_address = request.source_address;
     dummy_response.target_address = request.target_address;
     dummy_response.is_positive = TRUE;
@@ -622,6 +623,7 @@ boolean DoIP_Client_RequestHealthStatus(void)
     /* Build DoIP Diagnostic Message */
     uint8 buffer[256];
     UDS_Response dummy_response;
+    memset(&dummy_response, 0, sizeof(UDS_Response));
     dummy_response.source_address = request.source_address;
     dummy_response.target_address = request.target_address;
     dummy_response.is_positive = TRUE;

@@ -9,6 +9,7 @@
 #include "AppConfig.h"
 #include "UART_Logging.h"
 #include "Libraries/DoIP/doip_types.h"
+#include "Libraries/DataCollection/readiness_manager.h"
 #include "lwip/udp.h"
 #include "lwip/pbuf.h"
 #include <string.h>
@@ -66,6 +67,26 @@ static void udp_echo_recv_callback(void *arg, struct udp_pcb *upcb, struct pbuf 
                 sendUARTMessage("[VCI] Ready to send to VMG\r\n", 29);
             }
         }
+    }
+    /* Check if this is a Readiness message (27 bytes) */
+    else if (p->tot_len == 27) {
+        uint8 buffer[27];
+        pbuf_copy_partial(p, buffer, 27, 0);
+        
+        /* Parse Readiness data into structure */
+        Readiness_Info readiness_info;
+        memcpy(readiness_info.ecu_id, &buffer[0], 16);
+        readiness_info.vehicle_parked = buffer[16];
+        readiness_info.engine_off = buffer[17];
+        readiness_info.battery_voltage_mv = ((uint16)buffer[18] << 8) | buffer[19];
+        readiness_info.available_memory_kb = ((uint32)buffer[20] << 24) | ((uint32)buffer[21] << 16) |
+                                             ((uint32)buffer[22] << 8) | buffer[23];
+        readiness_info.all_doors_closed = buffer[24];
+        readiness_info.compatible = buffer[25];
+        readiness_info.ready_for_update = buffer[26];
+        
+        /* Pass to Readiness manager */
+        Readiness_HandleResponse(&readiness_info);
     }
     
     pbuf_free(p);

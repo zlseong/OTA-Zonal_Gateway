@@ -18,7 +18,8 @@ DOIP_PAYLOAD_TYPE_ALIVE_CHECK_REQ = 0x0007
 DOIP_PAYLOAD_TYPE_ALIVE_CHECK_RES = 0x0008
 DOIP_PAYLOAD_TYPE_DIAG_MSG = 0x8001
 DOIP_PAYLOAD_TYPE_DIAG_ACK = 0x8002
-DOIP_PAYLOAD_TYPE_VCI_REPORT = 0x9000  # VCI Report from ZGW
+DOIP_PAYLOAD_TYPE_VCI_REPORT = 0x9000      # VCI Report from ZGW
+DOIP_PAYLOAD_TYPE_READINESS_REPORT = 0x9001  # NEW: Readiness Report from ZGW
 
 # UDS Configuration
 UDS_SID_ROUTINE_CONTROL = 0x31
@@ -28,6 +29,8 @@ UDS_POSITIVE_RESPONSE = 0x40
 # Routine IDs
 RID_VCI_COLLECTION_START = 0xF001
 RID_VCI_SEND_REPORT = 0xF002
+RID_READINESS_CHECK = 0xF003       # NEW: Start Readiness Check
+RID_READINESS_SEND_REPORT = 0xF004 # NEW: Send Readiness Report
 
 # DoIP Addresses
 ADDR_VMG = 0x0E00
@@ -45,40 +48,101 @@ class VMGServer:
         """Start VMG server"""
         print("="*60)
         print("VMG Server Simulator")
-        print(f"Listening on {self.host}:{self.port}")
-        print("Waiting for Zonal Gateway connection...")
-        print("="*60)
         
-        self.server_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.server_sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        self.server_sock.bind((self.host, self.port))
-        self.server_sock.listen(1)
+        try:
+            self.server_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            self.server_sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+            
+            # Bind to address
+            self.server_sock.bind((self.host, self.port))
+            self.server_sock.listen(5)  # Allow up to 5 pending connections
+            
+            # Get actual listening address
+            actual_addr = self.server_sock.getsockname()
+            print(f"✓ Server started successfully")
+            print(f"✓ Listening on {actual_addr[0]}:{actual_addr[1]}")
+            
+            # Get and display local IP addresses
+            hostname = socket.gethostname()
+            try:
+                local_ip = socket.gethostbyname(hostname)
+                print(f"✓ Local IP: {local_ip}")
+            except:
+                print("  (Could not determine local IP)")
+            
+            print("Waiting for Zonal Gateway connection...")
+            print("="*60)
+            
+        except OSError as e:
+            print(f"[ERROR] Failed to start server: {e}")
+            if e.errno == 10048:  # Address already in use (Windows)
+                print(f"[ERROR] Port {self.port} is already in use!")
+                print("       Try closing other instances or use a different port")
+            elif e.errno == 10049:  # Cannot assign requested address
+                print(f"[ERROR] Cannot bind to address {self.host}:{self.port}")
+            raise
         
         self.running = True
         
         try:
             while self.running:
-                print("\n[VMG] Waiting for connection...")
-                self.client_sock, addr = self.server_sock.accept()
-                print(f"[VMG] ✓ Connected from {addr[0]}:{addr[1]}")
-                
-                # Handle connection
-                self.handle_client()
+                try:
+                    print("\n[VMG] Waiting for connection...")
+                    self.client_sock, addr = self.server_sock.accept()
+                    print(f"[VMG] ✓ Connected from {addr[0]}:{addr[1]}")
+                    print(f"[VMG]   Remote endpoint: {addr[0]}:{addr[1]}")
+                    print(f"[VMG]   Ready to receive DoIP messages")
+                    
+                    # Handle connection
+                    self.handle_client()
+                    
+                except socket.timeout:
+                    print("[VMG] Accept timeout")
+                    continue
+                except OSError as e:
+                    if self.running:  # Only print if we're still supposed to be running
+                        print(f"[VMG] Socket error: {e}")
+                    break
+                finally:
+                    # Clean up client socket after each connection
+                    if self.client_sock:
+                        try:
+                            self.client_sock.close()
+                        except:
+                            pass
+                        self.client_sock = None
                 
         except KeyboardInterrupt:
             print("\n[VMG] Shutting down...")
         finally:
             if self.client_sock:
-                self.client_sock.close()
+                try:
+                    self.client_sock.close()
+                except:
+                    pass
             if self.server_sock:
-                self.server_sock.close()
+                try:
+                    self.server_sock.close()
+                except:
+                    pass
                 
     def handle_client(self):
         """Handle DoIP client (ZGW)"""
         try:
+            # Set socket timeout to detect hung connections
+            self.client_sock.settimeout(300.0)  # 5 minutes timeout
+            
             while self.running:
                 # Receive DoIP header (8 bytes)
-                header = self.client_sock.recv(8)
+                try:
+                    header = self.client_sock.recv(8)
+                except socket.timeout:
+                    print("[VMG] Connection timeout - no data received")
+                    break
+                except ConnectionResetError:
+                    print("[VMG] Connection reset by peer")
+                    break
+                    
                 if not header or len(header) < 8:
                     print("[VMG] Connection closed by client")
                     break
@@ -100,12 +164,22 @@ class VMGServer:
                 # Process message
                 self.process_message(payload_type, payload)
                 
+        except socket.timeout:
+            print(f"[VMG] Connection timeout")
+        except ConnectionResetError:
+            print(f"[VMG] Connection reset by client")
         except Exception as e:
             print(f"[VMG] Error: {e}")
+            import traceback
+            traceback.print_exc()
         finally:
             if self.client_sock:
-                self.client_sock.close()
+                try:
+                    self.client_sock.close()
+                except:
+                    pass
                 self.client_sock = None
+            print("[VMG] Client disconnected")
                 
     def process_message(self, payload_type, payload):
         """Process DoIP message"""
@@ -125,6 +199,12 @@ class VMGServer:
             print("[RX] ✓ VCI REPORT RECEIVED FROM ZGW")
             print("="*60)
             self.process_vci_report(payload)
+            
+        elif payload_type == DOIP_PAYLOAD_TYPE_READINESS_REPORT:
+            print("\n" + "="*60)
+            print("[RX] ✓ READINESS REPORT RECEIVED FROM ZGW")
+            print("="*60)
+            self.process_readiness_report(payload)
             
         else:
             print(f"[RX] Unknown message type: 0x{payload_type:04X}")
@@ -199,6 +279,22 @@ class VMGServer:
                     response_data = bytes([sid + UDS_POSITIVE_RESPONSE, sub,
                                          uds_data[2], uds_data[3], 0x00, 0x02])
                     print("  → Sending: Positive Response (Status=0x00, Count=2)")
+                    
+                elif rid == RID_READINESS_CHECK:
+                    print(" (Readiness Check Start)")
+                    print("  ✓ Command: Start Readiness Check")
+                    # Response: SID+0x40, sub, RID, status
+                    response_data = bytes([sid + UDS_POSITIVE_RESPONSE, sub,
+                                         uds_data[2], uds_data[3], 0x00])
+                    print("  → Sending: Positive Response (Status=0x00)")
+                    
+                elif rid == RID_READINESS_SEND_REPORT:
+                    print(" (Readiness Send Report)")
+                    print("  ✓ Command: Send Readiness Report")
+                    # Response: SID+0x40, sub, RID, status, count
+                    response_data = bytes([sid + UDS_POSITIVE_RESPONSE, sub,
+                                         uds_data[2], uds_data[3], 0x00, 0x01])
+                    print("  → Sending: Positive Response (Status=0x00, Count=1)")
                 else:
                     print(" (Unknown Routine)")
             else:
@@ -316,6 +412,83 @@ class VMGServer:
         print("\n" + "="*60)
         print("✓ VCI Report processing complete")
         print("="*60)
+    
+    def process_readiness_report(self, payload):
+        """Process Readiness Report message (0x9001)"""
+        if len(payload) < 1:
+            print("  [ERROR] Empty Readiness report")
+            return
+            
+        # First byte is ECU count
+        ecu_count = payload[0]
+        print(f"\n  📊 Total ECUs: {ecu_count}")
+        print(f"  📦 Payload size: {len(payload)} bytes")
+        
+        # Parse Readiness data
+        self.parse_readiness_data(payload)
+        
+        print("\n" + "="*60)
+        print("✓ Readiness Report processing complete")
+        print("="*60)
+    
+    def parse_readiness_data(self, data):
+        """Parse and display Readiness data in human-readable format"""
+        if len(data) < 1:
+            return
+            
+        # First byte is ECU count
+        ecu_count = data[0]
+        print(f"    Readiness Count: {ecu_count}")
+        
+        offset = 1
+        # OTA_ReadinessInfo structure size:
+        # ecu_id(16) + vehicle_parked(1) + engine_off(1) + battery_voltage_mv(2) +
+        # available_memory_kb(4) + all_doors_closed(1) + compatible(1) + ready_for_update(1)
+        # = 27 bytes
+        readiness_size = 27
+        
+        for i in range(ecu_count):
+            if offset + readiness_size > len(data):
+                print(f"    [ECU {i+1}] Incomplete data")
+                break
+                
+            ready_data = data[offset:offset + readiness_size]
+            offset += readiness_size
+            
+            # Parse Readiness structure
+            ecu_id = ready_data[0:16]
+            vehicle_parked = ready_data[16]
+            engine_off = ready_data[17]
+            battery_voltage_mv = (ready_data[18] << 8) | ready_data[19]
+            available_memory_kb = (ready_data[20] << 24) | (ready_data[21] << 16) | \
+                                 (ready_data[22] << 8) | ready_data[23]
+            all_doors_closed = ready_data[24]
+            compatible = ready_data[25]
+            ready_for_update = ready_data[26]
+            
+            # Convert ecu_id to string
+            ecu_id_str = ecu_id.decode('ascii', errors='ignore').rstrip('\x00')
+            
+            print(f"\n    ╔═══ Readiness Entry #{i+1} ════════════════════════")
+            print(f"    ║ ECU ID:            '{ecu_id_str}'")
+            print(f"    ║ Vehicle Parked:    {bool(vehicle_parked)}")
+            print(f"    ║ Engine Off:        {bool(engine_off)}")
+            print(f"    ║ Battery:           {battery_voltage_mv} mV ({battery_voltage_mv/1000:.2f}V)")
+            print(f"    ║ Available Memory:  {available_memory_kb} KB ({available_memory_kb/1024:.2f}MB)")
+            print(f"    ║ All Doors Closed:  {bool(all_doors_closed)}")
+            print(f"    ║ SW Compatible:     {bool(compatible)}")
+            print(f"    ║ ───────────────────────────────────────────")
+            
+            if ready_for_update:
+                print(f"    ║ 🟢 READY FOR UPDATE: YES")
+            else:
+                print(f"    ║ 🔴 READY FOR UPDATE: NO")
+                
+            print(f"    ╚════════════════════════════════════════════════")
+            
+        if offset < len(data):
+            remaining = data[offset:]
+            print(f"    Remaining data: {' '.join(f'{b:02X}' for b in remaining)}")
             
     def send_diagnostic_response(self, sa, ta, uds_data):
         """Send UDS diagnostic response"""
@@ -360,18 +533,38 @@ class VMGServer:
 
 
 def main():
-    server = VMGServer(host='0.0.0.0', port=13400)
+    import sys
+    
+    # Allow custom port via command line
+    port = 13400
+    if len(sys.argv) > 1:
+        try:
+            port = int(sys.argv[1])
+        except ValueError:
+            print(f"Invalid port: {sys.argv[1]}")
+            sys.exit(1)
+    
+    server = VMGServer(host='0.0.0.0', port=port)
     
     # Start server in thread
     server_thread = threading.Thread(target=server.start)
     server_thread.daemon = True
-    server_thread.start()
+    
+    try:
+        server_thread.start()
+        time.sleep(0.5)  # Give server time to start
+    except Exception as e:
+        print(f"[ERROR] Failed to start server thread: {e}")
+        sys.exit(1)
     
     # Simple command interface
     print("\n" + "="*60)
     print("Commands:")
     print("  1 - Send VCI Collection Start")
     print("  2 - Send VCI Report Request")
+    print("  3 - Send Readiness Check Start")
+    print("  4 - Send Readiness Report Request")
+    print("  s - Show connection status")
     print("  q - Quit")
     print("="*60)
     
@@ -381,6 +574,18 @@ def main():
             
             if cmd == 'q':
                 break
+            elif cmd == 's':
+                # Show status
+                if server.client_sock:
+                    try:
+                        peer = server.client_sock.getpeername()
+                        print(f"[STATUS] ✓ Connected to {peer[0]}:{peer[1]}")
+                    except:
+                        print("[STATUS] ✗ Connection lost")
+                        server.client_sock = None
+                else:
+                    print("[STATUS] ✗ No active connection")
+                    
             elif cmd == '1':
                 if server.client_sock:
                     # Send VCI Collection Start
@@ -410,6 +615,38 @@ def main():
                                        len(payload))
                     server.client_sock.sendall(header + payload)
                     print("[TX] VCI Report Request command sent")
+                else:
+                    print("[VMG] No active connection")
+                    
+            elif cmd == '3':
+                if server.client_sock:
+                    # Send Readiness Check Start
+                    uds_data = bytes([UDS_SID_ROUTINE_CONTROL, UDS_RC_START_ROUTINE,
+                                    (RID_READINESS_CHECK >> 8) & 0xFF,
+                                    RID_READINESS_CHECK & 0xFF])
+                    payload = struct.pack('>HH', ADDR_VMG, ADDR_ZGW) + uds_data
+                    header = struct.pack('>BBHL', DOIP_PROTOCOL_VERSION,
+                                       DOIP_INVERSE_VERSION,
+                                       DOIP_PAYLOAD_TYPE_DIAG_MSG,
+                                       len(payload))
+                    server.client_sock.sendall(header + payload)
+                    print("[TX] Readiness Check Start command sent")
+                else:
+                    print("[VMG] No active connection")
+                    
+            elif cmd == '4':
+                if server.client_sock:
+                    # Send Readiness Report Request
+                    uds_data = bytes([UDS_SID_ROUTINE_CONTROL, UDS_RC_START_ROUTINE,
+                                    (RID_READINESS_SEND_REPORT >> 8) & 0xFF,
+                                    RID_READINESS_SEND_REPORT & 0xFF])
+                    payload = struct.pack('>HH', ADDR_VMG, ADDR_ZGW) + uds_data
+                    header = struct.pack('>BBHL', DOIP_PROTOCOL_VERSION,
+                                       DOIP_INVERSE_VERSION,
+                                       DOIP_PAYLOAD_TYPE_DIAG_MSG,
+                                       len(payload))
+                    server.client_sock.sendall(header + payload)
+                    print("[TX] Readiness Report Request command sent")
                 else:
                     print("[VMG] No active connection")
                     

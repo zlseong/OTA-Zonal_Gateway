@@ -10,7 +10,8 @@
 #include "uds_handler.h"
 #include "doip_types.h"
 #include "doip_client.h"
-#include "vci_manager.h"
+#include "Libraries/DataCollection/vci_manager.h"
+#include "Libraries/DataCollection/readiness_manager.h"
 #include <string.h>
 
 /*******************************************************************************
@@ -103,8 +104,8 @@ boolean UDS_ParseDoIPDiagnostic(const uint8 *doip_payload, uint32 payload_len, U
     
     /* Debug: Log received UDS request */
     char log_msg[128];
-    sprintf(log_msg, "[UDS] RX: SID=0x%02X, SA=0x%04X, TA=0x%04X, Len=%d\r\n",
-            request->service_id, request->source_address, request->target_address, request->data_len);
+    sprintf(log_msg, "[UDS] RX: SID=0x%02X, SA=0x%04X, TA=0x%04X, Len=%u\r\n",
+            request->service_id, request->source_address, request->target_address, (unsigned int)request->data_len);
     sendUARTMessage(log_msg, strlen(log_msg));
     
     /* Hex dump of UDS data */
@@ -132,7 +133,7 @@ uint16 UDS_BuildDoIPDiagnostic(const UDS_Response *response, uint8 *buffer, uint
     }
     
     /* Calculate required size */
-    uint32 payload_len = 4 + 1 + response->data_len;  /* Routing + SID + data */
+    uint16 payload_len = 4 + 1 + response->data_len;  /* Routing + SID + data */
     uint16 total_len = DOIP_HEADER_SIZE + payload_len;
     
     if (total_len > buffer_size)
@@ -172,8 +173,8 @@ uint16 UDS_BuildDoIPDiagnostic(const UDS_Response *response, uint8 *buffer, uint
     
     /* Debug: Log sent UDS response */
     char log_msg[128];
-    sprintf(log_msg, "[UDS] TX: SID=0x%02X, SA=0x%04X, TA=0x%04X, Total=%d bytes\r\n",
-            response->service_id, response->source_address, response->target_address, total_len);
+    sprintf(log_msg, "[UDS] TX: SID=0x%02X, SA=0x%04X, TA=0x%04X, Total=%u bytes\r\n",
+            response->service_id, response->source_address, response->target_address, (unsigned int)total_len);
     sendUARTMessage(log_msg, strlen(log_msg));
     
     /* Hex dump of first 16 bytes */
@@ -449,7 +450,7 @@ boolean UDS_Service_RoutineControl(const UDS_Request *request, UDS_Response *res
                 response->data_len = 5;
                 
                 char log_msg[64];
-                sprintf(log_msg, "[UDS] VCI report sent (%d ECUs)\r\n", total_vci_count);
+                sprintf(log_msg, "[UDS] VCI report sent (%u ECUs)\r\n", (unsigned int)total_vci_count);
                 sendUARTMessage(log_msg, strlen(log_msg));
                 
                 return TRUE;
@@ -460,6 +461,73 @@ boolean UDS_Service_RoutineControl(const UDS_Request *request, UDS_Response *res
                 response->data[3] = 0x02;  /* Failure: Send error */
                 response->data_len = 4;
                 sendUARTMessage("[UDS] VCI send failed: TCP error\r\n", 35);
+                return TRUE;
+            }
+        }
+        
+        case UDS_RID_READINESS_CHECK:  /* 0xF003 - Start Readiness Check */
+        {
+            /* Start readiness check with UDP broadcast */
+            Readiness_StartCheck();
+            
+            /* Response: [sub][RID_H][RID_L][status=0x00=success] */
+            response->data[3] = 0x00;  /* Success */
+            response->data_len = 4;
+            
+            return TRUE;
+        }
+        
+        case UDS_RID_READINESS_SEND_REPORT:  /* 0xF004 - Send Readiness Report */
+        {
+            /* Check if DoIP is active */
+            if (!DoIP_Client_IsActive())
+            {
+                /* Connection not ready */
+                response->data[3] = 0x01;  /* Failure: Not connected */
+                response->data_len = 4;
+                sendUARTMessage("[UDS] Readiness send failed: DoIP not active\r\n", 47);
+                return TRUE;
+            }
+            
+            /* Get consolidated readiness */
+            uint8 readiness_count = 0;
+            Readiness_Info readiness_array[MAX_READINESS_ECUS + 1];
+            
+            if (Readiness_GetConsolidated(readiness_array, &readiness_count))
+            {
+                /* Send via custom DoIP payload (similar to VCI) */
+                /* TODO: Implement DoIP_Client_SendReadinessReport() */
+                
+                /* For now, embed in UDS response */
+                /* Response: [sub][RID_H][RID_L][status=0x00][count][ready_data...] */
+                response->data[3] = 0x00;  /* Success */
+                response->data[4] = readiness_count;
+                
+                /* Copy first readiness info as example (ZGW) */
+                if (readiness_count > 0)
+                {
+                    response->data[5] = readiness_array[0].ready_for_update ? 1 : 0;
+                    response->data[6] = (readiness_array[0].battery_voltage_mv >> 8) & 0xFF;
+                    response->data[7] = readiness_array[0].battery_voltage_mv & 0xFF;
+                    response->data_len = 8;
+                }
+                else
+                {
+                    response->data_len = 5;
+                }
+                
+                char log_msg[64];
+                sprintf(log_msg, "[UDS] Readiness report sent (%u ECUs)\r\n", (unsigned int)readiness_count);
+                sendUARTMessage(log_msg, strlen(log_msg));
+                
+                return TRUE;
+            }
+            else
+            {
+                /* Get readiness failed */
+                response->data[3] = 0x02;  /* Failure: Data error */
+                response->data_len = 4;
+                sendUARTMessage("[UDS] Readiness send failed: Data error\r\n", 42);
                 return TRUE;
             }
         }

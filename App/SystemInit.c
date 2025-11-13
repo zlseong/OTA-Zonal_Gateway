@@ -23,6 +23,8 @@
 #include "Flash4_Test.h"
 #include "TcpEchoServer.h"
 #include "UdpEchoServer.h"
+#include "Libraries/DataCollection/vci_manager.h"
+#include "Libraries/DataCollection/readiness_manager.h"
 #include <string.h>
 #include <stdio.h>
 
@@ -38,6 +40,7 @@ static void Init_Ethernet(void);
 static void Wait_PHY_Link(void);
 static void Init_DoIP(void);
 static void Init_VCI(void);
+static void Init_Readiness(void);
 static void Init_Health_Database(void);
 static void Print_System_Ready(void);
 
@@ -143,6 +146,12 @@ static void Init_VCI(void)
     sendUARTMessage(")...\r\n", 6);
 }
 
+static void Init_Readiness(void)
+{
+    Readiness_Init();
+    sendUARTMessage("[Readiness] Manager initialized\r\n", 34);
+}
+
 static void Init_Health_Database(void)
 {
     memcpy(g_health_data[0].ecu_id, ZONE_ECU_ID, sizeof(ZONE_ECU_ID));
@@ -170,6 +179,8 @@ static void Print_System_Ready(void)
     sendUARTMessage("- VCI:         Command-based (use UDS 0x31)\r\n", 46);
     sendUARTMessage("  * 0x31 01 F001: Start VCI collection\r\n", 40);
     sendUARTMessage("  * 0x31 01 F002: Send VCI report\r\n", 34);
+    sendUARTMessage("  * 0x31 01 F003: Start Readiness check\r\n", 41);
+    sendUARTMessage("  * 0x31 01 F004: Send Readiness report\r\n", 41);
     sendUARTMessage("===========================================\r\n", 44);
 }
 
@@ -191,6 +202,7 @@ void SystemInit_All(void)
     Wait_PHY_Link();
     Init_DoIP();
     Init_VCI();
+    Init_Readiness();
     Init_Health_Database();
     Print_System_Ready();
 }

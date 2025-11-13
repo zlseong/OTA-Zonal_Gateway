@@ -6,7 +6,8 @@
 #include "SystemMain.h"
 #include "Ifx_Lwip.h"
 #include "Libraries/DoIP/doip_client.h"
-#include "vci_manager.h"
+#include "Libraries/DataCollection/vci_manager.h"
+#include "Libraries/DataCollection/readiness_manager.h"
 
 void SystemMain_Loop(void)
 {
@@ -16,6 +17,7 @@ void SystemMain_Loop(void)
         Ifx_Lwip_pollReceiveFlags();
         DoIP_Client_Poll();
         VCI_CheckCollectionTimeout();
+        Readiness_CheckTimeout();
     }
 }
 

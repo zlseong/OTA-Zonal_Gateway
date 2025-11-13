@@ -53,6 +53,10 @@
 #define UDS_RID_VCI_COLLECTION_START            0xF001  /* Start VCI collection from Zone ECUs */
 #define UDS_RID_VCI_SEND_REPORT                 0xF002  /* Send consolidated VCI report to VMG */
 
+/* Routine IDs for OTA Readiness Check */
+#define UDS_RID_READINESS_CHECK                 0xF003  /* Start readiness check from Zone ECUs */
+#define UDS_RID_READINESS_SEND_REPORT           0xF004  /* Send consolidated readiness report to VMG */
+
 /* Upload/Download */
 #define UDS_SID_REQUEST_DOWNLOAD                0x34
 #define UDS_SID_REQUEST_UPLOAD                  0x35
