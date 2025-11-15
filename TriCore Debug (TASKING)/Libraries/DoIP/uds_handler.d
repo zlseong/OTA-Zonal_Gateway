@@ -174,7 +174,9 @@ uds_handler.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\O
 "C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\Libraries\\Ethernet\\lwip\\src\\include\lwip\ip6.h" :
 uds_handler.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\Libraries\\Ethernet\\lwip\\src\\include\lwip\ip6_addr.h"
 "C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\Libraries\\Ethernet\\lwip\\src\\include\lwip\ip6_addr.h" :
-uds_handler.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\Libraries\\VCI\vci_manager.h"
-"C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\Libraries\\VCI\vci_manager.h" :
+uds_handler.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\Libraries\DataCollection\vci_manager.h"
+"C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\Libraries\DataCollection\vci_manager.h" :
+uds_handler.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\Libraries\DataCollection\readiness_manager.h"
+"C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\Libraries\DataCollection\readiness_manager.h" :
 uds_handler.o :	"C:\Infineon\AURIX-Studio-1.10.24\tools\Compilers\Tasking_1.1r8\ctc\include\string.h"
 "C:\Infineon\AURIX-Studio-1.10.24\tools\Compilers\Tasking_1.1r8\ctc\include\string.h" :

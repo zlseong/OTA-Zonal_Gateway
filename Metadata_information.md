@@ -1,0 +1,932 @@
+# OTA Package Metadata Specification
+
+**프로젝트**: OTA-Zonal_Gateway (TC375 Lite Kit)  
+**문서 버전**: 1.0  
+**최종 업데이트**: 2025-01-13  
+
+---
+
+## 📋 목차
+
+1. [개요](#개요)
+2. [계층적 패키지 구조](#계층적-패키지-구조)
+3. [Level 3-1: Vehicle Package Metadata](#level-3-1-vehicle-package-metadata)
+4. [Level 3-2: Zone Package Metadata](#level-3-2-zone-package-metadata)
+5. [Level 3-3: ECU Package Metadata](#level-3-3-ecu-package-metadata)
+6. [Level 4: Readiness Metadata](#level-4-readiness-metadata)
+7. [Package Generation Flow](#package-generation-flow)
+8. [OTA Deployment Sequence](#ota-deployment-sequence)
+
+---
+
+## 개요
+
+### OTA Package Metadata란?
+
+OTA (Over-The-Air) 패키지의 **식별**, **검증**, **설치**에 필요한 모든 정보를 포함하는 메타데이터입니다.
+
+### 설계 원칙
+
+1. **계층적 구조**: Vehicle → Zone → ECU 3단계 계층
+2. **독립성**: 각 Zone은 독립적으로 업데이트 및 Rollback 가능
+3. **확장성**: Add-on 모듈 지원, Zone 추가/삭제 용이
+4. **보안**: Magic Number, CRC32, Digital Signature
+5. **표준 준수**: ISO 14229 (UDS), ISO 13400 (DoIP) 기반
+
+---
+
+## 계층적 패키지 구조
+
+### 전체 구조 개요
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  Level 3-1: Vehicle Package (Master Package)                │
+│  ├─ Vehicle Metadata (~690 bytes)                           │
+│  ├─ Zone Package 1                                          │
+│  ├─ Zone Package 2                                          │
+│  └─ Zone Package N                                          │
+└─────────────────────────────────────────────────────────────┘
+              ↓
+┌─────────────────────────────────────────────────────────────┐
+│  Level 3-2: Zone Package (per Zone)                         │
+│  ├─ Zone Metadata (~800 bytes)                              │
+│  ├─ ECU Package 1                                           │
+│  ├─ ECU Package 2                                           │
+│  └─ ECU Package N                                           │
+└─────────────────────────────────────────────────────────────┘
+              ↓
+┌─────────────────────────────────────────────────────────────┐
+│  Level 3-3: ECU Package (per ECU)                           │
+│  ├─ ECU Metadata (~512 bytes)                               │
+│  ├─ Main SW Binary                                          │
+│  └─ Add-on Module Binaries (optional)                       │
+└─────────────────────────────────────────────────────────────┘
+              ↓
+┌─────────────────────────────────────────────────────────────┐
+│  Level 4: Readiness Metadata (Runtime)                      │
+│  ├─ Readiness Info (~27 bytes)                              │
+│  ├─ Pre-OTA validation                                      │
+│  └─ Collected via UDP Broadcast                             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### 계층별 역할
+
+| Level | 패키지 타입 | 생성 주체 | 저장 위치 | 목적 |
+|-------|------------|----------|----------|------|
+| **3-1** | Vehicle Package | Vehicle Integration Team | VMG Server | 전체 차량 OTA 패키지 |
+| **3-2** | Zone Package | Zone Integration Team | Embedded in Vehicle Pkg | Zone별 독립 업데이트 |
+| **3-3** | ECU Package | ECU Development Team | Embedded in Zone Pkg | ECU SW + Add-ons |
+| **4** | Readiness | Runtime (ZGW) | RAM (temporary) | 사전 검증 |
+
+---
+
+## Level 3-1: Vehicle Package Metadata
+
+### 개념
+
+VMG 서버에서 생성하는 **최상위 마스터 패키지**로, 전체 차량의 OTA 업데이트를 관리합니다.
+
+### 데이터 구조
+
+```c
+/**
+ * \brief Vehicle Package Metadata
+ * 
+ * Master package containing zone-specific sub-packages
+ * Generated by: VMG Server (Vehicle Integration Team)
+ * Storage: VMG Server, transmitted to ZGW
+ */
+typedef struct
+{
+    /* Package Identification */
+    uint32 magic_number;             /* Magic: 0x5650434B ("VPCK") */
+    uint16 metadata_version;         /* Metadata structure version */
+    uint16 metadata_size;            /* Size of this structure */
+    
+    /* Package Information */
+    char package_id[32];             /* Unique Package ID (e.g., "VPKG_2024_001") */
+    char vehicle_sw_version[16];     /* Master SW Version (e.g., "2.5.0") */
+    uint32 package_total_size;       /* Total package size (bytes) */
+    uint32 package_crc32;            /* CRC32 of entire package */
+    uint32 creation_timestamp;       /* Package creation time (Unix timestamp) */
+    
+    /* Target Vehicle Identification (matches Vehicle-Level VCI) */
+    char target_vin[18];             /* Specific VIN (must match Vehicle VCI) */
+    char target_vehicle_model[32];   /* Target Model (must match Vehicle VCI) */
+    uint16 target_model_year;        /* Target Model Year (0=any) */
+    
+    /* Compatibility Criteria */
+    uint16 target_model_years[8];    /* Applicable model years (0=unused) */
+    uint8 target_vehicle_types[8];   /* Applicable vehicle types (0=unused) */
+    uint8 target_regions[8];         /* Applicable regions (0=unused) */
+    char min_vehicle_sw_version[16]; /* Minimum current vehicle SW version */
+    uint8 required_architecture;     /* Required: NETWORK_ARCH_ZONAL (0x02) */
+    uint8 required_num_zones;        /* Required number of zones (must match VCI) */
+    
+    /* Zone Package Information */
+    uint8 number_of_zones;           /* Number of zones to update (1-8) */
+    struct {
+        uint8 zone_id;               /* Zone ID (1-7, 0=Central) */
+        char zone_package_id[32];    /* Sub-package ID (e.g., "ZPKG_Z1_001") */
+        uint32 zone_package_offset;  /* Offset in vehicle package (bytes) */
+        uint32 zone_package_size;    /* Size of zone package (bytes) */
+        uint32 zone_package_crc32;   /* CRC32 of zone package */
+        uint8 update_required;       /* 0=Skip, 1=Update this zone */
+        uint8 update_priority;       /* 0=Low, 1=Med, 2=High, 3=Critical */
+        uint8 reserved[2];
+    } zone_packages[8];              /* Max 8 zones */
+    
+    /* Installation Instructions */
+    uint8 install_mode;              /* 1=Sequential, 2=Parallel, 3=Staged */
+    uint16 max_install_time_sec;     /* Maximum installation time (seconds) */
+    uint8 reboot_required;           /* 1=Reboot required after install */
+    uint8 rollback_supported;        /* 1=Rollback supported */
+    
+    /* Security */
+    uint8 signature_algorithm;       /* 1=RSA2048, 2=ECDSA256, etc */
+    uint16 signature_size;           /* Size of signature (bytes) */
+    uint8 signature[256];            /* Digital signature of package */
+    
+    /* Campaign Information */
+    char campaign_id[32];            /* OTA Campaign ID */
+    char campaign_name[64];          /* Campaign Name */
+    uint8 campaign_priority;         /* 1=Low, 2=Medium, 3=High, 4=Critical */
+    uint32 campaign_deadline;        /* Installation deadline (Unix timestamp) */
+    
+} Vehicle_Package_Metadata;
+
+/* Total size: ~690 bytes (with Vehicle VCI matching fields) */
+
+/* Vehicle Package Magic Number */
+#define VEHICLE_PACKAGE_MAGIC       0x5650434B  /* "VPCK" */
+```
+
+---
+
+### 필드별 상세 설명
+
+#### 🔹 Package Identification
+
+| 필드 | 타입 | 설명 |
+|------|------|------|
+| `magic_number` | uint32 | **Magic Number**: `0x5650434B` ("VPCK"), 패키지 타입 식별 |
+| `metadata_version` | uint16 | 메타데이터 구조 버전 (현재: 1) |
+| `metadata_size` | uint16 | 이 구조체의 크기 (bytes) |
+
+#### 🔹 Package Information
+
+| 필드 | 타입 | 설명 | 예시 |
+|------|------|------|------|
+| `package_id` | char[32] | 고유 패키지 ID | `"VPKG_2024_001"` |
+| `vehicle_sw_version` | char[16] | 마스터 SW 버전 | `"2.5.0"` |
+| `package_total_size` | uint32 | 전체 패키지 크기 (bytes) | `104857600` (100MB) |
+| `package_crc32` | uint32 | 전체 패키지 CRC32 | `0xABCD1234` |
+| `creation_timestamp` | uint32 | 생성 시각 (Unix timestamp) | `1705132800` |
+
+#### 🔹 Target Vehicle Identification
+
+**Vehicle VCI와 정확히 매칭되어야 합니다!**
+
+| 필드 | 타입 | 설명 | VCI 매칭 |
+|------|------|------|----------|
+| `target_vin` | char[18] | 대상 VIN (또는 "*" for wildcard) | `Vehicle_VCI.vin` |
+| `target_vehicle_model` | char[32] | 대상 모델명 | `Vehicle_VCI.vehicle_model` |
+| `target_model_year` | uint16 | 대상 모델 연도 (0=any) | `Vehicle_VCI.model_year` |
+
+#### 🔹 Compatibility Criteria
+
+| 필드 | 타입 | 설명 |
+|------|------|------|
+| `target_model_years[8]` | uint16[] | 적용 가능한 모델 연도 (0=unused) |
+| `target_vehicle_types[8]` | uint8[] | 적용 가능한 차량 타입 (0=unused) |
+| `target_regions[8]` | uint8[] | 적용 가능한 지역 (0=unused) |
+| `min_vehicle_sw_version` | char[16] | 최소 현재 SW 버전 |
+| `required_architecture` | uint8 | 필수 네트워크 아키텍처 (0x02=Zonal) |
+| `required_num_zones` | uint8 | 필수 Zone 수 |
+
+#### 🔹 Zone Package Information
+
+각 Zone Package에 대한 정보 (최대 8개):
+
+| 필드 | 타입 | 설명 |
+|------|------|------|
+| `zone_id` | uint8 | Zone ID (1-7, 0=Central) |
+| `zone_package_id` | char[32] | Zone Package ID |
+| `zone_package_offset` | uint32 | Vehicle Package 내 offset |
+| `zone_package_size` | uint32 | Zone Package 크기 |
+| `zone_package_crc32` | uint32 | Zone Package CRC32 |
+| `update_required` | uint8 | 0=Skip, 1=Update |
+| `update_priority` | uint8 | 0=Low, 1=Med, 2=High, 3=Critical |
+
+#### 🔹 Installation Instructions
+
+| 필드 | 타입 | 설명 | 가능한 값 |
+|------|------|------|-----------|
+| `install_mode` | uint8 | 설치 모드 | 1=Sequential, 2=Parallel, 3=Staged |
+| `max_install_time_sec` | uint16 | 최대 설치 시간 (초) | 3600 |
+| `reboot_required` | uint8 | 재부팅 필요 여부 | 0=No, 1=Yes |
+| `rollback_supported` | uint8 | Rollback 지원 여부 | 0=No, 1=Yes |
+
+#### 🔹 Security
+
+| 필드 | 타입 | 설명 |
+|------|------|------|
+| `signature_algorithm` | uint8 | 서명 알고리즘 (1=RSA2048, 2=ECDSA256) |
+| `signature_size` | uint16 | 서명 크기 (bytes) |
+| `signature[256]` | uint8[] | 디지털 서명 (RSA/ECDSA) |
+
+#### 🔹 Campaign Information
+
+| 필드 | 타입 | 설명 |
+|------|------|------|
+| `campaign_id` | char[32] | OTA 캠페인 ID |
+| `campaign_name` | char[64] | 캠페인명 |
+| `campaign_priority` | uint8 | 캠페인 우선순위 (1-4) |
+| `campaign_deadline` | uint32 | 설치 마감 시각 (Unix timestamp) |
+
+---
+
+### Vehicle Package Layout
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│              Vehicle Package Layout (Master)                │
+├─────────────────────────────────────────────────────────────┤
+│ Offset       Size        Content                            │
+├─────────────────────────────────────────────────────────────┤
+│ 0x0000       690 B       Vehicle Package Metadata           │
+│                          - Magic: 0x5650434B                │
+│                          - Target VIN/Model matching        │
+│                          - Zone Package List                │
+│                          - Master Signature                 │
+├─────────────────────────────────────────────────────────────┤
+│ 0x02B2       Variable    Zone 1 Package                     │
+│                          ┌──────────────────────────────┐   │
+│                          │ Zone 1 Metadata (800 B)      │   │
+│                          ├──────────────────────────────┤   │
+│                          │ ECU Package 1                │   │
+│                          │  ├─ ECU Metadata (512 B)     │   │
+│                          │  ├─ Main SW Binary           │   │
+│                          │  └─ Add-on Binaries (opt)    │   │
+│                          ├──────────────────────────────┤   │
+│                          │ ECU Package 2                │   │
+│                          │  └─ ...                      │   │
+│                          └──────────────────────────────┘   │
+├─────────────────────────────────────────────────────────────┤
+│ ...          Variable    Zone 2 Package                     │
+│                          (Same structure as Zone 1)         │
+├─────────────────────────────────────────────────────────────┤
+│ ...          Variable    Zone N Package                     │
+├─────────────────────────────────────────────────────────────┤
+│ End          256 B       Master Signature (RSA/ECDSA)       │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Level 3-2: Zone Package Metadata
+
+### 개념
+
+각 Zone에 배포되는 **Zone별 독립 패키지**로, Zone 내 ECU들의 업데이트를 관리합니다.
+
+### 데이터 구조
+
+```c
+/**
+ * \brief Zone Package Metadata
+ * 
+ * Zone-specific package for a zonal gateway
+ * Generated by: VMG Server (Zone Integration Team)
+ * Storage: Embedded in Vehicle Package, extracted by ZGW
+ */
+typedef struct
+{
+    /* Package Identification */
+    uint32 magic_number;             /* Magic: 0x5A50434B ("ZPCK") */
+    uint16 metadata_version;         /* Metadata structure version */
+    uint16 metadata_size;            /* Size of this structure */
+    
+    /* Zone Information */
+    uint8 zone_id;                   /* Zone ID (1-7, 0=Central) */
+    char zone_package_id[32];        /* Package ID (e.g., "ZPKG_Z1_001") */
+    char zone_sw_version[16];        /* Zone SW Version */
+    uint32 zone_package_size;        /* Total zone package size */
+    uint32 zone_package_crc32;       /* CRC32 of zone package */
+    
+    /* Target Zonal Gateway */
+    char target_zgw_id[16];          /* Target ZGW (e.g., "ZGW_01") */
+    char target_zgw_sw_version[16];  /* Required ZGW SW version */
+    
+    /* ECU Package Information */
+    uint8 number_of_ecus;            /* Number of ECUs in this zone (1-16) */
+    struct {
+        char target_ecu_id[16];      /* Target ECU ID (e.g., "ECU_011") */
+        char ecu_package_id[32];     /* ECU Package ID */
+        char current_sw_version[8];  /* Required current SW version */
+        char new_sw_version[8];      /* New SW version after update */
+        uint32 ecu_package_offset;   /* Offset in zone package (bytes) */
+        uint32 ecu_package_size;     /* Size of ECU package (bytes) */
+        uint32 ecu_package_crc32;    /* CRC32 of ECU package */
+        uint8 update_sequence;       /* Update order (0=first, 255=last) */
+        uint8 critical;              /* 1=Critical (must succeed) */
+        uint8 has_addons;            /* 1=Contains add-on modules */
+        uint8 reserved;
+    } ecu_packages[16];              /* Max 16 ECUs per zone */
+    
+    /* Zone-Specific Settings */
+    uint8 zone_update_mode;          /* 1=Sequential, 2=Parallel */
+    uint16 zone_max_time_sec;        /* Maximum time for this zone */
+    uint8 zone_rollback_enabled;     /* 1=Zone-level rollback enabled */
+    uint8 reserved[3];
+    
+} Zone_Package_Metadata;
+
+/* Total size: ~800 bytes */
+
+/* Zone Package Magic Number */
+#define ZONE_PACKAGE_MAGIC          0x5A50434B  /* "ZPCK" */
+```
+
+---
+
+### 필드별 상세 설명
+
+#### 🔹 Zone Information
+
+| 필드 | 타입 | 설명 | 예시 |
+|------|------|------|------|
+| `zone_id` | uint8 | Zone ID | 1-7 (Zone 1-7), 0 (Central) |
+| `zone_package_id` | char[32] | Zone Package ID | `"ZPKG_Z1_001"` |
+| `zone_sw_version` | char[16] | Zone 통합 SW 버전 | `"1.5.0"` |
+| `zone_package_size` | uint32 | Zone Package 전체 크기 | `52428800` (50MB) |
+| `zone_package_crc32` | uint32 | Zone Package CRC32 | `0x12345678` |
+
+#### 🔹 Target Zonal Gateway
+
+| 필드 | 타입 | 설명 |
+|------|------|------|
+| `target_zgw_id` | char[16] | 대상 ZGW ID (e.g., `"ZGW_01"`) |
+| `target_zgw_sw_version` | char[16] | 필수 ZGW SW 버전 |
+
+#### 🔹 ECU Package Information
+
+각 ECU Package에 대한 정보 (최대 16개):
+
+| 필드 | 타입 | 설명 |
+|------|------|------|
+| `target_ecu_id` | char[16] | 대상 ECU ID (e.g., `"ECU_011"`) |
+| `ecu_package_id` | char[32] | ECU Package ID |
+| `current_sw_version` | char[8] | 필수 현재 SW 버전 |
+| `new_sw_version` | char[8] | 업데이트 후 SW 버전 |
+| `ecu_package_offset` | uint32 | Zone Package 내 offset |
+| `ecu_package_size` | uint32 | ECU Package 크기 |
+| `ecu_package_crc32` | uint32 | ECU Package CRC32 |
+| `update_sequence` | uint8 | 업데이트 순서 (0=first) |
+| `critical` | uint8 | 1=Critical (실패 시 전체 중단) |
+| `has_addons` | uint8 | 1=Add-on 모듈 포함 |
+
+---
+
+## Level 3-3: ECU Package Metadata
+
+### 개념
+
+개별 ECU의 소프트웨어 패키지로, **Main SW + Add-on 모듈**을 포함할 수 있습니다.
+
+### 데이터 구조
+
+```c
+/**
+ * \brief ECU Package Metadata
+ * 
+ * Individual ECU software package (may contain add-on modules)
+ * Generated by: VMG Server (ECU Development Team)
+ * Storage: Embedded in Zone Package, extracted by Zone ECU
+ */
+typedef struct
+{
+    /* Package Identification */
+    uint32 magic_number;             /* Magic: 0x4550434B ("EPCK") */
+    uint16 metadata_version;         /* Metadata structure version */
+    uint16 metadata_size;            /* Size of this structure */
+    
+    /* ECU Information */
+    char ecu_id[16];                 /* ECU ID (e.g., "ECU_011") */
+    char ecu_package_id[32];         /* Package ID */
+    char sw_version[16];             /* SW Version */
+    uint32 ecu_package_size;         /* Total ECU package size */
+    uint32 ecu_package_crc32;        /* CRC32 of ECU package */
+    
+    /* Main Software */
+    char main_sw_version[16];        /* Main SW version */
+    uint32 main_sw_offset;           /* Offset in ECU package (bytes) */
+    uint32 main_sw_size;             /* Size of main SW (bytes) */
+    uint32 main_sw_crc32;            /* CRC32 of main SW */
+    uint32 flash_target_address;     /* Target flash address (e.g., 0xA0001000) */
+    uint32 flash_size_required;      /* Required flash space (bytes) */
+    
+    /* Add-on Modules (Optional) */
+    uint8 number_of_addons;          /* Number of add-on modules (0-4) */
+    struct {
+        char addon_id[16];           /* Add-on ID (e.g., "CAM_MODULE") */
+        char addon_version[8];       /* Add-on version */
+        uint32 addon_offset;         /* Offset in ECU package (bytes) */
+        uint32 addon_size;           /* Size of add-on (bytes) */
+        uint32 addon_crc32;          /* CRC32 of add-on */
+        uint32 addon_flash_address;  /* Target flash address */
+        uint8 addon_critical;        /* 1=Critical, 0=Optional */
+        uint8 reserved[3];
+    } addon_modules[4];              /* Max 4 add-ons per ECU */
+    
+    /* Installation */
+    uint8 install_order;             /* Installation order within zone */
+    uint8 requires_bootloader;       /* 1=Requires bootloader mode */
+    uint16 install_time_sec;         /* Expected installation time */
+    
+    /* Compatibility */
+    char hw_version_required[8];     /* Required HW version */
+    uint32 min_memory_kb;            /* Minimum free memory required */
+    
+} ECU_Package_Metadata;
+
+/* Total size: ~512 bytes */
+
+/* ECU Package Magic Number */
+#define ECU_PACKAGE_MAGIC           0x4550434B  /* "EPCK" */
+```
+
+---
+
+### Add-on Module 지원
+
+#### 개념
+
+ECU에 부착된 **추가 하드웨어 모듈**의 펌웨어를 함께 업데이트합니다.
+
+#### 예시 시나리오
+
+```
+ECU_011 (Door Control ECU):
+├─ Main SW: Door control logic (2MB)
+├─ Add-on 1: Camera Module firmware (1MB)
+└─ Add-on 2: Fingerprint Sensor firmware (512KB)
+
+ECU_901 (ADAS ECU):
+├─ Main SW: ADAS processing (5MB)
+├─ Add-on 1: Front Camera firmware (2MB)
+├─ Add-on 2: Side Radar firmware (1MB)
+└─ Add-on 3: LiDAR firmware (3MB)
+```
+
+#### Add-on 필드 설명
+
+| 필드 | 타입 | 설명 |
+|------|------|------|
+| `addon_id` | char[16] | Add-on 모듈 ID |
+| `addon_version` | char[8] | Add-on 버전 |
+| `addon_offset` | uint32 | ECU Package 내 offset |
+| `addon_size` | uint32 | Add-on 바이너리 크기 |
+| `addon_crc32` | uint32 | Add-on CRC32 |
+| `addon_flash_address` | uint32 | Flash 저장 주소 |
+| `addon_critical` | uint8 | 1=필수, 0=선택적 |
+
+---
+
+## Level 4: Readiness Metadata
+
+### 개념
+
+OTA 업데이트 **사전 검증**을 위한 실시간 상태 정보입니다.
+
+### 데이터 구조
+
+```c
+/**
+ * \brief Readiness Information
+ * 
+ * Runtime data collected from ECUs for OTA readiness validation
+ * Storage: RAM (temporary), 27 bytes
+ * Collection: UDP Broadcast/Unicast (Port 13400)
+ */
+typedef struct
+{
+    char ecu_id[16];            /* ECU ID (e.g., "ECU_011") */
+    uint8 battery_voltage;      /* Battery voltage (0.1V units, e.g., 125 = 12.5V) */
+    uint8 free_memory_percent;  /* Free memory (%) */
+    uint8 engine_running;       /* 1=Running, 0=Off */
+    uint8 vehicle_speed_kmh;    /* Vehicle speed (km/h) */
+    uint8 door_status;          /* Bit field: Bit0=FL, Bit1=FR, Bit2=RL, Bit3=RR */
+    uint8 error_count;          /* Active DTC count */
+    uint8 temperature_c;        /* ECU temperature (°C, signed offset +40) */
+    uint8 ready_status;         /* 0x00=Not Ready, 0xFF=Ready */
+    uint16 reserved;            /* Reserved for future use */
+} Readiness_Info;
+
+/* Total size: 27 bytes */
+```
+
+---
+
+### Readiness Criteria (준비 조건)
+
+OTA 업데이트를 진행하기 위한 **필수 조건**:
+
+| 조건 | 필드 | 기준 | 이유 |
+|------|------|------|------|
+| **배터리 전압** | `battery_voltage` | ≥ 120 (12.0V) | 업데이트 중 전원 차단 방지 |
+| **여유 메모리** | `free_memory_percent` | ≥ 30% | 패키지 다운로드 및 설치 공간 |
+| **엔진 상태** | `engine_running` | 0 (Off) | 안전을 위해 엔진 꺼짐 필요 |
+| **차량 속도** | `vehicle_speed_kmh` | 0 (Stopped) | 주행 중 업데이트 금지 |
+| **도어 상태** | `door_status` | 0x00 (All closed) | 모든 도어 닫힘 |
+| **오류 개수** | `error_count` | 0 | 활성 DTC 없음 |
+| **ECU 온도** | `temperature_c` | 40-100°C | 과열 방지 (offset +40) |
+
+---
+
+### UDP 패킷 구조
+
+#### Request (ZGW → Zone ECUs)
+
+```
+Protocol: UDP Broadcast
+Destination: 192.168.1.255:13400
+Payload: [0x52, 0x44, 0x59, 0x3F]  // "RDY?" magic number
+Size: 4 bytes
+```
+
+#### Response (Zone ECU → ZGW)
+
+```
+Protocol: UDP Unicast
+Destination: ZGW IP:13400
+Payload: Readiness_Info (27 bytes)
+Total Size: 27 bytes
+```
+
+---
+
+### Readiness 검증 로직
+
+```c
+/**
+ * \brief Validate Readiness for OTA
+ * 
+ * \param info Readiness information from ECU
+ * \return TRUE if ready, FALSE otherwise
+ */
+boolean Validate_Readiness(Readiness_Info *info)
+{
+    /* Check battery voltage (≥ 12.0V) */
+    if (info->battery_voltage < 120) {
+        sendUARTMessage("[ERROR] Low battery voltage\r\n", 30);
+        return FALSE;
+    }
+    
+    /* Check free memory (≥ 30%) */
+    if (info->free_memory_percent < 30) {
+        sendUARTMessage("[ERROR] Insufficient memory\r\n", 30);
+        return FALSE;
+    }
+    
+    /* Check engine status (must be off) */
+    if (info->engine_running != 0) {
+        sendUARTMessage("[ERROR] Engine must be off\r\n", 29);
+        return FALSE;
+    }
+    
+    /* Check vehicle speed (must be stopped) */
+    if (info->vehicle_speed_kmh != 0) {
+        sendUARTMessage("[ERROR] Vehicle must be stopped\r\n", 34);
+        return FALSE;
+    }
+    
+    /* Check door status (all closed) */
+    if (info->door_status != 0x00) {
+        sendUARTMessage("[ERROR] Doors must be closed\r\n", 31);
+        return FALSE;
+    }
+    
+    /* Check error count (no active DTCs) */
+    if (info->error_count > 0) {
+        char log[64];
+        sprintf(log, "[ERROR] Active DTCs: %u\r\n", info->error_count);
+        sendUARTMessage(log, strlen(log));
+        return FALSE;
+    }
+    
+    /* Check temperature (40-100°C, offset +40) */
+    if (info->temperature_c < 40 || info->temperature_c > 140) {
+        sendUARTMessage("[ERROR] ECU temperature out of range\r\n", 40);
+        return FALSE;
+    }
+    
+    /* Check ready status */
+    if (info->ready_status != 0xFF) {
+        sendUARTMessage("[ERROR] ECU not ready\r\n", 24);
+        return FALSE;
+    }
+    
+    sendUARTMessage("[OK] ECU ready for OTA\r\n", 25);
+    return TRUE;
+}
+```
+
+---
+
+## Package Generation Flow
+
+### Server-side Pipeline
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│            VMG Server Package Generation Pipeline           │
+└─────────────────────────────────────────────────────────────┘
+
+Step 1: ECU Package Creation (ECU Development Team)
+────────────────────────────────────────────────────────────────
+Input:  - ECU_011.elf (Main SW binary)
+        - CAM_MODULE.bin (Add-on 1)
+        - RADAR_MODULE.bin (Add-on 2)
+
+Process:
+  1. Parse ELF header and extract executable sections
+  2. Calculate CRC32 for each binary
+  3. Create ECU_Package_Metadata
+     - Set magic_number = 0x4550434B ("EPCK")
+     - Set ecu_id = "ECU_011"
+     - Set main_sw_offset, size, crc32
+     - Set addon_modules[0] (CAM_MODULE)
+     - Set addon_modules[1] (RADAR_MODULE)
+  4. Assemble binary package
+  
+Output: ECU_011_Package.bin (512B metadata + binaries)
+        - ECU_Package_Metadata (512 bytes)
+        - Main SW Binary (e.g., 2MB)
+        - Add-on 1 Binary (e.g., 1MB)
+        - Add-on 2 Binary (e.g., 512KB)
+
+────────────────────────────────────────────────────────────────
+
+Step 2: Zone Package Creation (Zone Integration Team)
+────────────────────────────────────────────────────────────────
+Input:  - ECU_011_Package.bin
+        - ECU_012_Package.bin
+        - ECU_013_Package.bin
+
+Process:
+  1. Load all ECU packages for Zone 1
+  2. Calculate offsets for each ECU package
+  3. Create Zone_Package_Metadata
+     - Set magic_number = 0x5A50434B ("ZPCK")
+     - Set zone_id = 1
+     - Set ecu_packages[0] (ECU_011: offset, size, crc32)
+     - Set ecu_packages[1] (ECU_012: offset, size, crc32)
+     - Set ecu_packages[2] (ECU_013: offset, size, crc32)
+  4. Calculate Zone Package CRC32
+  5. Assemble Zone Package
+  
+Output: Zone1_Package.bin (800B metadata + ECU packages)
+        - Zone_Package_Metadata (800 bytes)
+        - ECU_011_Package.bin
+        - ECU_012_Package.bin
+        - ECU_013_Package.bin
+
+────────────────────────────────────────────────────────────────
+
+Step 3: Vehicle Package Creation (Vehicle Integration Team)
+────────────────────────────────────────────────────────────────
+Input:  - Zone1_Package.bin
+        - Zone2_Package.bin
+        - Zone3_Package.bin
+        - Vehicle_VCI (from database)
+
+Process:
+  1. Load all Zone packages
+  2. Read Vehicle VCI for target vehicle
+  3. Create Vehicle_Package_Metadata
+     - Set magic_number = 0x5650434B ("VPCK")
+     - Set target_vin from Vehicle_VCI.vin
+     - Set target_vehicle_model from Vehicle_VCI.vehicle_model
+     - Set required_num_zones from Vehicle_VCI.number_of_zones
+     - Set zone_packages[0] (Zone 1: offset, size, crc32)
+     - Set zone_packages[1] (Zone 2: offset, size, crc32)
+     - Set zone_packages[2] (Zone 3: offset, size, crc32)
+  4. Calculate Vehicle Package CRC32
+  5. Generate RSA/ECDSA signature
+  6. Assemble Vehicle Package
+  
+Output: Vehicle_Package.bin (690B metadata + Zone packages + signature)
+        - Vehicle_Package_Metadata (690 bytes)
+        - Zone1_Package.bin
+        - Zone2_Package.bin
+        - Zone3_Package.bin
+        - Digital Signature (256 bytes)
+
+────────────────────────────────────────────────────────────────
+
+Step 4: Deployment
+────────────────────────────────────────────────────────────────
+Storage: VMG Server → Cloud Storage (S3, Azure Blob, etc)
+Delivery: VMG Server → Vehicle (OTA via 4G/5G or Workshop via USB)
+```
+
+---
+
+## OTA Deployment Sequence
+
+### 전체 시퀀스 다이어그램
+
+```
+┌──────────┐       ┌──────────┐       ┌──────────┐       ┌──────────┐
+│   VMG    │       │   ZGW    │       │ Zone ECU │       │  Add-on  │
+│  Server  │       │          │       │          │       │  Module  │
+└────┬─────┘       └────┬─────┘       └────┬─────┘       └────┬─────┘
+     │                  │                  │                  │
+     │ ① Vehicle Package│                  │                  │
+     │ (All Zones)      │                  │                  │
+     ├─────────────────>│                  │                  │
+     │   TCP Download   │                  │                  │
+     │   DoIP 0x34/0x36 │                  │                  │
+     │                  │                  │                  │
+     │              ② Parse Vehicle Pkg   │                  │
+     │                  ├─────────────┐    │                  │
+     │                  │ - Verify    │    │                  │
+     │                  │   Magic     │    │                  │
+     │                  │ - Check VIN │    │                  │
+     │                  │ - Validate  │    │                  │
+     │                  │   CRC32     │    │                  │
+     │                  │ - Extract   │    │                  │
+     │                  │   Zone Pkgs │    │                  │
+     │                  │<────────────┘    │                  │
+     │                  │                  │                  │
+     │                  │ ③ Zone Package  │                  │
+     │                  │    (Zone 1)      │                  │
+     │                  ├─────────────────>│                  │
+     │                  │   TCP/CAN-FD     │                  │
+     │                  │                  │                  │
+     │                  │              ④ Parse Zone Pkg     │
+     │                  │                  ├─────────────┐    │
+     │                  │                  │ - Verify    │    │
+     │                  │                  │   Magic     │    │
+     │                  │                  │ - Check     │    │
+     │                  │                  │   ECU ID    │    │
+     │                  │                  │ - Validate  │    │
+     │                  │                  │   CRC32     │    │
+     │                  │                  │ - Extract   │    │
+     │                  │                  │   ECU Pkgs  │    │
+     │                  │                  │<────────────┘    │
+     │                  │                  │                  │
+     │                  │                  │ ⑤ ECU Package   │
+     │                  │                  │    (with add-ons)│
+     │                  │                  ├─────────────────>│
+     │                  │                  │   Internal Bus   │
+     │                  │                  │   (SPI/I2C)      │
+     │                  │                  │                  │
+     │                  │              ⑥ Flash Main SW       │
+     │                  │                  ├─────────┐        │
+     │                  │                  │ Erase   │        │
+     │                  │                  │ Write   │        │
+     │                  │                  │ Verify  │        │
+     │                  │                  │<────────┘        │
+     │                  │                  │                  │
+     │                  │                  │ ⑦ Flash Add-on  │
+     │                  │                  │                  ├────┐
+     │                  │                  │                  │ CAM│
+     │                  │                  │                  │<───┘
+     │                  │                  │                  │
+     │                  │                  │ ⑧ Verify CRC    │
+     │                  │                  ├──────────────────┤
+     │                  │                  │ CRC Main SW     │
+     │                  │                  │ CRC Add-ons     │
+     │                  │                  │<─────────────────┤
+     │                  │                  │                  │
+     │                  │ ⑨ Zone Complete  │                  │
+     │                  │<─────────────────┤                  │
+     │                  │   (Success/Fail) │                  │
+     │                  │                  │                  │
+     │ ⑩ Vehicle Update │                  │                  │
+     │    Status        │                  │                  │
+     │<─────────────────┤                  │                  │
+     │   (All Zones)    │                  │                  │
+     │                  │                  │                  │
+```
+
+---
+
+### 단계별 상세 설명
+
+#### ① VMG → ZGW: Vehicle Package 전송
+
+```c
+/* UDS Download Sequence */
+1. UDS 0x34 (RequestDownload)
+   - Address: External Flash (0x64000000)
+   - Size: Vehicle Package total size
+   
+2. UDS 0x36 (TransferData)
+   - Block size: 4096 bytes
+   - Transfer in chunks
+   - Progress: 0% → 100%
+   
+3. UDS 0x37 (RequestTransferExit)
+   - Finalize download
+```
+
+#### ② ZGW: Vehicle Package 파싱
+
+```c
+/* Validation Steps */
+1. Check magic_number == 0x5650434B
+2. Verify target_vin matches Vehicle_VCI.vin
+3. Verify target_vehicle_model matches Vehicle_VCI.vehicle_model
+4. Validate package_crc32
+5. Verify RSA/ECDSA signature
+6. Extract Zone Packages using zone_package_offset
+```
+
+#### ③ ZGW → Zone ECU: Zone Package 전송
+
+```c
+/* Zone Package Relay */
+- Protocol: TCP or CAN-FD
+- Target: Zone ECU IP or CAN ID
+- Size: zone_package_size
+- CRC: zone_package_crc32
+```
+
+#### ④ Zone ECU: Zone Package 파싱
+
+```c
+/* Validation Steps */
+1. Check magic_number == 0x5A50434B
+2. Verify zone_id matches local zone
+3. Find own ECU ID in ecu_packages[] array
+4. Validate zone_package_crc32
+5. Extract ECU Package using ecu_package_offset
+```
+
+#### ⑤ Zone ECU → Add-on: ECU Package 전송
+
+```c
+/* Add-on Module Communication */
+- Protocol: SPI, I2C, or internal bus
+- Target: Add-on module
+- Size: addon_size
+- CRC: addon_crc32
+```
+
+#### ⑥-⑦ Flash 쓰기
+
+```c
+/* Flash Programming Sequence */
+1. Erase target Flash sectors
+2. Write Main SW to flash_target_address
+3. Write Add-on binaries to addon_flash_address
+4. Refresh watchdog periodically
+```
+
+#### ⑧ CRC 검증
+
+```c
+/* Post-Flash Verification */
+1. Calculate CRC32 of flashed Main SW
+2. Compare with main_sw_crc32 from metadata
+3. Calculate CRC32 of flashed Add-ons
+4. Compare with addon_crc32 from metadata
+5. If mismatch → Trigger rollback
+```
+
+#### ⑨-⑩ 상태 보고
+
+```c
+/* Status Reporting */
+Zone ECU → ZGW:
+  - Status: Success/Fail
+  - New SW Version
+  - Error codes (if any)
+
+ZGW → VMG:
+  - Overall status
+  - Zone-by-zone results
+  - Timestamp
+```
+
+---
+
+## 참조 문서
+
+- **VCI_information.md**: Vehicle 및 ECU VCI 구조
+- **memory_map.md**: AURIX TC375 메모리 맵
+- **ISO 14229-1**: Unified Diagnostic Services (UDS)
+- **ISO 13400**: Diagnostic communication over IP (DoIP)
+
+---
+
+**문서 종료**
+
+

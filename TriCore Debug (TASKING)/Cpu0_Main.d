@@ -256,7 +256,7 @@ Cpu0_Main.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA
 "C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\Libraries\\Ethernet\\lwip\\src\\include\lwip\ip6_addr.h" :
 Cpu0_Main.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\Libraries\\Ethernet\\lwip\\src\\include\lwip\prot\udp.h"
 "C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\Libraries\\Ethernet\\lwip\\src\\include\lwip\prot\udp.h" :
-Cpu0_Main.o :	..\SystemInit.h
-..\SystemInit.h :
-Cpu0_Main.o :	..\SystemMain.h
-..\SystemMain.h :
+Cpu0_Main.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\App\SystemInit.h"
+"C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\App\SystemInit.h" :
+Cpu0_Main.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\App\SystemMain.h"
+"C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\App\SystemMain.h" :

@@ -7,6 +7,7 @@
 #include "Ifx_Types.h"
 #include "IfxCpu.h"
 #include "IfxScuWdt.h"
+#include "IfxScuRcu.h"
 #include "IfxStm.h"
 #include "IfxGeth_Eth.h"
 #include "Ifx_Lwip.h"
@@ -25,8 +26,19 @@
 #include "UdpEchoServer.h"
 #include "Libraries/DataCollection/vci_manager.h"
 #include "Libraries/DataCollection/readiness_manager.h"
+#include "Libraries/Flash/FlashBankManager.h"
 #include <string.h>
 #include <stdio.h>
+
+/*******************************************************************************
+ * Boot Validation - Safety Mechanism
+ ******************************************************************************/
+
+/* Global flag: Set to TRUE when all init functions complete successfully */
+volatile boolean g_systemInitSuccess = FALSE;
+
+/* Boot validation timeout: 30 seconds */
+#define BOOT_VALIDATION_TIMEOUT_MS  30000
 
 extern IFX_ALIGN(4) IfxCpu_syncEvent g_cpuSyncEvent;
 extern struct tcp_pcb *g_tcp_server_pcb;
@@ -42,6 +54,7 @@ static void Init_DoIP(void);
 static void Init_VCI(void);
 static void Init_Readiness(void);
 static void Init_Health_Database(void);
+static void Init_FlashBankManager(void);
 static void Print_System_Ready(void);
 
 static void Init_System(void)
@@ -169,6 +182,117 @@ static void Init_Health_Database(void)
     sendUARTMessage("[Health] Status initialized (2 ECUs)\r\n", 39);
 }
 
+static void Init_FlashBankManager(void)
+{
+    FlashBank_Init();
+    
+    FlashBank_t activeBank = FlashBank_GetActiveBoot();
+    FlashBankStatus_t status = FlashBank_GetStatusFlags();
+    ResetType_t resetType = FlashBank_GetResetType();
+    
+    char log_msg[128];
+    sprintf(log_msg, "[FlashBankMgr] Active Bank: %s\r\n", 
+            (activeBank == FLASH_BANK_A) ? "Bank_A" : "Bank_B");
+    sendUARTMessage(log_msg, strlen(log_msg));
+    
+    sprintf(log_msg, "[FlashBankMgr] Banks Identical: %s\r\n",
+            status.bits.banksIdentical ? "YES" : "NO");
+    sendUARTMessage(log_msg, strlen(log_msg));
+    
+    /***************************************************************************
+     * Boot Validation Check
+     * 
+     * If system init failed (timeout or hang), this function won't be reached
+     * or g_systemInitSuccess will still be FALSE.
+     * 
+     * In this case, trigger rollback to the other bank.
+     ***************************************************************************/
+    
+    if (g_systemInitSuccess == FALSE)
+    {
+        sendUARTMessage("\r\n", 2);
+        sendUARTMessage("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\r\n", 46);
+        sendUARTMessage("!! CRITICAL: Boot Validation FAILED!     !!\r\n", 46);
+        sendUARTMessage("!! System Init Timeout or Hang Detected  !!\r\n", 46);
+        sendUARTMessage("!! Triggering Rollback to Other Bank...  !!\r\n", 46);
+        sendUARTMessage("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\r\n", 46);
+        sendUARTMessage("\r\n", 2);
+        
+        /* Determine target bank (opposite of current) */
+        FlashBank_t targetBank = (activeBank == FLASH_BANK_A) ? FLASH_BANK_B : FLASH_BANK_A;
+        
+        sprintf(log_msg, "[FlashBankMgr] Current: %s → Rollback to: %s\r\n",
+                (activeBank == FLASH_BANK_A) ? "Bank_A" : "Bank_B",
+                (targetBank == FLASH_BANK_A) ? "Bank_A" : "Bank_B");
+        sendUARTMessage(log_msg, strlen(log_msg));
+        
+        /* Mark current bank as ERROR */
+        if (activeBank == FLASH_BANK_A)
+        {
+            status.bits.statusA = BANK_STATUS_ERROR;
+        }
+        else
+        {
+            status.bits.statusB = BANK_STATUS_ERROR;
+        }
+        
+        /* Switch boot flag to target bank */
+        /* NOTE: This uses DFlash flags, not actual UCB_BMHD */
+        /* Requires bootloader or software-based boot selection */
+        if (targetBank == FLASH_BANK_A)
+        {
+            status.bits.bootTarget = 0;
+        }
+        else
+        {
+            status.bits.bootTarget = 1;
+        }
+        
+        /* Banks are now different */
+        status.bits.banksIdentical = 0;
+        
+        /* Write status to DFlash */
+        FlashBank_WriteDFlashStatus(status);
+        
+        sendUARTMessage("[FlashBankMgr] ⚠️  CRITICAL LIMITATION ⚠️\r\n", 48);
+        sendUARTMessage("[FlashBankMgr] Current implementation uses DFlash flags only!\r\n", 65);
+        sendUARTMessage("[FlashBankMgr] For true hardware rollback, requires:\r\n", 55);
+        sendUARTMessage("[FlashBankMgr]   1. Bootloader at fixed address\r\n", 50);
+        sendUARTMessage("[FlashBankMgr]   2. Or UCB_BMHD modification (limited cycles)\r\n", 65);
+        sendUARTMessage("[FlashBankMgr] Boot flags updated. System will reset...\r\n", 59);
+        
+        /* Small delay for UART transmission */
+        IfxStm_waitTicks(&MODULE_STM0, IfxStm_getTicksFromMilliseconds(&MODULE_STM0, 100));
+        
+        /* Trigger System Reset */
+        sendUARTMessage("[FlashBankMgr] RESET NOW!\r\n", 27);
+        IfxStm_waitTicks(&MODULE_STM0, IfxStm_getTicksFromMilliseconds(&MODULE_STM0, 100));
+        
+        /* Perform software reset */
+        IfxScuRcu_performReset(IfxScuRcu_ResetType_system, 0);
+        
+        /* Should never reach here */
+        while(1);
+    }
+    else
+    {
+        /* Boot validation SUCCESS */
+        sendUARTMessage("[FlashBankMgr] Boot Validation SUCCESS!\r\n", 42);
+        
+        /* Clear error flags for current bank */
+        if (activeBank == FLASH_BANK_A)
+        {
+            status.bits.statusA = BANK_STATUS_OK;
+        }
+        else
+        {
+            status.bits.statusB = BANK_STATUS_OK;
+        }
+        
+        FlashBank_WriteDFlashStatus(status);
+    }
+}
+
 static void Print_System_Ready(void)
 {
     sendUARTMessage("===========================================\r\n", 44);
@@ -186,10 +310,16 @@ static void Print_System_Ready(void)
 
 void SystemInit_All(void)
 {
+    /* Record boot start time for timeout detection */
+    uint32 bootStartTime = 0;
+    
     Init_System();
     
     initUART();
     sendUARTMessage("Zonal Gateway Starting...\r\n", 28);
+    
+    /* Start boot timer */
+    bootStartTime = IfxStm_getLower(&MODULE_STM0);
     
     Init_STM_Timer();
     Flash4_Init();
@@ -205,5 +335,30 @@ void SystemInit_All(void)
     Init_Readiness();
     Init_Health_Database();
     Print_System_Ready();
+    
+    /* Check if boot completed within timeout */
+    uint32 bootEndTime = IfxStm_getLower(&MODULE_STM0);
+    uint32 bootDuration = bootEndTime - bootStartTime;
+    uint32 bootDurationMs = bootDuration / IfxStm_getTicksFromMilliseconds(&MODULE_STM0, 1);
+    
+    char log_msg[64];
+    sprintf(log_msg, "[Boot] Duration: %u ms\r\n", (unsigned int)bootDurationMs);
+    sendUARTMessage(log_msg, strlen(log_msg));
+    
+    if (bootDurationMs > BOOT_VALIDATION_TIMEOUT_MS)
+    {
+        /* Boot timeout - will be handled by Init_FlashBankManager */
+        sendUARTMessage("[Boot] WARNING: Boot took longer than expected!\r\n", 50);
+        g_systemInitSuccess = FALSE;
+    }
+    else
+    {
+        /* Boot success */
+        g_systemInitSuccess = TRUE;
+    }
+    
+    /* Initialize Flash Bank Manager after all system components are ready */
+    /* This function will check g_systemInitSuccess and perform rollback if needed */
+    Init_FlashBankManager();
 }
 

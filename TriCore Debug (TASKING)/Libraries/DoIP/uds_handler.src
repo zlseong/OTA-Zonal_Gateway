@@ -1,6 +1,6 @@
 	; Module start
 	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
-	.compiler_invocation	"ctc -f cc23224a --dep-file=Libraries/DoIP/uds_handler.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc37x -D__CPU_TC37X__ --core=tc1.6.2 --fp-model=+float -D__CPU__=tc37x -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Configurations -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\DoIP -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\Phy_Dp83825i -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\port -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\port\\\\include -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\port\\\\include\\\\arch -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat\\\\posix -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat\\\\posix\\\\arpa -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat\\\\posix\\\\net -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat\\\\posix\\\\sys -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat\\\\stdc -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\lwip -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\lwip\\\\apps -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\lwip\\\\priv -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\lwip\\\\prot -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\netif -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\netif\\\\ppp -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\netif\\\\ppp\\\\polarssl -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Flash4 -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Platform -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Platform\\\\Tricore -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Sfr -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Sfr\\\\TC37x -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Ssw -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Ssw\\\\TC3xx -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Ssw\\\\TC3xx\\\\Tricore -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Network -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Service -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Service\\\\CpuGeneric -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\UART -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\VCI -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Asclin -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Asclin\\\\Asc -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Asclin\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Cpu -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Cpu\\\\Irq -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Cpu\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Cpu\\\\Trap -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Dma -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Dma\\\\Dma -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Dma\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Geth -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Geth\\\\Eth -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Geth\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Gtm -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Gtm\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Mtu -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Mtu\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Pms -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Pms\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Port -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Port\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Qspi -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Qspi\\\\SpiMaster -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Qspi\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Scu -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Scu\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Src -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Src\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Stm -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Stm\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\_Impl -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\_Lib -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\_Lib\\\\DataHandling -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\_PinMap -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\_PinMap\\\\TC37x -g2 -w544 -w557 -w508 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o Libraries/DoIP/uds_handler.src ../Libraries/DoIP/uds_handler.c"
+	.compiler_invocation	"ctc -f cc37980a --dep-file=Libraries/DoIP/uds_handler.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc37x -D__CPU_TC37X__ --core=tc1.6.2 --fp-model=+float -D__CPU__=tc37x -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\App -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Configurations -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\DataCollection -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\DoIP -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\Phy_Dp83825i -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\port -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\port\\\\include -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\port\\\\include\\\\arch -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat\\\\posix -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat\\\\posix\\\\arpa -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat\\\\posix\\\\net -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat\\\\posix\\\\sys -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\compat\\\\stdc -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\lwip -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\lwip\\\\apps -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\lwip\\\\priv -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\lwip\\\\prot -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\netif -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\netif\\\\ppp -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\\\netif\\\\ppp\\\\polarssl -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Flash -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Flash4 -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Platform -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Platform\\\\Tricore -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Sfr -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Sfr\\\\TC37x -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Ssw -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Ssw\\\\TC3xx -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Infra\\\\Ssw\\\\TC3xx\\\\Tricore -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Network -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Service -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Service\\\\CpuGeneric -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\UART -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Asclin -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Asclin\\\\Asc -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Asclin\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Cpu -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Cpu\\\\Irq -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Cpu\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Cpu\\\\Trap -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Dma -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Dma\\\\Dma -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Dma\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Flash -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Flash\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Geth -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Geth\\\\Eth -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Geth\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Gtm -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Gtm\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Mtu -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Mtu\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Pms -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Pms\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Port -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Port\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Qspi -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Qspi\\\\SpiMaster -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Qspi\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Scu -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Scu\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Src -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Src\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Stm -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Stm\\\\Std -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\_Impl -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\_Lib -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\_Lib\\\\DataHandling -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\_PinMap -IC:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\_PinMap\\\\TC37x -g2 -w544 -w557 -w508 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o Libraries/DoIP/uds_handler.src ../Libraries/DoIP/uds_handler.c"
 	.compiler_name		"ctc"
 	;source	'../Libraries/DoIP/uds_handler.c'
 
@@ -13,14 +13,14 @@ $TC162
 	
 	.global	UDS_Init
 ; Function UDS_Init
-.L86:
+.L98:
 UDS_Init:	.type	func
 	ret
-.L175:
+.L187:
 	
 __UDS_Init_function_end:
 	.size	UDS_Init,__UDS_Init_function_end-UDS_Init
-.L117:
+.L129:
 	; End of function
 	
 	.sdecl	'.text.uds_handler.UDS_HandleRequest',code,cluster('UDS_HandleRequest')
@@ -29,93 +29,93 @@ __UDS_Init_function_end:
 	
 	.global	UDS_HandleRequest
 ; Function UDS_HandleRequest
-.L88:
+.L100:
 UDS_HandleRequest:	.type	func
 	mov.aa	a12,a4
-.L266:
+.L284:
 	mov.aa	a13,a5
-.L267:
+.L285:
 	jz.a	a12,.L2
-.L408:
+.L426:
 	jnz.a	a13,.L3
 .L2:
 	mov	d2,#0
-.L409:
+.L427:
 	j	.L4
 .L3:
 	mov	d4,#0
-.L410:
+.L428:
 	mov	d5,#4108
 	mov.aa	a4,a13
-.L265:
+.L283:
 	call	memset
-.L268:
+.L286:
 	ld.hu	d15,[a12]2
-.L411:
+.L429:
 	st.h	[a13],d15
-.L412:
+.L430:
 	ld.hu	d15,[a12]0
-.L413:
+.L431:
 	st.h	[a13]2,d15
-.L182:
+.L194:
 	mov	d0,#0
-.L269:
+.L287:
 	j	.L5
 .L6:
 	mul	d15,d0,#8
-.L414:
+.L432:
 	movh.a	a2,#@his(g_service_handlers)
 	lea	a2,[a2]@los(g_service_handlers)
-.L415:
+.L433:
 	addsc.a	a2,a2,d15,#0
-.L416:
+.L434:
 	ld.bu	d1,[a2]
-.L417:
+.L435:
 	ld.bu	d15,[a12]4
-.L418:
+.L436:
 	jne	d15,d1,.L7
-.L419:
+.L437:
 	mul	d15,d0,#8
-.L420:
+.L438:
 	movh.a	a15,#@his(g_service_handlers)
 	lea	a15,[a15]@los(g_service_handlers)
-.L421:
+.L439:
 	addsc.a	a15,a15,d15,#0
-.L422:
+.L440:
 	ld.a	a15,[a15]4
-.L423:
+.L441:
 	mov.aa	a4,a12
-.L271:
+.L289:
 	mov.aa	a5,a13
-.L272:
+.L290:
 	calli	a15
-.L270:
+.L288:
 	j	.L8
 .L7:
 	add	d0,#1
 .L5:
 	jlt.u	d0,#2,.L6
-.L183:
+.L195:
 	mov	d4,#17
-.L424:
+.L442:
 	mov.aa	a4,a12
-.L274:
+.L292:
 	mov.aa	a5,a13
-.L275:
+.L293:
 	call	UDS_CreateNegativeResponse
-.L273:
+.L291:
 	mov	d2,#1
-.L425:
+.L443:
 	j	.L9
 .L9:
 .L8:
 .L4:
 	ret
-.L177:
+.L189:
 	
 __UDS_HandleRequest_function_end:
 	.size	UDS_HandleRequest,__UDS_HandleRequest_function_end-UDS_HandleRequest
-.L122:
+.L134:
 	; End of function
 	
 	.sdecl	'.text.uds_handler.UDS_ParseDoIPDiagnostic',code,cluster('UDS_ParseDoIPDiagnostic')
@@ -124,168 +124,169 @@ __UDS_HandleRequest_function_end:
 	
 	.global	UDS_ParseDoIPDiagnostic
 ; Function UDS_ParseDoIPDiagnostic
-.L90:
+.L102:
 UDS_ParseDoIPDiagnostic:	.type	func
 	sub.a	a10,#128
-.L276:
+.L294:
 	mov.aa	a15,a5
-.L280:
+.L298:
 	jz.a	a4,.L10
-.L430:
+.L448:
 	jz.a	a15,.L11
-.L431:
+.L449:
 	jge.u	d4,#5,.L12
 .L11:
 .L10:
 	mov	d2,#0
-.L432:
+.L450:
 	j	.L13
 .L12:
 	ld.bu	d15,[a4]
-.L433:
-	sha	d0,d15,#8
-.L434:
-	ld.bu	d15,[a4]1
-.L435:
-	or	d0,d15
-.L436:
-	st.h	[a15],d0
-.L437:
-	ld.bu	d15,[a4]2
-.L438:
-	sha	d0,d15,#8
-.L439:
-	ld.bu	d15,[a4]3
-.L440:
-	or	d0,d15
-.L441:
-	st.h	[a15]2,d0
-.L442:
-	ld.bu	d15,[a4]4
-.L443:
-	st.b	[a15]4,d15
-.L444:
-	add	d15,d4,#-5
-.L445:
-	st.h	[a15]6,d15
-.L446:
-	ld.hu	d15,[a15]6
-.L447:
-	jlt.u	d15,#1,.L14
-.L448:
-	ld.hu	d15,[a15]6
-.L449:
-	mov	d0,#256
-.L450:
-	jge.u	d15,d0,.L15
 .L451:
-	lea	a2,[a15]8
+	sha	d0,d15,#8
 .L452:
+	ld.bu	d15,[a4]1
+.L453:
+	or	d0,d15
+.L454:
+	st.h	[a15],d0
+.L455:
+	ld.bu	d15,[a4]2
+.L456:
+	sha	d0,d15,#8
+.L457:
+	ld.bu	d15,[a4]3
+.L458:
+	or	d0,d15
+.L459:
+	st.h	[a15]2,d0
+.L460:
+	ld.bu	d15,[a4]4
+.L461:
+	st.b	[a15]4,d15
+.L462:
+	add	d15,d4,#-5
+.L463:
+	st.h	[a15]6,d15
+.L464:
+	ld.hu	d15,[a15]6
+.L465:
+	jlt.u	d15,#1,.L14
+.L466:
+	ld.hu	d15,[a15]6
+.L467:
+	mov	d0,#256
+.L468:
+	jge.u	d15,d0,.L15
+.L469:
+	lea	a2,[a15]8
+.L470:
 	mov.aa	a5,a4
-.L279:
+.L297:
 	add.a	a5,#5
-.L277:
+.L295:
 	ld.hu	d4,[a15]6
-.L278:
+.L296:
 	mov.aa	a4,a2
 	call	memcpy
 .L15:
 .L14:
 	lea	a4,[a10]0
-.L453:
+.L471:
 	movh.a	a5,#@his(.1.str)
 	lea	a5,[a5]@los(.1.str)
-.L454:
+.L472:
 	ld.bu	d4,[a15]4
-.L455:
+.L473:
 	ld.hu	d5,[a15]0
-.L456:
+.L474:
 	ld.hu	d6,[a15]2
-.L457:
+.L475:
 	ld.hu	d7,[a15]6
+.L476:
 	call	sprintf
-.L458:
+.L477:
 	lea	a4,[a10]0
 	call	strlen
-.L459:
+.L478:
 	lea	a4,[a10]0
-.L460:
+.L479:
 	mov	d4,d2
 	call	sendUARTMessage
-.L461:
+.L480:
 	ld.hu	d15,[a15]6
-.L462:
+.L481:
 	jlt.u	d15,#1,.L16
-.L463:
+.L482:
 	ld.hu	d15,[a15]6
-.L464:
+.L483:
 	jge.u	d15,#9,.L17
-.L465:
+.L484:
 	lea	a4,[a10]0
-.L466:
+.L485:
 	movh.a	a5,#@his(.2.str)
 	lea	a5,[a5]@los(.2.str)
 	call	sprintf
-.L194:
+.L206:
 	lea	a4,[a10]0
 	call	strlen
-.L467:
+.L486:
 	extr.u	d15,d2,#0,#16
-.L197:
+.L209:
 	mov	d8,#0
-.L283:
+.L301:
 	j	.L18
 .L19:
 	addsc.a	a2,a10,d15,#0
 	lea	a4,[a2]0
-.L468:
+.L487:
 	movh.a	a5,#@his(.3.str)
 	lea	a5,[a5]@los(.3.str)
-.L469:
+.L488:
 	addsc.a	a2,a15,d8,#0
 	ld.bu	d4,[a2]8
 	call	sprintf
-.L470:
+.L489:
 	add	d15,#3
-.L282:
+.L300:
 	extr.u	d15,d15,#0,#16
-.L285:
+.L303:
 	add	d8,#1
-.L284:
+.L302:
 	extr.u	d8,d8,#0,#16
 .L18:
 	ld.hu	d0,[a15]6
-.L471:
+.L490:
 	jlt.u	d8,d0,.L19
-.L198:
+.L210:
 	addsc.a	a15,a10,d15,#0
-.L281:
+.L299:
 	lea	a4,[a15]0
-.L472:
+.L491:
 	movh.a	a5,#@his(.4.str)
 	lea	a5,[a5]@los(.4.str)
 	call	sprintf
-.L473:
+.L492:
 	lea	a4,[a10]0
 	call	strlen
-.L474:
+.L493:
 	lea	a4,[a10]0
-.L475:
+.L494:
 	mov	d4,d2
 	call	sendUARTMessage
 .L17:
 .L16:
 	mov	d2,#1
-.L476:
+.L495:
 	j	.L20
 .L20:
 .L13:
 	ret
-.L185:
+.L197:
 	
 __UDS_ParseDoIPDiagnostic_function_end:
 	.size	UDS_ParseDoIPDiagnostic,__UDS_ParseDoIPDiagnostic_function_end-UDS_ParseDoIPDiagnostic
-.L127:
+.L139:
 	; End of function
 	
 	.sdecl	'.text.uds_handler.UDS_BuildDoIPDiagnostic',code,cluster('UDS_BuildDoIPDiagnostic')
@@ -294,299 +295,307 @@ __UDS_ParseDoIPDiagnostic_function_end:
 	
 	.global	UDS_BuildDoIPDiagnostic
 ; Function UDS_BuildDoIPDiagnostic
-.L92:
+.L104:
 UDS_BuildDoIPDiagnostic:	.type	func
 	sub.a	a10,#128
-.L286:
+.L304:
 	mov.aa	a15,a4
-.L290:
+.L308:
 	mov.aa	a12,a5
-.L291:
+.L309:
 	jz.a	a15,.L21
-.L481:
+.L500:
 	jnz.a	a12,.L22
 .L21:
 	mov	d2,#0
-.L482:
+.L501:
 	j	.L23
 .L22:
 	ld.hu	d15,[a15]8
-	add	d2,d15,#5
-.L293:
+	add	d15,#5
+.L502:
+	extr.u	d2,d15,#0,#16
+.L311:
 	add	d0,d2,#8
 	extr.u	d8,d0,#0,#16
-.L295:
+.L313:
 	jge.u	d4,d8,.L24
-.L483:
+.L503:
 	mov	d2,#0
-.L294:
+.L312:
 	j	.L25
 .L24:
 	mov	d0,#0
-.L296:
-	mov.aa	a2,a12
-.L287:
-	add.a	a2,#0
-.L292:
-	mov	d1,#2
-.L484:
-	st.b	[a2],d1
-.L485:
-	add	d15,d0,#1
-.L297:
-	mov.aa	a2,a12
-.L299:
-	add.a	a2,#1
-.L486:
-	mov	d0,#253
-.L487:
-	st.b	[a2],d0
-.L488:
-	add	d15,#1
-.L301:
-	mov.aa	a2,a12
-.L302:
-	add.a	a2,#2
-.L489:
-	mov	d0,#128
-.L490:
-	st.b	[a2],d0
-.L491:
-	add	d15,#1
-.L303:
-	mov.aa	a2,a12
-.L304:
-	add.a	a2,#3
-.L492:
-	mov	d0,#1
-.L493:
-	st.b	[a2],d0
-.L494:
-	add	d15,#1
-.L305:
-	mov.aa	a2,a12
-.L306:
-	add.a	a2,#4
-.L495:
-	extr.u	d0,d2,#24,#8
-.L496:
-	st.b	[a2],d0
-.L497:
-	add	d15,#1
-.L307:
-	mov.aa	a2,a12
-.L308:
-	add.a	a2,#5
-.L498:
-	extr.u	d0,d2,#16,#8
-.L499:
-	st.b	[a2],d0
-.L500:
-	add	d15,#1
-.L309:
-	mov.aa	a2,a12
-.L310:
-	add.a	a2,#6
-.L501:
-	extr.u	d0,d2,#8,#8
-.L502:
-	st.b	[a2],d0
-.L503:
-	add	d0,d15,#1
-.L300:
-	mov.aa	a2,a12
-.L311:
-	add.a	a2,#7
-.L504:
-	and	d15,d2,#255
-.L505:
-	st.b	[a2],d15
-.L506:
-	add	d15,d0,#1
-.L312:
-	addsc.a	a2,a12,d15,#0
-.L298:
-	ld.hu	d0,[a15]0
-.L507:
-	sha	d0,#-8
-.L508:
-	and	d0,d0,#255
-.L509:
-	st.b	[a2],d0
-.L510:
-	add	d15,#1
 .L314:
-	addsc.a	a2,a12,d15,#0
+	mov.aa	a2,a12
+.L305:
+	add.a	a2,#0
+.L310:
+	mov	d1,#2
+.L504:
+	st.b	[a2],d1
+.L505:
+	add	d15,d0,#1
 .L315:
-	ld.hu	d0,[a15]0
-.L511:
-	and	d0,d0,#255
-.L512:
-	st.b	[a2],d0
-.L513:
-	add	d15,#1
-.L316:
-	addsc.a	a2,a12,d15,#0
+	mov.aa	a2,a12
 .L317:
-	ld.hu	d0,[a15]2
-.L514:
-	sha	d0,#-8
-.L515:
-	and	d0,d0,#255
-.L516:
+	add.a	a2,#1
+.L506:
+	mov	d0,#253
+.L507:
 	st.b	[a2],d0
-.L517:
+.L508:
 	add	d15,#1
-.L318:
-	addsc.a	a2,a12,d15,#0
 .L319:
-	ld.hu	d0,[a15]2
-.L518:
-	and	d0,d0,#255
-.L519:
-	st.b	[a2],d0
-.L520:
-	add	d15,#1
+	mov.aa	a2,a12
 .L320:
-	addsc.a	a2,a12,d15,#0
+	add.a	a2,#2
+.L509:
+	mov	d0,#128
+.L510:
+	st.b	[a2],d0
+.L511:
+	add	d15,#1
 .L321:
-	ld.bu	d0,[a15]5
+	mov.aa	a2,a12
+.L322:
+	add.a	a2,#3
+.L512:
+	mov	d0,#1
+.L513:
+	st.b	[a2],d0
+.L514:
+	add	d15,#1
+.L323:
+	mov.aa	a2,a12
+.L324:
+	add.a	a2,#4
+.L515:
+	sha	d0,d2,#-24
+.L516:
+	and	d0,d0,#255
+.L517:
+	st.b	[a2],d0
+.L518:
+	add	d15,#1
+.L325:
+	mov.aa	a2,a12
+.L326:
+	add.a	a2,#5
+.L519:
+	sha	d0,d2,#-16
+.L520:
+	and	d0,d0,#255
 .L521:
 	st.b	[a2],d0
 .L522:
 	add	d15,#1
+.L327:
+	mov.aa	a2,a12
+.L328:
+	add.a	a2,#6
 .L523:
-	ld.hu	d0,[a15]8
+	sha	d0,d2,#-8
 .L524:
-	jlt.u	d0,#1,.L26
-.L322:
-	addsc.a	a4,a12,d15,#0
-.L289:
-	lea	a5,[a15]10
+	and	d0,d0,#255
 .L525:
+	st.b	[a2],d0
+.L526:
+	add	d15,#1
+.L329:
+	mov.aa	a2,a12
+.L330:
+	add.a	a2,#7
+.L527:
+	and	d0,d2,#255
+.L528:
+	st.b	[a2],d0
+.L529:
+	add	d15,#1
+.L331:
+	addsc.a	a2,a12,d15,#0
+.L316:
+	ld.hu	d0,[a15]0
+.L530:
+	sha	d0,#-8
+.L531:
+	and	d0,d0,#255
+.L532:
+	st.b	[a2],d0
+.L533:
+	add	d15,#1
+.L332:
+	addsc.a	a2,a12,d15,#0
+.L333:
+	ld.hu	d0,[a15]0
+.L534:
+	and	d0,d0,#255
+.L535:
+	st.b	[a2],d0
+.L536:
+	add	d15,#1
+.L334:
+	addsc.a	a2,a12,d15,#0
+.L335:
+	ld.hu	d0,[a15]2
+.L537:
+	sha	d0,#-8
+.L538:
+	and	d0,d0,#255
+.L539:
+	st.b	[a2],d0
+.L540:
+	add	d15,#1
+.L336:
+	addsc.a	a2,a12,d15,#0
+.L337:
+	ld.hu	d0,[a15]2
+.L541:
+	and	d0,d0,#255
+.L542:
+	st.b	[a2],d0
+.L543:
+	add	d15,#1
+.L338:
+	addsc.a	a2,a12,d15,#0
+.L339:
+	ld.bu	d0,[a15]5
+.L544:
+	st.b	[a2],d0
+.L545:
+	add	d15,#1
+.L546:
+	ld.hu	d0,[a15]8
+.L547:
+	jlt.u	d0,#1,.L26
+.L340:
+	addsc.a	a4,a12,d15,#0
+.L307:
+	lea	a5,[a15]10
+.L548:
 	ld.hu	d4,[a15]8
-.L288:
+.L306:
 	call	memcpy
 .L26:
 	lea	a4,[a10]0
-.L526:
+.L549:
 	movh.a	a5,#@his(.5.str)
 	lea	a5,[a5]@los(.5.str)
-.L527:
+.L550:
 	ld.bu	d4,[a15]5
-.L528:
+.L551:
 	ld.hu	d5,[a15]0
-.L529:
+.L552:
 	ld.hu	d6,[a15]2
-.L530:
+.L553:
 	mov	d7,d8
-.L323:
+.L341:
 	call	sprintf
-.L324:
+.L342:
 	lea	a4,[a10]0
 	call	strlen
-.L531:
+.L554:
 	lea	a4,[a10]0
-.L532:
+.L555:
 	mov	d4,d2
 	call	sendUARTMessage
-.L533:
+.L556:
 	jlt.u	d8,#1,.L27
-.L210:
+.L222:
 	mov	d15,#16
-.L313:
+.L318:
 	jge.u	d15,d8,.L28
-.L534:
+.L557:
 	mov	d9,#16
-.L325:
+.L343:
 	j	.L29
 .L28:
 	mov	d9,d8
 .L29:
 	lea	a4,[a10]0
-.L535:
+.L558:
 	movh.a	a5,#@his(.6.str)
 	lea	a5,[a5]@los(.6.str)
 	call	sprintf
-.L212:
+.L224:
 	lea	a4,[a10]0
 	call	strlen
-.L536:
+.L559:
 	extr.u	d15,d2,#0,#16
-.L214:
+.L226:
 	mov	d10,#0
-.L327:
+.L345:
 	j	.L30
 .L31:
 	addsc.a	a15,a10,d15,#0
 	lea	a4,[a15]0
-.L537:
+.L560:
 	movh.a	a5,#@his(.3.str)
 	lea	a5,[a5]@los(.3.str)
-.L329:
+.L347:
 	addsc.a	a15,a12,d10,#0
-.L330:
+.L348:
 	ld.bu	d4,[a15]
 	call	sprintf
-.L538:
+.L561:
 	add	d15,#3
-.L326:
+.L344:
 	extr.u	d15,d15,#0,#16
-.L331:
+.L349:
 	mov	d0,#110
-.L539:
+.L562:
 	jlt.u	d15,d0,.L32
-.L540:
+.L563:
 	j	.L33
 .L32:
 	add	d10,#1
-.L328:
+.L346:
 	extr.u	d10,d10,#0,#16
 .L30:
 	jlt.u	d10,d9,.L31
 .L33:
 	mov	d0,#16
-.L541:
+.L564:
 	jge.u	d0,d8,.L34
-.L542:
+.L565:
 	addsc.a	a15,a10,d15,#0
 	lea	a4,[a15]0
-.L543:
+.L566:
 	movh.a	a5,#@his(.7.str)
 	lea	a5,[a5]@los(.7.str)
 	call	sprintf
-.L544:
+.L567:
 	add	d15,#3
-.L332:
+.L350:
 	extr.u	d15,d15,#0,#16
 .L34:
 	addsc.a	a15,a10,d15,#0
 	lea	a4,[a15]0
-.L545:
+.L568:
 	movh.a	a5,#@his(.4.str)
 	lea	a5,[a5]@los(.4.str)
 	call	sprintf
-.L546:
+.L569:
 	lea	a4,[a10]0
 	call	strlen
-.L547:
+.L570:
 	lea	a4,[a10]0
-.L548:
+.L571:
 	mov	d4,d2
 	call	sendUARTMessage
 .L27:
 	mov	d2,d8
-.L333:
+.L351:
 	j	.L35
 .L35:
 .L25:
 .L23:
 	ret
-.L200:
+.L212:
 	
 __UDS_BuildDoIPDiagnostic_function_end:
 	.size	UDS_BuildDoIPDiagnostic,__UDS_BuildDoIPDiagnostic_function_end-UDS_BuildDoIPDiagnostic
-.L132:
+.L144:
 	; End of function
 	
 	.sdecl	'.text.uds_handler.UDS_Service_ReadDataByIdentifier',code,cluster('UDS_Service_ReadDataByIdentifier')
@@ -595,96 +604,96 @@ __UDS_BuildDoIPDiagnostic_function_end:
 	
 	.global	UDS_Service_ReadDataByIdentifier
 ; Function UDS_Service_ReadDataByIdentifier
-.L94:
+.L106:
 UDS_Service_ReadDataByIdentifier:	.type	func
 	sub.a	a10,#8
-.L334:
+.L352:
 	mov.aa	a15,a4
-.L336:
+.L354:
 	mov.aa	a12,a5
-.L337:
+.L355:
 	ld.hu	d15,[a15]6
-.L553:
+.L576:
 	jge.u	d15,#2,.L36
-.L554:
+.L577:
 	mov	d4,#19
-.L555:
+.L578:
 	mov.aa	a4,a15
 	mov.aa	a5,a12
 	call	UDS_CreateNegativeResponse
-.L335:
+.L353:
 	mov	d2,#1
-.L556:
+.L579:
 	j	.L37
 .L36:
 	ld.bu	d15,[a15]8
-.L557:
+.L580:
 	sha	d8,d15,#8
-.L558:
+.L581:
 	ld.bu	d15,[a15]9
-.L339:
+.L357:
 	or	d8,d15
-.L559:
+.L582:
 	mov.aa	a4,a15
 	mov.aa	a5,a12
 	call	UDS_CreatePositiveResponse
-.L338:
+.L356:
 	ld.bu	d15,[a15]8
-.L560:
+.L583:
 	st.b	[a12]10,d15
-.L561:
+.L584:
 	ld.bu	d15,[a15]9
-.L562:
+.L585:
 	st.b	[a12]11,d15
-.L563:
+.L586:
 	mov	d15,#2
-.L564:
+.L587:
 	st.h	[a12]8,d15
-.L220:
+.L232:
 	mov	d15,#0
-.L565:
+.L588:
 	st.h	[a10],d15
-.L566:
+.L589:
 	lea	a4,[a12]12
-.L567:
+.L590:
 	lea	a5,[a10]0
 	mov	d4,d8
-.L340:
+.L358:
 	call	UDS_ReadDID_VCI
-.L341:
+.L359:
 	jeq	d2,#0,.L38
-.L568:
+.L591:
 	ld.hu	d15,[a12]8
-.L569:
+.L592:
 	ld.hu	d0,[a10]0
-.L570:
+.L593:
 	add	d15,d0
 	st.h	[a12]8,d15
-.L571:
+.L594:
 	mov	d2,#1
-.L572:
+.L595:
 	j	.L39
 .L38:
 	mov	d4,#49
-.L573:
+.L596:
 	mov.aa	a4,a15
-.L342:
+.L360:
 	mov.aa	a5,a12
-.L344:
+.L362:
 	call	UDS_CreateNegativeResponse
-.L343:
+.L361:
 	mov	d2,#1
-.L574:
+.L597:
 	j	.L40
 .L40:
 .L39:
 .L37:
 	ret
-.L216:
+.L228:
 	
 __UDS_Service_ReadDataByIdentifier_function_end:
 	.size	UDS_Service_ReadDataByIdentifier,__UDS_Service_ReadDataByIdentifier_function_end-UDS_Service_ReadDataByIdentifier
-.L137:
+.L149:
 	; End of function
 	
 	.sdecl	'.text.uds_handler.UDS_ReadDID_VCI',code,cluster('UDS_ReadDID_VCI')
@@ -693,137 +702,137 @@ __UDS_Service_ReadDataByIdentifier_function_end:
 	
 	.global	UDS_ReadDID_VCI
 ; Function UDS_ReadDID_VCI
-.L96:
+.L108:
 UDS_ReadDID_VCI:	.type	func
 	sub.a	a10,#104
-.L345:
+.L363:
 	mov.aa	a15,a4
-.L349:
+.L367:
 	mov.aa	a12,a5
-.L350:
+.L368:
 	jz.a	a15,.L41
-.L635:
+.L713:
 	jnz.a	a12,.L42
 .L41:
 	mov	d2,#0
-.L636:
+.L714:
 	j	.L43
 .L42:
 	mov.u	d15,#61844
 	jeq	d15,d4,.L44
-.L637:
+.L715:
 	mov.u	d15,#61845
 	jeq	d15,d4,.L45
-.L638:
+.L716:
 	mov.u	d15,#61856
 	jeq	d15,d4,.L46
 	j	.L47
 .L44:
 	movh.a	a5,#@his(g_zgw_vci)
-.L347:
+.L365:
 	lea	a5,[a5]@los(g_zgw_vci)
-.L639:
+.L717:
 	mov	d4,#48
-.L348:
+.L366:
 	mov.aa	a4,a15
 	call	memcpy
-.L346:
+.L364:
 	mov	d15,#48
-.L640:
+.L718:
 	st.h	[a12],d15
-.L641:
+.L719:
 	mov	d2,#1
-.L642:
+.L720:
 	j	.L48
 .L45:
 	mov	d15,#0
-.L643:
+.L721:
 	st.b	[a10]96,d15
-.L644:
+.L722:
 	lea	a4,[a10]0
-.L351:
+.L369:
 	lea	a5,[a10]96
-.L352:
+.L370:
 	call	UDS_ReadConsolidatedVCI
-.L353:
+.L371:
 	jeq	d2,#0,.L49
-.L645:
+.L723:
 	ld.bu	d15,[a10]96
-.L646:
+.L724:
 	st.b	[a15],d15
-.L647:
+.L725:
 	add.a	a15,#1
-.L648:
+.L726:
 	lea	a5,[a10]0
-.L649:
+.L727:
 	ld.bu	d15,[a10]96
-.L650:
+.L728:
 	mul	d4,d15,#48
 	mov.aa	a4,a15
-.L354:
+.L372:
 	call	memcpy
-.L355:
+.L373:
 	ld.bu	d15,[a10]96
-.L651:
+.L729:
 	mul	d15,d15,#48
-.L652:
+.L730:
 	add	d15,#1
-.L653:
+.L731:
 	st.h	[a12],d15
-.L654:
+.L732:
 	mov	d2,#1
-.L655:
+.L733:
 	j	.L50
 .L49:
 	mov	d2,#0
-.L656:
+.L734:
 	j	.L51
 .L46:
 	mov	d15,#0
-.L657:
+.L735:
 	st.b	[a10]48,d15
-.L658:
+.L736:
 	lea	a4,[a10]0
-.L356:
+.L374:
 	lea	a5,[a10]48
-.L357:
+.L375:
 	call	UDS_ReadHealthStatus
-.L358:
+.L376:
 	jeq	d2,#0,.L52
-.L659:
+.L737:
 	ld.bu	d15,[a10]48
-.L660:
+.L738:
 	st.b	[a15],d15
-.L661:
+.L739:
 	add.a	a15,#1
-.L662:
+.L740:
 	lea	a5,[a10]0
-.L663:
+.L741:
 	ld.bu	d15,[a10]48
-.L664:
+.L742:
 	mul	d4,d15,#24
 	mov.aa	a4,a15
-.L359:
+.L377:
 	call	memcpy
-.L360:
+.L378:
 	ld.bu	d15,[a10]48
-.L665:
+.L743:
 	mul	d15,d15,#24
-.L666:
+.L744:
 	add	d15,#1
-.L667:
+.L745:
 	st.h	[a12],d15
-.L668:
+.L746:
 	mov	d2,#1
-.L669:
+.L747:
 	j	.L53
 .L52:
 	mov	d2,#0
-.L670:
+.L748:
 	j	.L54
 .L47:
 	mov	d2,#0
-.L671:
+.L749:
 	j	.L55
 .L55:
 .L54:
@@ -833,11 +842,11 @@ UDS_ReadDID_VCI:	.type	func
 .L48:
 .L43:
 	ret
-.L233:
+.L251:
 	
 __UDS_ReadDID_VCI_function_end:
 	.size	UDS_ReadDID_VCI,__UDS_ReadDID_VCI_function_end-UDS_ReadDID_VCI
-.L147:
+.L159:
 	; End of function
 	
 	.sdecl	'.text.uds_handler.UDS_ReadIndividualVCI',code,cluster('UDS_ReadIndividualVCI')
@@ -846,34 +855,34 @@ __UDS_ReadDID_VCI_function_end:
 	
 	.global	UDS_ReadIndividualVCI
 ; Function UDS_ReadIndividualVCI
-.L98:
+.L110:
 UDS_ReadIndividualVCI:	.type	func
 	mov	d15,#256
-.L676:
+.L754:
 	jne	d15,d4,.L56
-.L677:
+.L755:
 	movh.a	a5,#@his(g_zgw_vci)
 	lea	a5,[a5]@los(g_zgw_vci)
-.L678:
+.L756:
 	mov	d4,#48
-.L361:
+.L379:
 	call	memcpy
-.L362:
+.L380:
 	mov	d2,#1
-.L679:
+.L757:
 	j	.L57
 .L56:
 	mov	d2,#0
-.L680:
+.L758:
 	j	.L58
 .L58:
 .L57:
 	ret
-.L244:
+.L262:
 	
 __UDS_ReadIndividualVCI_function_end:
 	.size	UDS_ReadIndividualVCI,__UDS_ReadIndividualVCI_function_end-UDS_ReadIndividualVCI
-.L152:
+.L164:
 	; End of function
 	
 	.sdecl	'.text.uds_handler.UDS_ReadConsolidatedVCI',code,cluster('UDS_ReadConsolidatedVCI')
@@ -882,70 +891,70 @@ __UDS_ReadIndividualVCI_function_end:
 	
 	.global	UDS_ReadConsolidatedVCI
 ; Function UDS_ReadConsolidatedVCI
-.L100:
+.L112:
 UDS_ReadConsolidatedVCI:	.type	func
 	mov.aa	a15,a5
-.L365:
+.L383:
 	jz.a	a4,.L59
-.L685:
+.L763:
 	jnz.a	a15,.L60
 .L59:
 	mov	d2,#0
-.L686:
+.L764:
 	j	.L61
 .L60:
 	movh.a	a2,#@his(g_vci_collection_complete)
 	lea	a2,[a2]@los(g_vci_collection_complete)
 	ld.bu	d15,[a2]
 	jne	d15,#0,.L62
-.L687:
+.L765:
 	movh.a	a5,#@his(g_zgw_vci)
-.L364:
+.L382:
 	lea	a5,[a5]@los(g_zgw_vci)
-.L688:
+.L766:
 	mov	d4,#48
 	call	memcpy
-.L363:
+.L381:
 	mov	d15,#1
-.L689:
+.L767:
 	st.b	[a15],d15
-.L690:
+.L768:
 	mov	d2,#1
-.L691:
+.L769:
 	j	.L63
 .L62:
 	movh.a	a2,#@his(g_zone_ecu_count)
 	lea	a2,[a2]@los(g_zone_ecu_count)
 	ld.bu	d15,[a2]
-.L692:
+.L770:
 	add	d15,#1
 	extr.u	d15,d15,#0,#8
-.L368:
+.L386:
 	jlt	d15,#3,.L64
-.L693:
+.L771:
 	mov	d15,#2
 .L64:
 	movh.a	a5,#@his(g_vci_database)
-.L367:
+.L385:
 	lea	a5,[a5]@los(g_vci_database)
-.L694:
+.L772:
 	mul	d4,d15,#48
 	call	memcpy
-.L366:
+.L384:
 	st.b	[a15],d15
-.L695:
+.L773:
 	mov	d2,#1
-.L696:
+.L774:
 	j	.L65
 .L65:
 .L63:
 .L61:
 	ret
-.L248:
+.L266:
 	
 __UDS_ReadConsolidatedVCI_function_end:
 	.size	UDS_ReadConsolidatedVCI,__UDS_ReadConsolidatedVCI_function_end-UDS_ReadConsolidatedVCI
-.L157:
+.L169:
 	; End of function
 	
 	.sdecl	'.text.uds_handler.UDS_ReadHealthStatus',code,cluster('UDS_ReadHealthStatus')
@@ -954,49 +963,49 @@ __UDS_ReadConsolidatedVCI_function_end:
 	
 	.global	UDS_ReadHealthStatus
 ; Function UDS_ReadHealthStatus
-.L102:
+.L114:
 UDS_ReadHealthStatus:	.type	func
 	mov.aa	a15,a5
-.L371:
+.L389:
 	jz.a	a4,.L66
-.L701:
+.L779:
 	jnz.a	a15,.L67
 .L66:
 	mov	d2,#0
-.L702:
+.L780:
 	j	.L68
 .L67:
 	movh.a	a2,#@his(g_zone_ecu_count)
 	lea	a2,[a2]@los(g_zone_ecu_count)
 	ld.bu	d15,[a2]
-.L703:
+.L781:
 	add	d15,#1
 	extr.u	d15,d15,#0,#8
-.L372:
+.L390:
 	jlt	d15,#3,.L69
-.L704:
+.L782:
 	mov	d15,#2
 .L69:
 	movh.a	a5,#@his(g_health_data)
-.L370:
+.L388:
 	lea	a5,[a5]@los(g_health_data)
-.L705:
+.L783:
 	mul	d4,d15,#24
 	call	memcpy
-.L369:
+.L387:
 	st.b	[a15],d15
-.L706:
+.L784:
 	mov	d2,#1
-.L707:
+.L785:
 	j	.L70
 .L70:
 .L68:
 	ret
-.L252:
+.L270:
 	
 __UDS_ReadHealthStatus_function_end:
 	.size	UDS_ReadHealthStatus,__UDS_ReadHealthStatus_function_end-UDS_ReadHealthStatus
-.L162:
+.L174:
 	; End of function
 	
 	.sdecl	'.text.uds_handler.UDS_CreateNegativeResponse',code,cluster('UDS_CreateNegativeResponse')
@@ -1005,34 +1014,34 @@ __UDS_ReadHealthStatus_function_end:
 	
 	.global	UDS_CreateNegativeResponse
 ; Function UDS_CreateNegativeResponse
-.L104:
+.L116:
 UDS_CreateNegativeResponse:	.type	func
 	mov	d15,#0
-.L712:
+.L790:
 	st.b	[a5]4,d15
-.L713:
+.L791:
 	mov	d15,#127
-.L714:
+.L792:
 	st.b	[a5]5,d15
-.L715:
+.L793:
 	st.b	[a5]6,d4
-.L716:
+.L794:
 	mov	d15,#2
-.L717:
+.L795:
 	st.h	[a5]8,d15
-.L718:
+.L796:
 	ld.bu	d15,[a4]4
-.L719:
+.L797:
 	st.b	[a5]10,d15
-.L720:
+.L798:
 	st.b	[a5]11,d4
-.L721:
+.L799:
 	ret
-.L257:
+.L275:
 	
 __UDS_CreateNegativeResponse_function_end:
 	.size	UDS_CreateNegativeResponse,__UDS_CreateNegativeResponse_function_end-UDS_CreateNegativeResponse
-.L167:
+.L179:
 	; End of function
 	
 	.sdecl	'.text.uds_handler.UDS_CreatePositiveResponse',code,cluster('UDS_CreatePositiveResponse')
@@ -1041,32 +1050,32 @@ __UDS_CreateNegativeResponse_function_end:
 	
 	.global	UDS_CreatePositiveResponse
 ; Function UDS_CreatePositiveResponse
-.L106:
+.L118:
 UDS_CreatePositiveResponse:	.type	func
 	mov	d15,#1
-.L726:
+.L804:
 	st.b	[a5]4,d15
-.L727:
+.L805:
 	ld.bu	d15,[a4]4
-.L728:
+.L806:
 	add	d15,d15,#64
-.L729:
+.L807:
 	st.b	[a5]5,d15
-.L730:
+.L808:
 	mov	d15,#0
-.L731:
+.L809:
 	st.b	[a5]6,d15
-.L732:
+.L810:
 	mov	d15,#0
-.L733:
+.L811:
 	st.h	[a5]8,d15
-.L734:
+.L812:
 	ret
-.L261:
+.L279:
 	
 __UDS_CreatePositiveResponse_function_end:
 	.size	UDS_CreatePositiveResponse,__UDS_CreatePositiveResponse_function_end-UDS_CreatePositiveResponse
-.L172:
+.L184:
 	; End of function
 	
 	.sdecl	'.text.uds_handler.UDS_Service_RoutineControl',code,cluster('UDS_Service_RoutineControl')
@@ -1075,199 +1084,343 @@ __UDS_CreatePositiveResponse_function_end:
 	
 	.global	UDS_Service_RoutineControl
 ; Function UDS_Service_RoutineControl
-.L108:
+.L120:
 UDS_Service_RoutineControl:	.type	func
-	sub.a	a10,#64
-.L373:
+	lea	a10,[a10]-376
+.L391:
 	mov.aa	a12,a4
-.L375:
+.L393:
 	mov.aa	a15,a5
-.L376:
+.L394:
 	ld.hu	d15,[a12]6
-.L579:
+.L602:
 	jge.u	d15,#3,.L71
-.L580:
+.L603:
 	mov	d4,#19
-.L581:
+.L604:
 	mov.aa	a4,a12
 	mov.aa	a5,a15
 	call	UDS_CreateNegativeResponse
-.L374:
+.L392:
 	mov	d2,#1
-.L582:
+.L605:
 	j	.L72
 .L71:
 	ld.bu	d8,[a12]8
-.L378:
+.L396:
 	ld.bu	d15,[a12]9
-.L583:
+.L606:
 	sha	d0,d15,#8
-.L584:
+.L607:
 	ld.bu	d15,[a12]10
-.L585:
+.L608:
 	or	d9,d0,d15
-.L380:
+.L398:
 	jeq	d8,#1,.L73
-.L586:
+.L609:
 	mov	d4,#18
-.L587:
+.L610:
 	mov.aa	a4,a12
 	mov.aa	a5,a15
 	call	UDS_CreateNegativeResponse
-.L377:
+.L395:
 	mov	d2,#1
-.L588:
+.L611:
 	j	.L74
 .L73:
 	mov.aa	a4,a12
 	mov.aa	a5,a15
 	call	UDS_CreatePositiveResponse
-.L381:
+.L399:
 	st.b	[a15]10,d8
-.L589:
+.L612:
 	ld.bu	d15,[a12]9
-.L590:
+.L613:
 	st.b	[a15]11,d15
-.L591:
+.L614:
 	ld.bu	d15,[a12]10
-.L592:
+.L615:
 	st.b	[a15]12,d15
-.L593:
+.L616:
 	mov	d15,#3
-.L594:
+.L617:
 	st.h	[a15]8,d15
-.L595:
+.L618:
 	mov.u	d15,#61441
 	jeq	d15,d9,.L75
-.L596:
+.L619:
 	mov.u	d15,#61442
 	jeq	d15,d9,.L76
-	j	.L77
+.L620:
+	mov.u	d0,#61443
+	jeq	d0,d9,.L77
+.L621:
+	mov.u	d15,#61444
+	jeq	d15,d9,.L78
+	j	.L79
 .L75:
 	call	VCI_StartCollection
-.L597:
-	mov	d15,#0
-.L598:
-	st.b	[a15]13,d15
-.L599:
-	mov	d15,#4
-.L600:
-	st.h	[a15]8,d15
-.L601:
-	mov	d2,#1
-.L602:
-	j	.L78
-.L76:
-	call	DoIP_Client_IsActive
-.L603:
-	jne	d2,#0,.L79
-.L604:
-	mov	d15,#1
-.L605:
-	st.b	[a15]13,d15
-.L606:
-	mov	d15,#4
-.L607:
-	st.h	[a15]8,d15
-.L227:
-	movh.a	a4,#@his(.8.str)
-	lea	a4,[a4]@los(.8.str)
-.L608:
-	mov	d4,#41
-	call	sendUARTMessage
-.L609:
-	mov	d2,#1
-.L610:
-	j	.L80
-.L79:
-	movh.a	a2,#@his(g_zone_ecu_count)
-	lea	a2,[a2]@los(g_zone_ecu_count)
-	ld.bu	d15,[a2]
-.L611:
-	add	d15,#1
-	extr.u	d8,d15,#0,#8
-.L379:
-	movh.a	a4,#@his(g_vci_database)
-	lea	a4,[a4]@los(g_vci_database)
-	mov	d4,d8
-.L382:
-	call	DoIP_Client_SendVCIReport
-.L383:
-	jeq	d2,#0,.L81
-.L612:
-	mov	d15,#0
-.L613:
-	st.b	[a15]13,d15
-.L614:
-	st.b	[a15]14,d8
-.L615:
-	mov	d15,#5
-.L616:
-	st.h	[a15]8,d15
-.L229:
-	lea	a4,[a10]0
-.L617:
-	movh.a	a5,#@his(.9.str)
-	lea	a5,[a5]@los(.9.str)
-.L618:
-	mov	d4,d8
-.L384:
-	call	sprintf
-.L385:
-	lea	a4,[a10]0
-	call	strlen
-.L619:
-	lea	a4,[a10]0
-.L620:
-	mov	d4,d2
-	call	sendUARTMessage
-.L621:
-	mov	d2,#1
 .L622:
-	j	.L82
-.L81:
-	mov	d15,#2
+	mov	d15,#0
 .L623:
 	st.b	[a15]13,d15
 .L624:
 	mov	d15,#4
 .L625:
 	st.h	[a15]8,d15
-.L232:
+.L626:
+	mov	d2,#1
+.L627:
+	j	.L80
+.L76:
+	call	DoIP_Client_IsActive
+.L628:
+	jne	d2,#0,.L81
+.L629:
+	mov	d15,#1
+.L630:
+	st.b	[a15]13,d15
+.L631:
+	mov	d15,#4
+.L632:
+	st.h	[a15]8,d15
+.L239:
+	movh.a	a4,#@his(.8.str)
+	lea	a4,[a4]@los(.8.str)
+.L633:
+	mov	d4,#41
+	call	sendUARTMessage
+.L634:
+	mov	d2,#1
+.L635:
+	j	.L82
+.L81:
+	movh.a	a2,#@his(g_zone_ecu_count)
+	lea	a2,[a2]@los(g_zone_ecu_count)
+	ld.bu	d15,[a2]
+.L636:
+	add	d15,#1
+	extr.u	d8,d15,#0,#8
+.L397:
+	movh.a	a4,#@his(g_vci_database)
+	lea	a4,[a4]@los(g_vci_database)
+	mov	d4,d8
+.L400:
+	call	DoIP_Client_SendVCIReport
+.L401:
+	jeq	d2,#0,.L83
+.L637:
+	mov	d15,#0
+.L638:
+	st.b	[a15]13,d15
+.L639:
+	st.b	[a15]14,d8
+.L640:
+	mov	d15,#5
+.L641:
+	st.h	[a15]8,d15
+.L241:
+	lea	a4,[a10]0
+.L642:
+	movh.a	a5,#@his(.9.str)
+	lea	a5,[a5]@los(.9.str)
+.L643:
+	mov	d4,d8
+.L402:
+	call	sprintf
+.L403:
+	lea	a4,[a10]0
+	call	strlen
+.L644:
+	lea	a4,[a10]0
+.L645:
+	mov	d4,d2
+	call	sendUARTMessage
+.L646:
+	mov	d2,#1
+.L647:
+	j	.L84
+.L83:
+	mov	d15,#2
+.L648:
+	st.b	[a15]13,d15
+.L649:
+	mov	d15,#4
+.L650:
+	st.h	[a15]8,d15
+.L244:
 	movh.a	a4,#@his(.10.str)
 	lea	a4,[a4]@los(.10.str)
-.L626:
+.L651:
 	mov	d4,#35
 	call	sendUARTMessage
-.L627:
+.L652:
 	mov	d2,#1
-.L628:
-	j	.L83
+.L653:
+	j	.L85
 .L77:
-	mov	d4,#49
-.L629:
-	mov.aa	a4,a12
-.L386:
-	mov.aa	a5,a15
-.L388:
-	call	UDS_CreateNegativeResponse
-.L387:
+	call	Readiness_StartCheck
+.L654:
+	mov	d15,#0
+.L655:
+	st.b	[a15]13,d15
+.L656:
+	mov	d15,#4
+.L657:
+	st.h	[a15]8,d15
+.L658:
 	mov	d2,#1
-.L630:
-	j	.L84
+.L659:
+	j	.L86
+.L78:
+	call	DoIP_Client_IsActive
+.L660:
+	jne	d2,#0,.L87
+.L661:
+	mov	d15,#1
+.L662:
+	st.b	[a15]13,d15
+.L663:
+	mov	d15,#4
+.L664:
+	st.h	[a15]8,d15
+.L245:
+	movh.a	a4,#@his(.11.str)
+	lea	a4,[a4]@los(.11.str)
+.L665:
+	mov	d4,#47
+	call	sendUARTMessage
+.L666:
+	mov	d2,#1
+.L667:
+	j	.L88
+.L87:
+	mov	d15,#0
+.L668:
+	st.b	[a10],d15
+.L669:
+	lea	a4,[a10]4
+.L670:
+	lea	a5,[a10]0
+	call	Readiness_GetConsolidated
+.L671:
+	jeq	d2,#0,.L89
+.L672:
+	mov	d15,#0
+.L673:
+	st.b	[a15]13,d15
+.L674:
+	ld.bu	d15,[a10]
+.L675:
+	st.b	[a15]14,d15
+.L676:
+	ld.bu	d15,[a10]
+.L677:
+	jlt.u	d15,#1,.L90
+.L678:
+	ld.bu	d15,[a10]30
+.L679:
+	jeq	d15,#0,.L91
+.L680:
+	mov	d15,#1
+.L681:
+	j	.L92
+.L91:
+	mov	d15,#0
+.L92:
+	st.b	[a15]15,d15
+.L682:
+	ld.hu	d15,[a10]22
+.L683:
+	sha	d15,#-8
+.L684:
+	and	d15,#255
+.L685:
+	st.b	[a15]16,d15
+.L686:
+	ld.hu	d15,[a10]22
+.L687:
+	and	d15,#255
+.L688:
+	st.b	[a15]17,d15
+.L689:
+	mov	d15,#8
+.L690:
+	st.h	[a15]8,d15
+.L691:
+	j	.L93
+.L90:
+	mov	d15,#5
+.L692:
+	st.h	[a15]8,d15
+.L93:
+	lea	a4,[a10]312
+.L693:
+	movh.a	a5,#@his(.12.str)
+	lea	a5,[a5]@los(.12.str)
+.L694:
+	ld.bu	d4,[a10]
+.L695:
+	call	sprintf
+.L696:
+	lea	a4,[a10]312
+	call	strlen
+.L697:
+	lea	a4,[a10]312
+.L698:
+	mov	d4,d2
+	call	sendUARTMessage
+.L699:
+	mov	d2,#1
+.L700:
+	j	.L94
+.L89:
+	mov	d15,#2
+.L701:
+	st.b	[a15]13,d15
+.L702:
+	mov	d15,#4
+.L703:
+	st.h	[a15]8,d15
+.L250:
+	movh.a	a4,#@his(.13.str)
+	lea	a4,[a4]@los(.13.str)
+.L704:
+	mov	d4,#42
+	call	sendUARTMessage
+.L705:
+	mov	d2,#1
+.L706:
+	j	.L95
+.L79:
+	mov	d4,#49
+.L707:
+	mov.aa	a4,a12
+.L404:
+	mov.aa	a5,a15
+.L406:
+	call	UDS_CreateNegativeResponse
+.L405:
+	mov	d2,#1
+.L708:
+	j	.L96
+.L96:
+.L95:
+.L94:
+.L88:
+.L86:
+.L85:
 .L84:
-.L83:
 .L82:
 .L80:
-.L78:
 .L74:
 .L72:
 	ret
-.L222:
+.L234:
 	
 __UDS_Service_RoutineControl_function_end:
 	.size	UDS_Service_RoutineControl,__UDS_Service_RoutineControl_function_end-UDS_Service_RoutineControl
-.L142:
+.L154:
 	; End of function
 	
 	.sdecl	'.rodata.uds_handler.g_service_handlers',data,rom,cluster('g_service_handlers')
@@ -1291,7 +1444,7 @@ g_service_handlers:	.type	object
 	.byte	61,48,120,37,48,52,88,44
 	.byte	32,84,65,61,48,120,37,48
 	.byte	52,88,44,32,76,101,110,61
-	.byte	37,100,13,10
+	.byte	37,117,13,10
 	.space	1
 	.sdecl	'.rodata.uds_handler..2.str',data,rom
 	.sect	'.rodata.uds_handler..2.str'
@@ -1323,7 +1476,7 @@ g_service_handlers:	.type	object
 	.byte	61,48,120,37,48,52,88,44
 	.byte	32,84,65,61,48,120,37,48
 	.byte	52,88,44,32,84,111,116,97
-	.byte	108,61,37,100,32,98,121,116
+	.byte	108,61,37,117,32,98,121,116
 	.byte	101,115,13,10
 	.space	1
 	.sdecl	'.rodata.uds_handler..6.str',data,rom
@@ -1357,7 +1510,7 @@ g_service_handlers:	.type	object
 	.byte	91,85,68,83,93,32,86,67
 	.byte	73,32,114,101,112,111,114,116
 	.byte	32,115,101,110,116,32,40,37
-	.byte	100,32,69,67,85,115,41,13
+	.byte	117,32,69,67,85,115,41,13
 	.byte	10
 	.space	1
 	.sdecl	'.rodata.uds_handler..10.str',data,rom
@@ -1369,6 +1522,40 @@ g_service_handlers:	.type	object
 	.byte	97,105,108,101,100,58,32,84
 	.byte	67,80,32,101,114,114,111,114
 	.byte	13,10
+	.space	1
+	.sdecl	'.rodata.uds_handler..11.str',data,rom
+	.sect	'.rodata.uds_handler..11.str'
+.11.str:	.type	object
+	.size	.11.str,47
+	.byte	91,85,68,83,93,32,82,101
+	.byte	97,100,105,110,101,115,115,32
+	.byte	115,101,110,100,32,102,97,105
+	.byte	108,101,100,58,32,68,111,73
+	.byte	80,32,110,111,116,32,97,99
+	.byte	116,105,118,101
+	.byte	13,10
+	.space	1
+	.sdecl	'.rodata.uds_handler..12.str',data,rom
+	.sect	'.rodata.uds_handler..12.str'
+.12.str:	.type	object
+	.size	.12.str,40
+	.byte	91,85,68,83,93,32,82,101
+	.byte	97,100,105,110,101,115,115,32
+	.byte	114,101,112,111,114,116,32,115
+	.byte	101,110,116,32,40,37,117,32
+	.byte	69,67,85,115
+	.byte	41,13,10
+	.space	1
+	.sdecl	'.rodata.uds_handler..13.str',data,rom
+	.sect	'.rodata.uds_handler..13.str'
+.13.str:	.type	object
+	.size	.13.str,42
+	.byte	91,85,68,83,93,32,82,101
+	.byte	97,100,105,110,101,115,115,32
+	.byte	115,101,110,100,32,102,97,105
+	.byte	108,101,100,58,32,68,97,116
+	.byte	97,32,101,114,114,111,114,13
+	.byte	10
 	.space	1
 	.calls	'__INDIRECT__','UDS_Service_ReadDataByIdentifier'
 	.calls	'__INDIRECT__','UDS_Service_RoutineControl'
@@ -1400,6 +1587,8 @@ g_service_handlers:	.type	object
 	.calls	'UDS_Service_RoutineControl','DoIP_Client_SendVCIReport'
 	.calls	'UDS_Service_RoutineControl','sprintf'
 	.calls	'UDS_Service_RoutineControl','strlen'
+	.calls	'UDS_Service_RoutineControl','Readiness_StartCheck'
+	.calls	'UDS_Service_RoutineControl','Readiness_GetConsolidated'
 	.calls	'UDS_Init','',0
 	.calls	'UDS_HandleRequest','',0
 	.calls	'UDS_ParseDoIPDiagnostic','',128
@@ -1414,6 +1603,8 @@ g_service_handlers:	.type	object
 	.extern	DoIP_Client_IsActive
 	.extern	DoIP_Client_SendVCIReport
 	.extern	VCI_StartCollection
+	.extern	Readiness_StartCheck
+	.extern	Readiness_GetConsolidated
 	.extern	strlen
 	.extern	memcpy
 	.extern	memset
@@ -1426,29 +1617,29 @@ g_service_handlers:	.type	object
 	.extern	sendUARTMessage
 	.extern	__printf_int
 	.extern	__INDIRECT__
-	.calls	'UDS_Service_RoutineControl','',64
+	.calls	'UDS_Service_RoutineControl','',376
 	.sdecl	'.debug_info',debug
 	.sect	'.debug_info'
-.L110:
-	.word	5333
+.L122:
+	.word	5682
 	.half	3
-	.word	.L111
+	.word	.L123
 	.byte	4
-.L109:
+.L121:
 	.byte	1
 	.byte	'../Libraries/DoIP/uds_handler.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\TriCore Debug (TASKING)\\',0
 	.byte	12,1
-	.word	.L112
-.L176:
+	.word	.L124
+.L188:
 	.byte	2
 	.byte	'unsigned char',0,1,8
-.L195:
+.L207:
 	.byte	2
 	.byte	'unsigned short int',0,2,7,3,128,2
 	.word	232
-	.byte	4,255,1,0,5,1,142,1,9,136,2,6
+	.byte	4,255,1,0,5,1,146,1,9,136,2,6
 	.byte	'source_address',0
 	.word	249
 	.byte	2,2,35,0,6
@@ -1465,12 +1656,12 @@ g_service_handlers:	.type	object
 	.word	271
 	.byte	128,2,2,35,8,0,7
 	.word	282
-.L178:
+.L190:
 	.byte	8
 	.word	391
 	.byte	3,128,32
 	.word	232
-	.byte	4,255,31,0,5,1,152,1,9,140,32,6
+	.byte	4,255,31,0,5,1,156,1,9,140,32,6
 	.byte	'source_address',0
 	.word	249
 	.byte	2,2,35,0,6
@@ -1492,65 +1683,93 @@ g_service_handlers:	.type	object
 	.byte	'data',0
 	.word	401
 	.byte	128,32,2,35,10,0
-.L180:
+.L192:
 	.byte	8
 	.word	412
 	.byte	7
 	.word	232
-.L186:
+.L198:
 	.byte	8
 	.word	560
-.L188:
+.L200:
 	.byte	2
 	.byte	'unsigned long int',0,4,7
-.L190:
+.L202:
 	.byte	8
 	.word	282
 	.byte	2
 	.byte	'char',0,1,6
-.L192:
+.L204:
 	.byte	3,128,1
 	.word	596
 	.byte	4,127,0,7
 	.word	412
-.L201:
+.L213:
 	.byte	8
 	.word	614
-.L203:
+.L215:
 	.byte	8
 	.word	232
-.L230:
+.L242:
 	.byte	3,64
 	.word	596
-	.byte	4,63,0
-.L236:
+	.byte	4,63,0,3,16
+	.word	596
+	.byte	4,15,0,5,2,23,9,28,6
+	.byte	'ecu_id',0
+	.word	638
+	.byte	16,2,35,0,6
+	.byte	'vehicle_parked',0
+	.word	232
+	.byte	1,2,35,16,6
+	.byte	'engine_off',0
+	.word	232
+	.byte	1,2,35,17,6
+	.byte	'battery_voltage_mv',0
+	.word	249
+	.byte	2,2,35,18,6
+	.byte	'available_memory_kb',0
+	.word	570
+	.byte	4,2,35,20,6
+	.byte	'all_doors_closed',0
+	.word	232
+	.byte	1,2,35,24,6
+	.byte	'compatible',0
+	.word	232
+	.byte	1,2,35,25,6
+	.byte	'ready_for_update',0
+	.word	232
+	.byte	1,2,35,26,0
+.L247:
+	.byte	3,180,2
+	.word	647
+	.byte	4,10,0
+.L254:
 	.byte	8
 	.word	249
-	.byte	3,16
+	.byte	3,8
 	.word	596
-	.byte	4,15,0,3,8
-	.word	596
-	.byte	4,7,0,5,2,124,9,48,6
+	.byte	4,7,0,5,3,124,9,48,6
 	.byte	'ecu_id',0
-	.word	643
+	.word	638
 	.byte	16,2,35,0,6
 	.byte	'sw_version',0
-	.word	652
+	.word	857
 	.byte	8,2,35,16,6
 	.byte	'hw_version',0
-	.word	652
+	.word	857
 	.byte	8,2,35,24,6
 	.byte	'serial_num',0
-	.word	643
+	.word	638
 	.byte	16,2,35,32,0
-.L238:
+.L256:
 	.byte	3,96
-	.word	661
+	.word	866
 	.byte	4,1,0,3,3
 	.word	232
-	.byte	4,2,0,5,2,162,1,9,24,6
+	.byte	4,2,0,5,3,162,1,9,24,6
 	.byte	'ecu_id',0
-	.word	643
+	.word	638
 	.byte	16,2,35,0,6
 	.byte	'health_status',0
 	.word	232
@@ -1565,203 +1784,215 @@ g_service_handlers:	.type	object
 	.word	232
 	.byte	1,2,35,20,6
 	.byte	'reserved',0
-	.word	752
+	.word	957
 	.byte	3,2,35,21,0
-.L241:
+.L259:
 	.byte	3,48
-	.word	761
+	.word	966
 	.byte	4,1,0
-.L246:
+.L264:
 	.byte	8
-	.word	661
-.L253:
+	.word	866
+.L271:
 	.byte	8
-	.word	761
+	.word	966
 	.byte	9
-	.byte	'DoIP_Client_IsActive',0,3,51,9
+	.byte	'DoIP_Client_IsActive',0,4,51,9
 	.word	232
 	.byte	1,1,1,1,7
-	.word	661
+	.word	866
 	.byte	8
-	.word	942
+	.word	1147
 	.byte	10
-	.byte	'DoIP_Client_SendVCIReport',0,3,67,9
+	.byte	'DoIP_Client_SendVCIReport',0,4,67,9
 	.word	232
 	.byte	1,1,1,1,11
-	.byte	'vci_count',0,3,67,41
+	.byte	'vci_count',0,4,67,41
 	.word	232
 	.byte	11
-	.byte	'vci_database',0,3,67,73
-	.word	947
+	.byte	'vci_database',0,4,67,73
+	.word	1152
 	.byte	0,12
-	.byte	'VCI_StartCollection',0,4,15,6,1,1,1,1,2
+	.byte	'VCI_StartCollection',0,5,15,6,1,1,1,1,12
+	.byte	'Readiness_StartCheck',0,2,61,6,1,1,1,1,8
+	.word	647
+	.byte	10
+	.byte	'Readiness_GetConsolidated',0,2,80,9
+	.word	232
+	.byte	1,1,1,1,11
+	.byte	'readiness_array',0,2,80,51
+	.word	1292
+	.byte	11
+	.byte	'readiness_count',0,2,80,75
+	.word	624
+	.byte	0,2
 	.byte	'unsigned int',0,4,7,7
 	.word	596
 	.byte	8
-	.word	1074
+	.word	1400
 	.byte	10
-	.byte	'strlen',0,5,52,17
-	.word	1058
-	.byte	1,1,1,1,13,5,52,39
-	.word	1079
+	.byte	'strlen',0,6,52,17
+	.word	1384
+	.byte	1,1,1,1,13,6,52,39
+	.word	1405
 	.byte	0,14
 	.byte	'void',0,8
-	.word	1112
+	.word	1438
 	.byte	15
-	.word	1118
+	.word	1444
 	.byte	7
-	.word	1112
+	.word	1438
 	.byte	8
-	.word	1128
+	.word	1454
 	.byte	15
-	.word	1133
+	.word	1459
 	.byte	10
-	.byte	'memcpy',0,5,53,17
-	.word	1118
-	.byte	1,1,1,1,13,5,53,33
-	.word	1123
-	.byte	13,5,53,56
-	.word	1138
-	.byte	13,5,53,68
-	.word	1058
+	.byte	'memcpy',0,6,53,17
+	.word	1444
+	.byte	1,1,1,1,13,6,53,33
+	.word	1449
+	.byte	13,6,53,56
+	.word	1464
+	.byte	13,6,53,68
+	.word	1384
 	.byte	0,2
 	.byte	'int',0,4,5,10
-	.byte	'memset',0,5,56,17
-	.word	1118
-	.byte	1,1,1,1,13,5,56,33
-	.word	1118
-	.byte	13,5,56,36
-	.word	1187
-	.byte	13,5,56,41
-	.word	1058
+	.byte	'memset',0,6,56,17
+	.word	1444
+	.byte	1,1,1,1,13,6,56,33
+	.word	1444
+	.byte	13,6,56,36
+	.word	1513
+	.byte	13,6,56,41
+	.word	1384
 	.byte	0,16
-	.byte	'sprintf',0,6,106,5
-	.word	1187
+	.byte	'sprintf',0,7,107,5
+	.word	1513
 	.byte	1,1,1,16
-	.byte	'sendUARTMessage',0,6,108,5
-	.word	1187
+	.byte	'sendUARTMessage',0,7,109,5
+	.word	1513
 	.byte	1,1,1,17
-	.byte	'__INDIRECT__',0,6,1,1,1,1,1,2
+	.byte	'__INDIRECT__',0,7,1,1,1,1,1,2
 	.byte	'short int',0,2,5,18
-	.byte	'__wchar_t',0,6,1,1
-	.word	1304
+	.byte	'__wchar_t',0,7,1,1
+	.word	1630
 	.byte	18
-	.byte	'__size_t',0,6,1,1
-	.word	1058
+	.byte	'__size_t',0,7,1,1
+	.word	1384
 	.byte	18
-	.byte	'__ptrdiff_t',0,6,1,1
-	.word	1187
+	.byte	'__ptrdiff_t',0,7,1,1
+	.word	1513
 	.byte	19,1,8
-	.word	1372
+	.word	1698
 	.byte	18
-	.byte	'__codeptr',0,6,1,1
-	.word	1374
+	.byte	'__codeptr',0,7,1,1
+	.word	1700
 	.byte	18
-	.byte	'__intptr_t',0,6,1,1
-	.word	1187
+	.byte	'__intptr_t',0,7,1,1
+	.word	1513
 	.byte	18
-	.byte	'__uintptr_t',0,6,1,1
-	.word	1058
+	.byte	'__uintptr_t',0,7,1,1
+	.word	1384
 	.byte	18
-	.byte	'size_t',0,7,24,25
-	.word	1058
+	.byte	'size_t',0,8,24,25
+	.word	1384
 	.byte	18
-	.byte	'boolean',0,8,104,29
+	.byte	'boolean',0,9,104,29
 	.word	232
 	.byte	18
-	.byte	'uint8',0,8,108,29
+	.byte	'uint8',0,9,108,29
 	.word	232
 	.byte	18
-	.byte	'uint16',0,8,112,29
+	.byte	'uint16',0,9,112,29
 	.word	249
 	.byte	18
-	.byte	'uint32',0,8,116,29
+	.byte	'uint32',0,9,116,29
 	.word	570
 	.byte	2
 	.byte	'char',0,1,6,18
-	.byte	'sint8',0,8,125,29
-	.word	1511
+	.byte	'sint8',0,9,125,29
+	.word	1837
 	.byte	18
-	.byte	'sint16',0,8,129,1,29
-	.word	1304
+	.byte	'sint16',0,9,129,1,29
+	.word	1630
 	.byte	2
 	.byte	'long int',0,4,5,18
-	.byte	'sint32',0,8,134,1,29
-	.word	1549
+	.byte	'sint32',0,9,134,1,29
+	.word	1875
 	.byte	2
 	.byte	'long long int',0,8,5,18
-	.byte	'sint64',0,8,141,1,29
-	.word	1577
+	.byte	'sint64',0,9,141,1,29
+	.word	1903
 	.byte	2
 	.byte	'float',0,4,4,18
-	.byte	'float32',0,8,170,1,29
-	.word	1610
+	.byte	'float32',0,9,170,1,29
+	.word	1936
 	.byte	18
-	.byte	'pvoid',0,9,54,28
-	.word	1118
+	.byte	'pvoid',0,10,54,28
+	.word	1444
 	.byte	18
-	.byte	'DoIP_VCI_Info',0,2,130,1,3
-	.word	661
+	.byte	'DoIP_VCI_Info',0,3,130,1,3
+	.word	866
 	.byte	18
-	.byte	'DoIP_HealthStatus_Info',0,2,170,1,3
-	.word	761
+	.byte	'DoIP_HealthStatus_Info',0,3,170,1,3
+	.word	966
 	.byte	18
-	.byte	'UDS_Request',0,1,149,1,3
+	.byte	'UDS_Request',0,1,153,1,3
 	.word	282
 	.byte	18
-	.byte	'UDS_Response',0,1,161,1,3
+	.byte	'UDS_Response',0,1,165,1,3
 	.word	412
 	.byte	7
 	.word	282
 	.byte	8
-	.word	1748
+	.word	2074
 	.byte	8
 	.word	412
 	.byte	20
 	.word	232
 	.byte	1,1,21
-	.word	1753
+	.word	2079
 	.byte	21
-	.word	1758
+	.word	2084
 	.byte	0,8
-	.word	1763
+	.word	2089
 	.byte	18
-	.byte	'UDS_ServiceHandler',0,1,168,1,19
-	.word	1781
+	.byte	'UDS_ServiceHandler',0,1,172,1,19
+	.word	2107
 	.byte	18
-	.byte	'u8_t',0,10,85,16
+	.byte	'u8_t',0,11,85,16
 	.word	232
 	.byte	18
-	.byte	'u16_t',0,10,86,16
+	.byte	'u16_t',0,11,86,16
 	.word	249
 	.byte	18
-	.byte	'u32_t',0,10,87,16
+	.byte	'u32_t',0,11,87,16
 	.word	570
 	.byte	18
-	.byte	's8_t',0,10,88,16
-	.word	1511
+	.byte	's8_t',0,11,88,16
+	.word	1837
 	.byte	18
-	.byte	's16_t',0,10,89,16
-	.word	1304
+	.byte	's16_t',0,11,89,16
+	.word	1630
 	.byte	18
-	.byte	'intmax_t',0,11,198,2,41
-	.word	1577
+	.byte	'intmax_t',0,12,198,2,41
+	.word	1903
 	.byte	18
-	.byte	'tcpwnd_size_t',0,12,53,15
+	.byte	'tcpwnd_size_t',0,13,53,15
 	.word	249
 	.byte	18
-	.byte	'mem_size_t',0,13,67,15
+	.byte	'mem_size_t',0,14,67,15
 	.word	249
 	.byte	18
-	.byte	'err_t',0,14,96,14
-	.word	1511
+	.byte	'err_t',0,15,96,14
+	.word	1837
 	.byte	22
-	.byte	'pbuf',0,15,186,1,8,16,6
+	.byte	'pbuf',0,16,186,1,8,16,6
 	.byte	'next',0
-	.word	.L389-.L110
+	.word	.L407-.L122
 	.byte	4,2,35,0,6
 	.byte	'payload',0
-	.word	1118
+	.word	1444
 	.byte	4,2,35,4,6
 	.byte	'tot_len',0
 	.word	249
@@ -1781,92 +2012,92 @@ g_service_handlers:	.type	object
 	.byte	'if_idx',0
 	.word	232
 	.byte	1,2,35,15,0
-.L389:
+.L407:
 	.byte	8
-	.word	1955
+	.word	2281
 	.byte	23,1,1,21
-	.word	2095
+	.word	2421
 	.byte	0,8
-	.word	2100
+	.word	2426
 	.byte	18
-	.byte	'pbuf_free_custom_fn',0,15,242,1,16
-	.word	2109
+	.byte	'pbuf_free_custom_fn',0,16,242,1,16
+	.word	2435
 	.byte	22
-	.byte	'ip4_addr',0,16,51,8,4,6
+	.byte	'ip4_addr',0,17,51,8,4,6
 	.byte	'addr',0
 	.word	570
 	.byte	4,2,35,0,0,18
-	.byte	'ip4_addr_t',0,16,57,25
-	.word	2143
+	.byte	'ip4_addr_t',0,17,57,25
+	.word	2469
 	.byte	18
-	.byte	'ip_addr_t',0,17,142,2,20
-	.word	2143
+	.byte	'ip_addr_t',0,18,142,2,20
+	.word	2469
 	.byte	7
-	.word	2143
+	.word	2469
 	.byte	8
-	.word	2210
+	.word	2536
 	.byte	20
-	.word	1511
+	.word	1837
 	.byte	1,1,21
-	.word	.L390-.L110
+	.word	.L408-.L122
 	.byte	21
-	.word	2095
+	.word	2421
 	.byte	21
-	.word	2215
+	.word	2541
 	.byte	0,8
-	.word	2220
+	.word	2546
 	.byte	18
-	.byte	'netif_output_fn',0,18,189,1,17
-	.word	2243
+	.byte	'netif_output_fn',0,19,189,1,17
+	.word	2569
 	.byte	20
-	.word	1511
+	.word	1837
 	.byte	1,1,21
-	.word	.L390-.L110
+	.word	.L408-.L122
 	.byte	21
-	.word	2095
+	.word	2421
 	.byte	0,8
-	.word	2273
+	.word	2599
 	.byte	18
-	.byte	'netif_linkoutput_fn',0,18,212,1,17
-	.word	2291
+	.byte	'netif_linkoutput_fn',0,19,212,1,17
+	.word	2617
 	.byte	3,6
 	.word	232
 	.byte	4,5,0,3,2
 	.word	596
 	.byte	4,1,0,22
-	.byte	'netif',0,18,132,2,8,52,6
+	.byte	'netif',0,19,132,2,8,52,6
 	.byte	'next',0
-	.word	.L390-.L110
+	.word	.L408-.L122
 	.byte	4,2,35,0,6
 	.byte	'ip_addr',0
-	.word	2143
+	.word	2469
 	.byte	4,2,35,4,6
 	.byte	'netmask',0
-	.word	2143
+	.word	2469
 	.byte	4,2,35,8,6
 	.byte	'gw',0
-	.word	2143
+	.word	2469
 	.byte	4,2,35,12,6
 	.byte	'input',0
-	.word	.L391-.L110
+	.word	.L409-.L122
 	.byte	4,2,35,16,6
 	.byte	'output',0
-	.word	2248
+	.word	2574
 	.byte	4,2,35,20,6
 	.byte	'linkoutput',0
-	.word	2296
+	.word	2622
 	.byte	4,2,35,24,6
 	.byte	'state',0
-	.word	1118
+	.word	1444
 	.byte	4,2,35,28,6
 	.byte	'hostname',0
-	.word	1079
+	.word	1405
 	.byte	4,2,35,32,6
 	.byte	'mtu',0
 	.word	249
 	.byte	2,2,35,36,6
 	.byte	'hwaddr',0
-	.word	2325
+	.word	2651
 	.byte	6,2,35,38,6
 	.byte	'hwaddr_len',0
 	.word	232
@@ -1875,7 +2106,7 @@ g_service_handlers:	.type	object
 	.word	232
 	.byte	1,2,35,45,6
 	.byte	'name',0
-	.word	2334
+	.word	2660
 	.byte	2,2,35,46,6
 	.byte	'num',0
 	.word	232
@@ -1883,105 +2114,105 @@ g_service_handlers:	.type	object
 	.byte	'rs_count',0
 	.word	232
 	.byte	1,2,35,49,0
-.L390:
+.L408:
 	.byte	8
-	.word	2343
+	.word	2669
 	.byte	20
-	.word	1511
+	.word	1837
 	.byte	1,1,21
-	.word	2095
+	.word	2421
 	.byte	21
-	.word	2609
+	.word	2935
 	.byte	0,8
-	.word	2614
-.L391:
+	.word	2940
+.L409:
 	.byte	18
-	.byte	'netif_input_fn',0,18,178,1,17
-	.word	2632
+	.byte	'netif_input_fn',0,19,178,1,17
+	.word	2958
 	.byte	8
-	.word	2614
+	.word	2940
 	.byte	8
-	.word	2220
+	.word	2546
 	.byte	8
-	.word	2273
+	.word	2599
 	.byte	22
-	.byte	'link_changed_s',0,18,213,4,10,1,6
+	.byte	'link_changed_s',0,19,213,4,10,1,6
 	.byte	'state',0
 	.word	232
 	.byte	1,2,35,0,0,22
-	.byte	'status_changed_s',0,18,219,4,10,1,6
+	.byte	'status_changed_s',0,19,219,4,10,1,6
 	.byte	'state',0
 	.word	232
 	.byte	1,2,35,0,0,7
-	.word	2143
+	.word	2469
 	.byte	8
-	.word	2752
+	.word	3078
 	.byte	22
-	.byte	'ipv4_changed_s',0,18,225,4,10,12,6
+	.byte	'ipv4_changed_s',0,19,225,4,10,12,6
 	.byte	'old_address',0
-	.word	2757
+	.word	3083
 	.byte	4,2,35,0,6
 	.byte	'old_netmask',0
-	.word	2757
+	.word	3083
 	.byte	4,2,35,4,6
 	.byte	'old_gw',0
-	.word	2757
+	.word	3083
 	.byte	4,2,35,8,0,22
-	.byte	'ipv6_set_s',0,18,233,4,10,8,6
+	.byte	'ipv6_set_s',0,19,233,4,10,8,6
 	.byte	'addr_index',0
-	.word	1511
+	.word	1837
 	.byte	1,2,35,0,6
 	.byte	'old_address',0
-	.word	2757
+	.word	3083
 	.byte	4,2,35,4,0,22
-	.byte	'ipv6_addr_state_changed_s',0,18,241,4,10,8,6
+	.byte	'ipv6_addr_state_changed_s',0,19,241,4,10,8,6
 	.byte	'addr_index',0
-	.word	1511
+	.word	1837
 	.byte	1,2,35,0,6
 	.byte	'old_state',0
 	.word	232
 	.byte	1,2,35,1,6
 	.byte	'address',0
-	.word	2757
-	.byte	4,2,35,4,0,24,18,210,4,9,12,6
+	.word	3083
+	.byte	4,2,35,4,0,24,19,210,4,9,12,6
 	.byte	'link_changed',0
-	.word	2676
+	.word	3002
 	.byte	1,2,35,0,6
 	.byte	'status_changed',0
-	.word	2713
+	.word	3039
 	.byte	1,2,35,0,6
 	.byte	'ipv4_changed',0
-	.word	2762
+	.word	3088
 	.byte	12,2,35,0,6
 	.byte	'ipv6_set',0
-	.word	2842
+	.word	3168
 	.byte	8,2,35,0,6
 	.byte	'ipv6_addr_state_changed',0
-	.word	2901
+	.word	3227
 	.byte	8,2,35,0,0,7
-	.word	2990
+	.word	3316
 	.byte	8
-	.word	3116
+	.word	3442
 	.byte	23,1,1,21
-	.word	2609
+	.word	2935
 	.byte	21
 	.word	249
 	.byte	21
-	.word	3121
+	.word	3447
 	.byte	0,8
-	.word	3126
+	.word	3452
 	.byte	18
-	.byte	'netif_ext_callback_fn',0,18,132,5,16
-	.word	3145
+	.byte	'netif_ext_callback_fn',0,19,132,5,16
+	.word	3471
 	.byte	22
-	.byte	'ip4_addr_packed',0,19,53,8,4,6
+	.byte	'ip4_addr_packed',0,20,53,8,4,6
 	.byte	'addr',0
 	.word	570
 	.byte	4,2,35,0,0,18
-	.byte	'ip4_addr_p_t',0,19,61,32
-	.word	3181
+	.byte	'ip4_addr_p_t',0,20,61,32
+	.word	3507
 	.byte	25
-	.byte	'tcp_state',0,12,56,6,1,26
+	.byte	'tcp_state',0,13,56,6,1,26
 	.byte	'CLOSED',0,0,26
 	.byte	'LISTEN',0,1,26
 	.byte	'SYN_SENT',0,2,26
@@ -1993,15 +2224,15 @@ g_service_handlers:	.type	object
 	.byte	'CLOSING',0,8,26
 	.byte	'LAST_ACK',0,9,26
 	.byte	'TIME_WAIT',0,10,0,27
-	.byte	'tcp_seg',0,20,210,2,10,1,8
-	.word	3380
+	.byte	'tcp_seg',0,21,210,2,10,1,8
+	.word	3706
 	.byte	22
-	.byte	'tcp_pcb_listen',0,20,223,1,8,28,6
+	.byte	'tcp_pcb_listen',0,21,223,1,8,28,6
 	.byte	'local_ip',0
-	.word	2143
+	.word	2469
 	.byte	4,2,35,0,6
 	.byte	'remote_ip',0
-	.word	2143
+	.word	2469
 	.byte	4,2,35,4,6
 	.byte	'netif_idx',0
 	.word	232
@@ -2016,13 +2247,13 @@ g_service_handlers:	.type	object
 	.word	232
 	.byte	1,2,35,11,6
 	.byte	'next',0
-	.word	.L392-.L110
+	.word	.L410-.L122
 	.byte	4,2,35,12,6
 	.byte	'callback_arg',0
-	.word	1118
+	.word	1444
 	.byte	4,2,35,16,6
 	.byte	'state',0
-	.word	3238
+	.word	3564
 	.byte	1,2,35,20,6
 	.byte	'prio',0
 	.word	232
@@ -2031,69 +2262,69 @@ g_service_handlers:	.type	object
 	.word	249
 	.byte	2,2,35,22,6
 	.byte	'accept',0
-	.word	.L393-.L110
+	.word	.L411-.L122
 	.byte	4,2,35,24,0
-.L392:
+.L410:
 	.byte	8
-	.word	3399
+	.word	3725
 	.byte	20
-	.word	1511
+	.word	1837
 	.byte	1,1,21
-	.word	1118
+	.word	1444
 	.byte	21
-	.word	.L394-.L110
+	.word	.L412-.L122
 	.byte	21
 	.word	249
 	.byte	0,8
-	.word	3629
+	.word	3955
 	.byte	18
-	.byte	'tcp_sent_fn',0,20,96,17
-	.word	3652
+	.byte	'tcp_sent_fn',0,21,96,17
+	.word	3978
 	.byte	20
-	.word	1511
+	.word	1837
 	.byte	1,1,21
-	.word	1118
+	.word	1444
 	.byte	21
-	.word	.L394-.L110
+	.word	.L412-.L122
 	.byte	21
-	.word	2095
+	.word	2421
 	.byte	21
-	.word	1511
+	.word	1837
 	.byte	0,8
-	.word	3677
+	.word	4003
 	.byte	18
-	.byte	'tcp_recv_fn',0,20,82,17
-	.word	3705
+	.byte	'tcp_recv_fn',0,21,82,17
+	.word	4031
 	.byte	18
-	.byte	'tcp_connected_fn',0,20,134,1,17
-	.word	.L395-.L110
+	.byte	'tcp_connected_fn',0,21,134,1,17
+	.word	.L413-.L122
 	.byte	20
-	.word	1511
+	.word	1837
 	.byte	1,1,21
-	.word	1118
+	.word	1444
 	.byte	21
-	.word	.L394-.L110
+	.word	.L412-.L122
 	.byte	0,8
-	.word	3756
+	.word	4082
 	.byte	18
-	.byte	'tcp_poll_fn',0,20,108,17
-	.word	3774
+	.byte	'tcp_poll_fn',0,21,108,17
+	.word	4100
 	.byte	23,1,1,21
-	.word	1118
+	.word	1444
 	.byte	21
-	.word	1511
+	.word	1837
 	.byte	0,8
-	.word	3799
+	.word	4125
 	.byte	18
-	.byte	'tcp_err_fn',0,20,120,17
-	.word	3813
+	.byte	'tcp_err_fn',0,21,120,17
+	.word	4139
 	.byte	22
-	.byte	'tcp_pcb',0,20,242,1,8,156,1,6
+	.byte	'tcp_pcb',0,21,242,1,8,156,1,6
 	.byte	'local_ip',0
-	.word	2143
+	.word	2469
 	.byte	4,2,35,0,6
 	.byte	'remote_ip',0
-	.word	2143
+	.word	2469
 	.byte	4,2,35,4,6
 	.byte	'netif_idx',0
 	.word	232
@@ -2108,13 +2339,13 @@ g_service_handlers:	.type	object
 	.word	232
 	.byte	1,2,35,11,6
 	.byte	'next',0
-	.word	.L394-.L110
+	.word	.L412-.L122
 	.byte	4,2,35,12,6
 	.byte	'callback_arg',0
-	.word	1118
+	.word	1444
 	.byte	4,2,35,16,6
 	.byte	'state',0
-	.word	3238
+	.word	3564
 	.byte	1,2,35,20,6
 	.byte	'prio',0
 	.word	232
@@ -2153,7 +2384,7 @@ g_service_handlers:	.type	object
 	.word	570
 	.byte	4,2,35,44,6
 	.byte	'rtime',0
-	.word	1304
+	.word	1630
 	.byte	2,2,35,48,6
 	.byte	'mss',0
 	.word	249
@@ -2165,13 +2396,13 @@ g_service_handlers:	.type	object
 	.word	570
 	.byte	4,2,35,56,6
 	.byte	'sa',0
-	.word	1304
+	.word	1630
 	.byte	2,2,35,60,6
 	.byte	'sv',0
-	.word	1304
+	.word	1630
 	.byte	2,2,35,62,6
 	.byte	'rto',0
-	.word	1304
+	.word	1630
 	.byte	2,2,35,64,6
 	.byte	'nrtx',0
 	.word	232
@@ -2222,34 +2453,34 @@ g_service_handlers:	.type	object
 	.word	249
 	.byte	2,2,35,106,6
 	.byte	'unsent',0
-	.word	3394
+	.word	3720
 	.byte	4,2,35,108,6
 	.byte	'unacked',0
-	.word	3394
+	.word	3720
 	.byte	4,2,35,112,6
 	.byte	'ooseq',0
-	.word	3394
+	.word	3720
 	.byte	4,2,35,116,6
 	.byte	'refused_data',0
-	.word	2095
+	.word	2421
 	.byte	4,2,35,120,6
 	.byte	'listener',0
-	.word	3624
+	.word	3950
 	.byte	4,2,35,124,6
 	.byte	'sent',0
-	.word	3657
+	.word	3983
 	.byte	4,3,35,128,1,6
 	.byte	'recv',0
-	.word	3710
+	.word	4036
 	.byte	4,3,35,132,1,6
 	.byte	'connected',0
-	.word	3730
+	.word	4056
 	.byte	4,3,35,136,1,6
 	.byte	'poll',0
-	.word	3779
+	.word	4105
 	.byte	4,3,35,140,1,6
 	.byte	'errf',0
-	.word	3818
+	.word	4144
 	.byte	4,3,35,144,1,6
 	.byte	'keep_idle',0
 	.word	570
@@ -2266,95 +2497,98 @@ g_service_handlers:	.type	object
 	.byte	'keep_cnt_sent',0
 	.word	232
 	.byte	1,3,35,155,1,0
-.L394:
+.L412:
 	.byte	8
-	.word	3837
+	.word	4163
 	.byte	20
-	.word	1511
+	.word	1837
 	.byte	1,1,21
-	.word	1118
+	.word	1444
 	.byte	21
-	.word	4899
+	.word	5225
 	.byte	21
-	.word	1511
+	.word	1837
 	.byte	0
-.L395:
+.L413:
 	.byte	8
-	.word	4904
-.L393:
+	.word	5230
+.L411:
 	.byte	18
-	.byte	'tcp_accept_fn',0,20,70,17
-	.word	4927
+	.byte	'tcp_accept_fn',0,21,70,17
+	.word	5253
 	.byte	8
-	.word	4904
+	.word	5230
 	.byte	8
-	.word	3629
+	.word	3955
 	.byte	8
-	.word	3677
+	.word	4003
 	.byte	8
-	.word	4904
+	.word	5230
 	.byte	8
-	.word	3756
+	.word	4082
 	.byte	8
-	.word	3799
+	.word	4125
 	.byte	23,1,1,21
 	.word	232
 	.byte	21
-	.word	1118
+	.word	1444
 	.byte	0,8
-	.word	4984
+	.word	5310
 	.byte	18
-	.byte	'tcp_extarg_callback_pcb_destroyed_fn',0,20,173,1,16
-	.word	4998
+	.byte	'tcp_extarg_callback_pcb_destroyed_fn',0,21,173,1,16
+	.word	5324
 	.byte	20
-	.word	1511
+	.word	1837
 	.byte	1,1,21
 	.word	232
 	.byte	21
-	.word	3624
+	.word	3950
 	.byte	21
-	.word	4899
+	.word	5225
 	.byte	0,8
-	.word	5049
+	.word	5375
 	.byte	18
-	.byte	'tcp_extarg_callback_passive_open_fn',0,20,182,1,17
-	.word	5072
+	.byte	'tcp_extarg_callback_passive_open_fn',0,21,182,1,17
+	.word	5398
 	.byte	18
-	.byte	'tcpflags_t',0,20,206,1,15
+	.byte	'tcpflags_t',0,21,206,1,15
 	.word	249
+	.byte	18
+	.byte	'Readiness_Info',0,2,40,3
+	.word	647
 	.byte	28
-	.byte	'g_vci_database',0,6,21,22
-	.word	743
+	.byte	'g_vci_database',0,7,22,22
+	.word	948
 	.byte	1,1,28
-	.byte	'g_zone_ecu_count',0,6,22,14
+	.byte	'g_zone_ecu_count',0,7,23,14
 	.word	232
 	.byte	1,1,28
-	.byte	'g_vci_collection_complete',0,6,23,16
+	.byte	'g_vci_collection_complete',0,7,24,16
 	.word	232
 	.byte	1,1,28
-	.byte	'g_zgw_vci',0,6,26,22
-	.word	661
+	.byte	'g_zgw_vci',0,7,27,22
+	.word	866
 	.byte	1,1,28
-	.byte	'g_health_data',0,6,29,31
-	.word	890
-	.byte	1,1,5,6,36,14,8,6
+	.byte	'g_health_data',0,7,30,31
+	.word	1095
+	.byte	1,1,5,7,37,14,8,6
 	.byte	'service_id',0
 	.word	232
 	.byte	1,2,35,0,6
 	.byte	'handler',0
-	.word	1786
+	.word	2112
 	.byte	4,2,35,4,0,3,16
-	.word	5274
+	.word	5623
 	.byte	4,1,0
-.L264:
+.L282:
 	.byte	7
-	.word	5317
+	.word	5666
 	.byte	8
-	.word	1763
+	.word	2089
 	.byte	0
 	.sdecl	'.debug_abbrev',debug
 	.sect	'.debug_abbrev'
-.L111:
+.L123:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,16,6,0,0,2,36,0,3,8,11,15,62,15,0,0,3,1,1,11,15,73,19,0,0,4,33,0
 	.byte	47,15,0,0,5,19,1,58,15,59,15,57,15,11,15,0,0,6,13,0,3,8,73,19,11,15,56,9,0,0,7,38,0,73,19,0,0,8,15,0,73
 	.byte	19,0,0,9,46,0,3,8,58,15,59,15,57,15,73,19,54,15,39,12,63,12,60,12,0,0,10,46,1,3,8,58,15,59,15,57,15,73
@@ -2367,29 +2601,31 @@ g_service_handlers:	.type	object
 	.byte	52,0,3,8,58,15,59,15,57,15,73,19,63,12,60,12,0,0,0
 	.sdecl	'.debug_line',debug
 	.sect	'.debug_line'
-.L112:
-	.word	.L397-.L396
-.L396:
+.L124:
+	.word	.L415-.L414
+.L414:
 	.half	3
-	.word	.L399-.L398
-.L398:
+	.word	.L417-.L416
+.L416:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1
-	.byte	'C:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\VCI',0
 	.byte	'C:\\Infineon\\AURIX-Studio-1.10.24\\tools\\Compilers\\Tasking_1.1r8\\ctc\\include\\',0
 	.byte	'C:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\iLLD\\\\TC3xx\\\\Tricore\\\\Cpu\\\\Std',0
 	.byte	0
 	.byte	'..\\Libraries\\DoIP\\uds_handler.h',0,0,0,0
+	.byte	'C:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\Libraries\\DataCollection\\readiness_manager.h',0
+	.byte	0,0,0
 	.byte	'..\\Libraries\\DoIP\\doip_types.h',0,0,0,0
 	.byte	'..\\Libraries\\DoIP\\doip_client.h',0,0,0,0
-	.byte	'vci_manager.h',0,1,0,0
-	.byte	'string.h',0,2,0,0
+	.byte	'C:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\Libraries\\DataCollection\\vci_manager.h',0
+	.byte	0,0,0
+	.byte	'string.h',0,1,0,0
 	.byte	'../Libraries/DoIP/uds_handler.c',0,0,0,0
-	.byte	'stddef.h',0,2,0,0
-	.byte	'Platform_Types.h',0,3,0,0
-	.byte	'Ifx_Types.h',0,3,0,0
+	.byte	'stddef.h',0,1,0,0
+	.byte	'Platform_Types.h',0,2,0,0
+	.byte	'Ifx_Types.h',0,2,0,0
 	.byte	'C:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\port\\\\include\\arch\\cc.h',0
 	.byte	0,0,0
-	.byte	'stdint.h',0,2,0,0
+	.byte	'stdint.h',0,1,0,0
 	.byte	'C:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\lwip\\tcpbase.h',0
 	.byte	0,0,0
 	.byte	'C:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\lwip\\mem.h',0
@@ -2408,2261 +2644,2427 @@ g_service_handlers:	.type	object
 	.byte	0,0,0
 	.byte	'C:\\\\Users\\\\user\\\\AURIX-v1.10.24-workspace\\\\OTA-Zonal_Gateway\\\\OTA-Zonal_Gateway-main\\\\Libraries\\\\Ethernet\\\\lwip\\\\src\\\\include\\lwip\\tcp.h',0
 	.byte	0,0,0,0
-.L399:
-.L397:
+.L417:
+.L415:
 	.sdecl	'.debug_info',debug,cluster('UDS_Init')
 	.sect	'.debug_info'
-.L113:
+.L125:
 	.word	276
 	.half	3
-	.word	.L114
+	.word	.L126
 	.byte	4,1
 	.byte	'../Libraries/DoIP/uds_handler.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\TriCore Debug (TASKING)\\',0
 	.byte	12,1
-	.word	.L116,.L115
+	.word	.L128,.L127
 	.byte	2
-	.word	.L109
+	.word	.L121
 	.byte	3
-	.byte	'UDS_Init',0,1,51,6,1,1,1
-	.word	.L86,.L175,.L85
+	.byte	'UDS_Init',0,1,52,6,1,1,1
+	.word	.L98,.L187,.L97
 	.byte	4
-	.word	.L86,.L175
+	.word	.L98,.L187
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('UDS_Init')
 	.sect	'.debug_abbrev'
-.L114:
+.L126:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
 	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('UDS_Init')
 	.sect	'.debug_line'
-.L115:
-	.word	.L401-.L400
-.L400:
+.L127:
+	.word	.L419-.L418
+.L418:
 	.half	3
-	.word	.L403-.L402
-.L402:
+	.word	.L421-.L420
+.L420:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../Libraries/DoIP/uds_handler.c',0,0,0,0,0
-.L403:
+.L421:
 	.byte	5,1,7,0,5,2
-	.word	.L86
-	.byte	3,54,1,7,9
-	.half	.L117-.L86
+	.word	.L98
+	.byte	3,55,1,7,9
+	.half	.L129-.L98
 	.byte	0,1,1
-.L401:
+.L419:
 	.sdecl	'.debug_ranges',debug,cluster('UDS_Init')
 	.sect	'.debug_ranges'
-.L116:
-	.word	-1,.L86,0,.L117-.L86,0,0
+.L128:
+	.word	-1,.L98,0,.L129-.L98,0,0
 	.sdecl	'.debug_info',debug,cluster('UDS_HandleRequest')
 	.sect	'.debug_info'
-.L118:
+.L130:
 	.word	355
 	.half	3
-	.word	.L119
+	.word	.L131
 	.byte	4,1
 	.byte	'../Libraries/DoIP/uds_handler.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\TriCore Debug (TASKING)\\',0
 	.byte	12,1
-	.word	.L121,.L120
+	.word	.L133,.L132
 	.byte	2
-	.word	.L109
+	.word	.L121
 	.byte	3
-	.byte	'UDS_HandleRequest',0,1,57,9
-	.word	.L176
+	.byte	'UDS_HandleRequest',0,1,58,9
+	.word	.L188
 	.byte	1,1,1
-	.word	.L88,.L177,.L87
+	.word	.L100,.L189,.L99
 	.byte	4
-	.byte	'request',0,1,57,46
-	.word	.L178,.L179
+	.byte	'request',0,1,58,46
+	.word	.L190,.L191
 	.byte	4
-	.byte	'response',0,1,57,69
-	.word	.L180,.L181
+	.byte	'response',0,1,58,69
+	.word	.L192,.L193
 	.byte	5
-	.word	.L88,.L177
+	.word	.L100,.L189
 	.byte	5
-	.word	.L182,.L183
+	.word	.L194,.L195
 	.byte	6
-	.byte	'i',0,1,70,16
-	.word	.L176,.L184
+	.byte	'i',0,1,71,16
+	.word	.L188,.L196
 	.byte	0,0,0,0
 	.sdecl	'.debug_abbrev',debug,cluster('UDS_HandleRequest')
 	.sect	'.debug_abbrev'
-.L119:
+.L131:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
 	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
 	.sdecl	'.debug_line',debug,cluster('UDS_HandleRequest')
 	.sect	'.debug_line'
-.L120:
-	.word	.L405-.L404
-.L404:
+.L132:
+	.word	.L423-.L422
+.L422:
 	.half	3
-	.word	.L407-.L406
-.L406:
+	.word	.L425-.L424
+.L424:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../Libraries/DoIP/uds_handler.c',0,0,0,0,0
-.L407:
+.L425:
 	.byte	5,9,7,0,5,2
-	.word	.L88
-	.byte	3,56,1,9
-	.half	.L267-.L88
+	.word	.L100
+	.byte	3,57,1,9
+	.half	.L285-.L100
 	.byte	3,2,1,5,37,7,9
-	.half	.L408-.L267
+	.half	.L426-.L285
 	.byte	1,5,16,7,9
-	.half	.L2-.L408
+	.half	.L2-.L426
 	.byte	3,2,1,5,9,9
-	.half	.L409-.L2
+	.half	.L427-.L2
 	.byte	1,5,22,9
-	.half	.L3-.L409
+	.half	.L3-.L427
 	.byte	3,4,1,5,25,9
-	.half	.L410-.L3
+	.half	.L428-.L3
 	.byte	1,5,39,9
-	.half	.L268-.L410
+	.half	.L286-.L428
 	.byte	3,1,1,5,30,9
-	.half	.L411-.L268
+	.half	.L429-.L286
 	.byte	1,5,39,9
-	.half	.L412-.L411
+	.half	.L430-.L429
 	.byte	3,1,1,5,30,9
-	.half	.L413-.L412
+	.half	.L431-.L430
 	.byte	1,5,18,9
-	.half	.L182-.L413
+	.half	.L194-.L431
 	.byte	3,3,1,5,48,9
-	.half	.L269-.L182
+	.half	.L287-.L194
 	.byte	1,5,31,9
-	.half	.L6-.L269
+	.half	.L6-.L287
 	.byte	3,2,1,5,13,9
-	.half	.L414-.L6
+	.half	.L432-.L6
 	.byte	1,5,31,9
-	.half	.L415-.L414
+	.half	.L433-.L432
 	.byte	1,5,34,9
-	.half	.L416-.L415
+	.half	.L434-.L433
 	.byte	1,5,56,9
-	.half	.L417-.L416
+	.half	.L435-.L434
 	.byte	1,5,9,9
-	.half	.L418-.L417
+	.half	.L436-.L435
 	.byte	1,5,38,7,9
-	.half	.L419-.L418
+	.half	.L437-.L436
 	.byte	3,3,1,5,20,9
-	.half	.L420-.L419
+	.half	.L438-.L437
 	.byte	1,5,38,9
-	.half	.L421-.L420
+	.half	.L439-.L438
 	.byte	1,5,41,9
-	.half	.L422-.L421
+	.half	.L440-.L439
 	.byte	1,5,59,9
-	.half	.L423-.L422
+	.half	.L441-.L440
 	.byte	1,5,13,9
-	.half	.L270-.L423
+	.half	.L288-.L441
 	.byte	1,5,51,9
-	.half	.L7-.L270
+	.half	.L7-.L288
 	.byte	3,123,1,5,48,9
 	.half	.L5-.L7
 	.byte	1,5,41,7,9
-	.half	.L183-.L5
+	.half	.L195-.L5
 	.byte	3,10,1,5,72,9
-	.half	.L424-.L183
+	.half	.L442-.L195
 	.byte	1,5,12,9
-	.half	.L273-.L424
+	.half	.L291-.L442
 	.byte	3,1,1,5,5,9
-	.half	.L425-.L273
+	.half	.L443-.L291
 	.byte	1,5,1,9
-	.half	.L4-.L425
+	.half	.L4-.L443
 	.byte	3,1,1,7,9
-	.half	.L122-.L4
+	.half	.L134-.L4
 	.byte	0,1,1
-.L405:
+.L423:
 	.sdecl	'.debug_ranges',debug,cluster('UDS_HandleRequest')
 	.sect	'.debug_ranges'
-.L121:
-	.word	-1,.L88,0,.L122-.L88,0,0
+.L133:
+	.word	-1,.L100,0,.L134-.L100,0,0
 	.sdecl	'.debug_info',debug,cluster('UDS_ParseDoIPDiagnostic')
 	.sect	'.debug_info'
-.L123:
+.L135:
 	.word	445
 	.half	3
-	.word	.L124
+	.word	.L136
 	.byte	4,1
 	.byte	'../Libraries/DoIP/uds_handler.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\TriCore Debug (TASKING)\\',0
 	.byte	12,1
-	.word	.L126,.L125
+	.word	.L138,.L137
 	.byte	2
-	.word	.L109
+	.word	.L121
 	.byte	3
-	.byte	'UDS_ParseDoIPDiagnostic',0,1,84,9
-	.word	.L176
+	.byte	'UDS_ParseDoIPDiagnostic',0,1,85,9
+	.word	.L188
 	.byte	1,1,1
-	.word	.L90,.L185,.L89
+	.word	.L102,.L197,.L101
 	.byte	4
-	.byte	'doip_payload',0,1,84,46
-	.word	.L186,.L187
+	.byte	'doip_payload',0,1,85,46
+	.word	.L198,.L199
 	.byte	4
-	.byte	'payload_len',0,1,84,67
-	.word	.L188,.L189
+	.byte	'payload_len',0,1,85,67
+	.word	.L200,.L201
 	.byte	4
-	.byte	'request',0,1,84,93
-	.word	.L190,.L191
+	.byte	'request',0,1,85,93
+	.word	.L202,.L203
 	.byte	5
-	.word	.L90,.L185
+	.word	.L102,.L197
 	.byte	5
-	.word	.L14,.L185
+	.word	.L14,.L197
 	.byte	6
-	.byte	'log_msg',0,1,105,10
-	.word	.L192,.L193
+	.byte	'log_msg',0,1,106,10
+	.word	.L204,.L205
 	.byte	5
-	.word	.L194,.L16
+	.word	.L206,.L16
 	.byte	6
-	.byte	'len',0,1,114,16
-	.word	.L195,.L196
+	.byte	'len',0,1,115,16
+	.word	.L207,.L208
 	.byte	5
-	.word	.L197,.L198
+	.word	.L209,.L210
 	.byte	6
-	.byte	'i',0,1,115,21
-	.word	.L195,.L199
+	.byte	'i',0,1,116,21
+	.word	.L207,.L211
 	.byte	0,0,0,0,0,0
 	.sdecl	'.debug_abbrev',debug,cluster('UDS_ParseDoIPDiagnostic')
 	.sect	'.debug_abbrev'
-.L124:
+.L136:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
 	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
 	.sdecl	'.debug_line',debug,cluster('UDS_ParseDoIPDiagnostic')
 	.sect	'.debug_line'
-.L125:
-	.word	.L427-.L426
-.L426:
+.L137:
+	.word	.L445-.L444
+.L444:
 	.half	3
-	.word	.L429-.L428
-.L428:
+	.word	.L447-.L446
+.L446:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../Libraries/DoIP/uds_handler.c',0,0,0,0,0
-.L429:
+.L447:
 	.byte	5,9,7,0,5,2
-	.word	.L90
-	.byte	3,211,0,1,9
-	.half	.L280-.L90
+	.word	.L102
+	.byte	3,212,0,1,9
+	.half	.L298-.L102
 	.byte	3,2,1,5,41,7,9
-	.half	.L430-.L280
+	.half	.L448-.L298
 	.byte	1,5,64,7,9
-	.half	.L431-.L430
-	.byte	1,5,16,7,9
-	.half	.L10-.L431
-	.byte	3,2,1,5,9,9
-	.half	.L432-.L10
-	.byte	1,5,52,9
-	.half	.L12-.L432
-	.byte	3,4,1,5,56,9
-	.half	.L433-.L12
-	.byte	1,5,76,9
-	.half	.L434-.L433
-	.byte	1,5,62,9
-	.half	.L435-.L434
-	.byte	1,5,29,9
-	.half	.L436-.L435
-	.byte	1,5,52,9
-	.half	.L437-.L436
-	.byte	3,1,1,5,56,9
-	.half	.L438-.L437
-	.byte	1,5,76,9
-	.half	.L439-.L438
-	.byte	1,5,62,9
-	.half	.L440-.L439
-	.byte	1,5,29,9
-	.half	.L441-.L440
-	.byte	1,5,39,9
-	.half	.L442-.L441
-	.byte	3,3,1,5,25,9
-	.half	.L443-.L442
-	.byte	1,5,46,9
-	.half	.L444-.L443
-	.byte	3,1,1,5,23,9
-	.half	.L445-.L444
-	.byte	1,5,16,9
-	.half	.L446-.L445
-	.byte	3,2,1,5,9,9
-	.half	.L447-.L446
-	.byte	1,5,41,7,9
-	.half	.L448-.L447
-	.byte	1,5,54,9
 	.half	.L449-.L448
+	.byte	1,5,16,7,9
+	.half	.L10-.L449
+	.byte	3,2,1,5,9,9
+	.half	.L450-.L10
 	.byte	1,5,52,9
-	.half	.L450-.L449
-	.byte	1,5,23,7,9
-	.half	.L451-.L450
-	.byte	3,2,1,5,45,9
+	.half	.L12-.L450
+	.byte	3,4,1,5,56,9
+	.half	.L451-.L12
+	.byte	1,5,76,9
 	.half	.L452-.L451
-	.byte	1,5,44,9
-	.half	.L279-.L452
-	.byte	1,5,56,9
-	.half	.L277-.L279
-	.byte	1,5,13,9
-	.half	.L14-.L277
-	.byte	3,5,1,5,22,9
-	.half	.L453-.L14
-	.byte	1,5,20,9
+	.byte	1,5,62,9
+	.half	.L453-.L452
+	.byte	1,5,29,9
 	.half	.L454-.L453
-	.byte	3,1,1,5,41,9
-	.half	.L455-.L454
-	.byte	1,5,66,9
-	.half	.L456-.L455
-	.byte	1,5,91,9
-	.half	.L457-.L456
-	.byte	1,5,37,9
-	.half	.L458-.L457
-	.byte	3,1,1,5,21,9
-	.half	.L459-.L458
-	.byte	1,5,36,9
-	.half	.L460-.L459
-	.byte	1,5,16,9
-	.half	.L461-.L460
-	.byte	3,3,1,5,9,9
-	.half	.L462-.L461
-	.byte	1,5,41,7,9
-	.half	.L463-.L462
 	.byte	1,5,52,9
+	.half	.L455-.L454
+	.byte	3,1,1,5,56,9
+	.half	.L456-.L455
+	.byte	1,5,76,9
+	.half	.L457-.L456
+	.byte	1,5,62,9
+	.half	.L458-.L457
+	.byte	1,5,29,9
+	.half	.L459-.L458
+	.byte	1,5,39,9
+	.half	.L460-.L459
+	.byte	3,3,1,5,25,9
+	.half	.L461-.L460
+	.byte	1,5,46,9
+	.half	.L462-.L461
+	.byte	3,1,1,5,23,9
+	.half	.L463-.L462
+	.byte	1,5,16,9
 	.half	.L464-.L463
-	.byte	1,5,17,7,9
+	.byte	3,2,1,5,9,9
 	.half	.L465-.L464
-	.byte	3,2,1,5,26,9
+	.byte	1,5,41,7,9
 	.half	.L466-.L465
-	.byte	1,5,29,9
-	.half	.L194-.L466
-	.byte	3,1,1,5,28,9
-	.half	.L467-.L194
-	.byte	1,5,23,9
-	.half	.L197-.L467
-	.byte	3,1,1,5,49,9
-	.half	.L283-.L197
-	.byte	1,5,29,9
-	.half	.L19-.L283
-	.byte	3,2,1,5,36,9
-	.half	.L468-.L19
-	.byte	1,5,58,9
+	.byte	1,5,54,9
+	.half	.L467-.L466
+	.byte	1,5,52,9
+	.half	.L468-.L467
+	.byte	1,5,23,7,9
 	.half	.L469-.L468
-	.byte	1,5,17,9
+	.byte	3,2,1,5,45,9
 	.half	.L470-.L469
-	.byte	3,1,1,5,52,9
-	.half	.L285-.L470
-	.byte	3,125,1,5,39,9
-	.half	.L18-.L285
-	.byte	1,5,49,9
-	.half	.L471-.L18
-	.byte	1,5,25,7,9
-	.half	.L198-.L471
-	.byte	3,5,1,5,32,9
-	.half	.L472-.L198
-	.byte	1,5,41,9
+	.byte	1,5,44,9
+	.half	.L297-.L470
+	.byte	1,5,56,9
+	.half	.L295-.L297
+	.byte	1,5,13,9
+	.half	.L14-.L295
+	.byte	3,5,1,5,22,9
+	.half	.L471-.L14
+	.byte	1,5,20,9
+	.half	.L472-.L471
+	.byte	3,1,1,5,41,9
 	.half	.L473-.L472
-	.byte	3,1,1,5,25,9
+	.byte	1,5,66,9
 	.half	.L474-.L473
-	.byte	1,5,40,9
+	.byte	1,5,105,9
 	.half	.L475-.L474
+	.byte	1,5,84,9
+	.half	.L476-.L475
+	.byte	1,5,37,9
+	.half	.L477-.L476
+	.byte	3,1,1,5,21,9
+	.half	.L478-.L477
+	.byte	1,5,36,9
+	.half	.L479-.L478
+	.byte	1,5,16,9
+	.half	.L480-.L479
+	.byte	3,3,1,5,9,9
+	.half	.L481-.L480
+	.byte	1,5,41,7,9
+	.half	.L482-.L481
+	.byte	1,5,52,9
+	.half	.L483-.L482
+	.byte	1,5,17,7,9
+	.half	.L484-.L483
+	.byte	3,2,1,5,26,9
+	.half	.L485-.L484
+	.byte	1,5,29,9
+	.half	.L206-.L485
+	.byte	3,1,1,5,28,9
+	.half	.L486-.L206
+	.byte	1,5,23,9
+	.half	.L209-.L486
+	.byte	3,1,1,5,49,9
+	.half	.L301-.L209
+	.byte	1,5,29,9
+	.half	.L19-.L301
+	.byte	3,2,1,5,36,9
+	.half	.L487-.L19
+	.byte	1,5,58,9
+	.half	.L488-.L487
+	.byte	1,5,17,9
+	.half	.L489-.L488
+	.byte	3,1,1,5,52,9
+	.half	.L303-.L489
+	.byte	3,125,1,5,39,9
+	.half	.L18-.L303
+	.byte	1,5,49,9
+	.half	.L490-.L18
+	.byte	1,5,25,7,9
+	.half	.L210-.L490
+	.byte	3,5,1,5,32,9
+	.half	.L491-.L210
+	.byte	1,5,41,9
+	.half	.L492-.L491
+	.byte	3,1,1,5,25,9
+	.half	.L493-.L492
+	.byte	1,5,40,9
+	.half	.L494-.L493
 	.byte	1,5,12,9
-	.half	.L16-.L475
+	.half	.L16-.L494
 	.byte	3,3,1,5,5,9
-	.half	.L476-.L16
+	.half	.L495-.L16
 	.byte	1,5,1,9
-	.half	.L13-.L476
+	.half	.L13-.L495
 	.byte	3,1,1,7,9
-	.half	.L127-.L13
+	.half	.L139-.L13
 	.byte	0,1,1
-.L427:
+.L445:
 	.sdecl	'.debug_ranges',debug,cluster('UDS_ParseDoIPDiagnostic')
 	.sect	'.debug_ranges'
-.L126:
-	.word	-1,.L90,0,.L127-.L90,0,0
+.L138:
+	.word	-1,.L102,0,.L139-.L102,0,0
 	.sdecl	'.debug_info',debug,cluster('UDS_BuildDoIPDiagnostic')
 	.sect	'.debug_info'
-.L128:
-	.word	563
+.L140:
+	.word	567
 	.half	3
-	.word	.L129
+	.word	.L141
 	.byte	4,1
 	.byte	'../Libraries/DoIP/uds_handler.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\TriCore Debug (TASKING)\\',0
 	.byte	12,1
-	.word	.L131,.L130
+	.word	.L143,.L142
 	.byte	2
-	.word	.L109
+	.word	.L121
 	.byte	3
-	.byte	'UDS_BuildDoIPDiagnostic',0,1,127,8
-	.word	.L195
+	.byte	'UDS_BuildDoIPDiagnostic',0,1,128,1,8
+	.word	.L207
 	.byte	1,1,1
-	.word	.L92,.L200,.L91
+	.word	.L104,.L212,.L103
 	.byte	4
-	.byte	'response',0,1,127,52
-	.word	.L201,.L202
+	.byte	'response',0,1,128,1,52
+	.word	.L213,.L214
 	.byte	4
-	.byte	'buffer',0,1,127,69
-	.word	.L203,.L204
+	.byte	'buffer',0,1,128,1,69
+	.word	.L215,.L216
 	.byte	4
-	.byte	'buffer_size',0,1,127,84
-	.word	.L195,.L205
+	.byte	'buffer_size',0,1,128,1,84
+	.word	.L207,.L217
 	.byte	5
-	.word	.L92,.L200
+	.word	.L104,.L212
 	.byte	5
-	.word	.L22,.L200
+	.word	.L22,.L212
 	.byte	6
-	.byte	'payload_len',0,1,135,1,12
-	.word	.L188,.L206
+	.byte	'payload_len',0,1,136,1,12
+	.word	.L207,.L218
 	.byte	6
-	.byte	'total_len',0,1,136,1,12
-	.word	.L195,.L207
+	.byte	'total_len',0,1,137,1,12
+	.word	.L207,.L219
 	.byte	5
-	.word	.L24,.L200
+	.word	.L24,.L212
 	.byte	6
-	.byte	'offset',0,1,143,1,12
-	.word	.L195,.L208
+	.byte	'offset',0,1,144,1,12
+	.word	.L207,.L220
 	.byte	5
-	.word	.L26,.L200
+	.word	.L26,.L212
 	.byte	6
-	.byte	'log_msg',0,1,174,1,10
-	.word	.L192,.L209
+	.byte	'log_msg',0,1,175,1,10
+	.word	.L204,.L221
 	.byte	5
-	.word	.L210,.L27
+	.word	.L222,.L27
 	.byte	6
-	.byte	'dump_len',0,1,182,1,16
-	.word	.L195,.L211
+	.byte	'dump_len',0,1,183,1,16
+	.word	.L207,.L223
 	.byte	5
-	.word	.L212,.L27
+	.word	.L224,.L27
 	.byte	6
-	.byte	'len',0,1,184,1,16
-	.word	.L195,.L213
+	.byte	'len',0,1,185,1,16
+	.word	.L207,.L225
 	.byte	5
-	.word	.L214,.L33
+	.word	.L226,.L33
 	.byte	6
-	.byte	'i',0,1,185,1,21
-	.word	.L195,.L215
+	.byte	'i',0,1,186,1,21
+	.word	.L207,.L227
 	.byte	0,0,0,0,0,0,0,0,0
 	.sdecl	'.debug_abbrev',debug,cluster('UDS_BuildDoIPDiagnostic')
 	.sect	'.debug_abbrev'
-.L129:
+.L141:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
 	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
 	.sdecl	'.debug_line',debug,cluster('UDS_BuildDoIPDiagnostic')
 	.sect	'.debug_line'
-.L130:
-	.word	.L478-.L477
-.L477:
+.L142:
+	.word	.L497-.L496
+.L496:
 	.half	3
-	.word	.L480-.L479
-.L479:
+	.word	.L499-.L498
+.L498:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../Libraries/DoIP/uds_handler.c',0,0,0,0,0
-.L480:
+.L499:
 	.byte	5,8,7,0,5,2
-	.word	.L92
-	.byte	3,254,0,1,5,9,9
-	.half	.L291-.L92
+	.word	.L104
+	.byte	3,255,0,1,5,9,9
+	.half	.L309-.L104
 	.byte	3,2,1,5,36,7,9
-	.half	.L481-.L291
+	.half	.L500-.L309
 	.byte	1,5,16,7,9
-	.half	.L21-.L481
+	.half	.L21-.L500
 	.byte	3,2,1,5,9,9
-	.half	.L482-.L21
+	.half	.L501-.L21
 	.byte	1,5,42,9
-	.half	.L22-.L482
-	.byte	3,4,1,5,41,9
-	.half	.L293-.L22
+	.half	.L22-.L501
+	.byte	3,4,1,5,32,9
+	.half	.L502-.L22
+	.byte	1,5,41,9
+	.half	.L311-.L502
 	.byte	3,1,1,5,5,9
-	.half	.L295-.L293
+	.half	.L313-.L311
 	.byte	3,2,1,5,16,7,9
-	.half	.L483-.L295
+	.half	.L503-.L313
 	.byte	3,2,1,5,9,9
-	.half	.L294-.L483
+	.half	.L312-.L503
 	.byte	1,5,19,9
-	.half	.L24-.L294
+	.half	.L24-.L312
 	.byte	3,3,1,5,12,9
-	.half	.L296-.L24
+	.half	.L314-.L24
 	.byte	3,3,1,5,11,9
-	.half	.L287-.L296
+	.half	.L305-.L314
 	.byte	1,5,24,9
-	.half	.L292-.L287
+	.half	.L310-.L305
 	.byte	1,5,22,9
-	.half	.L484-.L292
+	.half	.L504-.L310
 	.byte	1,5,18,9
-	.half	.L485-.L484
-	.byte	1,5,12,9
-	.half	.L297-.L485
-	.byte	3,1,1,5,11,9
-	.half	.L299-.L297
-	.byte	1,5,24,9
-	.half	.L486-.L299
-	.byte	1,5,22,9
-	.half	.L487-.L486
-	.byte	1,5,18,9
-	.half	.L488-.L487
-	.byte	1,5,12,9
-	.half	.L301-.L488
-	.byte	3,1,1,5,11,9
-	.half	.L302-.L301
-	.byte	1,5,55,9
-	.half	.L489-.L302
-	.byte	1,5,22,9
-	.half	.L490-.L489
-	.byte	1,5,18,9
-	.half	.L491-.L490
-	.byte	1,5,12,9
-	.half	.L303-.L491
-	.byte	3,1,1,5,11,9
-	.half	.L304-.L303
-	.byte	1,5,48,9
-	.half	.L492-.L304
-	.byte	1,5,22,9
-	.half	.L493-.L492
-	.byte	1,5,18,9
-	.half	.L494-.L493
-	.byte	1,5,12,9
-	.half	.L305-.L494
-	.byte	3,3,1,5,11,9
-	.half	.L306-.L305
-	.byte	1,5,44,9
-	.half	.L495-.L306
-	.byte	1,5,22,9
-	.half	.L496-.L495
-	.byte	1,5,18,9
-	.half	.L497-.L496
-	.byte	1,5,12,9
-	.half	.L307-.L497
-	.byte	3,1,1,5,11,9
-	.half	.L308-.L307
-	.byte	1,5,44,9
-	.half	.L498-.L308
-	.byte	1,5,22,9
-	.half	.L499-.L498
-	.byte	1,5,18,9
-	.half	.L500-.L499
-	.byte	1,5,12,9
-	.half	.L309-.L500
-	.byte	3,1,1,5,11,9
-	.half	.L310-.L309
-	.byte	1,5,43,9
-	.half	.L501-.L310
-	.byte	1,5,22,9
-	.half	.L502-.L501
-	.byte	1,5,18,9
-	.half	.L503-.L502
-	.byte	1,5,12,9
-	.half	.L300-.L503
-	.byte	3,1,1,5,11,9
-	.half	.L311-.L300
-	.byte	1,5,36,9
-	.half	.L504-.L311
-	.byte	1,5,22,9
 	.half	.L505-.L504
+	.byte	1,5,12,9
+	.half	.L315-.L505
+	.byte	3,1,1,5,11,9
+	.half	.L317-.L315
+	.byte	1,5,24,9
+	.half	.L506-.L317
+	.byte	1,5,22,9
+	.half	.L507-.L506
 	.byte	1,5,18,9
-	.half	.L506-.L505
-	.byte	1,5,11,9
-	.half	.L312-.L506
-	.byte	3,3,1,5,33,9
-	.half	.L298-.L312
-	.byte	1,5,50,9
-	.half	.L507-.L298
-	.byte	1,5,56,9
 	.half	.L508-.L507
+	.byte	1,5,12,9
+	.half	.L319-.L508
+	.byte	3,1,1,5,11,9
+	.half	.L320-.L319
+	.byte	1,5,55,9
+	.half	.L509-.L320
 	.byte	1,5,22,9
-	.half	.L509-.L508
-	.byte	1,5,18,9
 	.half	.L510-.L509
-	.byte	1,5,11,9
-	.half	.L314-.L510
-	.byte	3,1,1,5,32,9
-	.half	.L315-.L314
-	.byte	1,5,49,9
-	.half	.L511-.L315
-	.byte	1,5,22,9
-	.half	.L512-.L511
 	.byte	1,5,18,9
+	.half	.L511-.L510
+	.byte	1,5,12,9
+	.half	.L321-.L511
+	.byte	3,1,1,5,11,9
+	.half	.L322-.L321
+	.byte	1,5,48,9
+	.half	.L512-.L322
+	.byte	1,5,22,9
 	.half	.L513-.L512
-	.byte	1,5,11,9
-	.half	.L316-.L513
-	.byte	3,1,1,5,33,9
-	.half	.L317-.L316
-	.byte	1,5,50,9
-	.half	.L514-.L317
-	.byte	1,5,56,9
-	.half	.L515-.L514
-	.byte	1,5,22,9
+	.byte	1,5,18,9
+	.half	.L514-.L513
+	.byte	1,5,12,9
+	.half	.L323-.L514
+	.byte	3,3,1,5,11,9
+	.half	.L324-.L323
+	.byte	1,5,37,9
+	.half	.L515-.L324
+	.byte	1,5,44,9
 	.half	.L516-.L515
-	.byte	1,5,18,9
+	.byte	1,5,22,9
 	.half	.L517-.L516
-	.byte	1,5,11,9
-	.half	.L318-.L517
-	.byte	3,1,1,5,32,9
-	.half	.L319-.L318
-	.byte	1,5,49,9
-	.half	.L518-.L319
-	.byte	1,5,22,9
-	.half	.L519-.L518
 	.byte	1,5,18,9
+	.half	.L518-.L517
+	.byte	1,5,12,9
+	.half	.L325-.L518
+	.byte	3,1,1,5,11,9
+	.half	.L326-.L325
+	.byte	1,5,37,9
+	.half	.L519-.L326
+	.byte	1,5,44,9
 	.half	.L520-.L519
-	.byte	1,5,11,9
-	.half	.L320-.L520
-	.byte	3,3,1,5,32,9
-	.half	.L321-.L320
 	.byte	1,5,22,9
-	.half	.L521-.L321
+	.half	.L521-.L520
 	.byte	1,5,18,9
 	.half	.L522-.L521
-	.byte	1,5,17,9
-	.half	.L523-.L522
-	.byte	3,3,1,5,5,9
-	.half	.L524-.L523
-	.byte	1,5,23,7,9
-	.half	.L322-.L524
-	.byte	3,2,1,5,41,9
-	.half	.L289-.L322
-	.byte	1,5,57,9
-	.half	.L525-.L289
-	.byte	1,5,13,9
-	.half	.L26-.L525
-	.byte	3,6,1,5,22,9
-	.half	.L526-.L26
-	.byte	1,5,21,9
-	.half	.L527-.L526
-	.byte	3,1,1,5,43,9
-	.half	.L528-.L527
-	.byte	1,5,69,9
-	.half	.L529-.L528
-	.byte	1,5,87,9
-	.half	.L530-.L529
+	.byte	1,5,12,9
+	.half	.L327-.L522
+	.byte	3,1,1,5,11,9
+	.half	.L328-.L327
 	.byte	1,5,37,9
-	.half	.L324-.L530
-	.byte	3,1,1,5,21,9
-	.half	.L531-.L324
+	.half	.L523-.L328
+	.byte	1,5,43,9
+	.half	.L524-.L523
+	.byte	1,5,22,9
+	.half	.L525-.L524
+	.byte	1,5,18,9
+	.half	.L526-.L525
+	.byte	1,5,12,9
+	.half	.L329-.L526
+	.byte	3,1,1,5,11,9
+	.half	.L330-.L329
 	.byte	1,5,36,9
+	.half	.L527-.L330
+	.byte	1,5,22,9
+	.half	.L528-.L527
+	.byte	1,5,18,9
+	.half	.L529-.L528
+	.byte	1,5,11,9
+	.half	.L331-.L529
+	.byte	3,3,1,5,33,9
+	.half	.L316-.L331
+	.byte	1,5,50,9
+	.half	.L530-.L316
+	.byte	1,5,56,9
+	.half	.L531-.L530
+	.byte	1,5,22,9
 	.half	.L532-.L531
-	.byte	1,5,5,9
+	.byte	1,5,18,9
 	.half	.L533-.L532
-	.byte	3,3,1,5,40,7,9
-	.half	.L210-.L533
-	.byte	3,2,1,5,27,9
-	.half	.L313-.L210
-	.byte	1,5,44,7,9
-	.half	.L534-.L313
+	.byte	1,5,11,9
+	.half	.L332-.L533
+	.byte	3,1,1,5,32,9
+	.half	.L333-.L332
 	.byte	1,5,49,9
-	.half	.L325-.L534
+	.half	.L534-.L333
+	.byte	1,5,22,9
+	.half	.L535-.L534
+	.byte	1,5,18,9
+	.half	.L536-.L535
+	.byte	1,5,11,9
+	.half	.L334-.L536
+	.byte	3,1,1,5,33,9
+	.half	.L335-.L334
+	.byte	1,5,50,9
+	.half	.L537-.L335
+	.byte	1,5,56,9
+	.half	.L538-.L537
+	.byte	1,5,22,9
+	.half	.L539-.L538
+	.byte	1,5,18,9
+	.half	.L540-.L539
+	.byte	1,5,11,9
+	.half	.L336-.L540
+	.byte	3,1,1,5,32,9
+	.half	.L337-.L336
+	.byte	1,5,49,9
+	.half	.L541-.L337
+	.byte	1,5,22,9
+	.half	.L542-.L541
+	.byte	1,5,18,9
+	.half	.L543-.L542
+	.byte	1,5,11,9
+	.half	.L338-.L543
+	.byte	3,3,1,5,32,9
+	.half	.L339-.L338
+	.byte	1,5,22,9
+	.half	.L544-.L339
+	.byte	1,5,18,9
+	.half	.L545-.L544
+	.byte	1,5,17,9
+	.half	.L546-.L545
+	.byte	3,3,1,5,5,9
+	.half	.L547-.L546
+	.byte	1,5,23,7,9
+	.half	.L340-.L547
+	.byte	3,2,1,5,41,9
+	.half	.L307-.L340
+	.byte	1,5,57,9
+	.half	.L548-.L307
+	.byte	1,5,13,9
+	.half	.L26-.L548
+	.byte	3,6,1,5,22,9
+	.half	.L549-.L26
+	.byte	1,5,21,9
+	.half	.L550-.L549
+	.byte	3,1,1,5,43,9
+	.half	.L551-.L550
+	.byte	1,5,69,9
+	.half	.L552-.L551
+	.byte	1,5,87,9
+	.half	.L553-.L552
+	.byte	1,5,37,9
+	.half	.L342-.L553
+	.byte	3,1,1,5,21,9
+	.half	.L554-.L342
+	.byte	1,5,36,9
+	.half	.L555-.L554
+	.byte	1,5,5,9
+	.half	.L556-.L555
+	.byte	3,3,1,5,40,7,9
+	.half	.L222-.L556
+	.byte	3,2,1,5,27,9
+	.half	.L318-.L222
+	.byte	1,5,44,7,9
+	.half	.L557-.L318
+	.byte	1,5,49,9
+	.half	.L343-.L557
 	.byte	1,5,44,9
-	.half	.L28-.L325
+	.half	.L28-.L343
 	.byte	1,5,17,9
 	.half	.L29-.L28
 	.byte	3,1,1,5,26,9
-	.half	.L535-.L29
+	.half	.L558-.L29
 	.byte	1,5,29,9
-	.half	.L212-.L535
+	.half	.L224-.L558
 	.byte	3,1,1,5,28,9
-	.half	.L536-.L212
+	.half	.L559-.L224
 	.byte	1,5,23,9
-	.half	.L214-.L536
+	.half	.L226-.L559
 	.byte	3,1,1,5,40,9
-	.half	.L327-.L214
+	.half	.L345-.L226
 	.byte	1,5,29,9
-	.half	.L31-.L327
+	.half	.L31-.L345
 	.byte	3,2,1,5,36,9
-	.half	.L537-.L31
+	.half	.L560-.L31
 	.byte	1,5,51,9
-	.half	.L329-.L537
+	.half	.L347-.L560
 	.byte	1,5,17,9
-	.half	.L538-.L329
+	.half	.L561-.L347
 	.byte	3,1,1,5,24,9
-	.half	.L331-.L538
+	.half	.L349-.L561
 	.byte	3,1,1,5,13,9
-	.half	.L539-.L331
+	.half	.L562-.L349
 	.byte	1,5,17,7,9
-	.half	.L540-.L539
+	.half	.L563-.L562
 	.byte	3,1,1,5,43,9
-	.half	.L32-.L540
+	.half	.L32-.L563
 	.byte	3,123,1,5,40,9
 	.half	.L30-.L32
 	.byte	1,5,25,7,9
 	.half	.L33-.L30
 	.byte	3,7,1,5,9,9
-	.half	.L541-.L33
+	.half	.L564-.L33
 	.byte	1,5,29,7,9
-	.half	.L542-.L541
+	.half	.L565-.L564
 	.byte	3,2,1,5,36,9
-	.half	.L543-.L542
+	.half	.L566-.L565
 	.byte	1,5,17,9
-	.half	.L544-.L543
+	.half	.L567-.L566
 	.byte	3,1,1,5,25,9
-	.half	.L34-.L544
+	.half	.L34-.L567
 	.byte	3,2,1,5,32,9
-	.half	.L545-.L34
+	.half	.L568-.L34
 	.byte	1,5,41,9
-	.half	.L546-.L545
+	.half	.L569-.L568
 	.byte	3,1,1,5,25,9
-	.half	.L547-.L546
+	.half	.L570-.L569
 	.byte	1,5,40,9
-	.half	.L548-.L547
+	.half	.L571-.L570
 	.byte	1,5,5,9
-	.half	.L27-.L548
+	.half	.L27-.L571
 	.byte	3,3,1,5,1,9
 	.half	.L23-.L27
 	.byte	3,1,1,7,9
-	.half	.L132-.L23
+	.half	.L144-.L23
 	.byte	0,1,1
-.L478:
+.L497:
 	.sdecl	'.debug_ranges',debug,cluster('UDS_BuildDoIPDiagnostic')
 	.sect	'.debug_ranges'
-.L131:
-	.word	-1,.L92,0,.L132-.L92,0,0
+.L143:
+	.word	-1,.L104,0,.L144-.L104,0,0
 	.sdecl	'.debug_info',debug,cluster('UDS_Service_ReadDataByIdentifier')
 	.sect	'.debug_info'
-.L133:
+.L145:
 	.word	412
 	.half	3
-	.word	.L134
+	.word	.L146
 	.byte	4,1
 	.byte	'../Libraries/DoIP/uds_handler.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\TriCore Debug (TASKING)\\',0
 	.byte	12,1
-	.word	.L136,.L135
+	.word	.L148,.L147
 	.byte	2
-	.word	.L109
+	.word	.L121
 	.byte	3
-	.byte	'UDS_Service_ReadDataByIdentifier',0,1,208,1,9
-	.word	.L176
+	.byte	'UDS_Service_ReadDataByIdentifier',0,1,209,1,9
+	.word	.L188
 	.byte	1,1,1
-	.word	.L94,.L216,.L93
+	.word	.L106,.L228,.L105
 	.byte	4
-	.byte	'request',0,1,208,1,61
-	.word	.L178,.L217
+	.byte	'request',0,1,209,1,61
+	.word	.L190,.L229
 	.byte	4
-	.byte	'response',0,1,208,1,84
-	.word	.L180,.L218
+	.byte	'response',0,1,209,1,84
+	.word	.L192,.L230
 	.byte	5
-	.word	.L94,.L216
+	.word	.L106,.L228
 	.byte	5
-	.word	.L36,.L216
+	.word	.L36,.L228
 	.byte	6
-	.byte	'did',0,1,218,1,12
-	.word	.L195,.L219
+	.byte	'did',0,1,219,1,12
+	.word	.L207,.L231
 	.byte	5
-	.word	.L220,.L216
+	.word	.L232,.L228
 	.byte	6
-	.byte	'did_data_len',0,1,229,1,12
-	.word	.L195,.L221
+	.byte	'did_data_len',0,1,230,1,12
+	.word	.L207,.L233
 	.byte	0,0,0,0,0
 	.sdecl	'.debug_abbrev',debug,cluster('UDS_Service_ReadDataByIdentifier')
 	.sect	'.debug_abbrev'
-.L134:
+.L146:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
 	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
 	.sdecl	'.debug_line',debug,cluster('UDS_Service_ReadDataByIdentifier')
 	.sect	'.debug_line'
-.L135:
-	.word	.L550-.L549
-.L549:
+.L147:
+	.word	.L573-.L572
+.L572:
 	.half	3
-	.word	.L552-.L551
-.L551:
+	.word	.L575-.L574
+.L574:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../Libraries/DoIP/uds_handler.c',0,0,0,0,0
-.L552:
+.L575:
 	.byte	5,9,7,0,5,2
-	.word	.L94
-	.byte	3,207,1,1,5,16,9
-	.half	.L337-.L94
+	.word	.L106
+	.byte	3,208,1,1,5,16,9
+	.half	.L355-.L106
 	.byte	3,3,1,5,5,9
-	.half	.L553-.L337
+	.half	.L576-.L355
 	.byte	1,5,45,7,9
-	.half	.L554-.L553
+	.half	.L577-.L576
 	.byte	3,2,1,5,79,9
-	.half	.L555-.L554
+	.half	.L578-.L577
 	.byte	1,5,16,9
-	.half	.L335-.L555
+	.half	.L353-.L578
 	.byte	3,1,1,5,9,9
-	.half	.L556-.L335
+	.half	.L579-.L353
 	.byte	1,5,40,9
-	.half	.L36-.L556
+	.half	.L36-.L579
 	.byte	3,4,1,5,44,9
-	.half	.L557-.L36
+	.half	.L580-.L36
 	.byte	1,5,65,9
-	.half	.L558-.L557
+	.half	.L581-.L580
 	.byte	1,5,50,9
-	.half	.L339-.L558
+	.half	.L357-.L581
 	.byte	1,5,41,9
-	.half	.L559-.L339
+	.half	.L582-.L357
 	.byte	3,3,1,5,38,9
-	.half	.L338-.L559
+	.half	.L356-.L582
 	.byte	3,3,1,5,23,9
-	.half	.L560-.L338
+	.half	.L583-.L356
 	.byte	1,5,38,9
-	.half	.L561-.L560
+	.half	.L584-.L583
 	.byte	3,1,1,5,23,9
-	.half	.L562-.L561
+	.half	.L585-.L584
 	.byte	1,5,26,9
-	.half	.L563-.L562
+	.half	.L586-.L585
 	.byte	3,1,1,5,24,9
-	.half	.L564-.L563
+	.half	.L587-.L586
 	.byte	1,5,27,9
-	.half	.L220-.L564
+	.half	.L232-.L587
 	.byte	3,3,1,5,25,9
-	.half	.L565-.L220
+	.half	.L588-.L232
 	.byte	1,5,45,9
-	.half	.L566-.L565
+	.half	.L589-.L588
 	.byte	3,1,1,5,51,9
-	.half	.L567-.L566
+	.half	.L590-.L589
 	.byte	1,5,5,9
-	.half	.L341-.L567
+	.half	.L359-.L590
 	.byte	1,5,17,7,9
-	.half	.L568-.L341
+	.half	.L591-.L359
 	.byte	3,2,1,5,31,9
-	.half	.L569-.L568
+	.half	.L592-.L591
 	.byte	1,5,28,9
-	.half	.L570-.L569
+	.half	.L593-.L592
 	.byte	1,5,16,9
-	.half	.L571-.L570
+	.half	.L594-.L593
 	.byte	3,1,1,5,9,9
-	.half	.L572-.L571
+	.half	.L595-.L594
 	.byte	1,5,41,9
-	.half	.L38-.L572
+	.half	.L38-.L595
 	.byte	3,4,1,5,71,9
-	.half	.L573-.L38
+	.half	.L596-.L38
 	.byte	1,5,12,9
-	.half	.L343-.L573
+	.half	.L361-.L596
 	.byte	3,1,1,5,5,9
-	.half	.L574-.L343
+	.half	.L597-.L361
 	.byte	1,5,1,9
-	.half	.L37-.L574
+	.half	.L37-.L597
 	.byte	3,1,1,7,9
-	.half	.L137-.L37
+	.half	.L149-.L37
 	.byte	0,1,1
-.L550:
+.L573:
 	.sdecl	'.debug_ranges',debug,cluster('UDS_Service_ReadDataByIdentifier')
 	.sect	'.debug_ranges'
-.L136:
-	.word	-1,.L94,0,.L137-.L94,0,0
+.L148:
+	.word	-1,.L106,0,.L149-.L106,0,0
 	.sdecl	'.debug_info',debug,cluster('UDS_Service_RoutineControl')
 	.sect	'.debug_info'
-.L138:
-	.word	491
+.L150:
+	.word	608
 	.half	3
-	.word	.L139
+	.word	.L151
 	.byte	4,1
 	.byte	'../Libraries/DoIP/uds_handler.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\TriCore Debug (TASKING)\\',0
 	.byte	12,1
-	.word	.L141,.L140
+	.word	.L153,.L152
 	.byte	2
-	.word	.L109
+	.word	.L121
 	.byte	3
-	.byte	'UDS_Service_RoutineControl',0,1,130,3,9
-	.word	.L176
+	.byte	'UDS_Service_RoutineControl',0,1,131,3,9
+	.word	.L188
 	.byte	1,1,1
-	.word	.L108,.L222,.L107
+	.word	.L120,.L234,.L119
 	.byte	4
-	.byte	'request',0,1,130,3,55
-	.word	.L178,.L223
+	.byte	'request',0,1,131,3,55
+	.word	.L190,.L235
 	.byte	4
-	.byte	'response',0,1,130,3,78
-	.word	.L180,.L224
+	.byte	'response',0,1,131,3,78
+	.word	.L192,.L236
 	.byte	5
-	.word	.L108,.L222
+	.word	.L120,.L234
 	.byte	5
-	.word	.L71,.L222
+	.word	.L71,.L234
 	.byte	6
-	.byte	'sub_function',0,1,139,3,11
-	.word	.L176,.L225
+	.byte	'sub_function',0,1,140,3,11
+	.word	.L188,.L237
 	.byte	6
-	.byte	'routine_id',0,1,140,3,12
-	.word	.L195,.L226
+	.byte	'routine_id',0,1,141,3,12
+	.word	.L207,.L238
 	.byte	7
-	.word	.L227,.L79
+	.word	.L239,.L81
 	.byte	5
-	.word	.L79,.L77
+	.word	.L81,.L77
 	.byte	6
-	.byte	'total_vci_count',0,1,186,3,19
-	.word	.L176,.L228
+	.byte	'total_vci_count',0,1,187,3,19
+	.word	.L188,.L240
 	.byte	5
-	.word	.L229,.L81
+	.word	.L241,.L83
 	.byte	6
-	.byte	'log_msg',0,1,195,3,22
-	.word	.L230,.L231
+	.byte	'log_msg',0,1,196,3,22
+	.word	.L242,.L243
 	.byte	0,7
-	.word	.L232,.L77
+	.word	.L244,.L77
+	.byte	0,7
+	.word	.L245,.L87
+	.byte	5
+	.word	.L87,.L79
+	.byte	6
+	.byte	'readiness_count',0,1,237,3,19
+	.word	.L188,.L246
+	.byte	6
+	.byte	'readiness_array',0,1,238,3,28
+	.word	.L247,.L248
+	.byte	5
+	.word	.L93,.L89
+	.byte	6
+	.byte	'log_msg',0,1,135,4,22
+	.word	.L242,.L249
+	.byte	0,7
+	.word	.L250,.L79
 	.byte	0,0,0,0,0
 	.sdecl	'.debug_abbrev',debug,cluster('UDS_Service_RoutineControl')
 	.sect	'.debug_abbrev'
-.L139:
+.L151:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
 	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,7,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('UDS_Service_RoutineControl')
 	.sect	'.debug_line'
-.L140:
-	.word	.L576-.L575
-.L575:
+.L152:
+	.word	.L599-.L598
+.L598:
 	.half	3
-	.word	.L578-.L577
-.L577:
+	.word	.L601-.L600
+.L600:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../Libraries/DoIP/uds_handler.c',0,0,0,0,0
-.L578:
+.L601:
 	.byte	5,9,7,0,5,2
-	.word	.L108
-	.byte	3,129,3,1,5,16,9
-	.half	.L376-.L108
+	.word	.L120
+	.byte	3,130,3,1,5,16,9
+	.half	.L394-.L120
 	.byte	3,3,1,5,5,9
-	.half	.L579-.L376
+	.half	.L602-.L394
 	.byte	1,5,45,7,9
-	.half	.L580-.L579
+	.half	.L603-.L602
 	.byte	3,2,1,5,79,9
-	.half	.L581-.L580
-	.byte	1,5,16,9
-	.half	.L374-.L581
-	.byte	3,1,1,5,9,9
-	.half	.L582-.L374
-	.byte	1,5,39,9
-	.half	.L71-.L582
-	.byte	3,3,1,5,47,9
-	.half	.L378-.L71
-	.byte	3,1,1,5,51,9
-	.half	.L583-.L378
-	.byte	1,5,72,9
-	.half	.L584-.L583
-	.byte	1,5,57,9
-	.half	.L585-.L584
-	.byte	1,5,5,9
-	.half	.L380-.L585
-	.byte	3,3,1,5,45,7,9
-	.half	.L586-.L380
-	.byte	3,2,1,5,80,9
-	.half	.L587-.L586
-	.byte	1,5,16,9
-	.half	.L377-.L587
-	.byte	3,1,1,5,9,9
-	.half	.L588-.L377
-	.byte	1,5,41,9
-	.half	.L73-.L588
-	.byte	3,4,1,5,23,9
-	.half	.L381-.L73
-	.byte	3,3,1,5,38,9
-	.half	.L589-.L381
-	.byte	3,1,1,5,23,9
-	.half	.L590-.L589
-	.byte	1,5,38,9
-	.half	.L591-.L590
-	.byte	3,1,1,5,23,9
-	.half	.L592-.L591
-	.byte	1,5,26,9
-	.half	.L593-.L592
-	.byte	3,1,1,5,24,9
-	.half	.L594-.L593
-	.byte	1,5,14,9
-	.half	.L595-.L594
-	.byte	3,5,1,9
-	.half	.L596-.L595
-	.byte	3,12,1,5,32,9
-	.half	.L75-.L596
-	.byte	3,119,1,5,33,9
-	.half	.L597-.L75
-	.byte	3,3,1,5,31,9
-	.half	.L598-.L597
-	.byte	1,5,34,9
-	.half	.L599-.L598
-	.byte	3,1,1,5,32,9
-	.half	.L600-.L599
-	.byte	1,5,20,9
-	.half	.L601-.L600
-	.byte	3,2,1,5,13,9
-	.half	.L602-.L601
-	.byte	1,5,38,9
-	.half	.L76-.L602
-	.byte	3,6,1,5,18,9
-	.half	.L603-.L76
-	.byte	1,5,37,7,9
 	.half	.L604-.L603
-	.byte	3,3,1,5,35,9
-	.half	.L605-.L604
-	.byte	1,5,38,9
-	.half	.L606-.L605
-	.byte	3,1,1,5,36,9
+	.byte	1,5,16,9
+	.half	.L392-.L604
+	.byte	3,1,1,5,9,9
+	.half	.L605-.L392
+	.byte	1,5,39,9
+	.half	.L71-.L605
+	.byte	3,3,1,5,47,9
+	.half	.L396-.L71
+	.byte	3,1,1,5,51,9
+	.half	.L606-.L396
+	.byte	1,5,72,9
 	.half	.L607-.L606
-	.byte	1,5,33,9
-	.half	.L227-.L607
-	.byte	3,1,1,5,79,9
-	.half	.L608-.L227
-	.byte	1,5,24,9
-	.half	.L609-.L608
-	.byte	3,1,1,5,17,9
+	.byte	1,5,57,9
+	.half	.L608-.L607
+	.byte	1,5,5,9
+	.half	.L398-.L608
+	.byte	3,3,1,5,45,7,9
+	.half	.L609-.L398
+	.byte	3,2,1,5,80,9
 	.half	.L610-.L609
-	.byte	1,5,37,9
-	.half	.L79-.L610
-	.byte	3,4,1,5,54,9
-	.half	.L611-.L79
-	.byte	1,5,60,9
-	.half	.L379-.L611
-	.byte	3,2,1,5,13,9
-	.half	.L383-.L379
-	.byte	1,5,37,7,9
-	.half	.L612-.L383
-	.byte	3,3,1,5,35,9
+	.byte	1,5,16,9
+	.half	.L395-.L610
+	.byte	3,1,1,5,9,9
+	.half	.L611-.L395
+	.byte	1,5,41,9
+	.half	.L73-.L611
+	.byte	3,4,1,5,23,9
+	.half	.L399-.L73
+	.byte	3,3,1,5,38,9
+	.half	.L612-.L399
+	.byte	3,1,1,5,23,9
 	.half	.L613-.L612
-	.byte	1,9
-	.half	.L614-.L613
-	.byte	3,1,1,5,38,9
-	.half	.L615-.L614
-	.byte	3,1,1,5,36,9
-	.half	.L616-.L615
-	.byte	1,5,25,9
-	.half	.L229-.L616
-	.byte	3,3,1,5,34,9
-	.half	.L617-.L229
-	.byte	1,5,73,9
-	.half	.L618-.L617
-	.byte	1,5,49,9
-	.half	.L385-.L618
-	.byte	3,1,1,5,33,9
-	.half	.L619-.L385
-	.byte	1,5,48,9
-	.half	.L620-.L619
-	.byte	1,5,24,9
-	.half	.L621-.L620
-	.byte	3,2,1,5,17,9
-	.half	.L622-.L621
-	.byte	1,5,37,9
-	.half	.L81-.L622
-	.byte	3,5,1,5,35,9
-	.half	.L623-.L81
 	.byte	1,5,38,9
+	.half	.L614-.L613
+	.byte	3,1,1,5,23,9
+	.half	.L615-.L614
+	.byte	1,5,26,9
+	.half	.L616-.L615
+	.byte	3,1,1,5,24,9
+	.half	.L617-.L616
+	.byte	1,5,14,9
+	.half	.L618-.L617
+	.byte	3,5,1,9
+	.half	.L619-.L618
+	.byte	3,12,1,9
+	.half	.L620-.L619
+	.byte	3,38,1,9
+	.half	.L621-.L620
+	.byte	3,12,1,5,32,9
+	.half	.L75-.L621
+	.byte	3,69,1,5,33,9
+	.half	.L622-.L75
+	.byte	3,3,1,5,31,9
+	.half	.L623-.L622
+	.byte	1,5,34,9
 	.half	.L624-.L623
-	.byte	3,1,1,5,36,9
+	.byte	3,1,1,5,32,9
 	.half	.L625-.L624
-	.byte	1,5,33,9
-	.half	.L232-.L625
-	.byte	3,1,1,5,73,9
-	.half	.L626-.L232
-	.byte	1,5,24,9
-	.half	.L627-.L626
-	.byte	3,1,1,5,17,9
-	.half	.L628-.L627
-	.byte	1,5,49,9
-	.half	.L77-.L628
-	.byte	3,7,1,5,79,9
-	.half	.L629-.L77
 	.byte	1,5,20,9
-	.half	.L387-.L629
+	.half	.L626-.L625
+	.byte	3,2,1,5,13,9
+	.half	.L627-.L626
+	.byte	1,5,38,9
+	.half	.L76-.L627
+	.byte	3,6,1,5,18,9
+	.half	.L628-.L76
+	.byte	1,5,37,7,9
+	.half	.L629-.L628
+	.byte	3,3,1,5,35,9
+	.half	.L630-.L629
+	.byte	1,5,38,9
+	.half	.L631-.L630
+	.byte	3,1,1,5,36,9
+	.half	.L632-.L631
+	.byte	1,5,33,9
+	.half	.L239-.L632
+	.byte	3,1,1,5,79,9
+	.half	.L633-.L239
+	.byte	1,5,24,9
+	.half	.L634-.L633
+	.byte	3,1,1,5,17,9
+	.half	.L635-.L634
+	.byte	1,5,37,9
+	.half	.L81-.L635
+	.byte	3,4,1,5,54,9
+	.half	.L636-.L81
+	.byte	1,5,60,9
+	.half	.L397-.L636
+	.byte	3,2,1,5,13,9
+	.half	.L401-.L397
+	.byte	1,5,37,7,9
+	.half	.L637-.L401
+	.byte	3,3,1,5,35,9
+	.half	.L638-.L637
+	.byte	1,9
+	.half	.L639-.L638
+	.byte	3,1,1,5,38,9
+	.half	.L640-.L639
+	.byte	3,1,1,5,36,9
+	.half	.L641-.L640
+	.byte	1,5,25,9
+	.half	.L241-.L641
+	.byte	3,3,1,5,34,9
+	.half	.L642-.L241
+	.byte	1,5,73,9
+	.half	.L643-.L642
+	.byte	1,5,49,9
+	.half	.L403-.L643
+	.byte	3,1,1,5,33,9
+	.half	.L644-.L403
+	.byte	1,5,48,9
+	.half	.L645-.L644
+	.byte	1,5,24,9
+	.half	.L646-.L645
+	.byte	3,2,1,5,17,9
+	.half	.L647-.L646
+	.byte	1,5,37,9
+	.half	.L83-.L647
+	.byte	3,5,1,5,35,9
+	.half	.L648-.L83
+	.byte	1,5,38,9
+	.half	.L649-.L648
+	.byte	3,1,1,5,36,9
+	.half	.L650-.L649
+	.byte	1,5,33,9
+	.half	.L244-.L650
+	.byte	3,1,1,5,73,9
+	.half	.L651-.L244
+	.byte	1,5,24,9
+	.half	.L652-.L651
+	.byte	3,1,1,5,17,9
+	.half	.L653-.L652
+	.byte	1,5,33,9
+	.half	.L77-.L653
+	.byte	3,7,1,9
+	.half	.L654-.L77
+	.byte	3,3,1,5,31,9
+	.half	.L655-.L654
+	.byte	1,5,34,9
+	.half	.L656-.L655
+	.byte	3,1,1,5,32,9
+	.half	.L657-.L656
+	.byte	1,5,20,9
+	.half	.L658-.L657
+	.byte	3,2,1,5,13,9
+	.half	.L659-.L658
+	.byte	1,5,38,9
+	.half	.L78-.L659
+	.byte	3,6,1,5,18,9
+	.half	.L660-.L78
+	.byte	1,5,37,7,9
+	.half	.L661-.L660
+	.byte	3,3,1,5,35,9
+	.half	.L662-.L661
+	.byte	1,5,38,9
+	.half	.L663-.L662
+	.byte	3,1,1,5,36,9
+	.half	.L664-.L663
+	.byte	1,5,33,9
+	.half	.L245-.L664
+	.byte	3,1,1,5,85,9
+	.half	.L665-.L245
+	.byte	1,5,24,9
+	.half	.L666-.L665
+	.byte	3,1,1,5,17,9
+	.half	.L667-.L666
+	.byte	1,5,37,9
+	.half	.L87-.L667
+	.byte	3,4,1,5,35,9
+	.half	.L668-.L87
+	.byte	1,5,43,9
+	.half	.L669-.L668
+	.byte	3,3,1,5,61,9
+	.half	.L670-.L669
+	.byte	1,5,13,9
+	.half	.L671-.L670
+	.byte	1,5,37,7,9
+	.half	.L672-.L671
+	.byte	3,7,1,5,35,9
+	.half	.L673-.L672
+	.byte	1,5,37,9
+	.half	.L674-.L673
+	.byte	3,1,1,5,35,9
+	.half	.L675-.L674
+	.byte	1,5,21,9
+	.half	.L676-.L675
+	.byte	3,3,1,5,17,9
+	.half	.L677-.L676
+	.byte	1,5,59,7,9
+	.half	.L678-.L677
+	.byte	3,2,1,5,41,9
+	.half	.L679-.L678
+	.byte	1,5,77,7,9
+	.half	.L680-.L679
+	.byte	1,5,81,9
+	.half	.L681-.L680
+	.byte	1,5,77,9
+	.half	.L91-.L681
+	.byte	1,5,39,9
+	.half	.L92-.L91
+	.byte	1,5,60,9
+	.half	.L682-.L92
+	.byte	3,1,1,5,80,9
+	.half	.L683-.L682
+	.byte	1,5,86,9
+	.half	.L684-.L683
+	.byte	1,5,39,9
+	.half	.L685-.L684
+	.byte	1,5,59,9
+	.half	.L686-.L685
+	.byte	3,1,1,5,79,9
+	.half	.L687-.L686
+	.byte	1,5,39,9
+	.half	.L688-.L687
+	.byte	1,5,42,9
+	.half	.L689-.L688
+	.byte	3,1,1,5,40,9
+	.half	.L690-.L689
+	.byte	1,5,84,9
+	.half	.L691-.L690
+	.byte	3,125,1,5,42,9
+	.half	.L90-.L691
+	.byte	3,7,1,5,40,9
+	.half	.L692-.L90
+	.byte	1,5,25,9
+	.half	.L93-.L692
+	.byte	3,4,1,5,34,9
+	.half	.L693-.L93
+	.byte	1,5,93,9
+	.half	.L694-.L693
+	.byte	1,5,79,9
+	.half	.L695-.L694
+	.byte	1,5,49,9
+	.half	.L696-.L695
+	.byte	3,1,1,5,33,9
+	.half	.L697-.L696
+	.byte	1,5,48,9
+	.half	.L698-.L697
+	.byte	1,5,24,9
+	.half	.L699-.L698
+	.byte	3,2,1,5,17,9
+	.half	.L700-.L699
+	.byte	1,5,37,9
+	.half	.L89-.L700
+	.byte	3,5,1,5,35,9
+	.half	.L701-.L89
+	.byte	1,5,38,9
+	.half	.L702-.L701
+	.byte	3,1,1,5,36,9
+	.half	.L703-.L702
+	.byte	1,5,33,9
+	.half	.L250-.L703
+	.byte	3,1,1,5,80,9
+	.half	.L704-.L250
+	.byte	1,5,24,9
+	.half	.L705-.L704
+	.byte	3,1,1,5,17,9
+	.half	.L706-.L705
+	.byte	1,5,49,9
+	.half	.L79-.L706
+	.byte	3,7,1,5,79,9
+	.half	.L707-.L79
+	.byte	1,5,20,9
+	.half	.L405-.L707
 	.byte	3,1,1,5,13,9
-	.half	.L630-.L387
+	.half	.L708-.L405
 	.byte	1,5,1,9
-	.half	.L72-.L630
+	.half	.L72-.L708
 	.byte	3,3,1,7,9
-	.half	.L142-.L72
+	.half	.L154-.L72
 	.byte	0,1,1
-.L576:
+.L599:
 	.sdecl	'.debug_ranges',debug,cluster('UDS_Service_RoutineControl')
 	.sect	'.debug_ranges'
-.L141:
-	.word	-1,.L108,0,.L142-.L108,0,0
+.L153:
+	.word	-1,.L120,0,.L154-.L120,0,0
 	.sdecl	'.debug_info',debug,cluster('UDS_ReadDID_VCI')
 	.sect	'.debug_info'
-.L143:
+.L155:
 	.word	464
 	.half	3
-	.word	.L144
+	.word	.L156
 	.byte	4,1
 	.byte	'../Libraries/DoIP/uds_handler.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\TriCore Debug (TASKING)\\',0
 	.byte	12,1
-	.word	.L146,.L145
+	.word	.L158,.L157
 	.byte	2
-	.word	.L109
+	.word	.L121
 	.byte	3
-	.byte	'UDS_ReadDID_VCI',0,1,241,1,9
-	.word	.L176
+	.byte	'UDS_ReadDID_VCI',0,1,242,1,9
+	.word	.L188
 	.byte	1,1,1
-	.word	.L96,.L233,.L95
+	.word	.L108,.L251,.L107
 	.byte	4
-	.byte	'did',0,1,241,1,32
-	.word	.L195,.L234
+	.byte	'did',0,1,242,1,32
+	.word	.L207,.L252
 	.byte	4
-	.byte	'data',0,1,241,1,44
-	.word	.L203,.L235
+	.byte	'data',0,1,242,1,44
+	.word	.L215,.L253
 	.byte	4
-	.byte	'data_len',0,1,241,1,58
-	.word	.L236,.L237
+	.byte	'data_len',0,1,242,1,58
+	.word	.L254,.L255
 	.byte	5
-	.word	.L96,.L233
+	.word	.L108,.L251
 	.byte	5
 	.word	.L45,.L46
 	.byte	6
-	.byte	'vci_array',0,1,133,2,27
-	.word	.L238,.L239
+	.byte	'vci_array',0,1,134,2,27
+	.word	.L256,.L257
 	.byte	6
-	.byte	'vci_count',0,1,134,2,19
-	.word	.L176,.L240
+	.byte	'vci_count',0,1,135,2,19
+	.word	.L188,.L258
 	.byte	0,5
 	.word	.L46,.L47
 	.byte	6
-	.byte	'health_array',0,1,149,2,36
-	.word	.L241,.L242
+	.byte	'health_array',0,1,150,2,36
+	.word	.L259,.L260
 	.byte	6
-	.byte	'health_count',0,1,150,2,19
-	.word	.L176,.L243
+	.byte	'health_count',0,1,151,2,19
+	.word	.L188,.L261
 	.byte	0,0,0,0
 	.sdecl	'.debug_abbrev',debug,cluster('UDS_ReadDID_VCI')
 	.sect	'.debug_abbrev'
-.L144:
+.L156:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
 	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
 	.sdecl	'.debug_line',debug,cluster('UDS_ReadDID_VCI')
 	.sect	'.debug_line'
-.L145:
-	.word	.L632-.L631
-.L631:
+.L157:
+	.word	.L710-.L709
+.L709:
 	.half	3
-	.word	.L634-.L633
-.L633:
+	.word	.L712-.L711
+.L711:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../Libraries/DoIP/uds_handler.c',0,0,0,0,0
-.L634:
+.L712:
 	.byte	5,9,7,0,5,2
-	.word	.L96
-	.byte	3,240,1,1,9
-	.half	.L350-.L96
+	.word	.L108
+	.byte	3,241,1,1,9
+	.half	.L368-.L108
 	.byte	3,2,1,5,34,7,9
-	.half	.L635-.L350
+	.half	.L713-.L368
 	.byte	1,5,16,7,9
-	.half	.L41-.L635
+	.half	.L41-.L713
 	.byte	3,2,1,5,9,9
-	.half	.L636-.L41
+	.half	.L714-.L41
 	.byte	1,5,14,9
-	.half	.L42-.L636
+	.half	.L42-.L714
 	.byte	3,5,1,9
-	.half	.L637-.L42
+	.half	.L715-.L42
 	.byte	3,8,1,9
-	.half	.L638-.L637
+	.half	.L716-.L715
 	.byte	3,17,1,5,27,9
-	.half	.L44-.L638
+	.half	.L44-.L716
 	.byte	3,106,1,5,38,9
-	.half	.L639-.L44
+	.half	.L717-.L44
 	.byte	1,5,25,9
-	.half	.L346-.L639
+	.half	.L364-.L717
 	.byte	3,1,1,5,23,9
-	.half	.L640-.L346
+	.half	.L718-.L364
 	.byte	1,5,20,9
-	.half	.L641-.L640
+	.half	.L719-.L718
 	.byte	3,1,1,5,13,9
-	.half	.L642-.L641
+	.half	.L720-.L719
 	.byte	1,5,31,9
-	.half	.L45-.L642
+	.half	.L45-.L720
 	.byte	3,7,1,5,29,9
-	.half	.L643-.L45
+	.half	.L721-.L45
 	.byte	1,5,41,9
-	.half	.L644-.L643
+	.half	.L722-.L721
 	.byte	3,2,1,5,53,9
-	.half	.L351-.L644
+	.half	.L369-.L722
 	.byte	1,5,13,9
-	.half	.L353-.L351
+	.half	.L371-.L369
 	.byte	1,5,27,7,9
-	.half	.L645-.L353
+	.half	.L723-.L371
 	.byte	3,3,1,5,25,9
-	.half	.L646-.L645
+	.half	.L724-.L723
 	.byte	1,5,29,9
-	.half	.L647-.L646
+	.half	.L725-.L724
 	.byte	3,1,1,5,34,9
-	.half	.L648-.L647
+	.half	.L726-.L725
 	.byte	1,5,45,9
-	.half	.L649-.L648
+	.half	.L727-.L726
 	.byte	1,5,55,9
-	.half	.L650-.L649
+	.half	.L728-.L727
 	.byte	1,5,34,9
-	.half	.L355-.L650
+	.half	.L373-.L728
 	.byte	3,1,1,5,44,9
-	.half	.L651-.L355
+	.half	.L729-.L373
 	.byte	1,5,31,9
-	.half	.L652-.L651
+	.half	.L730-.L729
 	.byte	1,5,27,9
-	.half	.L653-.L652
+	.half	.L731-.L730
 	.byte	1,5,24,9
-	.half	.L654-.L653
+	.half	.L732-.L731
 	.byte	3,1,1,5,17,9
-	.half	.L655-.L654
+	.half	.L733-.L732
 	.byte	1,5,20,9
-	.half	.L49-.L655
+	.half	.L49-.L733
 	.byte	3,2,1,5,13,9
-	.half	.L656-.L49
+	.half	.L734-.L49
 	.byte	1,5,34,9
-	.half	.L46-.L656
+	.half	.L46-.L734
 	.byte	3,6,1,5,32,9
-	.half	.L657-.L46
+	.half	.L735-.L46
 	.byte	1,5,38,9
-	.half	.L658-.L657
+	.half	.L736-.L735
 	.byte	3,2,1,5,53,9
-	.half	.L356-.L658
+	.half	.L374-.L736
 	.byte	1,5,13,9
-	.half	.L358-.L356
+	.half	.L376-.L374
 	.byte	1,5,27,7,9
-	.half	.L659-.L358
+	.half	.L737-.L376
 	.byte	3,3,1,5,25,9
-	.half	.L660-.L659
+	.half	.L738-.L737
 	.byte	1,5,29,9
-	.half	.L661-.L660
+	.half	.L739-.L738
 	.byte	3,1,1,5,34,9
-	.half	.L662-.L661
+	.half	.L740-.L739
 	.byte	1,5,48,9
-	.half	.L663-.L662
+	.half	.L741-.L740
 	.byte	1,5,61,9
-	.half	.L664-.L663
+	.half	.L742-.L741
 	.byte	1,5,34,9
-	.half	.L360-.L664
+	.half	.L378-.L742
 	.byte	3,1,1,5,47,9
-	.half	.L665-.L360
+	.half	.L743-.L378
 	.byte	1,5,31,9
-	.half	.L666-.L665
+	.half	.L744-.L743
 	.byte	1,5,27,9
-	.half	.L667-.L666
+	.half	.L745-.L744
 	.byte	1,5,24,9
-	.half	.L668-.L667
+	.half	.L746-.L745
 	.byte	3,1,1,5,17,9
-	.half	.L669-.L668
+	.half	.L747-.L746
 	.byte	1,5,20,9
-	.half	.L52-.L669
+	.half	.L52-.L747
 	.byte	3,2,1,5,13,9
-	.half	.L670-.L52
+	.half	.L748-.L52
 	.byte	1,5,20,9
-	.half	.L47-.L670
+	.half	.L47-.L748
 	.byte	3,4,1,5,13,9
-	.half	.L671-.L47
+	.half	.L749-.L47
 	.byte	1,5,1,9
-	.half	.L43-.L671
+	.half	.L43-.L749
 	.byte	3,2,1,7,9
-	.half	.L147-.L43
+	.half	.L159-.L43
 	.byte	0,1,1
-.L632:
+.L710:
 	.sdecl	'.debug_ranges',debug,cluster('UDS_ReadDID_VCI')
 	.sect	'.debug_ranges'
-.L146:
-	.word	-1,.L96,0,.L147-.L96,0,0
+.L158:
+	.word	-1,.L108,0,.L159-.L108,0,0
 	.sdecl	'.debug_info',debug,cluster('UDS_ReadIndividualVCI')
 	.sect	'.debug_info'
-.L148:
+.L160:
 	.word	341
 	.half	3
-	.word	.L149
+	.word	.L161
 	.byte	4,1
 	.byte	'../Libraries/DoIP/uds_handler.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\TriCore Debug (TASKING)\\',0
 	.byte	12,1
-	.word	.L151,.L150
+	.word	.L163,.L162
 	.byte	2
-	.word	.L109
+	.word	.L121
 	.byte	3
-	.byte	'UDS_ReadIndividualVCI',0,1,168,2,9
-	.word	.L176
+	.byte	'UDS_ReadIndividualVCI',0,1,169,2,9
+	.word	.L188
 	.byte	1,1,1
-	.word	.L98,.L244,.L97
+	.word	.L110,.L262,.L109
 	.byte	4
-	.byte	'ecu_address',0,1,168,2,38
-	.word	.L195,.L245
+	.byte	'ecu_address',0,1,169,2,38
+	.word	.L207,.L263
 	.byte	4
-	.byte	'vci_info',0,1,168,2,66
-	.word	.L246,.L247
+	.byte	'vci_info',0,1,169,2,66
+	.word	.L264,.L265
 	.byte	5
-	.word	.L98,.L244
+	.word	.L110,.L262
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('UDS_ReadIndividualVCI')
 	.sect	'.debug_abbrev'
-.L149:
+.L161:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('UDS_ReadIndividualVCI')
 	.sect	'.debug_line'
-.L150:
-	.word	.L673-.L672
-.L672:
+.L162:
+	.word	.L751-.L750
+.L750:
 	.half	3
-	.word	.L675-.L674
-.L674:
+	.word	.L753-.L752
+.L752:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../Libraries/DoIP/uds_handler.c',0,0,0,0,0
-.L675:
+.L753:
 	.byte	5,24,7,0,5,2
-	.word	.L98
-	.byte	3,171,2,1,5,5,9
-	.half	.L676-.L98
+	.word	.L110
+	.byte	3,172,2,1,5,5,9
+	.half	.L754-.L110
 	.byte	1,5,27,7,9
-	.half	.L677-.L676
+	.half	.L755-.L754
 	.byte	3,2,1,5,38,9
-	.half	.L678-.L677
+	.half	.L756-.L755
 	.byte	1,5,16,9
-	.half	.L362-.L678
+	.half	.L380-.L756
 	.byte	3,1,1,5,9,9
-	.half	.L679-.L362
+	.half	.L757-.L380
 	.byte	1,5,12,9
-	.half	.L56-.L679
+	.half	.L56-.L757
 	.byte	3,3,1,5,5,9
-	.half	.L680-.L56
+	.half	.L758-.L56
 	.byte	1,5,1,9
-	.half	.L57-.L680
+	.half	.L57-.L758
 	.byte	3,1,1,7,9
-	.half	.L152-.L57
+	.half	.L164-.L57
 	.byte	0,1,1
-.L673:
+.L751:
 	.sdecl	'.debug_ranges',debug,cluster('UDS_ReadIndividualVCI')
 	.sect	'.debug_ranges'
-.L151:
-	.word	-1,.L98,0,.L152-.L98,0,0
+.L163:
+	.word	-1,.L110,0,.L164-.L110,0,0
 	.sdecl	'.debug_info',debug,cluster('UDS_ReadConsolidatedVCI')
 	.sect	'.debug_info'
-.L153:
+.L165:
 	.word	378
 	.half	3
-	.word	.L154
+	.word	.L166
 	.byte	4,1
 	.byte	'../Libraries/DoIP/uds_handler.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\TriCore Debug (TASKING)\\',0
 	.byte	12,1
-	.word	.L156,.L155
+	.word	.L168,.L167
 	.byte	2
-	.word	.L109
+	.word	.L121
 	.byte	3
-	.byte	'UDS_ReadConsolidatedVCI',0,1,181,2,9
-	.word	.L176
+	.byte	'UDS_ReadConsolidatedVCI',0,1,182,2,9
+	.word	.L188
 	.byte	1,1,1
-	.word	.L100,.L248,.L99
+	.word	.L112,.L266,.L111
 	.byte	4
-	.byte	'vci_array',0,1,181,2,48
-	.word	.L246,.L249
+	.byte	'vci_array',0,1,182,2,48
+	.word	.L264,.L267
 	.byte	4
-	.byte	'vci_count',0,1,181,2,66
-	.word	.L203,.L250
+	.byte	'vci_count',0,1,182,2,66
+	.word	.L215,.L268
 	.byte	5
-	.word	.L100,.L248
+	.word	.L112,.L266
 	.byte	5
-	.word	.L62,.L248
+	.word	.L62,.L266
 	.byte	6
-	.byte	'total_count',0,1,198,2,11
-	.word	.L176,.L251
+	.byte	'total_count',0,1,199,2,11
+	.word	.L188,.L269
 	.byte	0,0,0,0
 	.sdecl	'.debug_abbrev',debug,cluster('UDS_ReadConsolidatedVCI')
 	.sect	'.debug_abbrev'
-.L154:
+.L166:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
 	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
 	.sdecl	'.debug_line',debug,cluster('UDS_ReadConsolidatedVCI')
 	.sect	'.debug_line'
-.L155:
-	.word	.L682-.L681
-.L681:
+.L167:
+	.word	.L760-.L759
+.L759:
 	.half	3
-	.word	.L684-.L683
-.L683:
+	.word	.L762-.L761
+.L761:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../Libraries/DoIP/uds_handler.c',0,0,0,0,0
-.L684:
+.L762:
 	.byte	5,9,7,0,5,2
-	.word	.L100
-	.byte	3,180,2,1,9
-	.half	.L365-.L100
+	.word	.L112
+	.byte	3,181,2,1,9
+	.half	.L383-.L112
 	.byte	3,2,1,5,40,7,9
-	.half	.L685-.L365
+	.half	.L763-.L383
 	.byte	1,5,16,7,9
-	.half	.L59-.L685
+	.half	.L59-.L763
 	.byte	3,2,1,5,9,9
-	.half	.L686-.L59
+	.half	.L764-.L59
 	.byte	1,5,10,9
-	.half	.L60-.L686
+	.half	.L60-.L764
 	.byte	3,4,1,5,32,9
-	.half	.L687-.L60
+	.half	.L765-.L60
 	.byte	3,3,1,5,43,9
-	.half	.L688-.L687
+	.half	.L766-.L765
 	.byte	1,5,22,9
-	.half	.L363-.L688
+	.half	.L381-.L766
 	.byte	3,1,1,5,20,9
-	.half	.L689-.L363
+	.half	.L767-.L381
 	.byte	1,5,16,9
-	.half	.L690-.L689
+	.half	.L768-.L767
 	.byte	3,1,1,5,9,9
-	.half	.L691-.L690
+	.half	.L769-.L768
 	.byte	1,5,25,9
-	.half	.L62-.L691
+	.half	.L62-.L769
 	.byte	3,4,1,5,42,9
-	.half	.L692-.L62
+	.half	.L770-.L62
 	.byte	1,5,5,9
-	.half	.L368-.L692
+	.half	.L386-.L770
 	.byte	3,2,1,5,21,7,9
-	.half	.L693-.L368
+	.half	.L771-.L386
 	.byte	3,2,1,5,23,9
-	.half	.L64-.L693
+	.half	.L64-.L771
 	.byte	3,3,1,5,51,9
-	.half	.L694-.L64
+	.half	.L772-.L64
 	.byte	1,5,16,9
-	.half	.L366-.L694
+	.half	.L384-.L772
 	.byte	3,1,1,5,12,9
-	.half	.L695-.L366
+	.half	.L773-.L384
 	.byte	3,2,1,5,5,9
-	.half	.L696-.L695
+	.half	.L774-.L773
 	.byte	1,5,1,9
-	.half	.L61-.L696
+	.half	.L61-.L774
 	.byte	3,1,1,7,9
-	.half	.L157-.L61
+	.half	.L169-.L61
 	.byte	0,1,1
-.L682:
+.L760:
 	.sdecl	'.debug_ranges',debug,cluster('UDS_ReadConsolidatedVCI')
 	.sect	'.debug_ranges'
-.L156:
-	.word	-1,.L100,0,.L157-.L100,0,0
+.L168:
+	.word	-1,.L112,0,.L169-.L112,0,0
 	.sdecl	'.debug_info',debug,cluster('UDS_ReadHealthStatus')
 	.sect	'.debug_info'
-.L158:
+.L170:
 	.word	381
 	.half	3
-	.word	.L159
+	.word	.L171
 	.byte	4,1
 	.byte	'../Libraries/DoIP/uds_handler.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\TriCore Debug (TASKING)\\',0
 	.byte	12,1
-	.word	.L161,.L160
+	.word	.L173,.L172
 	.byte	2
-	.word	.L109
+	.word	.L121
 	.byte	3
-	.byte	'UDS_ReadHealthStatus',0,1,211,2,9
-	.word	.L176
+	.byte	'UDS_ReadHealthStatus',0,1,212,2,9
+	.word	.L188
 	.byte	1,1,1
-	.word	.L102,.L252,.L101
+	.word	.L114,.L270,.L113
 	.byte	4
-	.byte	'health_array',0,1,211,2,54
-	.word	.L253,.L254
+	.byte	'health_array',0,1,212,2,54
+	.word	.L271,.L272
 	.byte	4
-	.byte	'health_count',0,1,211,2,75
-	.word	.L203,.L255
+	.byte	'health_count',0,1,212,2,75
+	.word	.L215,.L273
 	.byte	5
-	.word	.L102,.L252
+	.word	.L114,.L270
 	.byte	5
-	.word	.L67,.L252
+	.word	.L67,.L270
 	.byte	6
-	.byte	'total_count',0,1,219,2,11
-	.word	.L176,.L256
+	.byte	'total_count',0,1,220,2,11
+	.word	.L188,.L274
 	.byte	0,0,0,0
 	.sdecl	'.debug_abbrev',debug,cluster('UDS_ReadHealthStatus')
 	.sect	'.debug_abbrev'
-.L159:
+.L171:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
 	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
 	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
 	.sdecl	'.debug_line',debug,cluster('UDS_ReadHealthStatus')
 	.sect	'.debug_line'
-.L160:
-	.word	.L698-.L697
-.L697:
+.L172:
+	.word	.L776-.L775
+.L775:
 	.half	3
-	.word	.L700-.L699
-.L699:
+	.word	.L778-.L777
+.L777:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../Libraries/DoIP/uds_handler.c',0,0,0,0,0
-.L700:
+.L778:
 	.byte	5,9,7,0,5,2
-	.word	.L102
-	.byte	3,210,2,1,9
-	.half	.L371-.L102
+	.word	.L114
+	.byte	3,211,2,1,9
+	.half	.L389-.L114
 	.byte	3,2,1,5,46,7,9
-	.half	.L701-.L371
+	.half	.L779-.L389
 	.byte	1,5,16,7,9
-	.half	.L66-.L701
+	.half	.L66-.L779
 	.byte	3,2,1,5,9,9
-	.half	.L702-.L66
+	.half	.L780-.L66
 	.byte	1,5,25,9
-	.half	.L67-.L702
+	.half	.L67-.L780
 	.byte	3,4,1,5,42,9
-	.half	.L703-.L67
+	.half	.L781-.L67
 	.byte	1,5,5,9
-	.half	.L372-.L703
+	.half	.L390-.L781
 	.byte	3,2,1,5,21,7,9
-	.half	.L704-.L372
+	.half	.L782-.L390
 	.byte	3,2,1,5,26,9
-	.half	.L69-.L704
+	.half	.L69-.L782
 	.byte	3,3,1,5,53,9
-	.half	.L705-.L69
+	.half	.L783-.L69
 	.byte	1,5,19,9
-	.half	.L369-.L705
+	.half	.L387-.L783
 	.byte	3,1,1,5,12,9
-	.half	.L706-.L369
+	.half	.L784-.L387
 	.byte	3,2,1,5,5,9
-	.half	.L707-.L706
+	.half	.L785-.L784
 	.byte	1,5,1,9
-	.half	.L68-.L707
+	.half	.L68-.L785
 	.byte	3,1,1,7,9
-	.half	.L162-.L68
+	.half	.L174-.L68
 	.byte	0,1,1
-.L698:
+.L776:
 	.sdecl	'.debug_ranges',debug,cluster('UDS_ReadHealthStatus')
 	.sect	'.debug_ranges'
-.L161:
-	.word	-1,.L102,0,.L162-.L102,0,0
+.L173:
+	.word	-1,.L114,0,.L174-.L114,0,0
 	.sdecl	'.debug_info',debug,cluster('UDS_CreateNegativeResponse')
 	.sect	'.debug_info'
-.L163:
+.L175:
 	.word	355
 	.half	3
-	.word	.L164
+	.word	.L176
 	.byte	4,1
 	.byte	'../Libraries/DoIP/uds_handler.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\TriCore Debug (TASKING)\\',0
 	.byte	12,1
-	.word	.L166,.L165
+	.word	.L178,.L177
 	.byte	2
-	.word	.L109
+	.word	.L121
 	.byte	3
-	.byte	'UDS_CreateNegativeResponse',0,1,236,2,6,1,1,1
-	.word	.L104,.L257,.L103
+	.byte	'UDS_CreateNegativeResponse',0,1,237,2,6,1,1,1
+	.word	.L116,.L275,.L115
 	.byte	4
-	.byte	'request',0,1,236,2,52
-	.word	.L178,.L258
+	.byte	'request',0,1,237,2,52
+	.word	.L190,.L276
 	.byte	4
-	.byte	'nrc',0,1,236,2,67
-	.word	.L176,.L259
+	.byte	'nrc',0,1,237,2,67
+	.word	.L188,.L277
 	.byte	4
-	.byte	'response',0,1,236,2,86
-	.word	.L180,.L260
+	.byte	'response',0,1,237,2,86
+	.word	.L192,.L278
 	.byte	5
-	.word	.L104,.L257
+	.word	.L116,.L275
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('UDS_CreateNegativeResponse')
 	.sect	'.debug_abbrev'
-.L164:
+.L176:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
 	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('UDS_CreateNegativeResponse')
 	.sect	'.debug_line'
-.L165:
-	.word	.L709-.L708
-.L708:
+.L177:
+	.word	.L787-.L786
+.L786:
 	.half	3
-	.word	.L711-.L710
-.L710:
+	.word	.L789-.L788
+.L788:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../Libraries/DoIP/uds_handler.c',0,0,0,0,0
-.L711:
+.L789:
 	.byte	5,29,7,0,5,2
-	.word	.L104
-	.byte	3,237,2,1,5,27,9
-	.half	.L712-.L104
+	.word	.L116
+	.byte	3,238,2,1,5,27,9
+	.half	.L790-.L116
 	.byte	1,5,28,9
-	.half	.L713-.L712
+	.half	.L791-.L790
 	.byte	3,1,1,5,26,9
-	.half	.L714-.L713
+	.half	.L792-.L791
 	.byte	1,5,19,9
-	.half	.L715-.L714
+	.half	.L793-.L792
 	.byte	3,1,1,5,26,9
-	.half	.L716-.L715
+	.half	.L794-.L793
 	.byte	3,1,1,5,24,9
-	.half	.L717-.L716
+	.half	.L795-.L794
 	.byte	1,5,32,9
-	.half	.L718-.L717
+	.half	.L796-.L795
 	.byte	3,1,1,5,23,9
-	.half	.L719-.L718
+	.half	.L797-.L796
 	.byte	1,9
-	.half	.L720-.L719
+	.half	.L798-.L797
 	.byte	3,1,1,5,1,9
-	.half	.L721-.L720
+	.half	.L799-.L798
 	.byte	3,1,1,7,9
-	.half	.L167-.L721
+	.half	.L179-.L799
 	.byte	0,1,1
-.L709:
+.L787:
 	.sdecl	'.debug_ranges',debug,cluster('UDS_CreateNegativeResponse')
 	.sect	'.debug_ranges'
-.L166:
-	.word	-1,.L104,0,.L167-.L104,0,0
+.L178:
+	.word	-1,.L116,0,.L179-.L116,0,0
 	.sdecl	'.debug_info',debug,cluster('UDS_CreatePositiveResponse')
 	.sect	'.debug_info'
-.L168:
+.L180:
 	.word	338
 	.half	3
-	.word	.L169
+	.word	.L181
 	.byte	4,1
 	.byte	'../Libraries/DoIP/uds_handler.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\TriCore Debug (TASKING)\\',0
 	.byte	12,1
-	.word	.L171,.L170
+	.word	.L183,.L182
 	.byte	2
-	.word	.L109
+	.word	.L121
 	.byte	3
-	.byte	'UDS_CreatePositiveResponse',0,1,246,2,6,1,1,1
-	.word	.L106,.L261,.L105
+	.byte	'UDS_CreatePositiveResponse',0,1,247,2,6,1,1,1
+	.word	.L118,.L279,.L117
 	.byte	4
-	.byte	'request',0,1,246,2,52
-	.word	.L178,.L262
+	.byte	'request',0,1,247,2,52
+	.word	.L190,.L280
 	.byte	4
-	.byte	'response',0,1,246,2,75
-	.word	.L180,.L263
+	.byte	'response',0,1,247,2,75
+	.word	.L192,.L281
 	.byte	5
-	.word	.L106,.L261
+	.word	.L118,.L279
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('UDS_CreatePositiveResponse')
 	.sect	'.debug_abbrev'
-.L169:
+.L181:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
 	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('UDS_CreatePositiveResponse')
 	.sect	'.debug_line'
-.L170:
-	.word	.L723-.L722
-.L722:
+.L182:
+	.word	.L801-.L800
+.L800:
 	.half	3
-	.word	.L725-.L724
-.L724:
+	.word	.L803-.L802
+.L802:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../Libraries/DoIP/uds_handler.c',0,0,0,0,0
-.L725:
+.L803:
 	.byte	5,29,7,0,5,2
-	.word	.L106
-	.byte	3,247,2,1,5,27,9
-	.half	.L726-.L106
+	.word	.L118
+	.byte	3,248,2,1,5,27,9
+	.half	.L804-.L118
 	.byte	1,5,35,9
-	.half	.L727-.L726
+	.half	.L805-.L804
 	.byte	3,1,1,5,48,9
-	.half	.L728-.L727
+	.half	.L806-.L805
 	.byte	1,5,26,9
-	.half	.L729-.L728
+	.half	.L807-.L806
 	.byte	1,5,21,9
-	.half	.L730-.L729
+	.half	.L808-.L807
 	.byte	3,1,1,5,19,9
-	.half	.L731-.L730
+	.half	.L809-.L808
 	.byte	1,5,26,9
-	.half	.L732-.L731
+	.half	.L810-.L809
 	.byte	3,1,1,5,24,9
-	.half	.L733-.L732
+	.half	.L811-.L810
 	.byte	1,5,1,9
-	.half	.L734-.L733
+	.half	.L812-.L811
 	.byte	3,1,1,7,9
-	.half	.L172-.L734
+	.half	.L184-.L812
 	.byte	0,1,1
-.L723:
+.L801:
 	.sdecl	'.debug_ranges',debug,cluster('UDS_CreatePositiveResponse')
 	.sect	'.debug_ranges'
-.L171:
-	.word	-1,.L106,0,.L172-.L106,0,0
+.L183:
+	.word	-1,.L118,0,.L184-.L118,0,0
 	.sdecl	'.debug_info',debug,cluster('g_service_handlers')
 	.sect	'.debug_info'
-.L173:
+.L185:
 	.word	263
 	.half	3
-	.word	.L174
+	.word	.L186
 	.byte	4,1
 	.byte	'../Libraries/DoIP/uds_handler.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\TriCore Debug (TASKING)\\',0
 	.byte	12,1,2
-	.word	.L109
+	.word	.L121
 	.byte	3
-	.byte	'g_service_handlers',0,6,39,3
-	.word	.L264
+	.byte	'g_service_handlers',0,7,40,3
+	.word	.L282
 	.byte	5,3
 	.word	g_service_handlers
 	.byte	0
 	.sdecl	'.debug_abbrev',debug,cluster('g_service_handlers')
 	.sect	'.debug_abbrev'
-.L174:
+.L186:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,2,9,0,0,0
 	.sdecl	'.debug_loc',debug,cluster('UDS_BuildDoIPDiagnostic')
 	.sect	'.debug_loc'
-.L91:
-	.word	-1,.L92,0,.L286-.L92
+.L103:
+	.word	-1,.L104,0,.L304-.L104
 	.half	2
 	.byte	138,0
-	.word	.L286-.L92,.L200-.L92
+	.word	.L304-.L104,.L212-.L104
 	.half	3
 	.byte	138,128,1
-	.word	.L200-.L92,.L200-.L92
+	.word	.L212-.L104,.L212-.L104
 	.half	2
 	.byte	138,0
 	.word	0,0
-.L204:
-	.word	-1,.L92,0,.L287-.L92
+.L216:
+	.word	-1,.L104,0,.L305-.L104
 	.half	1
 	.byte	101
-	.word	.L291-.L92,.L292-.L92
+	.word	.L309-.L104,.L310-.L104
 	.half	1
 	.byte	108
-	.word	.L287-.L92,.L298-.L92
+	.word	.L305-.L104,.L316-.L104
 	.half	1
 	.byte	98
-	.word	.L297-.L92,.L299-.L92
+	.word	.L315-.L104,.L317-.L104
 	.half	1
 	.byte	108
-	.word	.L301-.L92,.L302-.L92
+	.word	.L319-.L104,.L320-.L104
 	.half	1
 	.byte	108
-	.word	.L303-.L92,.L304-.L92
+	.word	.L321-.L104,.L322-.L104
 	.half	1
 	.byte	108
-	.word	.L305-.L92,.L306-.L92
+	.word	.L323-.L104,.L324-.L104
 	.half	1
 	.byte	108
-	.word	.L307-.L92,.L308-.L92
+	.word	.L325-.L104,.L326-.L104
 	.half	1
 	.byte	108
-	.word	.L309-.L92,.L310-.L92
+	.word	.L327-.L104,.L328-.L104
 	.half	1
 	.byte	108
-	.word	.L300-.L92,.L311-.L92
+	.word	.L329-.L104,.L330-.L104
 	.half	1
 	.byte	108
-	.word	.L312-.L92,.L298-.L92
+	.word	.L331-.L104,.L316-.L104
 	.half	1
 	.byte	108
-	.word	.L314-.L92,.L315-.L92
+	.word	.L332-.L104,.L333-.L104
 	.half	1
 	.byte	108
-	.word	.L316-.L92,.L317-.L92
+	.word	.L334-.L104,.L335-.L104
 	.half	1
 	.byte	108
-	.word	.L318-.L92,.L319-.L92
+	.word	.L336-.L104,.L337-.L104
 	.half	1
 	.byte	108
-	.word	.L320-.L92,.L321-.L92
+	.word	.L338-.L104,.L339-.L104
 	.half	1
 	.byte	108
-	.word	.L322-.L92,.L289-.L92
+	.word	.L340-.L104,.L307-.L104
 	.half	1
 	.byte	108
-	.word	.L329-.L92,.L330-.L92
+	.word	.L347-.L104,.L348-.L104
 	.half	1
 	.byte	108
 	.word	0,0
-.L205:
-	.word	-1,.L92,0,.L288-.L92
+.L217:
+	.word	-1,.L104,0,.L306-.L104
 	.half	1
 	.byte	84
 	.word	0,0
-.L211:
-	.word	-1,.L92,.L325-.L92,.L28-.L92
+.L223:
+	.word	-1,.L104,.L343-.L104,.L28-.L104
 	.half	1
 	.byte	89
-	.word	.L29-.L92,.L27-.L92
+	.word	.L29-.L104,.L27-.L104
 	.half	1
 	.byte	89
 	.word	0,0
-.L215:
-	.word	-1,.L92,.L327-.L92,.L328-.L92
+.L227:
+	.word	-1,.L104,.L345-.L104,.L346-.L104
 	.half	1
 	.byte	90
-	.word	.L30-.L92,.L27-.L92
+	.word	.L30-.L104,.L27-.L104
 	.half	1
 	.byte	90
 	.word	0,0
-.L213:
-	.word	-1,.L92,.L214-.L92,.L326-.L92
+.L225:
+	.word	-1,.L104,.L226-.L104,.L344-.L104
 	.half	1
 	.byte	95
-	.word	.L331-.L92,.L332-.L92
+	.word	.L349-.L104,.L350-.L104
 	.half	1
 	.byte	95
-	.word	.L34-.L92,.L27-.L92
+	.word	.L34-.L104,.L27-.L104
 	.half	1
 	.byte	95
 	.word	0,0
-.L209:
-	.word	-1,.L92,0,.L200-.L92
+.L221:
+	.word	-1,.L104,0,.L212-.L104
 	.half	3
 	.byte	145,128,127
 	.word	0,0
-.L208:
-	.word	-1,.L92,.L296-.L92,.L297-.L92
+.L220:
+	.word	-1,.L104,.L314-.L104,.L315-.L104
 	.half	5
 	.byte	144,32,157,32,0
-	.word	.L297-.L92,.L300-.L92
-	.half	1
-	.byte	95
-	.word	.L300-.L92,.L312-.L92
-	.half	5
-	.byte	144,32,157,32,0
-	.word	.L312-.L92,.L313-.L92
+	.word	.L315-.L104,.L318-.L104
 	.half	1
 	.byte	95
 	.word	0,0
-.L206:
-	.word	-1,.L92,.L293-.L92,.L294-.L92
+.L218:
+	.word	-1,.L104,.L311-.L104,.L312-.L104
 	.half	1
 	.byte	82
-	.word	.L24-.L92,.L26-.L92
+	.word	.L24-.L104,.L26-.L104
 	.half	1
 	.byte	82
 	.word	0,0
-.L202:
-	.word	-1,.L92,0,.L289-.L92
+.L214:
+	.word	-1,.L104,0,.L307-.L104
 	.half	1
 	.byte	100
-	.word	.L290-.L92,.L31-.L92
+	.word	.L308-.L104,.L31-.L104
 	.half	1
 	.byte	111
 	.word	0,0
-.L207:
-	.word	-1,.L92,.L295-.L92,.L23-.L92
+.L219:
+	.word	-1,.L104,.L313-.L104,.L23-.L104
 	.half	1
 	.byte	88
-	.word	.L323-.L92,.L324-.L92
+	.word	.L341-.L104,.L342-.L104
 	.half	1
 	.byte	87
-	.word	.L333-.L92,.L23-.L92
+	.word	.L351-.L104,.L23-.L104
 	.half	1
 	.byte	82
 	.word	0,0
 	.sdecl	'.debug_loc',debug,cluster('UDS_CreateNegativeResponse')
 	.sect	'.debug_loc'
-.L103:
-	.word	-1,.L104,0,.L257-.L104
+.L115:
+	.word	-1,.L116,0,.L275-.L116
 	.half	2
 	.byte	138,0
 	.word	0,0
-.L259:
-	.word	-1,.L104,0,.L257-.L104
+.L277:
+	.word	-1,.L116,0,.L275-.L116
 	.half	1
 	.byte	84
 	.word	0,0
-.L258:
-	.word	-1,.L104,0,.L257-.L104
+.L276:
+	.word	-1,.L116,0,.L275-.L116
 	.half	1
 	.byte	100
 	.word	0,0
-.L260:
-	.word	-1,.L104,0,.L257-.L104
+.L278:
+	.word	-1,.L116,0,.L275-.L116
 	.half	1
 	.byte	101
 	.word	0,0
 	.sdecl	'.debug_loc',debug,cluster('UDS_CreatePositiveResponse')
 	.sect	'.debug_loc'
-.L105:
-	.word	-1,.L106,0,.L261-.L106
+.L117:
+	.word	-1,.L118,0,.L279-.L118
 	.half	2
 	.byte	138,0
 	.word	0,0
-.L262:
-	.word	-1,.L106,0,.L261-.L106
+.L280:
+	.word	-1,.L118,0,.L279-.L118
 	.half	1
 	.byte	100
 	.word	0,0
-.L263:
-	.word	-1,.L106,0,.L261-.L106
+.L281:
+	.word	-1,.L118,0,.L279-.L118
 	.half	1
 	.byte	101
 	.word	0,0
 	.sdecl	'.debug_loc',debug,cluster('UDS_HandleRequest')
 	.sect	'.debug_loc'
-.L87:
-	.word	-1,.L88,0,.L177-.L88
+.L99:
+	.word	-1,.L100,0,.L189-.L100
 	.half	2
 	.byte	138,0
 	.word	0,0
-.L184:
-	.word	-1,.L88,.L269-.L88,.L270-.L88
+.L196:
+	.word	-1,.L100,.L287-.L100,.L288-.L100
 	.half	5
 	.byte	144,32,157,32,0
-	.word	.L7-.L88,.L273-.L88
+	.word	.L7-.L100,.L291-.L100
 	.half	5
 	.byte	144,32,157,32,0
 	.word	0,0
-.L179:
-	.word	-1,.L88,0,.L265-.L88
+.L191:
+	.word	-1,.L100,0,.L283-.L100
 	.half	1
 	.byte	100
-	.word	.L266-.L88,.L177-.L88
+	.word	.L284-.L100,.L189-.L100
 	.half	1
 	.byte	108
-	.word	.L271-.L88,.L270-.L88
+	.word	.L289-.L100,.L288-.L100
 	.half	1
 	.byte	100
-	.word	.L274-.L88,.L273-.L88
+	.word	.L292-.L100,.L291-.L100
 	.half	1
 	.byte	100
 	.word	0,0
-.L181:
-	.word	-1,.L88,0,.L265-.L88
+.L193:
+	.word	-1,.L100,0,.L283-.L100
 	.half	1
 	.byte	101
-	.word	.L267-.L88,.L177-.L88
+	.word	.L285-.L100,.L189-.L100
 	.half	1
 	.byte	109
-	.word	.L265-.L88,.L268-.L88
+	.word	.L283-.L100,.L286-.L100
 	.half	1
 	.byte	100
-	.word	.L272-.L88,.L270-.L88
+	.word	.L290-.L100,.L288-.L100
 	.half	1
 	.byte	101
-	.word	.L275-.L88,.L273-.L88
+	.word	.L293-.L100,.L291-.L100
 	.half	1
 	.byte	101
 	.word	0,0
 	.sdecl	'.debug_loc',debug,cluster('UDS_Init')
 	.sect	'.debug_loc'
-.L85:
-	.word	-1,.L86,0,.L175-.L86
+.L97:
+	.word	-1,.L98,0,.L187-.L98
 	.half	2
 	.byte	138,0
 	.word	0,0
 	.sdecl	'.debug_loc',debug,cluster('UDS_ParseDoIPDiagnostic')
 	.sect	'.debug_loc'
-.L89:
-	.word	-1,.L90,0,.L276-.L90
+.L101:
+	.word	-1,.L102,0,.L294-.L102
 	.half	2
 	.byte	138,0
-	.word	.L276-.L90,.L185-.L90
+	.word	.L294-.L102,.L197-.L102
 	.half	3
 	.byte	138,128,1
-	.word	.L185-.L90,.L185-.L90
+	.word	.L197-.L102,.L197-.L102
 	.half	2
 	.byte	138,0
 	.word	0,0
-.L187:
-	.word	-1,.L90,0,.L277-.L90
+.L199:
+	.word	-1,.L102,0,.L295-.L102
 	.half	1
 	.byte	100
-	.word	.L279-.L90,.L14-.L90
+	.word	.L297-.L102,.L14-.L102
 	.half	1
 	.byte	101
 	.word	0,0
-.L199:
-	.word	-1,.L90,.L283-.L90,.L284-.L90
+.L211:
+	.word	-1,.L102,.L301-.L102,.L302-.L102
 	.half	1
 	.byte	88
-	.word	.L18-.L90,.L16-.L90
+	.word	.L18-.L102,.L16-.L102
 	.half	1
 	.byte	88
 	.word	0,0
-.L196:
-	.word	-1,.L90,.L197-.L90,.L282-.L90
+.L208:
+	.word	-1,.L102,.L209-.L102,.L300-.L102
 	.half	1
 	.byte	95
-	.word	.L285-.L90,.L16-.L90
+	.word	.L303-.L102,.L16-.L102
 	.half	1
 	.byte	95
 	.word	0,0
-.L193:
-	.word	-1,.L90,0,.L185-.L90
+.L205:
+	.word	-1,.L102,0,.L197-.L102
 	.half	3
 	.byte	145,128,127
 	.word	0,0
-.L189:
-	.word	-1,.L90,0,.L278-.L90
+.L201:
+	.word	-1,.L102,0,.L296-.L102
 	.half	1
 	.byte	84
 	.word	0,0
-.L191:
-	.word	-1,.L90,0,.L279-.L90
+.L203:
+	.word	-1,.L102,0,.L297-.L102
 	.half	1
 	.byte	101
-	.word	.L280-.L90,.L281-.L90
+	.word	.L298-.L102,.L299-.L102
 	.half	1
 	.byte	111
 	.word	0,0
 	.sdecl	'.debug_loc',debug,cluster('UDS_ReadConsolidatedVCI')
 	.sect	'.debug_loc'
-.L99:
-	.word	-1,.L100,0,.L248-.L100
+.L111:
+	.word	-1,.L112,0,.L266-.L112
 	.half	2
 	.byte	138,0
 	.word	0,0
-.L251:
-	.word	-1,.L100,.L368-.L100,.L61-.L100
+.L269:
+	.word	-1,.L112,.L386-.L112,.L61-.L112
 	.half	1
 	.byte	95
 	.word	0,0
-.L249:
-	.word	-1,.L100,0,.L363-.L100
+.L267:
+	.word	-1,.L112,0,.L381-.L112
 	.half	1
 	.byte	100
-	.word	.L62-.L100,.L366-.L100
+	.word	.L62-.L112,.L384-.L112
 	.half	1
 	.byte	100
 	.word	0,0
-.L250:
-	.word	-1,.L100,0,.L364-.L100
+.L268:
+	.word	-1,.L112,0,.L382-.L112
 	.half	1
 	.byte	101
-	.word	.L365-.L100,.L248-.L100
+	.word	.L383-.L112,.L266-.L112
 	.half	1
 	.byte	111
-	.word	.L62-.L100,.L367-.L100
+	.word	.L62-.L112,.L385-.L112
 	.half	1
 	.byte	101
 	.word	0,0
 	.sdecl	'.debug_loc',debug,cluster('UDS_ReadDID_VCI')
 	.sect	'.debug_loc'
-.L95:
-	.word	-1,.L96,0,.L345-.L96
+.L107:
+	.word	-1,.L108,0,.L363-.L108
 	.half	2
 	.byte	138,0
-	.word	.L345-.L96,.L233-.L96
+	.word	.L363-.L108,.L251-.L108
 	.half	3
 	.byte	138,232,0
-	.word	.L233-.L96,.L233-.L96
+	.word	.L251-.L108,.L251-.L108
 	.half	2
 	.byte	138,0
 	.word	0,0
-.L235:
-	.word	-1,.L96,0,.L346-.L96
+.L253:
+	.word	-1,.L108,0,.L364-.L108
 	.half	1
 	.byte	100
-	.word	.L349-.L96,.L233-.L96
+	.word	.L367-.L108,.L251-.L108
 	.half	1
 	.byte	111
-	.word	.L45-.L96,.L351-.L96
+	.word	.L45-.L108,.L369-.L108
 	.half	1
 	.byte	100
-	.word	.L354-.L96,.L355-.L96
+	.word	.L372-.L108,.L373-.L108
 	.half	1
 	.byte	100
-	.word	.L46-.L96,.L356-.L96
+	.word	.L46-.L108,.L374-.L108
 	.half	1
 	.byte	100
-	.word	.L359-.L96,.L360-.L96
+	.word	.L377-.L108,.L378-.L108
 	.half	1
 	.byte	100
-	.word	.L47-.L96,.L43-.L96
+	.word	.L47-.L108,.L43-.L108
 	.half	1
 	.byte	100
 	.word	0,0
-.L237:
-	.word	-1,.L96,0,.L347-.L96
+.L255:
+	.word	-1,.L108,0,.L365-.L108
 	.half	1
 	.byte	101
-	.word	.L350-.L96,.L233-.L96
+	.word	.L368-.L108,.L251-.L108
 	.half	1
 	.byte	108
-	.word	.L45-.L96,.L352-.L96
+	.word	.L45-.L108,.L370-.L108
 	.half	1
 	.byte	101
-	.word	.L46-.L96,.L357-.L96
+	.word	.L46-.L108,.L375-.L108
 	.half	1
 	.byte	101
-	.word	.L47-.L96,.L43-.L96
+	.word	.L47-.L108,.L43-.L108
 	.half	1
 	.byte	101
 	.word	0,0
-.L234:
-	.word	-1,.L96,0,.L348-.L96
+.L252:
+	.word	-1,.L108,0,.L366-.L108
 	.half	1
 	.byte	84
-	.word	.L45-.L96,.L353-.L96
+	.word	.L45-.L108,.L371-.L108
 	.half	1
 	.byte	84
-	.word	.L46-.L96,.L358-.L96
+	.word	.L46-.L108,.L376-.L108
 	.half	1
 	.byte	84
-	.word	.L47-.L96,.L43-.L96
+	.word	.L47-.L108,.L43-.L108
 	.half	1
 	.byte	84
 	.word	0,0
-.L242:
-	.word	-1,.L96,0,.L233-.L96
+.L260:
+	.word	-1,.L108,0,.L251-.L108
 	.half	3
 	.byte	145,152,127
 	.word	0,0
-.L243:
-	.word	-1,.L96,0,.L233-.L96
+.L261:
+	.word	-1,.L108,0,.L251-.L108
 	.half	2
 	.byte	145,72
 	.word	0,0
-.L239:
-	.word	-1,.L96,0,.L233-.L96
+.L257:
+	.word	-1,.L108,0,.L251-.L108
 	.half	3
 	.byte	145,152,127
 	.word	0,0
-.L240:
-	.word	-1,.L96,0,.L233-.L96
+.L258:
+	.word	-1,.L108,0,.L251-.L108
 	.half	2
 	.byte	145,120
 	.word	0,0
 	.sdecl	'.debug_loc',debug,cluster('UDS_ReadHealthStatus')
 	.sect	'.debug_loc'
-.L101:
-	.word	-1,.L102,0,.L252-.L102
+.L113:
+	.word	-1,.L114,0,.L270-.L114
 	.half	2
 	.byte	138,0
 	.word	0,0
-.L254:
-	.word	-1,.L102,0,.L369-.L102
+.L272:
+	.word	-1,.L114,0,.L387-.L114
 	.half	1
 	.byte	100
 	.word	0,0
-.L255:
-	.word	-1,.L102,0,.L370-.L102
+.L273:
+	.word	-1,.L114,0,.L388-.L114
 	.half	1
 	.byte	101
-	.word	.L371-.L102,.L252-.L102
+	.word	.L389-.L114,.L270-.L114
 	.half	1
 	.byte	111
 	.word	0,0
-.L256:
-	.word	-1,.L102,.L372-.L102,.L68-.L102
+.L274:
+	.word	-1,.L114,.L390-.L114,.L68-.L114
 	.half	1
 	.byte	95
 	.word	0,0
 	.sdecl	'.debug_loc',debug,cluster('UDS_ReadIndividualVCI')
 	.sect	'.debug_loc'
-.L97:
-	.word	-1,.L98,0,.L244-.L98
+.L109:
+	.word	-1,.L110,0,.L262-.L110
 	.half	2
 	.byte	138,0
 	.word	0,0
-.L245:
-	.word	-1,.L98,0,.L361-.L98
+.L263:
+	.word	-1,.L110,0,.L379-.L110
 	.half	1
 	.byte	84
-	.word	.L56-.L98,.L57-.L98
+	.word	.L56-.L110,.L57-.L110
 	.half	1
 	.byte	84
 	.word	0,0
-.L247:
-	.word	-1,.L98,0,.L362-.L98
+.L265:
+	.word	-1,.L110,0,.L380-.L110
 	.half	1
 	.byte	100
-	.word	.L56-.L98,.L57-.L98
+	.word	.L56-.L110,.L57-.L110
 	.half	1
 	.byte	100
 	.word	0,0
 	.sdecl	'.debug_loc',debug,cluster('UDS_Service_ReadDataByIdentifier')
 	.sect	'.debug_loc'
-.L93:
-	.word	-1,.L94,0,.L334-.L94
+.L105:
+	.word	-1,.L106,0,.L352-.L106
 	.half	2
 	.byte	138,0
-	.word	.L334-.L94,.L216-.L94
+	.word	.L352-.L106,.L228-.L106
 	.half	2
 	.byte	138,8
-	.word	.L216-.L94,.L216-.L94
+	.word	.L228-.L106,.L228-.L106
 	.half	2
 	.byte	138,0
 	.word	0,0
-.L219:
-	.word	-1,.L94,.L339-.L94,.L37-.L94
+.L231:
+	.word	-1,.L106,.L357-.L106,.L37-.L106
 	.half	1
 	.byte	88
-	.word	.L340-.L94,.L341-.L94
+	.word	.L358-.L106,.L359-.L106
 	.half	1
 	.byte	84
 	.word	0,0
-.L221:
-	.word	-1,.L94,0,.L216-.L94
+.L233:
+	.word	-1,.L106,0,.L228-.L106
 	.half	2
 	.byte	145,120
 	.word	0,0
-.L217:
-	.word	-1,.L94,0,.L335-.L94
+.L229:
+	.word	-1,.L106,0,.L353-.L106
 	.half	1
 	.byte	100
-	.word	.L336-.L94,.L216-.L94
+	.word	.L354-.L106,.L228-.L106
 	.half	1
 	.byte	111
-	.word	.L36-.L94,.L338-.L94
+	.word	.L36-.L106,.L356-.L106
 	.half	1
 	.byte	100
-	.word	.L342-.L94,.L343-.L94
+	.word	.L360-.L106,.L361-.L106
 	.half	1
 	.byte	100
 	.word	0,0
-.L218:
-	.word	-1,.L94,0,.L335-.L94
+.L230:
+	.word	-1,.L106,0,.L353-.L106
 	.half	1
 	.byte	101
-	.word	.L337-.L94,.L216-.L94
+	.word	.L355-.L106,.L228-.L106
 	.half	1
 	.byte	108
-	.word	.L36-.L94,.L338-.L94
+	.word	.L36-.L106,.L356-.L106
 	.half	1
 	.byte	101
-	.word	.L344-.L94,.L343-.L94
+	.word	.L362-.L106,.L361-.L106
 	.half	1
 	.byte	101
 	.word	0,0
 	.sdecl	'.debug_loc',debug,cluster('UDS_Service_RoutineControl')
 	.sect	'.debug_loc'
-.L107:
-	.word	-1,.L108,0,.L373-.L108
+.L119:
+	.word	-1,.L120,0,.L391-.L120
 	.half	2
 	.byte	138,0
-	.word	.L373-.L108,.L222-.L108
+	.word	.L391-.L120,.L234-.L120
 	.half	3
-	.byte	138,192,0
-	.word	.L222-.L108,.L222-.L108
+	.byte	138,248,2
+	.word	.L234-.L120,.L234-.L120
 	.half	2
 	.byte	138,0
 	.word	0,0
-.L231:
-	.word	-1,.L108,0,.L222-.L108
+.L243:
+	.word	-1,.L120,0,.L234-.L120
+	.half	3
+	.byte	145,136,125
+	.word	0,0
+.L249:
+	.word	-1,.L120,0,.L234-.L120
 	.half	2
 	.byte	145,64
 	.word	0,0
-.L223:
-	.word	-1,.L108,0,.L374-.L108
+.L248:
+	.word	-1,.L120,0,.L234-.L120
+	.half	3
+	.byte	145,140,125
+	.word	0,0
+.L246:
+	.word	-1,.L120,0,.L234-.L120
+	.half	3
+	.byte	145,136,125
+	.word	0,0
+.L235:
+	.word	-1,.L120,0,.L392-.L120
 	.half	1
 	.byte	100
-	.word	.L375-.L108,.L222-.L108
+	.word	.L393-.L120,.L234-.L120
 	.half	1
 	.byte	108
-	.word	.L71-.L108,.L377-.L108
+	.word	.L71-.L120,.L395-.L120
 	.half	1
 	.byte	100
-	.word	.L73-.L108,.L381-.L108
+	.word	.L73-.L120,.L399-.L120
 	.half	1
 	.byte	100
-	.word	.L386-.L108,.L387-.L108
+	.word	.L404-.L120,.L405-.L120
 	.half	1
 	.byte	100
 	.word	0,0
-.L224:
-	.word	-1,.L108,0,.L374-.L108
+.L236:
+	.word	-1,.L120,0,.L392-.L120
 	.half	1
 	.byte	101
-	.word	.L376-.L108,.L222-.L108
+	.word	.L394-.L120,.L234-.L120
 	.half	1
 	.byte	111
-	.word	.L71-.L108,.L377-.L108
+	.word	.L71-.L120,.L395-.L120
 	.half	1
 	.byte	101
-	.word	.L73-.L108,.L381-.L108
+	.word	.L73-.L120,.L399-.L120
 	.half	1
 	.byte	101
-	.word	.L388-.L108,.L387-.L108
+	.word	.L406-.L120,.L405-.L120
 	.half	1
 	.byte	101
 	.word	0,0
-.L226:
-	.word	-1,.L108,.L380-.L108,.L72-.L108
+.L238:
+	.word	-1,.L120,.L398-.L120,.L72-.L120
 	.half	1
 	.byte	89
 	.word	0,0
-.L225:
-	.word	-1,.L108,.L378-.L108,.L379-.L108
+.L237:
+	.word	-1,.L120,.L396-.L120,.L397-.L120
 	.half	1
 	.byte	88
-	.word	.L77-.L108,.L72-.L108
+	.word	.L77-.L120,.L72-.L120
 	.half	1
 	.byte	88
 	.word	0,0
-.L228:
-	.word	-1,.L108,.L379-.L108,.L77-.L108
+.L240:
+	.word	-1,.L120,.L397-.L120,.L77-.L120
 	.half	1
 	.byte	88
-	.word	.L382-.L108,.L383-.L108
+	.word	.L400-.L120,.L401-.L120
 	.half	1
 	.byte	84
-	.word	.L384-.L108,.L385-.L108
+	.word	.L402-.L120,.L403-.L120
 	.half	1
 	.byte	84
 	.word	0,0
 	.sdecl	'.debug_frame',debug
 	.sect	'.debug_frame'
-.L735:
+.L813:
 	.word	48
 	.word	-1
 	.byte	3,0,2,1,27,12,26,0,8,26,8,27,8,30,8,29,8,28,8,16,8,17,8,24,8,25,8,31,8,32,8,33,8,34,8,35,8,36,8,37,8,38
@@ -4670,77 +5072,77 @@ g_service_handlers:	.type	object
 	.sdecl	'.debug_frame',debug,cluster('UDS_Init')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L735,.L86,.L175-.L86
+	.word	.L813,.L98,.L187-.L98
 	.byte	8,18,8,19,8,20,8,21,8,22,8,23
 	.sdecl	'.debug_frame',debug,cluster('UDS_HandleRequest')
 	.sect	'.debug_frame'
 	.word	12
-	.word	.L735,.L88,.L177-.L88
+	.word	.L813,.L100,.L189-.L100
 	.sdecl	'.debug_frame',debug,cluster('UDS_ParseDoIPDiagnostic')
 	.sect	'.debug_frame'
 	.word	36
-	.word	.L735,.L90,.L185-.L90
+	.word	.L813,.L102,.L197-.L102
 	.byte	4
-	.word	(.L276-.L90)/2
+	.word	(.L294-.L102)/2
 	.byte	19,128,1,22,26,4,19,138,128,1,4
-	.word	(.L185-.L276)/2
+	.word	(.L197-.L294)/2
 	.byte	19,0,8,26
 	.sdecl	'.debug_frame',debug,cluster('UDS_BuildDoIPDiagnostic')
 	.sect	'.debug_frame'
 	.word	36
-	.word	.L735,.L92,.L200-.L92
+	.word	.L813,.L104,.L212-.L104
 	.byte	4
-	.word	(.L286-.L92)/2
+	.word	(.L304-.L104)/2
 	.byte	19,128,1,22,26,4,19,138,128,1,4
-	.word	(.L200-.L286)/2
+	.word	(.L212-.L304)/2
 	.byte	19,0,8,26
 	.sdecl	'.debug_frame',debug,cluster('UDS_Service_ReadDataByIdentifier')
 	.sect	'.debug_frame'
 	.word	36
-	.word	.L735,.L94,.L216-.L94
+	.word	.L813,.L106,.L228-.L106
 	.byte	4
-	.word	(.L334-.L94)/2
+	.word	(.L352-.L106)/2
 	.byte	19,8,22,26,3,19,138,8,4
-	.word	(.L216-.L334)/2
+	.word	(.L228-.L352)/2
 	.byte	19,0,8,26,0,0
 	.sdecl	'.debug_frame',debug,cluster('UDS_ReadDID_VCI')
 	.sect	'.debug_frame'
 	.word	36
-	.word	.L735,.L96,.L233-.L96
+	.word	.L813,.L108,.L251-.L108
 	.byte	4
-	.word	(.L345-.L96)/2
+	.word	(.L363-.L108)/2
 	.byte	19,232,0,22,26,4,19,138,232,0,4
-	.word	(.L233-.L345)/2
+	.word	(.L251-.L363)/2
 	.byte	19,0,8,26
 	.sdecl	'.debug_frame',debug,cluster('UDS_ReadIndividualVCI')
 	.sect	'.debug_frame'
 	.word	12
-	.word	.L735,.L98,.L244-.L98
+	.word	.L813,.L110,.L262-.L110
 	.sdecl	'.debug_frame',debug,cluster('UDS_ReadConsolidatedVCI')
 	.sect	'.debug_frame'
 	.word	12
-	.word	.L735,.L100,.L248-.L100
+	.word	.L813,.L112,.L266-.L112
 	.sdecl	'.debug_frame',debug,cluster('UDS_ReadHealthStatus')
 	.sect	'.debug_frame'
 	.word	12
-	.word	.L735,.L102,.L252-.L102
+	.word	.L813,.L114,.L270-.L114
 	.sdecl	'.debug_frame',debug,cluster('UDS_CreateNegativeResponse')
 	.sect	'.debug_frame'
 	.word	20
-	.word	.L735,.L104,.L257-.L104
+	.word	.L813,.L116,.L275-.L116
 	.byte	8,18,8,19,8,22,8,23
 	.sdecl	'.debug_frame',debug,cluster('UDS_CreatePositiveResponse')
 	.sect	'.debug_frame'
 	.word	20
-	.word	.L735,.L106,.L261-.L106
+	.word	.L813,.L118,.L279-.L118
 	.byte	8,18,8,19,8,22,8,23
 	.sdecl	'.debug_frame',debug,cluster('UDS_Service_RoutineControl')
 	.sect	'.debug_frame'
 	.word	36
-	.word	.L735,.L108,.L222-.L108
+	.word	.L813,.L120,.L234-.L120
 	.byte	4
-	.word	(.L373-.L108)/2
-	.byte	19,192,0,22,26,4,19,138,192,0,4
-	.word	(.L222-.L373)/2
+	.word	(.L391-.L120)/2
+	.byte	19,248,2,22,26,4,19,138,248,2,4
+	.word	(.L234-.L391)/2
 	.byte	19,0,8,26
 	; Module end

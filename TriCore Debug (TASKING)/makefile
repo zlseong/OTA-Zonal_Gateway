@@ -22,6 +22,7 @@ RM := rm -rf
 -include Libraries/iLLD/TC3xx/Tricore/Gtm/Std/subdir.mk
 -include Libraries/iLLD/TC3xx/Tricore/Geth/Std/subdir.mk
 -include Libraries/iLLD/TC3xx/Tricore/Geth/Eth/subdir.mk
+-include Libraries/iLLD/TC3xx/Tricore/Flash/Std/subdir.mk
 -include Libraries/iLLD/TC3xx/Tricore/Dma/Std/subdir.mk
 -include Libraries/iLLD/TC3xx/Tricore/Dma/Dma/subdir.mk
 -include Libraries/iLLD/TC3xx/Tricore/Cpu/Trap/subdir.mk
@@ -29,12 +30,12 @@ RM := rm -rf
 -include Libraries/iLLD/TC3xx/Tricore/Cpu/Irq/subdir.mk
 -include Libraries/iLLD/TC3xx/Tricore/Asclin/Std/subdir.mk
 -include Libraries/iLLD/TC3xx/Tricore/Asclin/Asc/subdir.mk
--include Libraries/VCI/subdir.mk
 -include Libraries/UART/subdir.mk
 -include Libraries/Network/subdir.mk
 -include Libraries/Infra/Ssw/TC3xx/Tricore/subdir.mk
 -include Libraries/Infra/Platform/Tricore/Compilers/subdir.mk
 -include Libraries/Flash4/subdir.mk
+-include Libraries/Flash/subdir.mk
 -include Libraries/Ethernet/lwip/src/netif/ppp/polarssl/subdir.mk
 -include Libraries/Ethernet/lwip/src/netif/ppp/subdir.mk
 -include Libraries/Ethernet/lwip/src/netif/subdir.mk
@@ -46,8 +47,10 @@ RM := rm -rf
 -include Libraries/Ethernet/Phy_Dp83825i/subdir.mk
 -include Libraries/Ethernet/subdir.mk
 -include Libraries/DoIP/subdir.mk
+-include Libraries/DataCollection/subdir.mk
 -include Configurations/Debug/subdir.mk
 -include Configurations/subdir.mk
+-include App/subdir.mk
 -include subdir.mk
 ifneq ($(MAKECMDGOALS),clean)
 ifneq ($(strip $(C++M_DEPS)),)

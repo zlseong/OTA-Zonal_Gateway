@@ -5,15 +5,16 @@
  * Flash Bank Manager for TC375 Dual-Bank OTA Update
  * 
  * TC375 PFlash Configuration:
- *   - PFlash0 (Bank A): 0xA000_0000 - 0xA02F_FFFF (3MB)
- *   - PFlash1 (Bank B): 0xA030_0000 - 0xA05F_FFFF (3MB)
+ *   - PFlash0 (Bank A): 0xA000_0000 - 0xA02F_FFFF (3MB) - Application Bank A
+ *   - PFlash1 (Bank B): 0xA030_0000 - 0xA05F_FFFF (3MB) - Application Bank B
  *   - Total: 6MB (2 banks × 3MB each)
  * 
  * Usage:
- *   1. Determine active boot bank
- *   2. Download firmware to inactive bank
- *   3. Verify downloaded firmware
- *   4. Switch boot bank and reset
+ *   1. Application downloads firmware to inactive bank
+ *   2. Application verifies downloaded firmware (CRC32)
+ *   3. Application updates DFlash boot flag and resets
+ *   4. Boot validation checks system stability
+ *   5. Rollback on failure
  *********************************************************************************************************************/
 
 #ifndef FLASH_BANK_MANAGER_H_
@@ -37,8 +38,8 @@
 
 /* Cached access addresses (for execution) */
 #define PFLASH_CACHED_BASE          0x80000000
-#define PFLASH_BANK_A_CACHED        (PFLASH_CACHED_BASE + 0x00000000)
-#define PFLASH_BANK_B_CACHED        (PFLASH_CACHED_BASE + 0x00300000)
+#define PFLASH_BANK_A_CACHED        0x80000000
+#define PFLASH_BANK_B_CACHED        0x80300000
 
 /* User Configuration Blocks (UCB) */
 #define UCB_BASE_ADDRESS            0xAF400000
@@ -47,9 +48,13 @@
 #define UCB_SIZE                    0x00006000  /* 24KB */
 
 /* Data Flash for Bank Status Storage */
-#define DFLASH_BASE_ADDRESS         0xAFC00000  /* Corrected: DFlash actual address */
+#define DFLASH_BASE_ADDRESS         0xAF000000  /* Primary DFlash base (256KB) */
 #define DFLASH_BANK_STATUS_OFFSET   0x00000000  /* Bank status at start of DFlash */
-#define DFLASH_SIZE                 0x00020000  /* 128KB (actual TC37x DFlash size) */
+#define DFLASH_SIZE                 0x00040000  /* 256KB (TC37x Primary DFlash) */
+
+/* Alternative DFlash Access (EEPROM Emulation) */
+#define DFLASH_EEPROM_BASE          0xAFC00000  /* EEPROM emulation area (128KB) */
+#define DFLASH_EEPROM_SIZE          0x00020000  /* 128KB */
 
 /* OLDA (Online Data Acquisition) for OTA Diagnostics (Optional) */
 #define OLDA_BASE_ADDRESS_CACHED    0x8FE00000  /* Cached access */
@@ -75,29 +80,69 @@
  ******************************************************************************/
 
 /**
- * \brief Flash Bank Status Flags (7-bit system)
+ * \brief Bank Metadata (stored at the beginning of each bank)
+ * 
+ * Location:
+ *   Bank A: 0xA0000000 (first 256 bytes reserved)
+ *   Bank B: 0xA0300000 (first 256 bytes reserved)
+ * 
+ * Purpose:
+ *   - Quick synchronization check (no need for full CRC)
+ *   - Version tracking
+ *   - Integrity verification
+ */
+typedef struct
+{
+    uint32 magic_number;           /* 0x42414E4B ("BANK") - validation marker */
+    uint32 firmware_version;       /* 0xAABBCCDD (vAA.BB.CC.DD) */
+    uint32 build_timestamp;        /* Unix timestamp of build */
+    uint32 total_size;             /* Firmware size in bytes (excluding metadata) */
+    uint32 crc32;                  /* CRC32 of entire bank (excluding this metadata) */
+    char   version_string[32];     /* Human-readable version "v1.2.3-20241114" */
+    uint8  bank_id;                /* 0=Bank A, 1=Bank B */
+    uint8  is_valid;               /* 1=Valid, 0=Invalid/Erased */
+    uint8  reserved[186];          /* Padding to 256 bytes */
+} BankMetadata_t;
+
+#define BANK_METADATA_MAGIC     0x42414E4B  /* "BANK" in ASCII */
+#define BANK_METADATA_SIZE      256         /* Must be aligned to Flash page */
+
+/**
+ * \brief Flash Bank Status Flags (8-bit system)
  * 
  * Stored in Data Flash for fast access and frequent updates.
  * This structure survives power cycles and resets.
  * 
- * Storage Location: DFLASH_BASE_ADDRESS + DFLASH_BANK_STATUS_OFFSET
+ * Storage Location: DFLASH_BASE_ADDRESS (0xAF000000) + DFLASH_BANK_STATUS_OFFSET
+ * 
+ * Bit Layout:
+ *   Bit 0: Boot Target (0=Bank A at 0xA0001000, 1=Bank B at 0xA0300000)
+ *   Bit 1-2: Bank A Status (00=OK, 01=UPDATING, 10=ERROR, 11=Reserved)
+ *   Bit 3-4: Bank B Status (00=OK, 01=UPDATING, 10=ERROR, 11=Reserved)
+ *   Bit 5: Banks Identical (0=Different, 1=Identical after CRC check)
+ *   Bit 6: Critical Error (0=OK, 1=Both banks failed)
+ *   Bit 7: Sync In Progress (0=No, 1=Synchronization running)
  */
 typedef union
 {
-    uint8 value;  /* Combined 7-bit value */
+    uint8 value;  /* Combined 8-bit value */
     
     struct
     {
-        uint8 currentBank     : 1;  /* Bit 0: Current active bank (0=Bank A, 1=Bank B) */
-        uint8 bootFlagBankA   : 1;  /* Bit 1: Boot flag for Bank A (1=next boot target) */
-        uint8 bootFlagBankB   : 1;  /* Bit 2: Boot flag for Bank B (1=next boot target) */
-        uint8 errorBankA      : 1;  /* Bit 3: Error marker Bank A (1=error, 0=normal) */
-        uint8 errorBankB      : 1;  /* Bit 4: Error marker Bank B (1=error, 0=normal) */
-        uint8 banksIdentical  : 1;  /* Bit 5: Software A == B (1=identical, 0=different) */
-        uint8 criticalError   : 1;  /* Bit 6: Both banks error (1=warning light ON) */
-        uint8 reserved        : 1;  /* Bit 7: Reserved for future use */
+        uint8 bootTarget      : 1;  /* Bit 0: Boot Target (0=Bank A, 1=Bank B) */
+        uint8 statusA         : 2;  /* Bit 1-2: Bank A Status (OK/UPDATING/ERROR) */
+        uint8 statusB         : 2;  /* Bit 3-4: Bank B Status (OK/UPDATING/ERROR) */
+        uint8 banksIdentical  : 1;  /* Bit 5: Banks Identical (0=Different, 1=Same) */
+        uint8 criticalError   : 1;  /* Bit 6: Critical Error (both banks failed) */
+        uint8 syncInProgress  : 1;  /* Bit 7: Synchronization in progress */
     } bits;
 } FlashBankStatus_t;
+
+/* Bank Status Values (2-bit encoding) */
+#define BANK_STATUS_OK          0x00  /* 00: Bank is valid and operational */
+#define BANK_STATUS_UPDATING    0x01  /* 01: OTA update in progress */
+#define BANK_STATUS_ERROR       0x02  /* 10: Bank is corrupted or invalid */
+#define BANK_STATUS_RESERVED    0x03  /* 11: Reserved for future use */
 
 /**
  * \brief Reset Type enumeration (from SCU_STMEM3 register)
@@ -108,10 +153,10 @@ typedef union
 typedef enum
 {
     RESET_TYPE_UNKNOWN = 0,
-    RESET_TYPE_COLD_POWER_ON,     /* SCU_STMEM3 = 0xA030F81F */
-    RESET_TYPE_WARM_POWER_ON,     /* SCU_STMEM3 = 0xA020F82F */
-    RESET_TYPE_SYSTEM_RESET,      /* SCU_STMEM3 = 0x2020B84F */
-    RESET_TYPE_APPLICATION_RESET  /* SCU_STMEM3 = 0x2020D88F (rollback trigger) */
+    RESET_TYPE_COLD_POWER_ON,
+    RESET_TYPE_WARM_POWER_ON,
+    RESET_TYPE_SYSTEM_RESET,
+    RESET_TYPE_APPLICATION_RESET
 } ResetType_t;
 
 /**
@@ -119,8 +164,8 @@ typedef enum
  */
 typedef enum
 {
-    FLASH_BANK_A = 0,  /* PFlash0 */
-    FLASH_BANK_B = 1   /* PFlash1 */
+    FLASH_BANK_A = 0,
+    FLASH_BANK_B
 } FlashBank_t;
 
 /**
@@ -128,14 +173,14 @@ typedef enum
  */
 typedef enum
 {
-    BANK_STATUS_UNKNOWN = 0,      /* Status not determined yet */
-    BANK_STATUS_EMPTY,            /* Bank is erased */
-    BANK_STATUS_ACTIVE,           /* Bank is currently executing (not yet validated) */
-    BANK_STATUS_GOLDEN,           /* Bank contains validated "Golden Image" (safe fallback) */
-    BANK_STATUS_DOWNLOADING,      /* Bank is being programmed */
-    BANK_STATUS_READY,            /* Bank is programmed and verified, ready to boot */
-    BANK_STATUS_VALIDATED,        /* Bank has been booted and validated as stable */
-    BANK_STATUS_ERROR             /* Bank has programming, boot, or runtime error */
+    BANK_STATE_UNKNOWN = 0,
+    BANK_STATE_EMPTY,
+    BANK_STATE_ACTIVE,
+    BANK_STATE_GOLDEN,
+    BANK_STATE_DOWNLOADING,
+    BANK_STATE_READY,
+    BANK_STATE_VALIDATED,
+    BANK_STATE_ERROR
 } BankStatus_t;
 
 /**
@@ -228,7 +273,7 @@ BankStatus_t FlashBank_GetStatus(FlashBank_t bank);
 void FlashBank_SetStatus(FlashBank_t bank, BankStatus_t status);
 
 /**
- * \brief Get current bank status flags (7-bit system)
+ * \brief Get current bank status flags (8-bit system)
  * 
  * Reads the status flags from Data Flash.
  * 
@@ -237,7 +282,51 @@ void FlashBank_SetStatus(FlashBank_t bank, BankStatus_t status);
 FlashBankStatus_t FlashBank_GetStatusFlags(void);
 
 /**
- * \brief Set bank status flags (7-bit system)
+ * \brief Read bank status from DFlash
+ * 
+ * \param status Pointer to status structure to fill
+ * \return TRUE if read successful, FALSE otherwise
+ */
+boolean FlashBank_ReadDFlashStatus(FlashBankStatus_t *status);
+
+/**
+ * \brief Write bank status to DFlash
+ * 
+ * \param status Status structure to write
+ * \return TRUE if write successful, FALSE otherwise
+ */
+boolean FlashBank_WriteDFlashStatus(FlashBankStatus_t status);
+
+/**
+ * \brief Read metadata from a specific bank
+ * 
+ * \param bank Bank to read from (FLASH_BANK_A or FLASH_BANK_B)
+ * \param metadata Pointer to metadata structure to fill
+ * \return TRUE if metadata is valid, FALSE otherwise
+ */
+boolean FlashBank_ReadMetadata(FlashBank_t bank, BankMetadata_t *metadata);
+
+/**
+ * \brief Write metadata to a specific bank
+ * 
+ * \param bank Bank to write to (FLASH_BANK_A or FLASH_BANK_B)
+ * \param metadata Pointer to metadata structure to write
+ * \return TRUE if write successful, FALSE otherwise
+ */
+boolean FlashBank_WriteMetadata(FlashBank_t bank, const BankMetadata_t *metadata);
+
+/**
+ * \brief Quick check if banks are synchronized (using metadata only)
+ * 
+ * Compares metadata (version, CRC, timestamp) between Bank A and Bank B
+ * without calculating full CRC. Much faster than full synchronization check.
+ * 
+ * \return TRUE if banks are synchronized, FALSE otherwise
+ */
+boolean FlashBank_QuickSyncCheck(void);
+
+/**
+ * \brief Set bank status flags (deprecated - use FlashBank_WriteDFlashStatus)
  * 
  * Writes the status flags to Data Flash.
  * Updates are immediate and persist across resets.
@@ -248,7 +337,13 @@ FlashBankStatus_t FlashBank_GetStatusFlags(void);
 boolean FlashBank_SetStatusFlags(FlashBankStatus_t flags);
 
 /**
- * \brief Update Boot Mode Header to switch boot target
+ * \brief Update Boot Mode Header (BMHD) to switch boot bank
+ * 
+ * ⚠️ WARNING: This function modifies UCB (User Configuration Block)
+ * - UCB writes are limited (typically ~100 times)
+ * - Incorrect writes can brick the device
+ * - Requires password protection
+ * - Production use requires careful validation
  * 
  * Modifies UCB BMHD to change the next boot address.
  * 
@@ -287,14 +382,31 @@ boolean FlashBank_ValidateActiveFirmware(void);
 boolean FlashBank_IsFirstBoot(void);
 
 /**
- * \brief Copy firmware from active bank to inactive bank (create Golden Image)
+ * \brief SW Synchronization: Copy Active Bank → Inactive Bank
  * 
- * This function copies validated firmware to the inactive bank as a backup.
- * Only executed after FlashBank_ValidateActiveFirmware() succeeds.
+ * Universal synchronization function - copies currently running validated firmware
+ * to the inactive bank as a Golden backup image.
  * 
- * \return TRUE if copy successful, FALSE otherwise
+ * Use Cases:
+ *   1. After normal boot: Bank A (Active) → Bank B (Inactive)
+ *   2. After OTA update: Bank B (Active) → Bank A (Inactive)
+ * 
+ * This function is reusable for both scenarios!
+ * 
+ * Process:
+ *   1. Determine current active bank (from BMHD or status flags)
+ *   2. Verify active bank is validated and stable
+ *   3. Erase inactive bank
+ *   4. Copy Active Bank → Inactive Bank (3MB, sector by sector)
+ *   5. Calculate and verify CRC32 for each chunk
+ *   6. Update status flags (banksIdentical = 1)
+ * 
+ * Runs as a background task after boot validation completes.
+ * Includes Watchdog refresh to prevent timeout during long copy operation.
+ * 
+ * \return TRUE if synchronization successful, FALSE otherwise
  */
-boolean FlashBank_CreateGoldenImage(void);
+boolean FlashBank_SWSynchronization(void);
 
 /**
  * \brief Trigger rollback to Golden Image (switch boot flag)

@@ -30,9 +30,11 @@ SECONDARY_SIZE :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+App \
 Configurations/Debug \
 Configurations \
 . \
+Libraries/DataCollection \
 Libraries/DoIP \
 Libraries/Ethernet/Phy_Dp83825i \
 Libraries/Ethernet/lwip/port/src \
@@ -44,12 +46,12 @@ Libraries/Ethernet/lwip/src/netif \
 Libraries/Ethernet/lwip/src/netif/ppp \
 Libraries/Ethernet/lwip/src/netif/ppp/polarssl \
 Libraries/Ethernet \
+Libraries/Flash \
 Libraries/Flash4 \
 Libraries/Infra/Platform/Tricore/Compilers \
 Libraries/Infra/Ssw/TC3xx/Tricore \
 Libraries/Network \
 Libraries/UART \
-Libraries/VCI \
 Libraries/iLLD/TC3xx/Tricore/Asclin/Asc \
 Libraries/iLLD/TC3xx/Tricore/Asclin/Std \
 Libraries/iLLD/TC3xx/Tricore/Cpu/Irq \
@@ -57,6 +59,7 @@ Libraries/iLLD/TC3xx/Tricore/Cpu/Std \
 Libraries/iLLD/TC3xx/Tricore/Cpu/Trap \
 Libraries/iLLD/TC3xx/Tricore/Dma/Dma \
 Libraries/iLLD/TC3xx/Tricore/Dma/Std \
+Libraries/iLLD/TC3xx/Tricore/Flash/Std \
 Libraries/iLLD/TC3xx/Tricore/Geth/Eth \
 Libraries/iLLD/TC3xx/Tricore/Geth/Std \
 Libraries/iLLD/TC3xx/Tricore/Gtm/Std \

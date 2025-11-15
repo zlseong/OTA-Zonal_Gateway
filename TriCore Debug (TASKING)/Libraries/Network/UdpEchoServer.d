@@ -22,6 +22,8 @@ UdpEchoServer.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\
 "C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\Libraries\\UART\UART_Logging.h" :
 UdpEchoServer.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\Libraries\DoIP\doip_types.h"
 "C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\Libraries\DoIP\doip_types.h" :
+UdpEchoServer.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\Libraries\DataCollection\readiness_manager.h"
+"C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\Libraries\DataCollection\readiness_manager.h" :
 UdpEchoServer.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\Libraries\\Ethernet\\lwip\\src\\include\lwip\udp.h"
 "C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\Libraries\\Ethernet\\lwip\\src\\include\lwip\udp.h" :
 UdpEchoServer.o :	"C:\\Users\\user\\AURIX-v1.10.24-workspace\\OTA-Zonal_Gateway\\OTA-Zonal_Gateway-main\\Libraries\\Ethernet\\lwip\\src\\include\lwip\opt.h"
